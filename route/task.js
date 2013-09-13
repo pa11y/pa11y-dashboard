@@ -9,7 +9,9 @@ function route (app) {
 			if (err) {
 				return next();
 			}
-			res.send(task);
+			res.render('task', {
+				task: task
+			});
 		});
 	});
 }
