@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     var data = {};
 	var standardsList = $('[data-role="standards-list"]');
-	var standardSelect = $('#selectStandard');
+	var standardSelect = $('[data-role="new-task-select"]');
 	var headingBadges = $('.heading-badges');
     var taskListSelector = $('[data-role="task-list"] a');
     var toTopLinks = $('[data-role="top"]');

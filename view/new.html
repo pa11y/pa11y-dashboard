@@ -1,13 +1,11 @@
 
 {{#content "title"}}
-	Create A Task
+	Add a new url
 {{/content}}
 
-<a href="/">&laquo; all tasks</a>
+<form class="col-md-12 col-xs-" action="/new" method="post">
 
-<h1>Create A Task</h1>
-
-<form action="/new" method="post">
+	<legend>Add a new url</legend>
 
 	{{#error}}
 		<div style="color: #c00;">
@@ -15,40 +13,49 @@
 		</div>
 	{{/error}}
 
-	<div>
-		<label for="new-task-url">URL</label><br/>
-		<input id="new-task-url" type="text" name="url" value="{{task.url}}"/>
+	<div class="form-group clearfix">
+		<div class="row">
+			<div class="col-md-8">
+				<label class="control-label" for="new-task-url">URL</label>
+				<input class="form-control" id="new-task-url" type="url" placeholder="URL" name="url" value="{{task.url}}"/>
+			</div>
+		</div>
 	</div>
 
-	<div>
-		<label for="new-task-standard">Standard</label><br/>
-		<select id="new-task-standard" name="standard">
-			<option value="">Select a standard</option>
-			{{#standards}}
-				<option {{#selected}}selected{{/selected}}>{{title}}</option>
-			{{/standards}}
-		</select>
+	<div class="form-group clearfix">
+		<div class="row">
+			<div class="col-md-4">
+				<label class="control-label" for="new-task-standard">Standard</label>
+				<select data-role="new-task-select" class="form-control" id="new-task-standard" name="standard">
+					<option value="">Select a standard</option>
+					{{#standards}}
+						<option {{#selected}}selected{{/selected}}>{{title}}</option>
+					{{/standards}}
+				</select>
+			</div>
+		</div>
 	</div>
 
-	<div>
-		Ignore Rules<br/>
+	<p class="control-label"><b>Ignore these rules</b> <a target="_blank" href="https://github.com/nature/pa11y/wiki/HTML-CodeSniffer-Rules">(full list of rules here)</a></p>
+
+	<div class="standards-lists">
 		{{#standards}}
-			<b>{{title}}</b>
-			<ul>
-				{{#rules}}
-					<li>
-						<label>
-							<input type="checkbox" name="ignore[]" value="{{name}}" {{#ignored}}checked{{/ignored}}/>
-							{{name}}
-						</label>
-					</li>
-				{{/rules}}
-			</ul>
+			<div data-role="standards-list" data-attr="{{title}}" class="form-group">
+				<p class="control-label"><b>{{title}} Rules</b></p>
+				<ul class="list-unstyled">
+					{{#rules}}
+						<li>
+							<label>
+								<input type="checkbox" name="ignore[]" value="{{name}}" {{#ignored}}checked{{/ignored}}/>
+								{{name}}
+							</label>
+						</li>
+					{{/rules}}
+				</ul>
+			</div>
 		{{/standards}}
 	</div>
 
-	<div>
-		<input type="submit" value="Add"/>
-	</div>
+	<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Add url </button>
 
 </form>
