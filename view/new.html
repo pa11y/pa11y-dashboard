@@ -11,26 +11,41 @@
 
 	{{#error}}
 		<div style="color: #c00;">
-			<p>{{error}}</p>
+			<p>{{.}}</p>
 		</div>
 	{{/error}}
 
 	<div>
 		<label for="new-task-url">URL</label><br/>
-		<input id="new-task-url" type="text" name="url"/>
+		<input id="new-task-url" type="text" name="url" value="{{task.url}}"/>
 	</div>
 
 	<div>
 		<label for="new-task-standard">Standard</label><br/>
 		<select id="new-task-standard" name="standard">
-			<option>WCAG2A</option>
-			<option>WCAG2AA</option>
-			<option>WCAG2AAA</option>
-			<option>Section508</option>
+			<option value="">Select a standard</option>
+			{{#standards}}
+				<option {{#selected}}selected{{/selected}}>{{title}}</option>
+			{{/standards}}
 		</select>
 	</div>
 
-	<p><b>TODO: add ignore rules!</b></p>
+	<div>
+		Ignore Rules<br/>
+		{{#standards}}
+			<b>{{title}}</b>
+			<ul>
+				{{#rules}}
+					<li>
+						<label>
+							<input type="checkbox" name="ignore[]" value="{{name}}" {{#ignored}}checked{{/ignored}}/>
+							{{name}}
+						</label>
+					</li>
+				{{/rules}}
+			</ul>
+		{{/standards}}
+	</div>
 
 	<div>
 		<input type="submit" value="Add"/>
