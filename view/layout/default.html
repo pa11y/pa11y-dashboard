@@ -14,8 +14,8 @@
 	<!-- For mobile devices. -->
 	<meta name="viewport" content="width=device-width"/>
 
-	<link rel="stylesheet" href="css/site.css"/>
 	<link rel="stylesheet" href="css/main.css"/>
+	<link rel="stylesheet" href="css/site.css"/>
 
 </head>
 <!--[if IE 7]><body class="ie7"><![endif]-->
@@ -27,7 +27,16 @@
 
 	{{> header}}
 
-	{{{body}}}
+	<div class="container">
+		<div class="row">
+			<section>
+				<div class="section">
+
+					{{{body}}}
+				</div>
+			</section>
+		</div>
+	</div>
 
 	{{> footer}}
 
