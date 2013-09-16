@@ -1,17 +1,41 @@
 <!DOCTYPE html>
-<html lang="{{lang}}">
+<html lang="{{lang}}" class="no-javascript">
 <head>
 
+	<script>
+      document.documentElement.className = document.documentElement.className.replace('no-javascript', 'javascript');
+  	</script>
 	<meta charset="utf-8"/>
 	<title>{{block "title"}}</title>
 	<meta name="description" content="{{block "description"}}"/>
 
-	<link rel="stylesheet" href="/example.css"/>
+	<link rel="icon" type="image/png" href="favicon.png" />
+
+	<!-- For mobile devices. -->
+	<meta name="viewport" content="width=device-width"/>
+
+	<link rel="stylesheet" href="css/site.css"/>
+	<link rel="stylesheet" href="css/main.css"/>
 
 </head>
+<!--[if IE 7]><body class="ie7"><![endif]-->
+<!--[if IE 8]><body class="ie8"><![endif]-->
+<!--[if IE 9]><body class="ie9"><![endif]-->
+<!--[if !IE]>-->
 <body>
+<!--<![endif]-->
 
 	{{{body}}}
+
+	<!-- Javascript loveliness. -->
+	<script type="text/javascript" src="js/vendor/jquery.js"></script>
+	<script type="text/javascript" src="js/vendor/bootstrap/alert.js"></script>
+	<script type="text/javascript" src="js/vendor/bootstrap/dropdown.js"></script>
+	<script src="js/vendor/flot/jquery.flot.min.js"></script>
+	<script src="js/vendor/flot/jquery.flot.categories.min.js"></script>
+	<script src="js/vendor/flot/jquery.flot.selection.min.js"></script>
+	<script src="js/vendor/flot/jquery.flot.resize.min.js"></script>
+	<script type="text/javascript" src="js/site.js"></script>
 
 </body>
 </html>
