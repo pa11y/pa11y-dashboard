@@ -2,10 +2,10 @@
 <ul>
 	{{#results}}
 		<li>
-            <b>Date:</b> {{date}}<br/>
-            <b>Errors:</b> {{count.error}}<br/>
-            <b>Warnings:</b> {{count.warning}}<br/>
-            <b>Notices:</b> {{count.notice}}
+			<b>Date:</b> {{date-format date format="DD MMM YYYY"}}<br/>
+			<b>Errors:</b> {{count.error}}<br/>
+			<b>Warnings:</b> {{count.warning}}<br/>
+			<b>Notices:</b> {{count.notice}}
 		</li>
 	{{/results}}
 </ul>

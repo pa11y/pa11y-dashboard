@@ -7,8 +7,9 @@
 				{{url}} ({{standard}})
 
 				{{#last_result}}
-					<br/>Last run: {{date}}
-					<br/>Errors: {{count.error}}
+					<br/>
+					Last run: {{date-format date format="DD MMM YYYY"}}<br/>
+					Errors: {{count.error}}
 				{{/last_result}}
 
 			</a>
