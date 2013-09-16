@@ -9,8 +9,14 @@ function route (app) {
 			if (err) {
 				return next();
 			}
-			res.render('task', {
-				task: task
+			app.webservice.task(req.params.id).results({full: true}, function (err, results) {
+				if (err) {
+					return next(err);
+				}
+				res.render('task', {
+					task: task,
+					results: results
+				});
 			});
 		});
 	});
