@@ -3,7 +3,14 @@
 	{{#tasks}}
 		<li>
 			<a href="/{{id}}">
+
 				{{url}} ({{standard}})
+
+				{{#last_result}}
+					<br/>Last run: {{date}}
+					<br/>Errors: {{count.error}}
+				{{/last_result}}
+
 			</a>
 		</li>
 	{{/tasks}}

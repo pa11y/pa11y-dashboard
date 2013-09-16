@@ -5,7 +5,7 @@ module.exports = route;
 // Route definition
 function route (app) {
 	app.express.get('/', function (req, res, next) {
-		app.webservice.tasks.get(function (err, tasks) {
+		app.webservice.tasks.get({lastres: true}, function (err, tasks) {
 			if (err) {
 				return next(err);
 			}
