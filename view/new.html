@@ -7,4 +7,33 @@
 
 <h1>Create A Task</h1>
 
-<p><b>TODO: Add form here and create handler for it.</b></p>
+<form action="/new" method="post">
+
+	{{#error}}
+		<div style="color: #c00;">
+			<p>{{error}}</p>
+		</div>
+	{{/error}}
+
+	<div>
+		<label for="new-task-url">URL</label><br/>
+		<input id="new-task-url" type="text" name="url"/>
+	</div>
+
+	<div>
+		<label for="new-task-standard">Standard</label><br/>
+		<select id="new-task-standard" name="standard">
+			<option>WCAG2A</option>
+			<option>WCAG2AA</option>
+			<option>WCAG2AAA</option>
+			<option>Section508</option>
+		</select>
+	</div>
+
+	<p><b>TODO: add ignore rules!</b></p>
+
+	<div>
+		<input type="submit" value="Add"/>
+	</div>
+
+</form>

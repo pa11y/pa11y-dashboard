@@ -24,6 +24,7 @@ function initApp (config, callback) {
 		maxAge: (process.env.NODE_ENV === 'production' ? 604800 : 0)
 	}));
 	app.express.use(express.compress());
+	app.express.use(express.bodyParser());
 
 	// View engine
 	app.express.set('views', __dirname + '/view');

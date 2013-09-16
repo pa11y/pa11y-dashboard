@@ -15,7 +15,8 @@ function route (app) {
 				}
 				res.render('task', {
 					task: task,
-					results: results
+					results: results,
+					added: (typeof req.query.added !== 'undefined')
 				});
 			});
 		});
