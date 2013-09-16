@@ -17,4 +17,4 @@ function helper (register) {
 		return moment(context).fromNow();
 	});
 
-};
+}

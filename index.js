@@ -12,7 +12,7 @@ require('./app')(config, function (err, app) {
 
 	app.on('route-error', function (err) {
 		if (err.code === 'ECONNREFUSED') {
-			console.log(chalk.red('Error: could not connect to pa11y-webservice'))
+			console.log(chalk.red('Error: could not connect to pa11y-webservice'));
 		}
 	});
 

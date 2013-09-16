@@ -1,6 +1,5 @@
 'use strict';
 
-var async = require('async');
 var createClient = require('pa11y-webservice-client-node');
 var EventEmitter = require('events').EventEmitter;
 var express = require('express');
@@ -57,6 +56,7 @@ function initApp (config, callback) {
 
 	// Error handling
 	app.express.use(function (err, req, res, next) {
+		/* jshint unused: false */
 		app.emit('route-error', err);
 		res.send('Error');
 	});

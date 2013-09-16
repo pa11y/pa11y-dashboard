@@ -14,6 +14,7 @@
 		"pa11y-webservice-client-node": "git+ssh://git@github.com:nature/pa11y-webservice-client-node.git#1.0.0-beta.2"
 	},
 	"devDependencies": {
+		"jshint": "~2.1",
 		"supervisor": "~0.5"
 	},
 	"scripts": {
