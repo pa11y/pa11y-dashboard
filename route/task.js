@@ -1,5 +1,7 @@
 'use strict';
 
+var _ = require('underscore');
+
 module.exports = route;
 
 // Route definition
@@ -13,6 +15,13 @@ function route (app) {
 				if (err) {
 					return next(err);
 				}
+				results.forEach(function (result) {
+					var grouped = _.groupBy(result.results, 'code');
+					result.messages = _.keys(grouped).map(function (group) {
+						grouped[group][0].count = grouped[group].length;
+						return grouped[group][0];
+					});
+				});
 				res.render('task', {
 					task: task,
 					results: results,

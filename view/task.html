@@ -8,11 +8,15 @@
 <h1>Task: {{task.url}} ({{task.standard}})</h1>
 
 {{#added}}
-    <div style="color: #090;">
-        <p>Task added!</p>
-    </div>
+	<div style="color: #090;">
+		<p>Task added!</p>
+	</div>
 {{/added}}
 
 <p>Here are the results:</p>
 
 {{> results}}
+
+<p>Here are the full results:</p>
+
+{{> full-results}}
