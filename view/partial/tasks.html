@@ -1,20 +1,28 @@
 
-<ul>
-	<li>
-		<a href="/new">Create a task</a>
+<ul class="list-unstyled clearfix">
+	<li class="col-md-4 col-sm-6 task-card add-task">
+		<a class="well" data-role="add-task" href="/new">
+			<p class="h3 crunch">add new url</p>
+			<p class="supersize-me crunch">+</p>
+		</a>
 	</li>
 	{{#tasks}}
-		<li>
-			<a href="/{{id}}">
-
-				{{url}} ({{standard}})
-
-				{{#last_result}}
-					<br/>
-					Last run: {{date-format date format="DD MMM YYYY"}}<br/>
-					Errors: {{count.error}}
-				{{/last_result}}
-
+		<li class="col-md-4 col-sm-6 task-card">
+			<a class="well" href="/{{id}}">
+				<p class="h3">{{url}}</p>
+				<p class="h5">({{standard}})</p>
+				{{#if last_result}}
+				<ul class="clearfix list-unstyled floated-list task-stats">
+					{{#last_result}}
+						<li class="danger">{{count.error}}</li>
+						<li class="warning">{{count.warning}}</li>
+						<li class="info">{{count.notice}}</li>
+					{{/last_result}}
+				</ul>
+				Last run {{date-format date format="DD MMM YYYY"}}
+				{{else}}
+					<p class="no-results">No results</p>
+				{{/if}}
 			</a>
 		</li>
 	{{/tasks}}
