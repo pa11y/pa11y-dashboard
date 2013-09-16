@@ -18,6 +18,13 @@ function initApp (config, callback) {
 	app.server = http.createServer(app.express);
 	app.webservice = createClient(config.webservice);
 
+	// Express config
+	app.express.disable('x-powered-by');
+	app.express.use(express.static(__dirname + '/public', {
+		maxAge: (process.env.NODE_ENV === 'production' ? 604800 : 0)
+	}));
+	app.express.use(express.compress());
+
 	// View engine
 	app.express.set('views', __dirname + '/view');
 	app.express.engine('html', hbs.express3({
@@ -28,6 +35,16 @@ function initApp (config, callback) {
 		defaultLayout: __dirname + '/view/layout/default',
 	}));
 	app.express.set('view engine', 'html');
+
+	// Populate view locals
+	app.express.locals({
+		lang: 'en',
+		year: (new Date()).getFullYear()
+	});
+	app.express.use(function (req, res, next) {
+		res.locals.host = req.host;
+		next();
+	});
 
 	// Load routes
 	require('./route/index')(app);
