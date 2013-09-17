@@ -8,8 +8,11 @@
 	<legend>Add a new url</legend>
 
 	{{#error}}
-		<div style="color: #c00;">
-			<p>{{.}}</p>
+		<div class="col-md-12 clearfix">
+			<div class="alert alert-danger">
+				<strong>Oh my gosh!</strong>
+				<p>{{.}}</p>
+			</div>
 		</div>
 	{{/error}}
 

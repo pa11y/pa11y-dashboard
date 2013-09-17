@@ -13,6 +13,9 @@ caption {
 	padding-bottom:10px;
 	font-size:18px;
 }
+.block-level {
+	display:block;
+}
 
 .header {
 	padding-bottom:2.5rem;
