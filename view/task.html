@@ -90,16 +90,33 @@
 
 <div class="col-md-9">
 	{{#if results}}
-		<div>
-			<ul class="list-unstyled tasks-list">
-				{{#lastResult.messages}}
-					<li>
-						<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
-						<o>{{message}}</p>
-					</li>
-				{{/lastResult.messages}}
-			</ul>
-		</div>
+		<p class="heading showing" id="errors">
+			<span class="heading-badges">
+				<span class="label label-danger">Errors</span> <span class="badge badge-danger">?</span>
+			</span>
+			<a href="#top" data-role="top" class="pull-right default"> <span class="glyphicon glyphicon-arrow-up"></span></a>
+		</p>
+		<ul class="list-unstyled task-danger tasks-list collapse in">
+			{{#lastResult.messages}}
+				<li>
+					<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
+					<p>{{message}}</p>
+				</li>
+			{{/lastResult.messages}}
+		</ul>
+		<p class="heading">
+			<span class="heading-badges">
+				<span class="label label-default">Ignored Rules</span>
+			</span>
+			<a href="#top" data-role="top" class="pull-right default"> <span class="glyphicon glyphicon-arrow-up"></span></a>
+		</p>
+		<ul class="list-unstyled task-default tasks-list collapse">
+		    {{#task.ignore}}
+		        <li>
+		        	<p class="crunch rule-name">{{.}}</p>
+				</li>
+		    {{/task.ignore}}
+		</ul>
 	{{else}}
 		<div class="alert alert-info">
 			<h4>No results to show</h4>
