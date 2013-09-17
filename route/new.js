@@ -8,8 +8,14 @@ module.exports = route;
 function route (app) {
 
 	app.express.get('/new', function (req, res) {
+		var standards = getStandards().map(function (standard) {
+			if (standard.title === 'WCAG2AA') {
+				standard.selected = true;
+			}
+			return standard;
+		});
 		res.render('new', {
-			standards: getStandards()
+			standards: standards
 		});
 	});
 
