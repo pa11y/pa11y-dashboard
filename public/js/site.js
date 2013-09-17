@@ -110,6 +110,7 @@ $(document).ready(function(){
                 data[type] = [];
             }
             data[type].push([label, +value]);
+            data[type].reverse();
         });
     }
 
