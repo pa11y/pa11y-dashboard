@@ -40,11 +40,11 @@
 	<div class="standards-lists">
 		{{#standards}}
 			<div data-role="standards-list" data-attr="{{title}}" class="form-group">
-				<p class="control-label"><b>{{title}} Rules</b></p>
+				<p class="control-label rules-list-title ruled"><b>{{title}} Rules</b></p>
 				<ul class="list-unstyled">
 					{{#rules}}
 						<li>
-							<label>
+							<label class="checkbox">
 								<input type="checkbox" name="ignore[]" value="{{name}}" {{#ignored}}checked{{/ignored}}/>
 								{{name}}
 							</label>

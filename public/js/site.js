@@ -52,6 +52,7 @@ $(document).ready(function(){
     });
 
 	switchStandardsList(standardSelect);
+    $('.rules-list-title').addClass('hidden');
 
 	standardSelect.change( function(){
 		switchStandardsList($(this));
