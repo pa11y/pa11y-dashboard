@@ -3,18 +3,109 @@
 	Task: {{task.url}} ({{task.standard}})
 {{/content}}
 
-<h1>Task: {{task.url}} ({{task.standard}})</h1>
-
 {{#added}}
-	<div style="color: #090;">
-		<p>Task added!</p>
+	<div class="col-md-12 clearfix">
+		<div class="alert alert-success">
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+			<strong>Whoop whoop!</strong>
+			<p>Your new url has been added.</p>
+		</div>
 	</div>
 {{/added}}
 
-<p>Here are the results:</p>
+<div class="col-md-12">
+	<div class="ruled task-header">
+		<div class="row clearfix">
+			<div class="col-md-10">
+				<h2 class="crunch-top">{{simplify-url task.url}}</h2>
+				<p class="h4">({{task.standard}})</p>
+			</div>
+			<div class="col-md-2 text-right run-details">
+				<!-- ########### To be done ############## -->
+				<button class="btn btn-success">Run <span class="glyphicon glyphicon-play"></span></button>
+				{{#if lastResult}}
+					<div class="date">Last run : {{date-format lastResult.date format="DD MMM YYYY"}}</div>
+				{{else}}
+					<div class="date">Not yet run</div>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</div>
 
-{{> results}}
+{{#if results}}
+	<div class="col-md-12 clearfix">
+		<div class="graph-container ruled">
+			<div data-role="graph" class="graph"></div>
+			<ul class="list-unstyled floated-list series-checkboxes clearfix" data-role="series-checkboxes"></ul>
+			<button data-role='zoom-reset' class="btn btn-xs btn-primary pull-right btn-reset hidden">Reset Zoom <i class="glyphicon glyphicon-zoom-out"></i></button>
+		</div>
+	</div>
 
-<p>Here are the full results:</p>
+	<div class="col-md-12 hidden">
+		{{> results-table}}
+	</div>
+{{/if}}
 
-{{> full-results}}
+<div class="col-md-3">
+	{{#if results}}
+		<div style="display:block" class="btn-group">
+			<button data-toggle="dropdown" class="btn-full-width btn btn-primary dropdown-toggle" type="button">{{date-format lastResult.date format="DD MMM YYYY"}} <span class="glyphicon glyphicon-calendar"></span> <span class="caret"></span></button>
+			<ul role="menu" class="dropdown-menu">
+				{{#results}}
+	          		<li><a href="#">{{date-format date format="DD MMM YYYY"}}</a></li>
+	          	{{/results}}
+	        </ul>
+		</div>
+
+		<ul id="top" data-role="task-list" class="clearfix list-unstyled floated-list task-stats">
+			{{#lastResult}}
+				<li class="danger"><a href="#errors" title="See errors">{{count.error}}</a></li>
+				<li class="warning"><a href="#warnings" title="See warnings">{{count.warning}}</a></li>
+				<li class="info"><a href="#notifications" title="See notifications">{{count.notice}}</a></li>
+			{{/lastResult}}
+		</ul>
+
+		<!-- ########### Functionality to be done ############## -->
+		<div class="action-buttons clearfix">
+	        <button class="btn-full-width btn btn-default">Download CSV <span class="glyphicon glyphicon-download"></span></button>
+
+	        <button class="btn-full-width btn btn-default">Download JSON <span class="glyphicon glyphicon-download"></span></button>
+	    </div>
+    {{/if}}
+
+	<!-- List of other urls -->
+    <div class="other-tasks well">
+    	<h4 class="crunch-top ruled">Your other tracked URLs</h4>
+    	<p>No other urls</p>
+
+    	<!-- ########### Functionality to be done ############## -->
+        <!-- <ul class="list-unstyled">
+	        <li><a href="empty-task">rowanmanning.com</a></li>
+	        <li><a href="task">nature.com</a></li>
+        </ul> -->
+    </div>
+</div>
+
+
+<div class="col-md-9">
+	{{#if results}}
+		<div>
+			<ul class="list-unstyled tasks-list">
+				{{#lastResult.messages}}
+					<li>
+						<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
+						<o>{{message}}</p>
+					</li>
+				{{/lastResult.messages}}
+			</ul>
+		</div>
+	{{else}}
+		<div class="alert alert-info">
+			<h4>No results to show</h4>
+			<p>pa11y has not been run against this URL yet so there are no results to show.</p>
+			<p>To run pa11y for this url now <a href="">click here</a></p>
+		</div>
+	{{/if}}
+</div>
+

@@ -25,6 +25,7 @@ function route (app) {
 				res.render('task', {
 					task: task,
 					results: results,
+					lastResult: results[0] || null,
 					added: (typeof req.query.added !== 'undefined')
 				});
 			});

@@ -147,6 +147,10 @@ ul {
 	color:#cacaca;
 }
 
+.other-tasks .ruled {
+	margin-bottom:1.5rem;
+}
+
 
 /* Task details page */
 .badge-danger {
