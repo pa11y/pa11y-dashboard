@@ -119,19 +119,10 @@ ul {
 	line-height:37px;
 	margin:26px 0;
 }
-.add-task a {
-	color:#808080;
-	min-height:180px;
-	margin-bottom:20px;
-}
-.supersize-me {
-	text-align:center;
-	font-size:112px;
-	line-height:97px;
-	font-weight:bold;
-	color:#cacaca;
-}
 .task-card a {
+	color:#808080;
+	min-height:183px;
+	margin-bottom:20px;
 	display:block;
 }
 .task-card a:hover {
@@ -147,6 +138,13 @@ ul {
 	padding:12px 0;
 	text-align:center;
 	color:#fff;
+}
+.supersize-me {
+	text-align:center;
+	font-size:112px;
+	line-height:97px;
+	font-weight:bold;
+	color:#cacaca;
 }
 
 
