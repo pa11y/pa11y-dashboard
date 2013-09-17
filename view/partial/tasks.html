@@ -19,7 +19,7 @@
 						<li class="info">{{count.notice}}</li>
 					{{/last_result}}
 				</ul>
-				Last run {{date-format date format="DD MMM YYYY"}}
+				Last run {{date-format last_result.date format="DD MMM YYYY"}}
 				{{else}}
 					<p class="no-results">No results</p>
 				{{/if}}
