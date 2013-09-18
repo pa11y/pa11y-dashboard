@@ -1,0 +1,270 @@
+/* Site specific styling */
+
+/* Helper Classes */
+.crunch {
+	margin:0 !important;
+}
+.crunch-top {
+	margin-top:0 !important;
+}
+.crunch-bottom {
+	margin-bottom:0 !important;
+}
+.block-level {
+	display:block;
+}
+.ruled {
+	border-bottom:dotted 1px @gray;
+	padding-bottom:15px;
+	margin-bottom:3rem;
+}
+.ruled-sm {
+	margin-bottom:1.5rem;
+}
+
+/* General */
+.header {
+	padding-bottom:2.5rem;
+	margin-bottom:4rem;
+	background-color:lighten(@gray-lighter, 4%);
+}
+.footer {
+	background-color:lighten(@gray-lighter, 4%);
+	padding:4rem 0;
+	margin-top:4rem;
+}
+.floated-list li {
+	float:left;
+}
+.btn-full-width {
+	width:100%;
+	display:block;
+	margin-top:15px
+}
+.dropdown-menu {
+	width:100%;
+	top:40px;
+}
+.dropdown-toggle {
+	margin-top:0;
+	margin-bottom:10px;
+}
+.delete-button {
+	position:absolute;
+	top:5px;
+	right:20px;
+	color:@brand-danger;
+}
+.delete-button:hover {
+	color:lighten(@brand-danger, 8%);
+}
+.tooltip {
+	text-transform:lowercase;
+	text-align:center;
+	padding:10px;
+	background-color:@gray-dark;
+	color:@badge-color;
+	position: absolute;
+    opacity:1;
+    filter:alpha(opacity=100); /* For IE8 and earlier */
+}
+
+/* Task stats boxes */
+.task-stats {
+	margin-bottom:10px;
+	font-size:floor(@font-size-base * 1.5); // ~22px;
+	line-height:1;
+	font-weight:bold;
+
+	li {
+		width:32%;
+		margin-right:2%;
+
+		a {
+			display:block;
+			padding:12px 0;
+			text-align:center;
+			color:@badge-color;
+		}
+		&:last-child {
+			margin-right:0;
+		}
+	}
+}
+
+// Stats box colours
+.danger, .error {
+	background-color:@brand-danger;
+	color:@btn-default-color;
+}
+.warning {
+	background-color:@brand-warning;
+	color:@btn-default-color;
+}
+.info, .notification {
+	background-color:@brand-info;
+	color:@btn-default-color;
+}
+
+/* Task card */
+.task-card {
+	margin-bottom:20px;
+
+	.no-results {
+		font-size:floor(@font-size-base * 1.70); // ~25px;
+		line-height:1.5;
+		margin:26px 0;
+	}
+	.task-card-link {
+		color:@gray-dark;
+		min-height:183px;
+		display:block;
+	}
+	.delete-button {
+		display:none;
+	}
+	&:hover .delete-button {
+		display:block;
+	}
+	.task-card-link:hover,
+	&:hover .task-card-link
+	 {
+		text-decoration: none;
+		background-color:darken(@gray-lighter, 2%);
+	}
+	.h3 {
+		text-overflow:ellipsis;
+		overflow:hidden;
+		width:100%;
+	}
+	.task-stats li {
+		padding:12px 0;
+		text-align:center;
+		color:@badge-color;
+	}
+}
+.add-task {
+	.supersize-me {
+		text-align:center;
+		font-size:112px;
+		line-height:97px;
+		font-weight:bold;
+		color:lighten(@gray-light, 5%);
+	}
+}
+
+/* Badges */
+.badge {
+	border-radius:0.25em;
+}
+.label, .badge {
+	display:inline-block;
+	padding:10px;
+	font-size:ceil(@font-size-base * 0.85); // ~13px;
+	text-transform: uppercase;
+}
+.badge-danger {
+	background-color:@brand-danger;
+}
+.badge-warning {
+	background-color:@brand-warning;
+}
+.badge-info {
+	background-color:@brand-info;
+}
+.rule-name .badge {
+	padding:6px;
+}
+
+/* Task details page*/
+
+.task-header h2 {
+	word-wrap:break-word;
+}
+.date {
+	margin-top:5px;
+}
+
+.tasks-list {
+	padding:15px;
+	margin-bottom:30px;
+	border-width:3px;
+	border-style:solid;
+	border-radius: 3px;
+
+	li {
+		margin-bottom:30px;
+
+		&:last-child {
+			margin-bottom:0;
+		}
+	}
+
+	.rule-name {
+		font-weight:bold;
+		font-style:italic;
+		word-wrap:break-word;
+	}
+}
+.task-danger {
+	border-color:@brand-danger;
+}
+.task-warning {
+	border-color:@brand-warning;
+}
+.task-info {
+	border-color:@brand-info;
+}
+.task-default {
+	border-color:@badge-bg;
+}
+
+/* Task list heading */
+.heading {
+	margin-bottom:10px;
+}
+.heading-badges {
+	cursor:pointer;
+}
+
+/* Graph */
+.graph {
+	height:300px;
+	width:100%;
+}
+.graph-container {
+	margin-bottom:5rem;
+	padding-bottom:3rem;
+}
+.graph-table {
+	margin-bottom:5rem;
+
+	td {
+		width:25%;
+	}
+}
+.series-checkboxes {
+	margin-top:15px;
+}
+.series-checkboxes li {
+	padding:2px 10px;
+	border-right:solid 5px @badge-color;
+}
+.btn-reset {
+	margin-top:-24px;
+	margin-right:35px
+}
+
+/* New task page */
+.standards-lists {
+	height:300px;
+	overflow:hidden;
+	overflow-y:auto;
+	margin-bottom:15px;
+	border-bottom:solid 1px @gray-lighter;
+}
+
+/* Sidebar */
+.action-buttons {
+	margin-bottom:30px;
+}

@@ -37,7 +37,7 @@
 	<div class="col-md-12 clearfix">
 		<div class="graph-container ruled">
 			<div data-role="graph" class="graph"></div>
-			<ul class="list-unstyled floated-list series-checkboxes clearfix" data-role="series-checkboxes"></ul>
+			<ul class="list-unstyled floated-list series-checkboxes clearfix crunch-bottom" data-role="series-checkboxes"></ul>
 			<button data-role='zoom-reset' class="btn btn-xs btn-primary pull-right btn-reset hidden">Reset Zoom <i class="glyphicon glyphicon-zoom-out"></i></button>
 		</div>
 	</div>
@@ -49,7 +49,7 @@
 
 <div class="col-md-3">
 	{{#if results}}
-		<div class="btn-group block-level">
+		<div class="btn-group block-level clearfix">
 			<button data-toggle="dropdown" class="btn-full-width btn btn-primary dropdown-toggle" type="button">{{date-format lastResult.date format="DD MMM YYYY"}} <span class="glyphicon glyphicon-calendar"></span> <span class="caret"></span></button>
 			<ul role="menu" class="dropdown-menu">
 				{{#results}}
@@ -76,11 +76,11 @@
 
 	<!-- List of other urls -->
     <div class="other-tasks well">
-    	<h4 class="crunch-top ruled">Your other tracked URLs</h4>
+    	<h4 class="crunch-top ruled-sm">Your other tracked URLs</h4>
     	<p>No other urls</p>
 
     	<!-- ########### Functionality to be done ############## -->
-        <!-- <ul class="list-unstyled">
+        <!-- <ul class="list-unstyled crunch-bottom">
 	        <li><a href="empty-task">rowanmanning.com</a></li>
 	        <li><a href="task">nature.com</a></li>
         </ul> -->
