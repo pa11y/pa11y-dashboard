@@ -1,14 +1,15 @@
 
 <ul class="list-unstyled clearfix">
 	<li class="col-md-4 col-sm-6 task-card add-task">
-		<a class="well" data-role="add-task" href="/new">
+		<a class="well task-card-link" data-role="add-task" href="/new">
 			<p class="h3 crunch">add new url</p>
 			<p class="supersize-me crunch">+</p>
 		</a>
 	</li>
 	{{#tasks}}
 		<li class="col-md-4 col-sm-6 task-card">
-			<a class="well" title="Task details for {{simplify-url url}}" href="/{{id}}">
+			<a title="Delete this url" class="delete-button" href="/{{id}}/delete"><span class="sr-only">Delete </span><span class="glyphicon glyphicon-remove"></span></a>
+			<a class="well task-card-link" title="Task details for {{simplify-url url}}" href="/{{id}}">
 				<p class="h3">{{simplify-url url}}</p>
 				<p class="h5">({{standard}})</p>
 				{{#if last_result}}

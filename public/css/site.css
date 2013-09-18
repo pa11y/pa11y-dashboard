@@ -51,6 +51,15 @@ ul {
 	padding-bottom:15px;
 	margin-bottom:3rem;
 }
+.delete-button {
+	position:absolute;
+	top:5px;
+	right:20px;
+	color:#E74C3C;
+}
+.delete-button:hover {
+	color:#e52410;
+}
 
 
 /* Index table list */
@@ -122,13 +131,21 @@ ul {
 	line-height:37px;
 	margin:26px 0;
 }
-.task-card a {
+.task-card .task-card-link {
 	color:#808080;
 	min-height:183px;
 	margin-bottom:20px;
 	display:block;
 }
-.task-card a:hover {
+.task-card .delete-button {
+	display:none;
+}
+.task-card:hover .delete-button {
+	display:block;
+}
+.task-card .task-card-link:hover,
+.task-card:hover .task-card-link
+ {
 	text-decoration: none;
 	background-color:#e4e5e5;
 }
@@ -246,7 +263,6 @@ ul {
     opacity:1;
     filter:alpha(opacity=100); /* For IE8 and earlier */
 }
-
 .standards-lists {
 	height:300px;
 	overflow:hidden;
@@ -254,7 +270,6 @@ ul {
 	margin-bottom:15px;
 	border-bottom:solid 1px #e5e5e5;
 }
-
 .series-checkboxes {
 	margin-top:15px;
 }
