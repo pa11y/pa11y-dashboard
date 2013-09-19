@@ -77,6 +77,8 @@ $(document).ready(function(){
         plotGraphData();
     });
 
+    $('[data-role="rules-tooltip"]').tooltip();
+
     // Function to animate sections
     function animateSection (sectionName, offset){
         $('html,body').animate({
@@ -173,7 +175,7 @@ $(document).ready(function(){
     }
 
     function showTooltip(x, y, contents) {
-        $("<div data-role='tooltip' class='tooltip'>" + contents + "</div>").css({
+        $("<div data-role='tooltip' class='tooltip in'><div class='tooltip-inner'>" + contents + "</div></div>").css({
         top: y + 5,
         left: x + 5
         }).appendTo("body").fadeIn(200);

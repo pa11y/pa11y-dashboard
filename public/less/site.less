@@ -58,16 +58,6 @@
 .delete-button:hover {
 	color:lighten(@brand-danger, 8%);
 }
-.tooltip {
-	text-transform:lowercase;
-	text-align:center;
-	padding:10px;
-	background-color:@gray-dark;
-	color:@badge-color;
-	position: absolute;
-    opacity:1;
-    filter:alpha(opacity=100); /* For IE8 and earlier */
-}
 
 /* Task stats boxes */
 .task-stats {
@@ -262,6 +252,19 @@
 	overflow-y:auto;
 	margin-bottom:15px;
 	border-bottom:solid 1px @gray-lighter;
+
+	.checkbox {
+		cursor: pointer;
+	}
+
+	.tooltip {
+		left:30px !important; //sorry, important. To overwrite bootstrap js positioning
+
+		&.top .tooltip-inner {
+			text-align:left;
+			max-width:460px;
+		}
+	}
 }
 
 /* Sidebar */

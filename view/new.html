@@ -47,7 +47,7 @@
 				<ul class="list-unstyled">
 					{{#rules}}
 						<li>
-							<label class="checkbox">
+							<label title="{{description}}" data-role="rules-tooltip" class="checkbox">
 								<input type="checkbox" name="ignore[]" value="{{name}}" {{#ignored}}checked{{/ignored}}/>
 								{{name}}
 							</label>
