@@ -35,14 +35,6 @@
 
 {{#if results}}
 	<div class="col-md-12 clearfix">
-		<div style="position:relative">
-			<div class="tooltip in">
-				<div class="tooltip-arrow"></div>
-				<div class="tooltip-inner">
-					This is the content
-				</div>
-			</div>
-		</div>
 		<div class="graph-container ruled">
 			<div data-role="graph" class="graph"></div>
 			<ul class="list-unstyled floated-list series-checkboxes clearfix crunch-bottom" data-role="series-checkboxes"></ul>
@@ -55,32 +47,42 @@
 	</div>
 {{/if}}
 
-<div class="col-md-3">
+<div class="col-md-3 aside">
 	{{#if results}}
-		<div class="btn-group block-level clearfix">
-			<button data-toggle="dropdown" class="btn-full-width btn btn-primary dropdown-toggle" type="button">{{date-format lastResult.date format="DD MMM YYYY"}} <span class="glyphicon glyphicon-calendar"></span> <span class="caret"></span></button>
-			<ul role="menu" class="dropdown-menu">
-				{{#results}}
-	          		<li><a href="#">{{date-format date format="DD MMM YYYY"}}</a></li>
-	          	{{/results}}
-	        </ul>
+		<div class="row">
+			<div class="col-md-12 col-xs-6">
+				<div class="btn-group block-level clearfix">
+					<button data-toggle="dropdown" class="btn-full-width btn btn-primary dropdown-toggle" type="button">{{date-format lastResult.date format="DD MMM YYYY"}} <span class="glyphicon glyphicon-calendar"></span> <span class="caret"></span></button>
+					<ul role="menu" class="dropdown-menu">
+						{{#results}}
+			          		<li><a href="#">{{date-format date format="DD MMM YYYY"}}</a></li>
+			          	{{/results}}
+			        </ul>
+				</div>
+			</div>
+			<div class="col-md-12 col-xs-6">
+				<ul id="top" data-role="task-list" class="clearfix list-unstyled floated-list task-stats">
+					{{#lastResult}}
+						<li class="danger"><a href="#errors" title="See errors">{{count.error}}</a></li>
+						<li class="warning"><a href="#warnings" title="See warnings">{{count.warning}}</a></li>
+						<li class="info"><a href="#notifications" title="See notifications">{{count.notice}}</a></li>
+					{{/lastResult}}
+				</ul>
+			</div>
 		</div>
 
-		<ul id="top" data-role="task-list" class="clearfix list-unstyled floated-list task-stats">
-			{{#lastResult}}
-				<li class="danger"><a href="#errors" title="See errors">{{count.error}}</a></li>
-				<li class="warning"><a href="#warnings" title="See warnings">{{count.warning}}</a></li>
-				<li class="info"><a href="#notifications" title="See notifications">{{count.notice}}</a></li>
-			{{/lastResult}}
-		</ul>
-
 		<!-- ########### Functionality to be done ############## -->
-		<div class="action-buttons clearfix">
-	        <button class="btn-full-width btn btn-default">Download CSV <span class="glyphicon glyphicon-download"></span></button>
-
-	        <button class="btn-full-width btn btn-default">Download JSON <span class="glyphicon glyphicon-download"></span></button>
-	    </div>
-    {{/if}}
+		<div class="row">
+			<div class="action-buttons clearfix">
+				<div class="col-md-12 col-xs-6">
+			        <button class="btn-full-width btn btn-default">Download CSV <span class="glyphicon glyphicon-download"></span></button>
+				</div>
+				<div class="col-md-12 col-xs-6">
+			        <button class="btn-full-width btn btn-default">Download JSON <span class="glyphicon glyphicon-download"></span></button>
+				</div>
+		    </div>
+		</div>
+	{{/if}}
 
 	<!-- List of other urls -->
     <div class="other-tasks well">

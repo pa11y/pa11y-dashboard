@@ -3,7 +3,7 @@
 	Add a new url
 {{/content}}
 
-<form class="col-md-12 col-xs-" action="/new" method="post">
+<form class="col-md-12" action="/new" method="post">
 
 	<legend>Add a new url</legend>
 
@@ -18,7 +18,7 @@
 
 	<div class="form-group clearfix">
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-8 col-sm-8 col-xs-10">
 				<label class="control-label" for="new-task-url">URL</label>
 				<input class="form-control" id="new-task-url" type="url" placeholder="URL" name="url" value="{{task.url}}"/>
 			</div>
@@ -27,7 +27,7 @@
 
 	<div class="form-group clearfix">
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-4 col-sm-4 col-xs-6">
 				<label class="control-label" for="new-task-standard">Standard</label>
 				<select data-role="new-task-select" class="form-control" id="new-task-standard" name="standard">
 					{{#standards}}
