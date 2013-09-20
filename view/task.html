@@ -51,7 +51,7 @@
 <div class="col-md-3 aside">
 	{{#if results}}
 		<div class="row">
-			<div class="col-md-12 col-xs-6">
+			<div class="col-md-12 col-xs-6 dropdown-container">
 				<div class="btn-group block-level clearfix">
 					<button data-toggle="dropdown" class="btn-full-width btn btn-primary dropdown-toggle" type="button">{{date-format lastResult.date format="DD MMM YYYY"}} <span class="glyphicon glyphicon-calendar"></span> <span class="caret"></span></button>
 					<ul role="menu" class="dropdown-menu">
@@ -66,7 +66,7 @@
 					{{#lastResult}}
 						<li class="danger"><a href="#errors" title="See errors">{{count.error}}</a></li>
 						<li class="warning"><a href="#warnings" title="See warnings">{{count.warning}}</a></li>
-						<li class="info"><a href="#notifications" title="See notifications">{{count.notice}}</a></li>
+						<li class="info last"><a href="#notifications" title="See notifications">{{count.notice}}</a></li>
 					{{/lastResult}}
 				</ul>
 			</div>
