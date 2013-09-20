@@ -48,7 +48,7 @@ $(document).ready(function(){
      // Back to top links
     toTopLinks.click( function(e){
         e.preventDefault();
-        $(animateSection($('#top'), -25));
+        $(animateSection($('#top'), -55));
     });
 
 	switchStandardsList(standardSelect);

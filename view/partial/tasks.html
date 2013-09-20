@@ -16,7 +16,7 @@
 					{{#last_result}}
 						<li class="danger" title="Number of errors ({{count.error}})">{{count.error}}</li>
 						<li class="warning" title="Number of warnings ({{count.warning}})">{{count.warning}}</li>
-						<li class="info" title="Number of notifications ({{count.notice}})">{{count.notice}}</li>
+						<li class="info last" title="Number of notifications ({{count.notice}})">{{count.notice}}</li>
 					{{/last_result}}
 				</ul>
 				Last run {{date-format last_result.date format="DD MMM YYYY"}}
