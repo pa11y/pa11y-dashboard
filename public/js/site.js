@@ -3,7 +3,7 @@ $(document).ready(function(){
     var data = {};
 	var standardsList = $('[data-role="standards-list"]');
 	var standardSelect = $('[data-role="new-task-select"]');
-	var headingBadges = $('.heading-badges');
+	var expandLink = $('[data-role="expander"]');
     var taskListSelector = $('[data-role="task-list"] a');
     var toTopLinks = $('[data-role="top"]');
     var zoomResetButton = $('[data-role="zoom-reset"]');
@@ -40,9 +40,15 @@ $(document).ready(function(){
     };
 
     // Toggle appearance of lists of error/warnings/notifications
-	headingBadges.click( function(){
-		$(this).parent().next('ul').slideToggle();
-        $(this).toggleClass('showing');
+	expandLink.click( function(){
+		$(this).parent().next('ul').slideToggle('slow', function(){});
+        if ($(this).parent().hasClass('showing')) {
+            $(this).html('+');
+        }
+        else {
+            $(this).html('-');
+        }
+        $(this).parent().toggleClass('showing');
 	});
 
      // Back to top links
@@ -62,8 +68,8 @@ $(document).ready(function(){
         e.preventDefault();
         target = $(this).attr('href');
         animateSection($(target), -25);
-        if (!$(target).next('ul').hasClass('showing')) {
-            $(target).children('.heading-badges').click();
+        if (!$(target).hasClass('showing')) {
+            $(target).children('[data-role="expander"]').click();
         }
     });
 

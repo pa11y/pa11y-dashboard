@@ -1,14 +1,20 @@
 /* No javascript */
-.no-javascript .graph-container {
-	display:none;
-}
-.no-javascript .hidden {
-	display:block !important;
-	visibility:visible !important;
-}
-.no-javascript table.hidden {
-	display:table !important;
-}
-.no-javascript .collapse {
-	display:block;
+.no-javascript {
+	.graph-container, .expander {
+		display:none;
+	}
+	.hidden {
+		display:block !important;
+		visibility:visible !important;
+	}
+	table.hidden {
+		display:table !important;
+	}
+	.collapse {
+		display:block;
+	}
+	.heading {
+		margin-top:0;
+		border-radius: 3px 3px 0 0;
+	}
 }

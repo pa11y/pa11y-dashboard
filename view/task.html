@@ -98,15 +98,12 @@
     </div>
 </div>
 
-
 <div class="col-md-9">
 	{{#if results}}
-		<p class="heading showing" id="errors">
-			<span class="heading-badges">
-				<span class="label label-danger">Errors</span> <span class="badge badge-danger">?</span>
-			</span>
-			<a href="#top" data-role="top" class="pull-right default"> <span class="glyphicon glyphicon-arrow-up"></span></a>
-		</p>
+		<div class="heading label-danger showing first" id="errors">
+			Errors ( 13 )
+			<span data-role="expander" class="pull-right expander"> - </span>
+		</div>
 		<ul class="list-unstyled task-danger tasks-list collapse in">
 			{{#lastResult.messages}}
 				<li>
@@ -115,12 +112,36 @@
 				</li>
 			{{/lastResult.messages}}
 		</ul>
-		<p class="heading">
-			<span class="heading-badges">
-				<span class="label label-default">Ignored Rules</span>
-			</span>
-			<a href="#top" data-role="top" class="pull-right default"> <span class="glyphicon glyphicon-arrow-up"></span></a>
-		</p>
+
+		<div class="heading label-warning" id="warnings">
+			Warnings ( 142 )
+			<span data-role="expander" class="pull-right expander"> + </span>
+		</div>
+		<ul class="list-unstyled task-warning tasks-list collapse">
+			{{#lastResult.messages}}
+				<li>
+					<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
+					<p>{{message}}</p>
+				</li>
+			{{/lastResult.messages}}
+		</ul>
+
+		<div class="heading label-info" id="notifications">
+			Notifications ( 166 )
+			<span data-role="expander" class="pull-right expander"> + </span>
+		</div>
+		<ul class="list-unstyled task-info tasks-list collapse">
+			{{#lastResult.messages}}
+				<li>
+					<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
+					<p>{{message}}</p>
+				</li>
+			{{/lastResult.messages}}
+		</ul>
+
+		<div class="heading label-default">Ignored Rules
+			<span data-role="expander" class="pull-right expander"> + </span>
+		</div>
 		<ul class="list-unstyled task-default tasks-list collapse">
 		    {{#task.ignore}}
 		        <li>

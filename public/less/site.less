@@ -146,20 +146,11 @@
 .badge {
 	border-radius:0.25em;
 }
-.label, .badge {
+.badge {
 	display:inline-block;
 	padding:10px;
 	font-size:ceil(@font-size-base * 0.85); // ~13px;
 	text-transform: uppercase;
-}
-.badge-danger {
-	background-color:@brand-danger;
-}
-.badge-warning {
-	background-color:@brand-warning;
-}
-.badge-info {
-	background-color:@brand-info;
 }
 .rule-name .badge {
 	padding:6px;
@@ -177,10 +168,9 @@
 	margin-bottom:30px;
 	border-width:3px;
 	border-style:solid;
-	border-radius: 3px;
 
 	li {
-		margin-bottom:30px;
+		margin-bottom:20px;
 
 		&:last-child {
 			margin-bottom:0;
@@ -208,10 +198,27 @@
 
 /* Task list heading */
 .heading {
-	margin-bottom:10px;
+	margin-top:12px;
+	padding:11px;
+	color: @btn-default-color;
+	font-weight:bold;
+	border-radius: 3px;
+
+	&.showing {
+		margin-bottom:0;
+		border-radius: 3px 3px 0 0;
+	}
+
+	&:first-child, &.first {
+		margin-top:0;
+	}
 }
-.heading-badges {
+.expander {
 	cursor:pointer;
+	padding:0 5px;
+	font-weight:bold;
+	font-size:floor(@font-size-base * @line-height-base); // ~20px
+	line-height:1;
 }
 
 /* Graph */
