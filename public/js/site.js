@@ -41,7 +41,7 @@ $(document).ready(function(){
 
     // Toggle appearance of lists of error/warnings/notifications
 	expandLink.click( function(){
-		$(this).parent().next('ul').slideToggle('slow', function(){});
+		$(this).parent().next().slideToggle('slow', function(){});
         if ($(this).parent().hasClass('showing')) {
             $(this).html('+');
         }
@@ -54,7 +54,7 @@ $(document).ready(function(){
      // Back to top links
     toTopLinks.click( function(e){
         e.preventDefault();
-        $(animateSection($('#top'), -55));
+        $(animateSection($('#top'), -75));
     });
 
 	switchStandardsList(standardSelect);
