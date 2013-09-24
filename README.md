@@ -1,8 +1,8 @@
 
-pa11y-web
-=========
+pa11y-dashboard
+===============
 
-pa11y-web is a visual web interface to the [pa11y][pa11y] accessibility reporter.
+pa11y-dashboard is a visual web interface to the [pa11y][pa11y] accessibility reporter.
 
 **Current Version:** *0.0.0*  
 **Node Version Support:** *0.10*
@@ -11,7 +11,7 @@ pa11y-web is a visual web interface to the [pa11y][pa11y] accessibility reporter
 Setup
 -----
 
-pa11y-web requires [Node.js][node] 0.10+ and [pa11y-webservice][pa11y-webservice] to be installed and running. You'll need to follow the setup guide for pa11y-webservice before setting up pa11y-web.
+pa11y-dashboard requires [Node.js][node] 0.10+ and [pa11y-webservice][pa11y-webservice] to be installed and running. You'll need to follow the setup guide for pa11y-webservice before setting up pa11y-dashboard.
 
 You'll then need to clone this repo locally and install dependencies with `npm install`. Once you have a local clone, you'll need to copy some sample configuration files in order to run the application. From within the repo, run the following commands:
 
@@ -35,7 +35,7 @@ Development mode runs the application with [Supervisor][supervisor], so you won'
 Configurations
 --------------
 
-The boot configurations for pa11y-web are as follows. Look at the sample JSON files in the repo for example usage.
+The boot configurations for pa11y-dashboard are as follows. Look at the sample JSON files in the repo for example usage.
 
 ### webservice
 *(string)* The base URL of the [pa11y-webservice][pa11y-webservice] instance you intend on using.
@@ -48,7 +48,7 @@ License
 -------
 
 [Copyright 2013 Nature Publishing Group](LICENSE.txt).  
-pa11y-web is licensed under the [GNU General Public License 3.0][gpl].
+pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
 
 
 
