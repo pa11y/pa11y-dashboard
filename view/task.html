@@ -51,18 +51,20 @@
 <div class="col-md-3 aside">
 	{{#if results}}
 		<div class="row">
-			<div class="col-md-12 col-xs-6 dropdown-container">
+			<div id="top" class="col-md-12 col-xs-6 dropdown-container">
+				<h4 class="show-stats hidden">Select a date to show stats for</h4>
 				<div class="btn-group block-level clearfix">
 					<button data-toggle="dropdown" class="btn-full-width btn btn-primary dropdown-toggle" type="button">{{date-format lastResult.date format="DD MMM YYYY"}} <span class="glyphicon glyphicon-calendar"></span> <span class="caret"></span></button>
-					<ul role="menu" class="dropdown-menu">
+					<ul role="navigation" class="date-links list-group">
+						<li><a class="list-group-item active" href="#">21 Sept 2013</a></li>
 						{{#results}}
-			          		<li><a href="#">{{date-format date format="DD MMM YYYY"}}</a></li>
+			          		<li><a class="list-group-item" href="#">{{date-format date format="DD MMM YYYY"}}</a></li>
 			          	{{/results}}
 			        </ul>
 				</div>
 			</div>
 			<div class="col-md-12 col-xs-6">
-				<ul id="top" data-role="task-list" class="clearfix list-unstyled floated-list task-stats">
+				<ul data-role="task-list" class="clearfix list-unstyled floated-list task-stats">
 					{{#lastResult}}
 						<li class="danger"><a href="#errors" title="See errors">{{count.error}}</a></li>
 						<li class="warning"><a href="#warnings" title="See warnings">{{count.warning}}</a></li>

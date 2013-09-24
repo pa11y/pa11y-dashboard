@@ -48,6 +48,26 @@
 	margin-top:0;
 	margin-bottom:10px;
 }
+.date-links {
+	.list-unstyled();
+	max-height:190px;
+	overflow-y: auto;
+}
+.list-group {
+	li .list-group-item {
+		border-radius:0;
+		margin-bottom:-1px;
+	}
+	li:first-child .list-group-item {
+		border-top-left-radius:3px;
+		border-top-right-radius:3px;
+	}
+	li:last-child .list-group-item {
+		border-bottom-left-radius:3px;
+		border-bottom-right-radius:3px;
+		margin-bottom:0;
+	}
+} 
 .delete-button {
 	position:absolute;
 	top:5px;

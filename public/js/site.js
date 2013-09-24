@@ -54,11 +54,13 @@ $(document).ready(function(){
      // Back to top links
     toTopLinks.click( function(e){
         e.preventDefault();
-        $(animateSection($('#top'), -75));
+        $(animateSection($('#top'), -55));
     });
 
 	switchStandardsList(standardSelect);
     $('.rules-list-title').addClass('hidden');
+    $('.date-links').removeClass('date-links list-group').addClass('dropdown-menu');
+    $('.dropdown-menu a').removeClass('list-group-item active');
 
 	standardSelect.change( function(){
 		switchStandardsList($(this));
