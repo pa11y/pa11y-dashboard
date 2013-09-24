@@ -3,6 +3,20 @@
 	"version": "0.0.0",
 	"private": true,
 
+	"description": "pa11y-dashboard is a visual web interface to the pa11y accessibility reporter",
+	"keywords": [ "accessibility", "analysis", "report" ],
+	"contributors": [
+		"Perry Harlock (http://www.phwebs.co.uk/)",
+		"Rowan Manning (http://rowanmanning.com/)"
+	],
+
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/nature/pa11y-dashboard.git"
+	},
+	"homepage": "https://github.com/nature/pa11y-dashboard",
+	"bugs": "https://github.com/nature/pa11y-dashboard/issues",
+
 	"engines": {
 		"node": ">=0.10"
 	},
@@ -18,6 +32,7 @@
 		"jshint": "~2.1",
 		"supervisor": "~0.5"
 	},
+
 	"scripts": {
 		"start": "node ."
 	}
