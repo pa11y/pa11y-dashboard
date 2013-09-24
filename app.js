@@ -56,10 +56,15 @@ function initApp (config, callback) {
 	require('./route/task')(app);
 
 	// Error handling
+	app.express.get('*', function (req, res) {
+		res.status(404);
+		res.render('404');
+	});
 	app.express.use(function (err, req, res, next) {
 		/* jshint unused: false */
 		app.emit('route-error', err);
-		res.send('Error');
+		res.status(500);
+		res.render('500');
 	});
 
 	app.server.listen(config.port, function (err) {
