@@ -155,7 +155,9 @@ $(document).ready(function(){
                 yaxis: { min: ranges.yaxis.from, max: ranges.yaxis.to }
             })
         );
-        toggleResetZoomButton();
+        if (!zoomResetButton.is(':visible')) {
+            toggleResetZoomButton();
+        }
     });
 
     var choiceContainer = $('[data-role="series-checkboxes"]');
