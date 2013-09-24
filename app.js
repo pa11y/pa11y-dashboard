@@ -53,7 +53,7 @@ function initApp (config, callback) {
 	// Load routes
 	require('./route/index')(app);
 	require('./route/new')(app);
-	require('./route/task')(app);
+	require('./route/task/index')(app);
 	require('./route/task/delete')(app);
 
 	// Error handling
