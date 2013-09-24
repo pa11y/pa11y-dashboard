@@ -10,7 +10,8 @@ function route (app) {
 				return next(err);
 			}
 			res.render('index', {
-				tasks: tasks
+				tasks: tasks,
+				deleted: (typeof req.query.deleted !== 'undefined')
 			});
 		});
 	});

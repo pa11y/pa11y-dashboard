@@ -1,0 +1,12 @@
+
+{{#content "title"}}
+    Delete Task: {{task.url}} ({{task.standard}})
+{{/content}}
+
+<h1>Delete Task: {{task.url}} ({{task.standard}})</h1>
+
+<form action="/{{task.id}}/delete" method="post">
+    <p>Are you sure you wish to delete this task and associated results?</p>
+    <input type="submit" value="Yes"/>
+    <a href="/{{task.id}}">No (cancel)</a>
+</form>
