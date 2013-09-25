@@ -39,7 +39,7 @@ $(document).ready(function(){
         }
     };
 
-    // Toggle appearance of lists of error/warnings/notifications
+    // Toggle appearance of lists of error/warnings/notices
 	expandLink.click( function(){
 		$(this).parent().next().slideToggle('slow', function(){});
         if ($(this).parent().hasClass('showing')) {
@@ -131,7 +131,7 @@ $(document).ready(function(){
         return [
             { color: "rgb(231, 76, 60)", label: "Errors", data:  data.error },
             { color: "rgb(243, 156, 18)", label: "Warnings", data:  data.warning  },
-            { color: "rgb(52, 152, 219)", label: "Notifications", data:  data.notification }
+            { color: "rgb(52, 152, 219)", label: "Notices", data:  data.notice }
         ];
     }
 
