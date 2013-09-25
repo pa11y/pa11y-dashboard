@@ -9,18 +9,18 @@ module.exports = route;
 function route (app) {
 
 	app.express.get('/:id', function (req, res, next) {
-		app.webservice.task(req.params.id).get({}, function (err, task) {
+		app.webservice.task(req.params.id).get({lastres: true}, function (err, task) {
 			if (err) {
 				return next();
 			}
-			app.webservice.task(req.params.id).results({full: true}, function (err, results) {
+			app.webservice.task(req.params.id).results({}, function (err, results) {
 				if (err) {
 					return next(err);
 				}
 				res.render('task', {
 					task: presentTask(task),
 					results: results.map(presentResult),
-					lastResult: presentResult(results[0]) || null,
+					lastResult: task.lastResult || null,
 					added: (typeof req.query.added !== 'undefined')
 				});
 			});
