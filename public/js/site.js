@@ -102,7 +102,7 @@ $(document).ready(function(){
 	}
 
 	function getGraphData() {
-        $.each($('[data-role="url-stats"]'), function() {
+        $($('[data-role="url-stats"]').get().reverse()).each( function() {
             var el = $(this);
             storeDatum(el, getXAxisLabel(el));
         });
@@ -120,7 +120,6 @@ $(document).ready(function(){
                 data[type] = [];
             }
             data[type].push([label, +value]);
-            data[type].reverse();
         });
     }
 
