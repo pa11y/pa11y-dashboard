@@ -1,6 +1,7 @@
 'use strict';
 
 var _ = require('underscore');
+var presentTask = require('../../view/presenter/task');
 
 module.exports = route;
 
@@ -13,7 +14,7 @@ function route (app) {
 				return next();
 			}
 			res.render('task/delete', {
-				task: task
+				task: presentTask(task)
 			});
 		});
 	});

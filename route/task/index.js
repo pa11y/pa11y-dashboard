@@ -1,6 +1,8 @@
 'use strict';
 
 var _ = require('underscore');
+var presentTask = require('../../view/presenter/task');
+var presentResult = require('../../view/presenter/result');
 
 module.exports = route;
 
@@ -24,9 +26,9 @@ function route (app) {
 					});
 				});
 				res.render('task', {
-					task: task,
-					results: results,
-					lastResult: results[0] || null,
+					task: presentTask(task),
+					results: results.map(presentResult),
+					lastResult: presentResult(results[0]) || null,
 					added: (typeof req.query.added !== 'undefined')
 				});
 			});
