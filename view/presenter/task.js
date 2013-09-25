@@ -13,7 +13,8 @@ function presentTask (task) {
 
     // Present the last result if present
     if (task.last_result) {
-        task.last_result = presentResult(task.last_result);
+        task.lastResult = presentResult(task.last_result);
+        delete task.last_result;
     }
 
     return task;

@@ -1,6 +1,5 @@
 'use strict';
 
-var _ = require('underscore');
 var presentTask = require('../../view/presenter/task');
 var presentResult = require('../../view/presenter/result');
 
@@ -18,13 +17,6 @@ function route (app) {
 				if (err) {
 					return next(err);
 				}
-				results.forEach(function (result) {
-					var grouped = _.groupBy(result.results, 'code');
-					result.messages = _.keys(grouped).map(function (group) {
-						grouped[group][0].count = grouped[group].length;
-						return grouped[group][0];
-					});
-				});
 				res.render('task', {
 					task: presentTask(task),
 					results: results.map(presentResult),
