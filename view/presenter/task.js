@@ -8,6 +8,7 @@ function presentTask (task) {
 
     // Add additional info
     task.href = '/' + task.id;
+    task.hrefDelete = '/' + task.id + '/delete';
     task.hrefJson = '/' + task.id + '.json';
 
     // Present the last result if present
