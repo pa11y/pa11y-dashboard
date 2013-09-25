@@ -43,7 +43,7 @@
 		</div>
 	</div>
 
-	<div class="col-md-12">
+	<div class="col-md-12 hidden">
 		{{> results-table}}
 	</div>
 {{/if}}
@@ -104,53 +104,67 @@
 
 <div class="col-md-9">
 	{{#if results}}
-		<div class="heading label-danger showing first" id="errors">
-			<span data-role="expander" class="pull-right expander"> - </span>
-			Errors ( {{lastResult.count.error}} )
-		</div>
-		<div class="task-danger tasks-list collapse clearfix in">
-			<ul class="list-unstyled">
-				{{#lastResult.errors}}
-					<li>
-						<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
-						<p>{{message}}</p>
-					</li>
-				{{/lastResult.errors}}
-			</ul>
-			<a class="pull-right" href="#top" data-role="top">Back to top</a>
-		</div>
+		{{#if lastResult.count.error}}
+			<div class="heading label-danger showing first" id="errors">
+				<span data-role="expander" class="pull-right expander"> - </span>
+				Errors ( {{lastResult.count.error}} )
+			</div>
+			<div class="task-danger tasks-list collapse clearfix in">
+				
+				<ul class="list-unstyled">
+					{{#lastResult.errors}}
+						<li>
+							<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
+							<p>{{message}}</p>
+						</li>
+					{{/lastResult.errors}}
+				</ul>
+				<a class="pull-right" href="#top" data-role="top">Back to top</a>
+			</div>
+		{{else}}
+			<p class="heading label-danger">Well done! You have 0 errors. <span class="glyphicon glyphicon-ok pull-right"></span></p>
+		{{/if}}
 
-		<div class="heading label-warning" id="warnings">
-			<span data-role="expander" class="pull-right expander"> + </span>
-			Warnings ( {{lastResult.count.warning}} )
-		</div>
-		<div class="task-warning tasks-list collapse clearfix">
-			<ul class="list-unstyled">
-				{{#lastResult.warnings}}
-					<li>
-						<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
-						<p>{{message}}</p>
-					</li>
-				{{/lastResult.warnings}}
-			</ul>
-			<a class="pull-right" href="#top" data-role="top">Back to top</a>
-		</div>
+		{{#if lastResult.count.warning}}
+			<div class="heading label-warning" id="warnings">
+				<span data-role="expander" class="pull-right expander"> + </span>
+				Warnings ( {{lastResult.count.warning}} )
+			</div>
+			<div class="task-warning tasks-list collapse clearfix">
+				<ul class="list-unstyled">
+					{{#lastResult.warnings}}
+						<li>
+							<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
+							<p>{{message}}</p>
+						</li>
+					{{/lastResult.warnings}}
+				</ul>
+				<a class="pull-right" href="#top" data-role="top">Back to top</a>
+			</div>
 
-		<div class="heading label-info" id="notifications">
-			<span data-role="expander" class="pull-right expander"> + </span>
-			Notifications ( {{lastResult.count.notice}} )
-		</div>
-		<div class="task-info tasks-list collapse clearfix">
-			<ul class="list-unstyled">
-				{{#lastResult.notices}}
-					<li>
-						<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
-						<p>{{message}}</p>
-					</li>
-				{{/lastResult.notices}}
-			</ul>
-			<a class="pull-right" href="#top" data-role="top">Back to top</a>
-		</div>
+		{{else}}
+			<p class="heading label-warning">Well done! You have 0 warnings. <span class="glyphicon glyphicon-ok pull-right"></span></p>
+		{{/if}}
+
+		{{#if lastResult.count.notice}}
+			<div class="heading label-info" id="notifications">
+				<span data-role="expander" class="pull-right expander"> + </span>
+				Notifications ( {{lastResult.count.notice}} )
+			</div>
+			<div class="task-info tasks-list collapse clearfix">
+				<ul class="list-unstyled">
+					{{#lastResult.notices}}
+						<li>
+							<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
+							<p>{{message}}</p>
+						</li>
+					{{/lastResult.notices}}
+				</ul>
+				<a class="pull-right" href="#top" data-role="top">Back to top</a>
+			</div>
+		{{else}}
+			<p class="heading label-warning">Well done! You have 0 notices. <span class="glyphicon glyphicon-ok pull-right"></span></p>
+		{{/if}}
 
 		<div class="heading label-default">
 			<span data-role="expander" class="pull-right expander"> + </span>
@@ -166,6 +180,7 @@
 			</ul>
 			<a class="pull-right" href="#top" data-role="top">Back to top</a>
 		</div>
+
 	{{else}}
 		<div class="alert alert-info">
 			<h4>No results to show</h4>
