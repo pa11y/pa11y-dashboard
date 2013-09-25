@@ -3,7 +3,7 @@
     Delete {{task.url}} ({{task.standard}})
 {{/content}}
 
-<form class="col-md-12" action="/{{task.id}}/delete" method="post">
+<form class="col-md-12" action="{{task.hrefDelete}}" method="post">
 	<div class="legend">
 		<legend>Delete URL ({{simplify-url task.url}})</legend>
 	</div>

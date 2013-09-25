@@ -106,48 +106,48 @@
 	{{#if results}}
 		<div class="heading label-danger showing first" id="errors">
 			<span data-role="expander" class="pull-right expander"> - </span>
-			Errors ( 13 )
+			Errors ( {{lastResult.count.error}} )
 		</div>
 		<div class="task-danger tasks-list collapse clearfix in">
 			<ul class="list-unstyled">
-				{{#lastResult.messages}}
+				{{#lastResult.errors}}
 					<li>
 						<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
 						<p>{{message}}</p>
 					</li>
-				{{/lastResult.messages}}
+				{{/lastResult.errors}}
 			</ul>
 			<a class="pull-right" href="#top" data-role="top">Back to top</a>
 		</div>
 
 		<div class="heading label-warning" id="warnings">
 			<span data-role="expander" class="pull-right expander"> + </span>
-			Warnings ( 142 )
+			Warnings ( {{lastResult.count.warning}} )
 		</div>
 		<div class="task-warning tasks-list collapse clearfix">
 			<ul class="list-unstyled">
-				{{#lastResult.messages}}
+				{{#lastResult.warnings}}
 					<li>
 						<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
 						<p>{{message}}</p>
 					</li>
-				{{/lastResult.messages}}
+				{{/lastResult.warnings}}
 			</ul>
 			<a class="pull-right" href="#top" data-role="top">Back to top</a>
 		</div>
 
 		<div class="heading label-info" id="notifications">
 			<span data-role="expander" class="pull-right expander"> + </span>
-			Notifications ( 166 )
+			Notifications ( {{lastResult.count.notice}} )
 		</div>
 		<div class="task-info tasks-list collapse clearfix">
 			<ul class="list-unstyled">
-				{{#lastResult.messages}}
+				{{#lastResult.notices}}
 					<li>
 						<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
 						<p>{{message}}</p>
 					</li>
-				{{/lastResult.messages}}
+				{{/lastResult.notices}}
 			</ul>
 			<a class="pull-right" href="#top" data-role="top">Back to top</a>
 		</div>

@@ -1,5 +1,7 @@
 'use strict';
 
+var presentTask = require('../view/presenter/task');
+
 module.exports = route;
 
 // Route definition
@@ -10,7 +12,7 @@ function route (app) {
 				return next(err);
 			}
 			res.render('index', {
-				tasks: tasks,
+				tasks: tasks.map(presentTask),
 				deleted: (typeof req.query.deleted !== 'undefined')
 			});
 		});

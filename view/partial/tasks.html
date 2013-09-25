@@ -8,23 +8,23 @@
 	</li>
 	{{#tasks}}
 		<li class="col-md-4 col-sm-6 task-card">
-			<a class="well task-card-link crunch-bottom" title="Details for URL {{simplify-url url}}" href="/{{id}}">
+			<a class="well task-card-link crunch-bottom" title="Details for URL {{simplify-url url}}" href="{{href}}">
 				<p class="h3">{{simplify-url url}}</p>
 				<p class="h5">({{standard}})</p>
-				{{#if last_result}}
+				{{#if lastResult}}
 				<ul class="clearfix list-unstyled floated-list task-stats">
-					{{#last_result}}
+					{{#lastResult}}
 						<li class="danger" title="Number of errors ({{count.error}})">{{count.error}}</li>
 						<li class="warning" title="Number of warnings ({{count.warning}})">{{count.warning}}</li>
 						<li class="info last" title="Number of notifications ({{count.notice}})">{{count.notice}}</li>
-					{{/last_result}}
+					{{/lastResult}}
 				</ul>
-				Last run {{date-format last_result.date format="DD MMM YYYY"}}
+				Last run {{date-format lastResult.date format="DD MMM YYYY"}}
 				{{else}}
 					<p class="no-results">No results</p>
 				{{/if}}
 			</a>
-			<a title="Delete this URL" class="delete-button" href="/{{id}}/delete"><span class="sr-only">Delete </span><span class="glyphicon glyphicon-remove"></span></a>
+			<a title="Delete this URL" class="delete-button" href="{{hrefDelete}}"><span class="sr-only">Delete </span><span class="glyphicon glyphicon-remove"></span></a>
 		</li>
 	{{/tasks}}
 </ul>
