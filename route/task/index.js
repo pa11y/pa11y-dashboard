@@ -20,7 +20,7 @@ function route (app) {
 				res.render('task', {
 					task: presentTask(task),
 					results: results.map(presentResult),
-					lastResult: task.lastResult || null,
+					mainResult: task.lastResult || null,
 					added: (typeof req.query.added !== 'undefined')
 				});
 			});

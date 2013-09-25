@@ -23,9 +23,9 @@
 			<div class="col-md-2 text-right run-details">
 				<!-- ########### To be done ############## -->
 				<button class="btn btn-success">Run <span class="glyphicon glyphicon-play"></span></button>
-				{{#if lastResult}}
+				{{#if task.lastResult}}
 				<!-- ########################## -->
-					<div class="date">Last run : {{date-format lastResult.date format="DD MMM YYYY"}}</div>
+					<div class="date">Last run : {{date-format task.lastResult.date format="DD MMM YYYY"}}</div>
 				{{else}}
 					<div class="date">Not yet run</div>
 				{{/if}}
@@ -54,22 +54,21 @@
 			<div id="top" class="col-md-12 col-xs-6 dropdown-container">
 				<h4 class="show-stats hidden">Select a date to show stats for</h4>
 				<div class="btn-group block-level clearfix">
-					<button data-toggle="dropdown" class="btn-full-width btn btn-primary dropdown-toggle" type="button">{{date-format lastResult.date format="DD MMM YYYY"}} <span class="glyphicon glyphicon-calendar"></span> <span class="caret"></span></button>
+					<button data-toggle="dropdown" class="btn-full-width btn btn-primary dropdown-toggle" type="button">{{date-format task.lastResult.date format="DD MMM YYYY"}} <span class="glyphicon glyphicon-calendar"></span> <span class="caret"></span></button>
 					<ul role="navigation" class="date-links list-group">
-						<li><a class="list-group-item active" href="#">21 Sept 2013</a></li>
 						{{#results}}
-			          		<li><a class="list-group-item" href="#">{{date-format date format="DD MMM YYYY"}}</a></li>
+			          		<li><a class="list-group-item" href="{{href}}">{{date-format date format="DD MMM YYYY"}}</a></li>
 			          	{{/results}}
 			        </ul>
 				</div>
 			</div>
 			<div class="col-md-12 col-xs-6">
 				<ul data-role="task-list" class="clearfix list-unstyled floated-list task-stats">
-					{{#lastResult}}
+					{{#mainResult}}
 						<li class="danger"><a href="#errors" title="See errors">{{count.error}}</a></li>
 						<li class="warning"><a href="#warnings" title="See warnings">{{count.warning}}</a></li>
 						<li class="info last"><a href="#notices" title="See notices">{{count.notice}}</a></li>
-					{{/lastResult}}
+					{{/mainResult}}
 				</ul>
 			</div>
 		</div>
@@ -104,20 +103,20 @@
 
 <div class="col-md-9">
 	{{#if results}}
-		{{#if lastResult.count.error}}
+		{{#if mainResult.count.error}}
 			<div class="heading label-danger showing first" id="errors">
 				<span data-role="expander" class="pull-right expander"> - </span>
-				Errors ( {{lastResult.count.error}} )
+				Errors ( {{mainResult.count.error}} )
 			</div>
 			<div class="task-danger tasks-list collapse clearfix in">
 				
 				<ul class="list-unstyled">
-					{{#lastResult.errors}}
+					{{#mainResult.errors}}
 						<li>
 							<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
 							<p>{{message}}</p>
 						</li>
-					{{/lastResult.errors}}
+					{{/mainResult.errors}}
 				</ul>
 				<a class="pull-right" href="#top" data-role="top">Back to top</a>
 			</div>
@@ -125,19 +124,19 @@
 			<p class="heading label-danger" id="errors">Well done! You have 0 errors. <span class="glyphicon glyphicon-ok pull-right"></span></p>
 		{{/if}}
 
-		{{#if lastResult.count.warning}}
+		{{#if mainResult.count.warning}}
 			<div class="heading label-warning" id="warnings">
 				<span data-role="expander" class="pull-right expander"> + </span>
-				Warnings ( {{lastResult.count.warning}} )
+				Warnings ( {{mainResult.count.warning}} )
 			</div>
 			<div class="task-warning tasks-list collapse clearfix">
 				<ul class="list-unstyled">
-					{{#lastResult.warnings}}
+					{{#mainResult.warnings}}
 						<li>
 							<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
 							<p>{{message}}</p>
 						</li>
-					{{/lastResult.warnings}}
+					{{/mainResult.warnings}}
 				</ul>
 				<a class="pull-right" href="#top" data-role="top">Back to top</a>
 			</div>
@@ -146,19 +145,19 @@
 			<p class="heading label-warning" id="warnings">Well done! You have 0 warnings. <span class="glyphicon glyphicon-ok pull-right"></span></p>
 		{{/if}}
 
-		{{#if lastResult.count.notice}}
+		{{#if mainResult.count.notice}}
 			<div class="heading label-info" id="notices">
 				<span data-role="expander" class="pull-right expander"> + </span>
-				Notices ( {{lastResult.count.notice}} )
+				Notices ( {{mainResult.count.notice}} )
 			</div>
 			<div class="task-info tasks-list collapse clearfix">
 				<ul class="list-unstyled">
-					{{#lastResult.notices}}
+					{{#mainResult.notices}}
 						<li>
 							<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
 							<p>{{message}}</p>
 						</li>
-					{{/lastResult.notices}}
+					{{/mainResult.notices}}
 				</ul>
 				<a class="pull-right" href="#top" data-role="top">Back to top</a>
 			</div>
