@@ -3,10 +3,18 @@
     Delete {{task.url}} ({{task.standard}})
 {{/content}}
 
-<h1>Delete URL: {{task.url}} ({{task.standard}})</h1>
+<h1 class="crunch-top">Delete {{simplify-url task.url}}</h1>
 
-<form action="/{{task.id}}/delete" method="post">
-    <p>Are you sure you wish to delete this URL and associated results?</p>
-    <input type="submit" value="Yes"/>
-    <a href="/{{task.id}}">No (cancel)</a>
+<form class="panel panel-info" action="/{{task.id}}/delete" method="post">
+    <div class="panel-heading">
+    	<h3 class="panel-title">Are you sure you wish to delete this URL and associated results?</h3>
+    </div>
+    <div class="panel-body">
+    	<p>{{task.url}} ({{task.standard}})</p>
+    	{{simplify-url task.url}}
+    </div>
+    <div class="panel-footer">
+	    <input class="btn btn-success" type="submit" value="Yes"/>
+	    <a class="btn btn-primary" href="/">No (cancel)</a>
+    </div>
 </form>
