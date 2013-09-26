@@ -13,192 +13,24 @@
 	</div>
 {{/added}}
 
-<div class="col-md-12">
-	<div class="ruled task-header">
-		<div class="row clearfix">
-			<div class="col-md-10">
-				<h2 class="crunch-top">{{simplify-url task.url}}</h2>
-				<p class="h4">({{task.standard}})</p>
-			</div>
-			<div class="col-md-2 text-right run-details">
-				<!-- ########### To be done ############## -->
-				<button class="btn btn-success">Run <span class="glyphicon glyphicon-play"></span></button>
-				{{#if task.lastResult}}
-				<!-- ########################## -->
-					<div class="date">Last run : {{date-format task.lastResult.date format="DD MMM YYYY"}}</div>
-				{{else}}
-					<div class="date">Not yet run</div>
-				{{/if}}
-			</div>
-		</div>
-	</div>
-</div>
+{{> task-header}}
 
 {{#if results}}
-	<div class="col-md-12 clearfix">
-		<div class="graph-container graph-spacer ruled">
-			<div data-role="graph" class="graph"></div>
-			<div class="row">
-				<ul class="list-unstyled floated-list series-checkboxes clearfix crunch-bottom col-md-3 col-sm-6 col-xs-6" data-role="series-checkboxes"></ul>
-			</div>
-			<button data-role='zoom-reset' class="btn btn-xs btn-primary pull-right btn-reset hidden">Reset Zoom <i class="glyphicon glyphicon-zoom-out"></i></button>
-		</div>
-	</div>
+	
+	{{> graph}}	
 
-	<div class="col-md-12 hidden">
-		<div class="graph-spacer ruled">
-			{{> results-table}}
-		</div>
-	</div>
-
-	<div class="col-md-12 zfix">
-		<div class="row">
-			<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-				<div class="date-selector">
-					<h4 class="show-stats text-center">Select a date to show stats for</h4>
-					<ul class="list-unstyled">
-						<li class="btn-group block-level clearfix">
-							<button data-toggle="dropdown" class="btn-full-width btn btn-primary dropdown-toggle" type="button">{{date-format task.lastResult.date format="DD MMM YYYY"}} <span class="glyphicon glyphicon-calendar"></span> <span class="caret"></span></button>
-							<ul role="navigation" class="date-links list-group hidden" data-role="date-select-dropdown-menu">
-								{{#results}}
-					          		<li><a class="list-group-item text-center" href="{{href}}">{{date-format date format="DD MMM YYYY"}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-					          	{{/results}}
-					        </ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+	{{> result-selector}}
 
 {{/if}}
 
-<div class="col-md-3 aside">
-	{{#if results}}
-		<div class="row">
-			<div id="top" class="col-md-12 col-sm-6 col-xs-12">
-				<ul data-role="task-list" class="clearfix list-unstyled floated-list task-stats">
-					{{#mainResult}}
-						<li class="danger"><a href="#errors" title="See errors">{{count.error}}<span class="stat-type">Errors</span></a></li>
-						<li class="warning"><a href="#warnings" title="See warnings">{{count.warning}}<span class="stat-type">Warnings</span></a></li>
-						<li class="info last"><a href="#notices" title="See notices">{{count.notice}}<span class="stat-type">Notices</span></a></li>
-					{{/mainResult}}
-				</ul>
-			</div>
-			<div class="action-buttons col-md-12 col-sm-6 clearfix">
-				<div class="row">
-					<!-- ########### Functionality to be done ############## -->
-					<div class="col-md-12 col-sm-6 col-xs-12">
-				        <a href="{{mainResult.hrefCsv}}" class="btn-full-width btn btn-default">Download CSV <span class="glyphicon glyphicon-download"></span></a>
-					</div>
-					<!-- ##################### End ######################## -->
-					<div class="col-md-12 col-sm-6 col-xs-12">
-				        <a href="{{mainResult.hrefJson}}" class="btn-full-width btn btn-default">Download JSON <span class="glyphicon glyphicon-download"></span></a>
-					</div>
-				</div>
-		    </div>
-		</div>
-	{{/if}}
-
-	<!-- List of other URLs -->
-    <div class="other-tasks well">
-    	<h4 class="crunch-top ruled-sm">Your other tracked URLs</h4>
-		<p>No other URLs</p>
-
-    	<!-- ########### Functionality to be done ############# -->
-        <ul class="list-unstyled crunch-bottom">
-	        <li><a href="empty-task">rowanmanning.com</a></li>
-	        <li><a href="task">nature.com</a></li>
-        </ul>
-        <!-- ##################### End ######################## -->
-    </div>
-</div>
-
-<div class="col-md-9">
-	{{#if results}}
-		{{#if mainResult.count.error}}
-			<div class="heading label-danger showing first" id="errors">
-				<span data-role="expander" class="pull-right expander"> - </span>
-				Errors ( {{mainResult.count.error}} )
-			</div>
-			<div class="task-danger tasks-list collapse clearfix in">
-				
-				<ul class="list-unstyled">
-					{{#mainResult.errors}}
-						<li>
-							<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
-							<p>{{message}}</p>
-						</li>
-					{{/mainResult.errors}}
-				</ul>
-				<a class="pull-right" href="#top" data-role="top">Back to top</a>
-			</div>
-		{{else}}
-			<p class="heading label-danger" id="errors">Well done! You have 0 errors. <span class="glyphicon glyphicon-ok pull-right"></span></p>
-		{{/if}}
-
-		{{#if mainResult.count.warning}}
-			<div class="heading label-warning" id="warnings">
-				<span data-role="expander" class="pull-right expander"> + </span>
-				Warnings ( {{mainResult.count.warning}} )
-			</div>
-			<div class="task-warning tasks-list collapse clearfix">
-				<ul class="list-unstyled">
-					{{#mainResult.warnings}}
-						<li>
-							<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
-							<p>{{message}}</p>
-						</li>
-					{{/mainResult.warnings}}
-				</ul>
-				<a class="pull-right" href="#top" data-role="top">Back to top</a>
-			</div>
-
-		{{else}}
-			<p class="heading label-warning" id="warnings">Well done! You have 0 warnings. <span class="glyphicon glyphicon-ok pull-right"></span></p>
-		{{/if}}
-
-		{{#if mainResult.count.notice}}
-			<div class="heading label-info" id="notices">
-				<span data-role="expander" class="pull-right expander"> + </span>
-				Notices ( {{mainResult.count.notice}} )
-			</div>
-			<div class="task-info tasks-list collapse clearfix">
-				<ul class="list-unstyled">
-					{{#mainResult.notices}}
-						<li>
-							<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
-							<p>{{message}}</p>
-						</li>
-					{{/mainResult.notices}}
-				</ul>
-				<a class="pull-right" href="#top" data-role="top">Back to top</a>
-			</div>
-		{{else}}
-			<p class="heading label-warning" id="notices">Well done! You have 0 notices. <span class="glyphicon glyphicon-ok pull-right"></span></p>
-		{{/if}}
-
-		<div class="heading label-default">
-			<span data-role="expander" class="pull-right expander"> + </span>
-			Ignored Rules
-		</div>
-		<div class="task-default tasks-list collapse clearfix">
-			<ul class="list-unstyled">
-			    {{#task.ignore}}
-			        <li>
-			        	<p class="crunch rule-name">{{.}}</p>
-					</li>
-			    {{/task.ignore}}
-			</ul>
-			<a class="pull-right" href="#top" data-role="top">Back to top</a>
-		</div>
-
-	{{else}}
+{{#if mainResult}}
+	{{> result}}
+{{else}}
+	<div class="col-md-12">
 		<div class="alert alert-info">
 			<h4>There are no results to show</h4>
 			<p>pa11y has not been run against this URL yet so there are no results to show.</p>
 			<p>To run pa11y for this URL now <a href="">click here</a></p>
 		</div>
-	{{/if}}
-</div>
-
+	</div>
+{{/if}}

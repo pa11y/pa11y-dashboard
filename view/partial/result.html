@@ -1,0 +1,115 @@
+<div class="col-md-3 aside">
+	<div class="row">
+		<div id="top" class="col-md-12 col-sm-6 col-xs-12">
+			<ul data-role="task-list" class="clearfix list-unstyled floated-list task-stats">
+				{{#mainResult}}
+					<li class="danger"><a href="#errors" title="See errors">{{count.error}}<span class="stat-type">Errors</span></a></li>
+					<li class="warning"><a href="#warnings" title="See warnings">{{count.warning}}<span class="stat-type">Warnings</span></a></li>
+					<li class="info last"><a href="#notices" title="See notices">{{count.notice}}<span class="stat-type">Notices</span></a></li>
+				{{/mainResult}}
+			</ul>
+		</div>
+		<div class="action-buttons col-md-12 col-sm-6 clearfix">
+			<div class="row">
+				<div class="col-md-12 col-sm-6 col-xs-12">
+			        <a href="{{mainResult.hrefCsv}}" class="btn-full-width btn btn-default">Download CSV <span class="glyphicon glyphicon-download"></span></a>
+				</div>
+				<div class="col-md-12 col-sm-6 col-xs-12">
+			        <a href="{{mainResult.hrefJson}}" class="btn-full-width btn btn-default">Download JSON <span class="glyphicon glyphicon-download"></span></a>
+				</div>
+			</div>
+	    </div>
+	</div>
+	<!-- ########### Functionality to be done ############# -->
+	<!-- List of other URLs -->
+    <!-- <div class="other-tasks well">
+    	<h4 class="crunch-top ruled-sm">Your other tracked URLs</h4>
+		<p>No other URLs</p>
+
+    	
+        <ul class="list-unstyled crunch-bottom">
+	        <li><a href="empty-task">rowanmanning.com</a></li>
+	        <li><a href="task">nature.com</a></li>
+        </ul>
+    </div> -->
+    <!-- ##################### End ######################## -->
+</div>
+
+<div class="col-md-9">
+	{{#if mainResult.count.error}}
+		<div class="heading label-danger showing first" id="errors">
+			<span data-role="expander" class="pull-right expander"> - </span>
+			Errors ( {{mainResult.count.error}} )
+		</div>
+		<div class="task-danger tasks-list collapse clearfix in">
+			
+			<ul class="list-unstyled">
+				{{#mainResult.errors}}
+					<li>
+						<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
+						<p>{{message}}</p>
+					</li>
+				{{/mainResult.errors}}
+			</ul>
+			<a class="pull-right" href="#top" data-role="top">Back to top</a>
+		</div>
+	{{else}}
+		<p class="heading label-danger" id="errors">Well done! You have 0 errors. <span class="glyphicon glyphicon-ok pull-right"></span></p>
+	{{/if}}
+
+	{{#if mainResult.count.warning}}
+		<div class="heading label-warning" id="warnings">
+			<span data-role="expander" class="pull-right expander"> + </span>
+			Warnings ( {{mainResult.count.warning}} )
+		</div>
+		<div class="task-warning tasks-list collapse clearfix">
+			<ul class="list-unstyled">
+				{{#mainResult.warnings}}
+					<li>
+						<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
+						<p>{{message}}</p>
+					</li>
+				{{/mainResult.warnings}}
+			</ul>
+			<a class="pull-right" href="#top" data-role="top">Back to top</a>
+		</div>
+
+	{{else}}
+		<p class="heading label-warning" id="warnings">Well done! You have 0 warnings. <span class="glyphicon glyphicon-ok pull-right"></span></p>
+	{{/if}}
+
+	{{#if mainResult.count.notice}}
+		<div class="heading label-info" id="notices">
+			<span data-role="expander" class="pull-right expander"> + </span>
+			Notices ( {{mainResult.count.notice}} )
+		</div>
+		<div class="task-info tasks-list collapse clearfix">
+			<ul class="list-unstyled">
+				{{#mainResult.notices}}
+					<li>
+						<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
+						<p>{{message}}</p>
+					</li>
+				{{/mainResult.notices}}
+			</ul>
+			<a class="pull-right" href="#top" data-role="top">Back to top</a>
+		</div>
+	{{else}}
+		<p class="heading label-warning" id="notices">Well done! You have 0 notices. <span class="glyphicon glyphicon-ok pull-right"></span></p>
+	{{/if}}
+
+	<div class="heading label-default">
+		<span data-role="expander" class="pull-right expander"> + </span>
+		Ignored Rules
+	</div>
+	<div class="task-default tasks-list collapse clearfix">
+		<ul class="list-unstyled">
+		    {{#task.ignore}}
+		        <li>
+		        	<p class="crunch rule-name">{{.}}</p>
+				</li>
+		    {{/task.ignore}}
+		</ul>
+		<a class="pull-right" href="#top" data-role="top">Back to top</a>
+	</div>
+</div>

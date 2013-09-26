@@ -3,4 +3,6 @@
     {{task.url}} ({{task.standard}}) {{date-format mainResult.date format="DD MMM YYYY"}}
 {{/content}}
 
-<h1>{{task.url}} ({{task.standard}}) {{date-format mainResult.date format="DD MMM YYYY"}}</h1>
+{{> result-header}}
+
+{{> result}}

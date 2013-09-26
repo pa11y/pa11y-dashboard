@@ -1,0 +1,20 @@
+<div class="col-md-12">
+	<div class="ruled task-header">
+		<div class="row clearfix">
+			<div class="col-md-10">
+				<h2 class="crunch-top">{{simplify-url task.url}}</h2>
+				<p class="h4">({{task.standard}})</p>
+			</div>
+			<div class="col-md-2 text-right run-details">
+				<!-- ########### To be done ############## -->
+				<button class="btn btn-success">Run <span class="glyphicon glyphicon-play"></span></button>
+				{{#if mainResult}}
+				<!-- ########################## -->
+					<div class="date">Last run : {{date-format mainResult.date format="DD MMM YYYY"}}</div>
+				{{else}}
+					<div class="date">Not yet run</div>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+<div class="col-md-12 clearfix">
+	<div class="graph-container graph-spacer ruled">
+		<div data-role="graph" class="graph"></div>
+		<div class="row">
+			<ul class="list-unstyled floated-list series-checkboxes clearfix crunch-bottom col-md-3 col-sm-6 col-xs-6" data-role="series-checkboxes"></ul>
+		</div>
+		<button data-role='zoom-reset' class="btn btn-xs btn-primary pull-right btn-reset hidden">Reset Zoom <i class="glyphicon glyphicon-zoom-out"></i></button>
+	</div>
+</div>
+
+<div class="col-md-12 hidden">
+	<div class="graph-spacer ruled">
+		<table id="graph-data" class="table graph-table" summary="Accessibility results from pa11y for this page">
+			<caption>pa11y results for this URL</caption>
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th class="text-center">Errors</th>
+					<th class="text-center">Warnings</th>
+					<th class="text-center">Notices</th>
+				</tr>
+			</thead>
+			<tbody>
+			{{#results}}
+				<tr data-role="url-stats">
+					<td data-role="category">{{date-format date format="DD MMM YYYY"}}</td>
+					<td class="text-center" data-label="error">{{count.error}}</td>
+					<td class="text-center" data-label="warning">{{count.warning}}</td>
+					<td class="text-center" data-label="notice">{{count.notice}}</td>
+				</tr>
+			{{/results}}
+			</tbody>
+		</table>
+	</div>
+</div>
