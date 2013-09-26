@@ -56,6 +56,7 @@ function initApp (config, callback) {
 	require('./route/task/index')(app);
 	require('./route/task/delete')(app);
 	require('./route/result/index')(app);
+	require('./route/result/download')(app);
 
 	// Error handling
 	app.express.get('*', function (req, res) {
