@@ -2,6 +2,7 @@
 
 var presentTask = require('../../view/presenter/task');
 var presentResult = require('../../view/presenter/result');
+var presentResultList = require('../../view/presenter/result-list');
 
 module.exports = route;
 
@@ -19,7 +20,7 @@ function route (app) {
 				}
 				res.render('task', {
 					task: presentTask(task),
-					results: results.map(presentResult),
+					results: presentResultList(results.map(presentResult)),
 					mainResult: task.lastResult || null,
 					added: (typeof req.query.added !== 'undefined')
 				});
