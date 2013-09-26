@@ -13,13 +13,6 @@
 		margin-bottom:2rem;
 		padding-bottom:1rem;
 	}
-	.btn-full-width {
-		margin-top:0;
-	}
-	.ruled {
-		padding-bottom:1.5rem;
-		margin-bottom:2rem;
-	}
 	.task-header .run-details {
 		text-align:left;
 	}
@@ -38,6 +31,34 @@
 	}
 	.other-tasks {
 		.sr-only();
+	}
+	.action-buttons,
+	.task-stats,
+	.btn-full-width {
+		margin-bottom:0;
+	}
+	.aside {
+		margin-bottom:15px;
+	}
+	.graph-spacer {
+		padding-bottom:80px;
+	}
+}
+@media (max-width:767px) {
+	.date-selector {
+		margin-top:0;
+		margin-bottom:25px;
+	}
+	.graph-spacer {
+		padding-bottom:20px;
+		margin-bottom:15px;
+	}
+	.action-buttons {
+		margin-top:10px;
+
+		.btn-full-width {
+			margin-bottom:10px;
+		}
 	}
 }
 @media (max-width:640px) {
@@ -68,9 +89,6 @@
 		font-size:ceil(@font-size-base * 1.25); // ~18px
 		line-height:1.1;
 	}
-	.btn-full-width {
-		margin:0;
-	}
 	.delete-button {
 		font-size:floor(@font-size-base * 1.35); // ~20px;
 		top:10px;
@@ -89,7 +107,7 @@
 		}
 	}
 }
-@media (max-width:480px) {
+@media (max-width:479px) {
 	.graph {
 		height:200px;
 		margin-bottom:1.5rem;
@@ -98,11 +116,7 @@
 		font-size:floor(@font-size-base * 0.8); // ~12px;
 	}
 }
-
 @media (max-width:360px) {
-	.task-stats li a {
-		padding:8px 0;
-	}
 	.delete-button {
 		display:block !important;
 		font-size:floor(@font-size-base * 1); // ~15px;

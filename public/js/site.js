@@ -8,6 +8,7 @@ $(document).ready(function(){
     var toTopLinks = $('[data-role="top"]');
     var zoomResetButton = $('[data-role="zoom-reset"]');
     var graphContainer = $('[data-role="graph"]');
+    var dateSelectDropdownMenu = $('[data-role="date-select-dropdown-menu"]');
 
     var graphOptions = {
         series: {
@@ -57,10 +58,12 @@ $(document).ready(function(){
         $(animateSection($('#top'), -55));
     });
 
+    // Switch standards list of rules
 	switchStandardsList(standardSelect);
     $('.rules-list-title').addClass('hidden');
-    $('.date-links').removeClass('date-links list-group').addClass('dropdown-menu');
-    $('.dropdown-menu a').removeClass('list-group-item active');
+    $('.date-links').removeClass('list-group date-links').addClass('dropdown-menu');
+    $('.dropdown-menu a').removeClass('list-group-item');
+    dateSelectDropdownMenu.removeClass('hidden');
 
 	standardSelect.change( function(){
 		switchStandardsList($(this));

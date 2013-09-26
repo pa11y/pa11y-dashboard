@@ -36,7 +36,7 @@
 
 {{#if results}}
 	<div class="col-md-12 clearfix">
-		<div class="graph-container ruled">
+		<div class="graph-container graph-spacer ruled">
 			<div data-role="graph" class="graph"></div>
 			<ul class="list-unstyled floated-list series-checkboxes clearfix crunch-bottom" data-role="series-checkboxes"></ul>
 			<button data-role='zoom-reset' class="btn btn-xs btn-primary pull-right btn-reset hidden">Reset Zoom <i class="glyphicon glyphicon-zoom-out"></i></button>
@@ -44,25 +44,37 @@
 	</div>
 
 	<div class="col-md-12 hidden">
-		{{> results-table}}
+		<div class="graph-spacer ruled">
+			{{> results-table}}
+		</div>
 	</div>
+
+	<div class="col-md-12 zfix">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+				<div class="date-selector">
+					<h4 class="show-stats text-center">Select a date to show stats for</h4>
+					<ul class="list-unstyled">
+						<li class="btn-group block-level clearfix">
+							<button data-toggle="dropdown" class="btn-full-width btn btn-primary dropdown-toggle" type="button">{{date-format task.lastResult.date format="DD MMM YYYY"}} <span class="glyphicon glyphicon-calendar"></span> <span class="caret"></span></button>
+							<ul role="navigation" class="date-links list-group hidden" data-role="date-select-dropdown-menu">
+								{{#results}}
+					          		<li><a class="list-group-item text-center" href="{{href}}">{{date-format date format="DD MMM YYYY"}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+					          	{{/results}}
+					        </ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
 {{/if}}
 
 <div class="col-md-3 aside">
 	{{#if results}}
 		<div class="row">
-			<div id="top" class="col-md-12 col-xs-6 dropdown-container">
-				<h4 class="show-stats hidden">Select a date to show stats for</h4>
-				<div class="btn-group block-level clearfix">
-					<button data-toggle="dropdown" class="btn-full-width btn btn-primary dropdown-toggle" type="button">{{date-format task.lastResult.date format="DD MMM YYYY"}} <span class="glyphicon glyphicon-calendar"></span> <span class="caret"></span></button>
-					<ul role="navigation" class="date-links list-group">
-						{{#results}}
-			          		<li><a class="list-group-item" href="{{href}}">{{date-format date format="DD MMM YYYY"}}</a></li>
-			          	{{/results}}
-			        </ul>
-				</div>
-			</div>
-			<div class="col-md-12 col-xs-6">
+			<div id="top" class="col-md-12 col-sm-6 col-xs-12">
 				<ul data-role="task-list" class="clearfix list-unstyled floated-list task-stats">
 					{{#mainResult}}
 						<li class="danger"><a href="#errors" title="See errors">{{count.error}}</a></li>
@@ -71,18 +83,17 @@
 					{{/mainResult}}
 				</ul>
 			</div>
-		</div>
-
-		<div class="row">
-			<div class="action-buttons clearfix">
-				<div class="col-md-12 col-xs-6">
-			        <a class="btn-full-width btn btn-default">Download CSV <span class="glyphicon glyphicon-download"></span></a>
+			<div class="action-buttons col-md-12 col-sm-6 clearfix">
+				<div class="row">
+					<!-- ########### Functionality to be done ############## -->
+					<div class="col-md-12 col-sm-6 col-xs-12">
+				        <a class="btn-full-width btn btn-default">Download CSV <span class="glyphicon glyphicon-download"></span></a>
+					</div>
+					<!-- ##################### End ######################## -->
+					<div class="col-md-12 col-sm-6 col-xs-12">
+				        <a href="/{{task.id}}.json" target="_blank" class="btn-full-width btn btn-default">Download JSON <span class="glyphicon glyphicon-download"></span></a>
+					</div>
 				</div>
-				<!-- ########### Functionality to be done ############## -->
-				<div class="col-md-12 col-xs-6">
-			        <a href="/{{task.id}}.json" target="_blank" class="btn-full-width btn btn-default">Download JSON <span class="glyphicon glyphicon-download"></span></a>
-				</div>
-				<!-- ##################### End ######################## -->
 		    </div>
 		</div>
 	{{/if}}
@@ -113,7 +124,7 @@
 				<ul class="list-unstyled">
 					{{#mainResult.errors}}
 						<li>
-							<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
+							<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
 							<p>{{message}}</p>
 						</li>
 					{{/mainResult.errors}}
@@ -133,7 +144,7 @@
 				<ul class="list-unstyled">
 					{{#mainResult.warnings}}
 						<li>
-							<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
+							<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
 							<p>{{message}}</p>
 						</li>
 					{{/mainResult.warnings}}
@@ -154,7 +165,7 @@
 				<ul class="list-unstyled">
 					{{#mainResult.notices}}
 						<li>
-							<p class="crunch rule-name">{{type}} : {{code}} <span class="badge">{{count}}</span></p>
+							<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
 							<p>{{message}}</p>
 						</li>
 					{{/mainResult.notices}}
