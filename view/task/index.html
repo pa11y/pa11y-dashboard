@@ -77,9 +77,9 @@
 			<div id="top" class="col-md-12 col-sm-6 col-xs-12">
 				<ul data-role="task-list" class="clearfix list-unstyled floated-list task-stats">
 					{{#mainResult}}
-						<li class="danger"><a href="#errors" title="See errors">{{count.error}}</a></li>
-						<li class="warning"><a href="#warnings" title="See warnings">{{count.warning}}</a></li>
-						<li class="info last"><a href="#notices" title="See notices">{{count.notice}}</a></li>
+						<li class="danger"><a href="#errors" title="See errors">{{count.error}}<span class="stat-type">Errors</span></a></li>
+						<li class="warning"><a href="#warnings" title="See warnings">{{count.warning}}<span class="stat-type">Warnings</span></a></li>
+						<li class="info last"><a href="#notices" title="See notices">{{count.notice}}<span class="stat-type">Notices</span></a></li>
 					{{/mainResult}}
 				</ul>
 			</div>

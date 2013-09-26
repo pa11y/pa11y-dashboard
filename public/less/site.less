@@ -91,12 +91,28 @@
 
 		a {
 			display:block;
-			padding:12px 0;
+			padding:7px 0 6px 0;
 			text-align:center;
 			color:@badge-color;
 		}
 		&.last {
 			margin-right:0;
+		}
+	}
+	.stat-type {
+		font-size:floor(@font-size-base * 0.75); // ~11px;
+		text-transform: uppercase;
+		display:block;
+		line-height:1.4;
+	}
+}
+
+.aside .task-stats {
+	li:hover {
+		.opacity(.85);
+
+		a {
+			text-decoration:none;
 		}
 	}
 }
@@ -126,7 +142,7 @@
 	}
 	.task-card-link {
 		color:@gray-dark;
-		min-height:185px;
+		min-height:200px;
 		display:block;
 	}
 	.delete-button {
@@ -147,7 +163,7 @@
 		width:100%;
 	}
 	.task-stats li {
-		padding:12px 0;
+		padding:7px 0 6px 0;
 		text-align:center;
 		color:@badge-color;
 	}

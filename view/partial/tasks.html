@@ -14,9 +14,9 @@
 				{{#if lastResult}}
 				<ul class="clearfix list-unstyled floated-list task-stats">
 					{{#lastResult}}
-						<li class="danger" title="Number of errors ({{count.error}})">{{count.error}}</li>
-						<li class="warning" title="Number of warnings ({{count.warning}})">{{count.warning}}</li>
-						<li class="info last" title="Number of notices ({{count.notice}})">{{count.notice}}</li>
+						<li class="danger" title="Number of errors ({{count.error}})">{{count.error}}<span class="stat-type">Errors</span></li>
+						<li class="warning" title="Number of warnings ({{count.warning}})">{{count.warning}}<span class="stat-type">Warnings</span></li>
+						<li class="info last" title="Number of notices ({{count.notice}})">{{count.notice}}<span class="stat-type">Notices</span></li>
 					{{/lastResult}}
 				</ul>
 				Last run {{date-format lastResult.date format="DD MMM YYYY"}}
