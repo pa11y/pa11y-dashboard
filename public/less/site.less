@@ -99,12 +99,13 @@
 			margin-right:0;
 		}
 	}
-	.stat-type {
-		font-size:floor(@font-size-base * 0.75); // ~11px;
-		text-transform: uppercase;
-		display:block;
-		line-height:1.4;
-	}
+}
+.stat-type {
+	font-size:floor(@font-size-base * 0.75); // ~11px;
+	text-transform: uppercase;
+	display:block;
+	line-height:1.4;
+	.opacity(.8);
 }
 
 .aside .task-stats {
@@ -288,10 +289,28 @@ ul.date-links {
 }
 .series-checkboxes {
 	margin-top:15px;
-}
-.series-checkboxes li {
-	padding:2px 10px;
-	border-right:solid 5px @badge-color;
+	
+	li {
+		width:32%;
+		margin-right:2%;
+
+		label {
+			padding:2px 4px;
+			margin-bottom:0;
+		}
+
+		input, label {
+			cursor: pointer;
+		}
+
+		&:last-child {
+			margin-right:0;
+		}
+
+		&:hover {
+			.opacity(.85);
+		}
+	}
 }
 .btn-reset {
 	margin-top:-24px;

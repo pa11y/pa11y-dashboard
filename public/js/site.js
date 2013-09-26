@@ -167,7 +167,7 @@ $(document).ready(function(){
 
     $.each(datasets, function(key, val) {
         var lowerCaseValue = (val.label.substring(0, val.label.length - 1)).toLowerCase();
-        choiceContainer.append("<li class='"+ lowerCaseValue +"'><label class='checkbox-inline' for='id" + key + "'><input type='checkbox' name='" + key + "' checked='checked' id='id" + key + "'/>" + val.label + "</label></li>");
+        choiceContainer.append("<li class='text-center "+ lowerCaseValue +"'><label for='id" + key + "'><input type='checkbox' name='" + key + "' checked='checked' id='id" + key + "'/><span class='stat-type'>" + val.label + "</span></label></li>");
     });
     
     choiceContainer.find("input").click(plotAccordingToChoices);
