@@ -106,7 +106,10 @@
 		<ul class="list-unstyled">
 		    {{#task.ignore}}
 		        <li>
-		        	<p class="crunch rule-name">{{.}}</p>
+					<p class="crunch rule-name">{{name}}</p>
+					{{#if description}}
+						<p>{{description}}</p>
+					{{/if}}
 				</li>
 		    {{/task.ignore}}
 		</ul>
