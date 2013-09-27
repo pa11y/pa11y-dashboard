@@ -22,7 +22,8 @@ function route (app) {
                     }
                     res.render('result', {
                         task: presentTask(task),
-                        mainResult: presentResult(result)
+                        mainResult: presentResult(result),
+                        isResultPage: true
                     });
                 });
         });

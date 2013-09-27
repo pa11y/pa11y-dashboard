@@ -2,7 +2,8 @@
 	<div class="ruled task-header">
 		<div class="row clearfix">
 			<div class="col-md-12">
-				<h2 class="crunch-top"><a href="{{task.href}}">{{simplify-url task.url}}</a> - results for {{date-format mainResult.date format="DD MMM YYYY"}}</h2>
+				<div class="h3 crunch well-med well pull-right"><span class="glyphicon glyphicon-calendar"></span>&nbsp;{{date-format mainResult.date format="DD MMM YYYY"}}</div>
+				<h2 class="crunch-top">{{simplify-url task.url}}</h2>
 				<p class="h4">({{task.standard}})</p>
 			</div>
 		</div>

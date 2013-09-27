@@ -15,7 +15,8 @@ function route (app) {
 			return standard;
 		});
 		res.render('new', {
-			standards: standards
+			standards: standards,
+			isNewTaskPage: true
 		});
 	});
 

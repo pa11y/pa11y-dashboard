@@ -1,0 +1,21 @@
+{{#unless isHomePage}}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ol class="breadcrumb">
+					<li><a href="/">Home</a></li>
+					{{#if isNewTaskPage}}
+						<li class="active">Add URL</li>
+					{{/if}}
+			  		{{#if isTaskPage}}
+					  <li class="active">{{simplify-url task.url}}</li>
+					{{/if}}
+					{{#if isResultPage}}
+						<li><a href="{{task.href}}">{{simplify-url task.url}}</a></li>
+				  		<li class="active">Results for {{date-format mainResult.date format="DD MMM YYYY"}}</li>
+			  		{{/if}}
+				</ol>
+			</div>
+		</div>
+	</div>
+{{/unless}}

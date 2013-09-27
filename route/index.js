@@ -13,7 +13,8 @@ function route (app) {
 			}
 			res.render('index', {
 				tasks: tasks.map(presentTask),
-				deleted: (typeof req.query.deleted !== 'undefined')
+				deleted: (typeof req.query.deleted !== 'undefined'),
+				isHomePage: true
 			});
 		});
 	});

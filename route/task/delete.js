@@ -14,7 +14,8 @@ function route (app) {
 				return next();
 			}
 			res.render('task/delete', {
-				task: presentTask(task)
+				task: presentTask(task),
+				isTaskPage: true
 			});
 		});
 	});
