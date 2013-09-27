@@ -65,6 +65,9 @@ function initApp (config, callback) {
 	});
 	app.express.use(function (err, req, res, next) {
 		/* jshint unused: false */
+		if (err.code === 'ECONNREFUSED') {
+			err = new Error('Could not connect to pa11y-webservice');
+		}
 		app.emit('route-error', err);
 		if (process.env.NODE_ENV !== 'production') {
 			res.locals.error = err;
