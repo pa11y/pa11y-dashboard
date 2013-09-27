@@ -4,7 +4,6 @@ var _ = require('underscore');
 var presentResult = require('./result');
 var standardsArray = require('../../data/standards')();
 var rules = createStandardDescriptionMap(standardsArray);
-console.log(rules);
 
 module.exports = presentTask;
 
