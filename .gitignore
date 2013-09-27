@@ -6,3 +6,6 @@ config/production.json
 # Generated npm files
 node_modules
 npm-debug.log
+
+# Generated CSS files
+public/css
