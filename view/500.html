@@ -2,8 +2,10 @@
 	<h1>Eeek! 500 error. This is serious.</h1>
 	<p class="h2">There isn't much you can do about this.</h2>
 	<p class="h4">Give it another go or try the <a href="/">home page</a>.</h4>
-	<p>Techy-stuff</p>
-	<pre>&lt;p&gt;Sample text here...&lt;/p&gt;</pre>
+	{{#if error}}
+		<h2>Stack-Trace</h2>
+		<pre>{{error.stack}}</pre>
+	{{/if}}
 </div>
 <div class="col-md-4">
 	<div class="well well-lg">

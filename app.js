@@ -66,6 +66,9 @@ function initApp (config, callback) {
 	app.express.use(function (err, req, res, next) {
 		/* jshint unused: false */
 		app.emit('route-error', err);
+		if (process.env.NODE_ENV !== 'production') {
+			res.locals.error = err;
+		}
 		res.status(500);
 		res.render('500');
 	});
