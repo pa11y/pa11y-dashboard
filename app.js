@@ -5,6 +5,7 @@ var EventEmitter = require('events').EventEmitter;
 var express = require('express');
 var hbs = require('express-hbs');
 var http = require('http');
+var lessMiddleware = require('less-middleware');
 
 module.exports = initApp;
 
@@ -17,11 +18,19 @@ function initApp (config, callback) {
 	app.server = http.createServer(app.express);
 	app.webservice = createClient(config.webservice);
 
-	// Express config
-	app.express.disable('x-powered-by');
+	// Public files
+	app.express.use(lessMiddleware({
+		src: __dirname + '/public/less',
+		dest: __dirname + '/public/css',
+		prefix: '/css',
+		yuicompress: true
+	}));
 	app.express.use(express.static(__dirname + '/public', {
 		maxAge: (process.env.NODE_ENV === 'production' ? 604800 : 0)
 	}));
+
+	// General express config
+	app.express.disable('x-powered-by');
 	app.express.use(express.compress());
 	app.express.use(express.bodyParser());
 
@@ -65,6 +74,9 @@ function initApp (config, callback) {
 	});
 	app.express.use(function (err, req, res, next) {
 		/* jshint unused: false */
+		if (err.code === 'ECONNREFUSED') {
+			err = new Error('Could not connect to pa11y-webservice');
+		}
 		app.emit('route-error', err);
 		if (process.env.NODE_ENV !== 'production') {
 			res.locals.error = err;

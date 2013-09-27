@@ -24,6 +24,7 @@
 		"chalk": "~0.2",
 		"express": "~3.4",
 		"express-hbs": "~0.2",
+		"less-middleware": "~0.1",
 		"moment": "~2.2",
 		"pa11y-webservice-client-node": "git+ssh://git@github.com:nature/pa11y-webservice-client-node.git#1.0.0-beta.3",
 		"underscore": "~1.5"
