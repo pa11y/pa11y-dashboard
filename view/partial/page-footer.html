@@ -1,15 +1,22 @@
 <footer>
 	<div class="footer" role="contentinfo">
 		<div class="container">
-			<ul class="pull-right crunch-bottom">
-				<li>
-					<a href="https://github.com/nature/pa11y">github repo</a>
-				</li>
-				<li>
-					<a href="https://github.com/nature/pa11y/wiki/HTML-CodeSniffer-Rules">list of rules</a>
-				</li>
-			</ul>
-			<p>Copyright {{year}} Nature Publishing Group.<br/>pa11y is licensed under the GNU General Public License 3.0.</p>
+			<div class="col-md-7">
+				<p>&copy; {{year}} Nature Publishing Group.<br/>pa11y dashboard is licensed under the GNU General Public License 3.0.<br/>Version {{version}}</p>
+			</div>
+			<div class="col-md-5 clearfix">
+				<ul class="crunch-bottom floated-list nav">
+					<li>
+						<a href="{{repo}}">github repo</a>
+					</li>
+					<li>
+						<a href="{{bugtracker}}">bug tracker</a>
+					</li>
+					<li>
+						<a href="{{rules}}">list of rules</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </footer>

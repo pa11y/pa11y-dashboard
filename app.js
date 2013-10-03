@@ -6,6 +6,7 @@ var express = require('express');
 var hbs = require('express-hbs');
 var http = require('http');
 var lessMiddleware = require('less-middleware');
+var pkg = require('./package.json');
 
 module.exports = initApp;
 
@@ -52,7 +53,11 @@ function initApp (config, callback) {
 	// Populate view locals
 	app.express.locals({
 		lang: 'en',
-		year: (new Date()).getFullYear()
+		year: (new Date()).getFullYear(),
+		version : pkg.version,
+		repo : pkg.homepage,
+		bugtracker : pkg.bugs,
+		rules : pkg.snifferules
 	});
 	app.express.use(function (req, res, next) {
 		res.locals.host = req.host;
