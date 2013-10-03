@@ -54,12 +54,13 @@ function initApp (config, callback) {
 	app.express.locals({
 		lang: 'en',
 		year: (new Date()).getFullYear(),
-		version : pkg.version,
-		repo : pkg.homepage,
-		bugtracker : pkg.bugs,
-		rules : pkg.snifferules
+		version: pkg.version,
+		repo: pkg.homepage,
+		bugtracker: pkg.bugs,
+		rules: pkg.snifferules
 	});
 	app.express.use(function (req, res, next) {
+		res.locals.isHomePage = (req.path === '/');
 		res.locals.host = req.host;
 		next();
 	});

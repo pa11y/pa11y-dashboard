@@ -1,7 +1,10 @@
 <header>
 	<div role="banner" class="header">
 		<div class="container">
-			<h1><a href="/">pa11y dashboard</a> - <span class="h3">your automated accessibility testing pal</span></h1>
+			{{#if isHomePage}}<h1>{{else}}<div class="h1">{{/if}}
+				<a href="/">pa11y dashboard</a> -
+				<span class="h3">your automated accessibility testing pal</span>
+			{{#if isHomePage}}</h1>{{else}}</div>{{/if}}
 		</div>
 	</div>
 </header>
