@@ -13,6 +13,20 @@
 	</div>
 {{/added}}
 
+{{#running}}
+	<div class="col-md-12 clearfix">
+		<div class="alert alert-success">
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+			<strong>New results incoming!</strong>
+			<p>
+				New results are being generated for this URL in the background.
+				This can take up to a minute to complete.
+				<a href="/{{task.id}}">Click here to refresh this page</a>.
+			</p>
+		</div>
+	</div>
+{{/running}}
+
 {{> task-header}}
 
 {{#if results}}
@@ -30,7 +44,7 @@
 		<div class="alert alert-info">
 			<h4>There are no results to show</h4>
 			<p>pa11y has not been run against this URL yet so there are no results to show.</p>
-			<!-- <p>To run pa11y for this URL now <a href="">click here</a></p> -->
+			<p><a href="{{task.hrefRun}}">Click here to generate results for this URL</a>.</p>
 		</div>
 	</div>
 {{/if}}

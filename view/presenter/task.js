@@ -12,6 +12,7 @@ function presentTask (task) {
     // Add additional info
     task.href = '/' + task.id;
     task.hrefDelete = '/' + task.id + '/delete';
+    task.hrefRun = '/' + task.id + '/run';
     task.hrefJson = '/' + task.id + '.json';
 
     // Enhance the ignored rules

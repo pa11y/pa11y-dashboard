@@ -23,6 +23,7 @@ function route (app) {
 					results: presentResultList(results.map(presentResult)),
 					mainResult: task.lastResult || null,
 					added: (typeof req.query.added !== 'undefined'),
+					running: (typeof req.query.running !== 'undefined'),
 					isTaskPage: true
 				});
 			});

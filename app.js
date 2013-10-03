@@ -69,6 +69,7 @@ function initApp (config, callback) {
 	require('./route/new')(app);
 	require('./route/task/index')(app);
 	require('./route/task/delete')(app);
+	require('./route/task/run')(app);
 	require('./route/result/index')(app);
 	require('./route/result/download')(app);
 
