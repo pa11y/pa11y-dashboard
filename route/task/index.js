@@ -18,12 +18,14 @@ function route (app) {
 				if (err) {
 					return next(err);
 				}
+				var presentedResults = presentResultList(results.map(presentResult));
 				res.render('task', {
 					task: presentTask(task),
-					results: presentResultList(results.map(presentResult)),
+					results: presentedResults,
 					mainResult: task.lastResult || null,
 					added: (typeof req.query.added !== 'undefined'),
 					running: (typeof req.query.running !== 'undefined'),
+					hasOneResult: (presentedResults.length < 2),
 					isTaskPage: true
 				});
 			});

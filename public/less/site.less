@@ -191,6 +191,7 @@
 		text-overflow:ellipsis;
 		overflow:hidden;
 		width:100%;
+		white-space: nowrap;
 	}
 	.task-stats li {
 		padding:7px 0 6px 0;
@@ -297,6 +298,14 @@ ul.date-links {
 
 	.btn-group > .btn {
 		float:none;
+	}
+
+	&.single-result {
+		margin-top:-55px;
+
+		.show-stats {
+			display:none;
+		}
 	}
 }
 

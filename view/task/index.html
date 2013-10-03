@@ -30,7 +30,9 @@
 
 {{#if results}}
 	
-	{{> graph}}	
+	{{#unless hasOneResult}}
+		{{> graph}}
+	{{/unless}}
 
 	{{> result-selector}}
 
