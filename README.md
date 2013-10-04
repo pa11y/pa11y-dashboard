@@ -1,4 +1,3 @@
-
 pa11y-dashboard
 ===============
 
@@ -6,6 +5,10 @@ pa11y-dashboard is a visual web interface to the [pa11y][pa11y] accessibility re
 
 **Current Version:** *1.0.0-beta.1*  
 **Node Version Support:** *0.10*
+
+
+![The Dashboard Page](https://f.cloud.github.com/assets/1225142/1269563/2fc6e4e0-2cfb-11e3-8f49-e74a9d49bb32.jpg)
+![The URL Page](https://f.cloud.github.com/assets/1225142/1269564/2fe12f26-2cfb-11e3-8a24-d6eba09a940d.jpg)
 
 
 Setup
