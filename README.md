@@ -3,7 +3,7 @@ pa11y-dashboard
 
 pa11y-dashboard is a visual web interface to the [pa11y][pa11y] accessibility reporter.
 
-**Current Version:** *1.0.0-beta.1*  
+**Current Version:** *1.0.0-beta.2*  
 **Node Version Support:** *0.10*
 
 
