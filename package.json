@@ -22,6 +22,7 @@
 		"node": ">=0.10"
 	},
 	"dependencies": {
+		"bower": "~1.2",
 		"chalk": "~0.2",
 		"express": "~3.4",
 		"express-hbs": "~0.2",

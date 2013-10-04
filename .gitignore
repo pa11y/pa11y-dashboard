@@ -9,3 +9,6 @@ npm-debug.log
 
 # Generated CSS files
 public/css
+
+# Bower installed js files
+public/js/vendor

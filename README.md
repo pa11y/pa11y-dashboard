@@ -13,7 +13,7 @@ Setup
 
 pa11y-dashboard requires [Node.js][node] 0.10+ and [pa11y-webservice][pa11y-webservice] to be installed and running. You'll need to follow the setup guide for pa11y-webservice before setting up pa11y-dashboard.
 
-You'll then need to clone this repo locally and install dependencies with `npm install`. Once you have a local clone, you'll need to copy some sample configuration files in order to run the application. From within the repo, run the following commands:
+You'll then need to clone this repo locally and install dependencies with `make deps`, this installs npm and bower dependencies. Once you have a local clone, you'll need to copy some sample configuration files in order to run the application. From within the repo, run the following commands:
 
 ```sh
 $ cp config/development.sample.json config/development.json

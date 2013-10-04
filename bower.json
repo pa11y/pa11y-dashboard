@@ -1,0 +1,9 @@
+{
+  "name": "pa11y-dashboard",
+
+  "dependencies": {
+    "jquery": "~1.10",
+    "bootstrap": "~3.0",
+    "flot": "~0.8"
+  }
+}

@@ -6,6 +6,7 @@ all: deps lint
 deps:
 	@echo "Installing dependencies..."
 	@npm install
+	@./node_modules/.bin/bower install
 
 # Lint JavaScript
 lint:
