@@ -8,7 +8,7 @@ pa11y-dashboard is a visual web interface to the [pa11y][pa11y] accessibility re
 
 
 ![The Dashboard Page](https://f.cloud.github.com/assets/1225142/1269563/2fc6e4e0-2cfb-11e3-8f49-e74a9d49bb32.jpg)
-![The URL Page](https://f.cloud.github.com/assets/1225142/1269564/2fe12f26-2cfb-11e3-8a24-d6eba09a940d.jpg)
+![The URL Page](https://f.cloud.github.com/assets/1225142/1297247/f749f3a0-30dd-11e3-9920-583f86f3c8f9.jpg)
 
 
 Setup
