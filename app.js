@@ -23,7 +23,7 @@ function initApp (config, callback) {
 
 	// Public files
 	app.express.use(express.static(__dirname + '/public', {
-		maxAge: (process.env.NODE_ENV === 'production' ? 604800 : 0)
+		maxAge: (process.env.NODE_ENV === 'production' ? 604800000 : 0)
 	}));
 
 	// General express config
