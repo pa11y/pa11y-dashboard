@@ -60,6 +60,24 @@ The boot configurations for pa11y-dashboard are as follows. Look at the sample J
 *(number)* The port to run the application on.
 
 
+Development
+-----------
+
+To develop pa11y-dashboard, you'll need to clone the repo and get set up as outlined in the [setup guide](#setup). You'll also need [Grunt][grunt] to be installed globally in order to run tests, you can do this with `npm install -g grunt-cli`.
+
+Now you'll be able to run the following commands:
+
+```sh
+$ grunt          # Run the lint and test tasks together
+$ grunt lint     # Run JSHint with the correct config
+$ grunt compile  # Compile front-end assets
+```
+
+Code with lint errors or failing tests will not be accepted, please use the build tools outlined above.
+
+For users with push-access, don't commit to the master branch. Code should be in `develop` until it's ready to be released.
+
+
 License
 -------
 
