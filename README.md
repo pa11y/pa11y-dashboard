@@ -60,6 +60,7 @@ Now you'll be able to run the following commands:
 $ grunt          # Run the lint and test tasks together
 $ grunt lint     # Run JSHint with the correct config
 $ grunt compile  # Compile front-end assets
+$ grunt watch    # Watch for file changes and compile assets
 ```
 
 Code with lint errors or failing tests will not be accepted, please use the build tools outlined above.
