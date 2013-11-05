@@ -3,7 +3,7 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 
 		jshint: {
-			all: ['**/*.js', '!node_modules/**/*.js', '!public/js/vendor/**/*.js'],
+			all: ['**/*.js', '!node_modules/**/*.js', '!public/js/vendor/**/*.js', '!public/js/site.min.js'],
 			options: {
 				es3: false,
 				indent: 4,
