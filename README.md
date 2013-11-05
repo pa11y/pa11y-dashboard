@@ -16,14 +16,9 @@ Setup
 
 pa11y-dashboard requires [Node.js][node] 0.10+ and [pa11y-webservice][pa11y-webservice] to be installed and running. You'll need to follow the setup guide for pa11y-webservice before setting up pa11y-dashboard.
 
-You'll then need to clone this repo locally and install dependencies with:
+You'll then need to clone this repo locally and install dependencies with `npm install`.
 
-```sh
-$ npm install
-$ ./node_modules/.bin/bower install
-```
-
-This installs npm and bower dependencies. Once you have a local clone, you'll need to copy some sample configuration files in order to run the application. From within the repo, run the following commands:
+Once you have a local clone, you'll need to copy some sample configuration files in order to run the application. From within the repo, run the following commands:
 
 ```sh
 $ cp config/development.sample.json config/development.json
@@ -31,12 +26,6 @@ $ cp config/production.sample.json config/production.json
 ```
 
 Each of these files defines configurations for a different environment. If you're just running the application locally, then you should be OK with just development configurations. The [available configurations are documented here](#configurations).
-
-You'll need [Grunt][grunt] to be installed globally in order to compile front-end assets. Run `npm install -g grunt-cli` to install grunt if you haven't already, then to compile assets:
-
-```
-$ grunt compile
-```
 
 Now that you've got your application configured, you can run in each mode with the following commands:
 
