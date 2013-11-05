@@ -32,6 +32,12 @@ $ cp config/production.sample.json config/production.json
 
 Each of these files defines configurations for a different environment. If you're just running the application locally, then you should be OK with just development configurations. The [available configurations are documented here](#configurations).
 
+You'll need [Grunt][grunt] to be installed globally in order to compile front-end assets. Run `npm install -g grunt-cli` to install grunt if you haven't already, then to compile assets:
+
+```
+$ grunt compile
+```
+
 Now that you've got your application configured, you can run in each mode with the following commands:
 
 ```sh
@@ -63,6 +69,7 @@ pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
 
 
 [gpl]: http://www.gnu.org/licenses/gpl-3.0.html
+[grunt]: http://gruntjs.com/
 [node]: http://nodejs.org/
 [pa11y]: https://github.com/nature/pa11y
 [pa11y-webservice]: https://github.com/nature/pa11y-webservice

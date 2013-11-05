@@ -5,7 +5,6 @@ var EventEmitter = require('events').EventEmitter;
 var express = require('express');
 var hbs = require('express-hbs');
 var http = require('http');
-var lessMiddleware = require('less-middleware');
 var pkg = require('./package.json');
 
 module.exports = initApp;
@@ -20,12 +19,6 @@ function initApp (config, callback) {
 	app.webservice = createClient(config.webservice);
 
 	// Public files
-	app.express.use(lessMiddleware({
-		src: __dirname + '/public/less',
-		dest: __dirname + '/public/css',
-		prefix: '/css',
-		yuicompress: true
-	}));
 	app.express.use(express.static(__dirname + '/public', {
 		maxAge: (process.env.NODE_ENV === 'production' ? 604800 : 0)
 	}));
