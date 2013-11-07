@@ -29,6 +29,18 @@ module.exports = function (grunt) {
 			}
 		},
 
+		nodemon: {
+			development: {
+				options: {
+					cwd: __dirname,
+					file: 'index.js',
+					env: {
+						NODE_ENV: 'development'
+					}
+				}
+			}
+		},
+
 		uglify: {
 			options: {
 				mangle: false
@@ -67,9 +79,11 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-nodemon');
 
 	grunt.registerTask('lint', ['jshint']);
 	grunt.registerTask('compile', ['less', 'uglify']);
+	grunt.registerTask('start', ['nodemon:development']);
 	grunt.registerTask('default', ['compile', 'lint']);
 	grunt.registerTask('ci', ['compile', 'lint']);
 

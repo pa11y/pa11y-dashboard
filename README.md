@@ -30,11 +30,11 @@ Each of these files defines configurations for a different environment. If you'r
 Now that you've got your application configured, you can run in each mode with the following commands:
 
 ```sh
-$ NODE_ENV=production node .
-$ NODE_ENV=development ./node_modules/.bin/supervisor -q .
+$ NODE_ENV=production node .   # Run in production
+$ NODE_ENV=development node .  # Run in development
 ```
 
-Development mode runs the application with [Supervisor][supervisor], so you won't need to restart it if you change any JavaScript files.
+See [development instructions](#development) for more information about running locally (and restarting automatically when files change).
 
 
 Configurations
@@ -60,6 +60,7 @@ Now you'll be able to run the following commands:
 $ grunt          # Run the lint and test tasks together
 $ grunt lint     # Run JSHint with the correct config
 $ grunt compile  # Compile front-end assets
+$ grunt start    # Run app in development mode, restarting if files change
 $ grunt watch    # Watch for file changes and compile assets
 ```
 
