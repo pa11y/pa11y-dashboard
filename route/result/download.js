@@ -40,7 +40,7 @@ function route (app) {
             moment(result.date).format('YYYY-MM-DD'),
             '.',
             extension
-        ].join('')
+        ].join('');
     }
 
     app.express.get('/:id/:rid.csv', getTaskAndResult, function (req, res) {
