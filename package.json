@@ -16,7 +16,6 @@
 	},
 	"homepage": "https://github.com/nature/pa11y-dashboard",
 	"bugs": "https://github.com/nature/pa11y-dashboard/issues",
-	"snifferules": "https://github.com/nature/pa11y/wiki/HTML-CodeSniffer-Rules",
 
 	"engines": {
 		"node": ">=0.10"
