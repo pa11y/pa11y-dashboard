@@ -95,24 +95,28 @@
 			<a class="pull-right" href="#top" data-role="top">Back to top</a>
 		</div>
 	{{else}}
-		<p class="heading label-warning" id="notices">Well done! You have 0 notices. <span class="glyphicon glyphicon-ok pull-right"></span></p>
+		<p class="heading label-info" id="notices">Well done! You have 0 notices. <span class="glyphicon glyphicon-ok pull-right"></span></p>
 	{{/if}}
 
-	<div class="heading label-default">
-		<span data-role="expander" class="pull-right expander"> + </span>
-		Ignored Rules
-	</div>
-	<div class="task-default tasks-list collapse clearfix">
-		<ul class="list-unstyled">
-		    {{#task.ignore}}
-		        <li>
-					<p class="crunch rule-name">{{name}}</p>
-					{{#if description}}
-						<p>{{description}}</p>
-					{{/if}}
-				</li>
-		    {{/task.ignore}}
-		</ul>
-		<a class="pull-right" href="#top" data-role="top">Back to top</a>
-	</div>
+	{{#if task.ignore.length}}
+		<div class="heading label-default">
+			<span data-role="expander" class="pull-right expander"> + </span>
+			Ignored Rules
+		</div>
+		<div class="task-default tasks-list collapse clearfix">
+			<ul class="list-unstyled">
+			    {{#task.ignore}}
+			        <li>
+						<p class="crunch rule-name">{{name}}</p>
+						{{#if description}}
+							<p>{{description}}</p>
+						{{/if}}
+					</li>
+			    {{/task.ignore}}
+			</ul>
+			<a class="pull-right" href="#top" data-role="top">Back to top</a>
+		</div>
+	{{else}}
+		<p class="heading label-default">You have no ignored rules.</p>
+	{{/if}}
 </div>
