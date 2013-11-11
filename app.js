@@ -51,8 +51,7 @@ function initApp (config, callback) {
 		year: (new Date()).getFullYear(),
 		version: pkg.version,
 		repo: pkg.homepage,
-		bugtracker: pkg.bugs,
-		rules: pkg.snifferules
+		bugtracker: pkg.bugs
 	});
 	app.express.use(function (req, res, next) {
 		res.locals.isHomePage = (req.path === '/');

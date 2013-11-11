@@ -22,6 +22,7 @@ function route (app) {
 
 	app.express.post('/new', function (req, res) {
 		var newTask = {
+			name: req.body.name,
 			url: req.body.url,
 			standard: req.body.standard,
 			ignore: req.body.ignore || []
