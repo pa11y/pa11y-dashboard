@@ -12,20 +12,20 @@ $(document).ready(function(){
 
     var graphOptions = {
         series: {
-                lines: { show: true },
-                points: { show: true },
-                hoverable: true
-            },
+            lines: { show: true },
+            points: { show: true },
+            hoverable: true
+        },
         xaxis: {
-            mode: "categories",
+            mode: 'categories',
             tickLength: 0
         },
         lines: {
             lineWidth: 3
         },
         grid: {
-            backgroundColor: "#fff",
-            borderColor: "#808080",
+            backgroundColor: '#fff',
+            borderColor: '#808080',
             hoverable: true,
             clickable: true,
             borderWidth: {
@@ -36,7 +36,7 @@ $(document).ready(function(){
             }
         },
         selection: {
-            mode: "x"
+            mode: 'x'
         }
     };
 
@@ -93,8 +93,8 @@ $(document).ready(function(){
     // Function to animate sections
     function animateSection (sectionName, offset){
         $('html,body').animate({
-              scrollTop: $(sectionName).offset().top + offset
-            }, 750);
+            scrollTop: $(sectionName).offset().top + offset
+        }, 750);
     }
 
     // Standards list switcher for new task form
@@ -132,9 +132,9 @@ $(document).ready(function(){
 
     function getData() {
         return [
-            { color: "rgb(231, 76, 60)", label: "Errors", data:  data.error },
-            { color: "rgb(243, 156, 18)", label: "Warnings", data:  data.warning  },
-            { color: "rgb(52, 152, 219)", label: "Notices", data:  data.notice }
+            { color: 'rgb(231, 76, 60)', label: 'Errors', data:  data.error },
+            { color: 'rgb(243, 156, 18)', label: 'Warnings', data:  data.warning  },
+            { color: 'rgb(52, 152, 219)', label: 'Notices', data:  data.notice }
         ];
     }
 
@@ -142,7 +142,7 @@ $(document).ready(function(){
         zoomResetButton.toggleClass('hidden');
     }
 
-    graphContainer.bind("plotselected", function (event, ranges) {
+    graphContainer.bind('plotselected', function (event, ranges) {
         // clamp the zooming to prevent eternal zoom
         if (ranges.xaxis.to - ranges.xaxis.from < 0.00001) {
             ranges.xaxis.to = ranges.xaxis.from + 0.00001;
@@ -167,15 +167,20 @@ $(document).ready(function(){
 
     $.each(datasets, function(key, val) {
         var lowerCaseValue = (val.label.substring(0, val.label.length - 1)).toLowerCase();
-        choiceContainer.append("<li class='text-center "+ lowerCaseValue +"'><label for='id" + key + "'><input type='checkbox' name='" + key + "' checked='checked' id='id" + key + "'/><span class='stat-type'>" + val.label + "</span></label></li>");
+        choiceContainer.append('<li class="text-center '+
+        lowerCaseValue +'"><label for="id' + key +
+        '"><input type="checkbox" name="' + key +
+        '" checked="checked" id="id' + key +
+        '"/><span class="stat-type">' + val.label +
+        '</span></label></li>');
     });
     
-    choiceContainer.find("input").click(plotAccordingToChoices);
+    choiceContainer.find('input').click(plotAccordingToChoices);
         
     function plotAccordingToChoices() {
         var data = [];
-        choiceContainer.find("input:checked").each(function () {
-            var key = $(this).attr("name");
+        choiceContainer.find('input:checked').each(function () {
+            var key = $(this).attr('name');
             if (key && datasets[key]) {
                 data.push(datasets[key]);
             }
@@ -187,25 +192,24 @@ $(document).ready(function(){
     }
 
     function showTooltip(x, y, contents) {
-        $("<div data-role='tooltip' class='tooltip in'><div class='tooltip-inner'>" + contents + "</div></div>").css({
-        top: y + 5,
-        left: x + 5
-        }).appendTo("body").fadeIn(200);
+        $('<div data-role="tooltip" class="tooltip in"><div class="tooltip-inner">' +
+        contents +
+        '</div></div>').css({top: y + 5,left: x + 5}).appendTo('body').fadeIn(200);
     }
 
     var previousPoint = null;
-    graphContainer.bind("plothover", function (event, pos, item) {
+    graphContainer.bind('plothover', function (event, pos, item) {
         if (item) {
             if (previousPoint != item.dataIndex) {
                 previousPoint = item.dataIndex;
-                $("[data-role='tooltip']").remove();
+                $('[data-role="tooltip"]').remove();
                 var y = item.datapoint[1].toFixed(0);
-                var contents = "<h6 class='crunch'>" + y + " " + item.series.label + "</h6>";
+                var contents = '<h6 class="crunch">' + y + ' ' + item.series.label + '</h6>';
                 showTooltip(item.pageX, item.pageY, contents);
             }
-            } else {
-                $("[data-role='tooltip']").remove();
-                previousPoint = null;
-            }
+        } else {
+            $('[data-role="tooltip"]').remove();
+            previousPoint = null;
+        }
     });
 });
