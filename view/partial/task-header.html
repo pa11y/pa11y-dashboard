@@ -1,11 +1,11 @@
 <div class="col-md-12">
 	<div class="ruled task-header">
 		<div class="row clearfix">
-			<div class="col-md-10">
+			<div class="col-md-9 col-sm-9">
 				<h1 class="h2 crunch-top">{{simplify-url task.url}}</h1>
 				<p class="h4">({{task.standard}})</p>
 			</div>
-			<div class="col-md-2 text-right run-details">
+			<div class="col-md-3 col-sm-3 text-right run-details">
 				<a href="{{task.hrefRun}}" class="btn btn-success">Run <span class="glyphicon glyphicon-play"></span></a>
 				{{#if mainResult}}
 					<div class="date">Last run : {{date-format mainResult.date format="DD MMM YYYY"}}</div>
