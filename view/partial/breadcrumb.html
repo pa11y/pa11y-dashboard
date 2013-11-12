@@ -8,10 +8,10 @@
 						<li class="active">Add URL</li>
 					{{/if}}
 			  		{{#if isTaskPage}}
-					  <li class="active">{{simplify-url task.url}}</li>
+					  <li class="active">{{task.name}}</li>
 					{{/if}}
 					{{#if isResultPage}}
-						<li><a href="{{task.href}}">{{simplify-url task.url}}</a></li>
+						<li><a href="{{task.href}}">{{task.name}}</a></li>
 				  		<li class="active">Results for {{date-format mainResult.date format="DD MMM YYYY"}}</li>
 			  		{{/if}}
 				</ol>

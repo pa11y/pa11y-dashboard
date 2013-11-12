@@ -1,6 +1,6 @@
 
 {{#content "title"}}
-    {{task.url}} ({{task.standard}}) {{date-format mainResult.date format="DD MMM YYYY"}}
+    {{task.name}} - {{simplify-url task.url}} ({{task.standard}}) - {{date-format mainResult.date format="DD MMM YYYY"}}
 {{/content}}
 
 {{> result-header}}
