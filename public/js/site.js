@@ -168,11 +168,11 @@ $(document).ready(function(){
     $.each(datasets, function(key, val) {
         var lowerCaseValue = (val.label.substring(0, val.label.length - 1)).toLowerCase();
         choiceContainer.append('<li class="text-center '+
-        lowerCaseValue +'"><label for="id' + key +
-        '"><input type="checkbox" name="' + key +
+        lowerCaseValue +'"><div class="series-checkbox-container"><input type="checkbox" name="' + key +
         '" checked="checked" id="id' + key +
-        '"/><span class="stat-type">' + val.label +
-        '</span></label></li>');
+        '"/><label for="id' + key +
+        '"><span class="stat-type">' + val.label +
+        '</span></label></div></li>');
     });
     
     choiceContainer.find('input').click(plotAccordingToChoices);
