@@ -96,6 +96,14 @@
 .delete-button:hover {
 	color:lighten(@brand-danger, 8%);
 }
+.footer a, .breadcrumb a {
+	text-decoration:underline;
+}
+.breadcrumb a {
+	&:hover, &:active, &:focus {
+		text-decoration: none;
+	}
+}
 
 /* Type */
 .h1 {

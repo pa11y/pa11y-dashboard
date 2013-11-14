@@ -132,9 +132,9 @@ $(document).ready(function(){
 
     function getData() {
         return [
-            { color: 'rgb(231, 76, 60)', label: 'Errors', data:  data.error },
-            { color: 'rgb(243, 156, 18)', label: 'Warnings', data:  data.warning  },
-            { color: 'rgb(52, 152, 219)', label: 'Notices', data:  data.notice }
+            { color: 'rgb(216, 61, 45)', label: 'Errors', data:  data.error },
+            { color: 'rgb(168, 103, 0)', label: 'Warnings', data:  data.warning  },
+            { color: 'rgb(23, 123, 190)', label: 'Notices', data:  data.notice }
         ];
     }
 
