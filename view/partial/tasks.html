@@ -1,12 +1,20 @@
 
 <ul class="list-unstyled clearfix crunch-bottom">
 	<li class="col-md-4 col-sm-6 task-card add-task">
-		<a class="well task-card-link crunch-bottom" data-role="add-task" href="/new">
-			<p class="h3 crunch">Add new URL</p>
-			<p class="supersize-me crunch">+</p>
-		</a>
+		{{#if readonly}}
+			{{! TODO PERRY: make this look disabled }}
+			<span class="well task-card-link crunch-bottom">
+				<p class="h3 crunch">Add new URL</p>
+				<p class="supersize-me crunch">+</p>
+			</span>
+		{{else}}
+			<a class="well task-card-link crunch-bottom" data-role="add-task" href="/new">
+				<p class="h3 crunch">Add new URL</p>
+				<p class="supersize-me crunch">+</p>
+			</a>
+		{{/if}}
 	</li>
-	{{#tasks}}
+	{{#each tasks}}
 		<li class="col-md-4 col-sm-6 task-card">
 			<a class="well task-card-link crunch-bottom" title="Details for URL {{simplify-url url}}" href="{{href}}">
 				<p class="h3">{{name}}</p>
@@ -24,7 +32,9 @@
 					<p class="no-results">No results</p>
 				{{/if}}
 			</a>
-			<a title="Delete this URL" class="delete-button" href="{{hrefDelete}}"><span class="sr-only">Delete </span><span class="glyphicon glyphicon-remove"></span></a>
+			{{#unless ../readonly}}
+				<a title="Delete this URL" class="delete-button" href="{{hrefDelete}}"><span class="sr-only">Delete </span><span class="glyphicon glyphicon-remove"></span></a>
+			{{/unless}}
 		</li>
-	{{/tasks}}
+	{{/each}}
 </ul>

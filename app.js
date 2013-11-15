@@ -53,8 +53,10 @@ function initApp (config, callback) {
 		version: pkg.version,
 		repo: pkg.homepage,
 		bugtracker: pkg.bugs,
-		noindex: config.noindex
+		noindex: config.noindex,
+		readonly: config.readonly
 	});
+
 	app.express.use(function (req, res, next) {
 		res.locals.isHomePage = (req.path === '/');
 		res.locals.host = req.host;
@@ -63,12 +65,14 @@ function initApp (config, callback) {
 
 	// Load routes
 	require('./route/index')(app);
-	require('./route/new')(app);
 	require('./route/task/index')(app);
-	require('./route/task/delete')(app);
-	require('./route/task/run')(app);
 	require('./route/result/index')(app);
 	require('./route/result/download')(app);
+	if (!config.readonly) {
+		require('./route/new')(app);
+		require('./route/task/delete')(app);
+		require('./route/task/run')(app);
+	}
 
 	// Error handling
 	app.express.get('*', function (req, res) {
@@ -100,6 +104,9 @@ function initApp (config, callback) {
 function defaultConfig (config) {
 	if (typeof config.noindex !== 'boolean') {
 		config.noindex = true;
+	}
+	if (typeof config.readonly !== 'boolean') {
+		config.readonly = false;
 	}
 	return config;
 }

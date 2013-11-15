@@ -6,7 +6,9 @@
 				<p class="h4">{{simplify-url task.url}}<span class="h5"> ({{task.standard}})</span></p>
 			</div>
 			<div class="col-md-3 col-sm-3 text-right run-details">
-				<a href="{{task.hrefRun}}" class="btn btn-success">Run <span class="glyphicon glyphicon-play"></span></a>
+				{{#unless readonly}}
+					<a href="{{task.hrefRun}}" class="btn btn-success">Run <span class="glyphicon glyphicon-play"></span></a>
+				{{/unless}}
 				{{#if mainResult}}
 					<div class="date">Last run : {{date-format mainResult.date format="DD MMM YYYY"}}</div>
 				{{else}}

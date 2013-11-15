@@ -51,6 +51,9 @@ The boot configurations for pa11y-dashboard are as follows. Look at the sample J
 ### noindex
 *(boolean)* If set to `true` (default), the dashboard will not be indexed by search engines. Set to `false` to allow indexing.
 
+### readonly
+*(boolean)* If set to `true`, users will not be able to add, delete or run URLs (defaults to `false`).
+
 
 Development
 -----------
