@@ -11,6 +11,7 @@ module.exports = initApp;
 
 // Initialise the application
 function initApp (config, callback) {
+	config = defaultConfig(config);
 
 	var app = new EventEmitter();
 	app.address = null;
@@ -51,7 +52,8 @@ function initApp (config, callback) {
 		year: (new Date()).getFullYear(),
 		version: pkg.version,
 		repo: pkg.homepage,
-		bugtracker: pkg.bugs
+		bugtracker: pkg.bugs,
+		noindex: config.noindex
 	});
 	app.express.use(function (req, res, next) {
 		res.locals.isHomePage = (req.path === '/');
@@ -92,4 +94,12 @@ function initApp (config, callback) {
 		callback(err, app);
 	});
 
+}
+
+// Get default configurations
+function defaultConfig (config) {
+	if (typeof config.noindex !== 'boolean') {
+		config.noindex = true;
+	}
+	return config;
 }

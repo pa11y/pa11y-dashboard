@@ -9,6 +9,8 @@
 	<title>{{block "title"}}</title>
 	<meta name="description" content="{{block "description"}}"/>
 
+	{{#if noindex}}<meta name="robots" content="noindex"/>{{/if}}
+
 	<link rel="icon" type="image/png" href="favicon.png" />
 
 	<!-- For mobile devices. -->

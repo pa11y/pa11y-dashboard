@@ -48,6 +48,9 @@ The boot configurations for pa11y-dashboard are as follows. Look at the sample J
 ### port
 *(number)* The port to run the application on.
 
+### noindex
+*(boolean)* If set to `true` (default), the dashboard will not be indexed by search engines. Set to `false` to allow indexing.
+
 
 Development
 -----------
