@@ -7,8 +7,8 @@ pa11y-dashboard is a visual web interface to the [pa11y][pa11y] accessibility re
 **Node Version Support:** *0.10*
 
 
-![dashboard](https://f.cloud.github.com/assets/1225142/1549551/3000c5d0-4de8-11e3-8f73-129a2d16f50f.jpg)
-![results-page](https://f.cloud.github.com/assets/1225142/1549552/3184e760-4de8-11e3-8c67-28a39e37fde9.jpg)
+![dashboard](https://f.cloud.github.com/assets/1225142/1549567/f0361e72-4de8-11e3-8d14-3fe6900cc15d.jpg)
+![results-page](https://f.cloud.github.com/assets/1225142/1549568/f225aa54-4de8-11e3-8b25-ef2f405997a3.jpg)
 
 
 Setup
