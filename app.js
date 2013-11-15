@@ -54,7 +54,8 @@ function initApp (config, callback) {
 		repo: pkg.homepage,
 		bugtracker: pkg.bugs,
 		noindex: config.noindex,
-		readonly: config.readonly
+		readonly: config.readonly,
+		siteMessage: config.siteMessage
 	});
 
 	app.express.use(function (req, res, next) {

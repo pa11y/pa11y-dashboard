@@ -54,6 +54,9 @@ The boot configurations for pa11y-dashboard are as follows. Look at the sample J
 ### readonly
 *(boolean)* If set to `true`, users will not be able to add, delete or run URLs (defaults to `false`).
 
+### siteMessage
+*(string)* A message to display prominently on the site home page. Defaults to `null`.
+
 
 Development
 -----------

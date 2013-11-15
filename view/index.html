@@ -1,5 +1,13 @@
 {{#content "title"}}pa11y-dashboard{{/content}}
 
+{{#if siteMessage}}
+    <div class="col-md-12 clearfix">
+        <div class="alert alert-info">
+            <p>{{siteMessage}}</p>
+        </div>
+    </div>
+{{/if}}
+
 {{#deleted}}
     <div class="col-md-12 clearfix">
         <div class="alert alert-info">
