@@ -32,7 +32,11 @@
 	{{> breadcrumb}}
 
 	<div class="container">
-		<div class="row">
+		{{#if readonly}}
+			<div class="row demo-mode">
+		{{else}}
+			<div class="row">
+		{{/if}}
 			<section>
 				<div class="section" role="main">
 					{{{body}}}
