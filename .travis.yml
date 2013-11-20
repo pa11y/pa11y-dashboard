@@ -1,0 +1,17 @@
+
+# Language/versions
+language: node_js
+node_js:
+  - "0.10"
+
+# Build script
+before_script:
+  - npm install -g grunt-cli
+script: 'grunt ci'
+
+# Notifications
+notifications:
+ email:
+   - j.robinson@nature.com
+   - perry.harlock@nature.com
+   - rowan.manning@nature.com
