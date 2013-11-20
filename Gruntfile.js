@@ -34,6 +34,15 @@ module.exports = function (grunt) {
 			}
 		},
 
+		mochaTest: {
+			functional: {
+				src: ['test/functional/*.js'],
+				options: {
+					reporter: 'spec'
+				}
+			}
+		},
+
 		nodemon: {
 			development: {
 				options: {
@@ -41,6 +50,15 @@ module.exports = function (grunt) {
 					file: 'index.js',
 					env: {
 						NODE_ENV: 'development'
+					}
+				}
+			},
+			test: {
+				options: {
+					cwd: __dirname,
+					file: 'index.js',
+					env: {
+						NODE_ENV: 'test'
 					}
 				}
 			}
@@ -84,12 +102,15 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-mocha-test');
 	grunt.loadNpmTasks('grunt-nodemon');
 
 	grunt.registerTask('lint', ['jshint']);
+	grunt.registerTask('test', ['mochaTest']);
 	grunt.registerTask('compile', ['less', 'uglify']);
 	grunt.registerTask('start', ['nodemon:development']);
-	grunt.registerTask('default', ['compile', 'lint']);
-	grunt.registerTask('ci', ['compile', 'lint']);
+	grunt.registerTask('start-test', ['nodemon:test']);
+	grunt.registerTask('default', ['compile', 'lint', 'test']);
+	grunt.registerTask('ci', ['lint', 'test']);
 
 };
