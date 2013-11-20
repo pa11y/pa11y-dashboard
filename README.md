@@ -4,6 +4,7 @@ pa11y-dashboard
 pa11y-dashboard is a web interface to the [pa11y][pa11y] accessibility reporter; allowing you to focus on *fixing* issues rather than hunting them down.
 
 **Current Version:** *1.0.0*  
+**Build Status:** [![Build Status][travis-img]][travis]  
 **Node Version Support:** *0.10*
 
 
@@ -91,4 +92,5 @@ pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
 [node]: http://nodejs.org/
 [pa11y]: https://github.com/nature/pa11y
 [pa11y-webservice]: https://github.com/nature/pa11y-webservice
-[supervisor]: https://github.com/isaacs/node-supervisor
+[travis]: https://travis-ci.org/nature/pa11y-dashboard
+[travis-img]: https://travis-ci.org/nature/pa11y-dashboard.png?branch=master
