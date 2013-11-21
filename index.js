@@ -18,4 +18,14 @@ require('./app')(config, function (err, app) {
 		console.error(chalk.grey(stack.join('\n')));
 	});
 
+	// Start the webservice if required
+	if (typeof config.webservice === 'object') {
+		require('pa11y-webservice')(config.webservice, function (err, webservice) {
+			console.log('');
+			console.log(chalk.underline.cyan('pa11y-webservice started'));
+			console.log(chalk.grey('mode: %s'), process.env.NODE_ENV);
+			console.log(chalk.grey('uri:  %s'), webservice.server.info.uri);
+		});
+	}
+
 });

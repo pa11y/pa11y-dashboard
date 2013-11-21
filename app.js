@@ -13,11 +13,16 @@ module.exports = initApp;
 function initApp (config, callback) {
 	config = defaultConfig(config);
 
+	var webserviceUrl = config.webservice;
+	if (typeof webserviceUrl == 'object') {
+		webserviceUrl = 'http://' + webserviceUrl.host + ':' + webserviceUrl.port + '/';
+	}
+
 	var app = new EventEmitter();
 	app.address = null;
 	app.express = express();
 	app.server = http.createServer(app.express);
-	app.webservice = createClient(config.webservice);
+	app.webservice = createClient(webserviceUrl);
 
 	// Compression
 	app.express.use(express.compress());
