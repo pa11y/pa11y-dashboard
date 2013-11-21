@@ -15,7 +15,7 @@ pa11y-dashboard is a web interface to the [pa11y][pa11y] accessibility reporter;
 Setup
 -----
 
-pa11y-dashboard requires [Node.js][node] 0.10+ and [pa11y-webservice][pa11y-webservice] to be installed and running. You'll need to follow the setup guide for pa11y-webservice before setting up pa11y-dashboard.
+pa11y-dashboard requires [Node.js][node] 0.10+, [PhantomJS][phantom], and [MongoDB][mongo] to be installed. See the [pa11y][pa11y] and [pa11y-webservice][pa11y-webservice] documentation for more information on these dependencies.
 
 You'll then need to clone this repo locally and install dependencies with `npm install`.
 
@@ -89,9 +89,11 @@ pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
 
 [gpl]: http://www.gnu.org/licenses/gpl-3.0.html
 [grunt]: http://gruntjs.com/
+[mongo]: http://www.mongodb.org/
 [node]: http://nodejs.org/
 [pa11y]: https://github.com/nature/pa11y
 [pa11y-webservice]: https://github.com/nature/pa11y-webservice
 [pa11y-webservice-config]: https://github.com/nature/pa11y-webservice#configurations
+[phantom]: http://phantomjs.org/
 [travis]: https://travis-ci.org/nature/pa11y-dashboard
 [travis-img]: https://travis-ci.org/nature/pa11y-dashboard.png?branch=master
