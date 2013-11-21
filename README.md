@@ -43,9 +43,6 @@ Configurations
 
 The boot configurations for pa11y-dashboard are as follows. Look at the sample JSON files in the repo for example usage.
 
-### webservice
-*(string)* The base URL of the [pa11y-webservice][pa11y-webservice] instance you intend on using.
-
 ### port
 *(number)* The port to run the application on.
 
@@ -57,6 +54,9 @@ The boot configurations for pa11y-dashboard are as follows. Look at the sample J
 
 ### siteMessage
 *(string)* A message to display prominently on the site home page. Defaults to `null`.
+
+### webservice
+This can either be an object containing [pa11y-webservice configurations][pa11y-webservice-config], or a string which is the base URL of a [pa11y-webservice][pa11y-webservice] instance you are running separately.
 
 
 Development
@@ -92,5 +92,6 @@ pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
 [node]: http://nodejs.org/
 [pa11y]: https://github.com/nature/pa11y
 [pa11y-webservice]: https://github.com/nature/pa11y-webservice
+[pa11y-webservice-config]: https://github.com/nature/pa11y-webservice#configurations
 [travis]: https://travis-ci.org/nature/pa11y-dashboard
 [travis-img]: https://travis-ci.org/nature/pa11y-dashboard.png?branch=master
