@@ -24,6 +24,7 @@ Once you have a local clone, you'll need to copy some sample configuration files
 ```sh
 $ cp config/development.sample.json config/development.json
 $ cp config/production.sample.json config/production.json
+$ cp config/test.sample.json config/test.json
 ```
 
 Each of these files defines configurations for a different environment. If you're just running the application locally, then you should be OK with just development configurations. The [available configurations are documented here](#configurations).
@@ -33,6 +34,7 @@ Now that you've got your application configured, you can run in each mode with t
 ```sh
 $ NODE_ENV=production node .   # Run in production
 $ NODE_ENV=development node .  # Run in development
+$ NODE_ENV=test node .         # Run in test
 ```
 
 Check the [development instructions](#development) for more information about running locally (and restarting automatically when files change).
@@ -64,14 +66,22 @@ Development
 
 To develop pa11y-dashboard, you'll need to clone the repo and get set up as outlined in the [setup guide](#setup). You'll also need [Grunt][grunt] to be installed globally in order to run tests, you can do this with `npm install -g grunt-cli`.
 
+Once you've done this, you'll need to start the application in test mode with:
+
+```sh
+$ grunt start-test
+```
+
 Now you'll be able to run the following commands:
 
 ```sh
-$ grunt          # Run the lint and test tasks together
-$ grunt lint     # Run JSHint with the correct config
-$ grunt compile  # Compile front-end assets
-$ grunt start    # Run app in development mode, restarting if files change
-$ grunt watch    # Watch for file changes and compile assets
+$ grunt             # Run the lint and test tasks together
+$ grunt lint        # Run JSHint with the correct config
+$ grunt compile     # Compile front-end assets
+$ grunt start       # Run app in development mode, restarting if files change
+$ grunt start-test  # Run app in test mode, restarting if files change
+$ grunt test        # Run functional tests
+$ grunt watch       # Watch for file changes and compile assets
 ```
 
 Code with lint errors or failing tests will not be accepted, please use the build tools outlined above.
