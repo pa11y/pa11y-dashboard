@@ -21,7 +21,8 @@ function createNavigator (baseUrl, store) {
 			method: opts.method || 'GET',
 			body: opts.body,
 			json: true,
-			qs: opts.query
+			qs: opts.query,
+			followAllRedirects: true
 		}, function (err, res, body) {
 
 			store.body = body;

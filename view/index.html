@@ -1,7 +1,7 @@
 {{#content "title"}}pa11y-dashboard{{/content}}
 
 {{#if siteMessage}}
-    <div class="col-md-12 clearfix">
+    <div class="col-md-12 clearfix" data-test="alert">
         <div class="alert alert-info site-message">
             <h3 class="crunch-top"><span class="pull-left glyphicon glyphicon-exclamation-sign"></span> Important</h3>
             <p class="h5">{{siteMessage}}</p>
@@ -10,7 +10,7 @@
 {{/if}}
 
 {{#deleted}}
-    <div class="col-md-12 clearfix">
+    <div class="col-md-12 clearfix" data-test="alert">
         <div class="alert alert-info">
             <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
             <strong>Bye Bye URL</strong>
