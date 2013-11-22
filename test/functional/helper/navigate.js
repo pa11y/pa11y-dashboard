@@ -30,14 +30,20 @@ function createNavigator (baseUrl, store) {
 			store.response = res;
 			store.status = res.statusCode;
 
-			jsdom.env(
-				store.body,
-				function (err, window) {
-					store.window = window;
-					store.dom = window.document;
-					callback();
-				}
-			);
+			if (opts.nonDom) {
+				store.window = null;
+				store.dom = null;
+				callback();
+			} else {
+				jsdom.env(
+					store.body,
+					function (err, window) {
+						store.window = window;
+						store.dom = window.document;
+						callback();
+					}
+				);
+			}
 
 		});
 
