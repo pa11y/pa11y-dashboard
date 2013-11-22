@@ -6,63 +6,59 @@ var assert = require('proclaim');
 
 describe('GET /new', function () {
 
-	describe('with no query', function () {
+	beforeEach(function (done) {
+		var req = {
+			method: 'GET',
+			endpoint: '/new'
+		};
+		this.navigate(req, done);
+	});
 
-		beforeEach(function (done) {
-			var req = {
-				method: 'GET',
-				endpoint: '/new'
-			};
-			this.navigate(req, done);
+	it('should send a 200 status', function () {
+		assert.strictEqual(this.last.status, 200);
+	});
+
+	it('should not display an error message', function () {
+		assert.strictEqual(this.last.dom.querySelectorAll('[data-test=error]').length, 0);
+	});
+
+	it('should have an "Add new URL" form', function () {
+		var form = this.last.dom.querySelectorAll('[data-test=new-url-form]')[0];
+		assert.isDefined(form);
+		assert.strictEqual(form.getAttribute('action'), '/new');
+		assert.strictEqual(form.getAttribute('method'), 'post');
+	});
+
+	describe('"Add New URL" form', function () {
+
+		beforeEach(function () {
+			this.form = this.last.dom.querySelectorAll('[data-test=new-url-form]')[0];
 		});
 
-		it('should send a 200 status', function () {
-			assert.strictEqual(this.last.status, 200);
+		it('should have a "name" field', function () {
+			var field = this.form.querySelectorAll('input[name=name]')[0];
+			assert.isDefined(field);
+			assert.strictEqual(field.getAttribute('type'), 'text');
+			assert.strictEqual(field.getAttribute('value'), '');
 		});
 
-		it('should not display an error message', function () {
-			assert.strictEqual(this.last.dom.querySelectorAll('[data-test=error]').length, 0);
+		it('should have a "url" field', function () {
+			var field = this.form.querySelectorAll('input[name=url]')[0];
+			assert.isDefined(field);
+			assert.strictEqual(field.getAttribute('type'), 'url');
+			assert.strictEqual(field.getAttribute('value'), '');
 		});
 
-		it('should have an "Add new URL" form', function () {
-			var form = this.last.dom.querySelectorAll('[data-test=new-url-form]')[0];
-			assert.isDefined(form);
-			assert.strictEqual(form.getAttribute('action'), '/new');
-			assert.strictEqual(form.getAttribute('method'), 'post');
+		it('should have a "standard" field', function () {
+			var field = this.form.querySelectorAll('select[name=standard]')[0];
+			assert.isDefined(field);
+			assert.strictEqual(field.querySelectorAll('option').length, 4);
 		});
 
-		describe('"Add New URL" form', function () {
-
-			beforeEach(function () {
-				this.form = this.last.dom.querySelectorAll('[data-test=new-url-form]')[0];
-			});
-
-			it('should have a "name" field', function () {
-				var field = this.form.querySelectorAll('input[name=name]')[0];
-				assert.isDefined(field);
-				assert.strictEqual(field.getAttribute('type'), 'text');
-				assert.strictEqual(field.getAttribute('value'), '');
-			});
-
-			it('should have a "url" field', function () {
-				var field = this.form.querySelectorAll('input[name=url]')[0];
-				assert.isDefined(field);
-				assert.strictEqual(field.getAttribute('type'), 'url');
-				assert.strictEqual(field.getAttribute('value'), '');
-			});
-
-			it('should have a "standard" field', function () {
-				var field = this.form.querySelectorAll('select[name=standard]')[0];
-				assert.isDefined(field);
-				assert.strictEqual(field.querySelectorAll('option').length, 4);
-			});
-
-			it('should have "ignore" fields', function () {
-				var fields = this.form.querySelectorAll('input[name="ignore[]"]');
-				assert.isDefined(fields);
-				assert.notStrictEqual(fields.length, 0);
-			});
-
+		it('should have "ignore" fields', function () {
+			var fields = this.form.querySelectorAll('input[name="ignore[]"]');
+			assert.isDefined(fields);
+			assert.notStrictEqual(fields.length, 0);
 		});
 
 	});
@@ -114,11 +110,15 @@ describe('POST /new', function () {
 			assert.strictEqual(this.last.status, 200);
 		});
 
+		it('should create the task', function (done) {
+			this.webservice.tasks.get({}, function (err, tasks) {
+				assert.strictEqual(tasks.length, 4);
+				done();
+			});
+		});
+
 		it('should redirect me to the new URL page', function () {
-			var title = this.last.dom.querySelectorAll('title')[0];
-			assert.isDefined(title);
-			assert.match(title.textContent, /example.com/i);
-			assert.match(title.textContent, /wcag2aa/i);
+			assert.match(this.last.request.uri.pathname, /^\/[a-z0-9]{24}$/i);
 		});
 
 		it('should not display an error message', function () {

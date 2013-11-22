@@ -12,10 +12,14 @@
 		<div class="action-buttons col-md-12 col-sm-6 clearfix">
 			<div class="row">
 				<div class="col-md-12 col-sm-6 col-xs-12">
-			        <a href="{{mainResult.hrefCsv}}" class="btn-full-width btn btn-default">Download CSV <span class="glyphicon glyphicon-download"></span></a>
+			        <a href="{{mainResult.hrefCsv}}" class="btn-full-width btn btn-default" data-test="download-csv">
+			        	Download CSV <span class="glyphicon glyphicon-download"></span>
+			        </a>
 				</div>
 				<div class="col-md-12 col-sm-6 col-xs-12">
-			        <a href="{{mainResult.hrefJson}}" class="btn-full-width btn btn-default">Download JSON <span class="glyphicon glyphicon-download"></span></a>
+			        <a href="{{mainResult.hrefJson}}" class="btn-full-width btn btn-default" data-test="download-json">
+			        	Download JSON <span class="glyphicon glyphicon-download"></span>
+			        </a>
 				</div>
 			</div>
 	    </div>
@@ -37,7 +41,7 @@
 
 <div class="col-md-9">
 	{{#if mainResult.count.error}}
-		<div class="heading label-danger showing first" id="errors">
+		<div class="heading label-danger showing first" id="errors" data-test="task-errors">
 			<span data-role="expander" class="pull-right expander"> - </span>
 			Errors ( {{mainResult.count.error}} )
 		</div>
@@ -58,7 +62,7 @@
 	{{/if}}
 
 	{{#if mainResult.count.warning}}
-		<div class="heading label-warning" id="warnings">
+		<div class="heading label-warning" id="warnings" data-test="task-warnings">
 			<span data-role="expander" class="pull-right expander"> + </span>
 			Warnings ( {{mainResult.count.warning}} )
 		</div>
@@ -79,7 +83,7 @@
 	{{/if}}
 
 	{{#if mainResult.count.notice}}
-		<div class="heading label-info" id="notices">
+		<div class="heading label-info" id="notices" data-test="task-notices">
 			<span data-role="expander" class="pull-right expander"> + </span>
 			Notices ( {{mainResult.count.notice}} )
 		</div>

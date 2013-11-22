@@ -7,7 +7,9 @@
 			</div>
 			<div class="col-md-3 col-sm-3 text-right run-details">
 				{{#unless readonly}}
-					<a href="{{task.hrefRun}}" class="btn btn-success">Run <span class="glyphicon glyphicon-play"></span></a>
+					<a href="{{task.hrefRun}}" class="btn btn-success" data-test="run-task">
+						Run <span class="glyphicon glyphicon-play"></span>
+					</a>
 				{{/unless}}
 				{{#if mainResult}}
 					<div class="date">Last run : {{date-format mainResult.date format="DD MMM YYYY"}}</div>

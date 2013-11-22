@@ -4,6 +4,7 @@
 
 var config = require('../../config/test.json');
 var createNavigator = require('./helper/navigate');
+var createWebserviceClient = require('./helper/webservice');
 var loadFixtures = require('pa11y-webservice/data/fixture/load');
 var request = require('request');
 
@@ -12,6 +13,7 @@ before(function (done) {
 	this.baseUrl = 'http://localhost:' + config.port;
 	this.last = {};
 	this.navigate = createNavigator(this.baseUrl, this.last);
+	this.webservice = createWebserviceClient(config);
 	assertTestAppIsRunning(this.baseUrl, function () {
 		loadFixtures('test', config.webservice, done);
 	});
