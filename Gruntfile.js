@@ -76,7 +76,7 @@ module.exports = function (grunt) {
 						'public/js/vendor/bootstrap/js/dropdown.js',
 						'public/js/vendor/bootstrap/js/tooltip.js',
 						'public/js/vendor/flot/jquery.flot.js',
-						'public/js/vendor/flot/jquery.flot.categories.js',
+						'public/js/vendor/flot/jquery.flot.time.js',
 						'public/js/vendor/flot/jquery.flot.selection.js',
 						'public/js/vendor/flot/jquery.flot.resize.js',
 						'public/js/site.js'

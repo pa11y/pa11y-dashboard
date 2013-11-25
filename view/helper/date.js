@@ -17,4 +17,9 @@ function helper (register) {
 		return moment(context).fromNow();
 	});
 
+	register('date-timestamp', function (context) {
+		return moment(context).valueOf();
+	});
+
+
 }

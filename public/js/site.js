@@ -17,8 +17,9 @@ $(document).ready(function(){
             hoverable: true
         },
         xaxis: {
-            mode: 'categories',
-            tickLength: 0
+            mode: 'time',
+            tickLength: 0,
+            timeformat: "%d %b"
         },
         yaxis: {
             tickDecimals: 0
@@ -115,7 +116,7 @@ $(document).ready(function(){
     }
 
     function getXAxisLabel (el) {
-        return el.find('[data-role="category"]').html();
+        return el.find('[data-role="category"]').attr('data-value');
     }
 
     function storeDatum (el, label) {
