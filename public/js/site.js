@@ -19,7 +19,7 @@ $(document).ready(function(){
         xaxis: {
             mode: 'time',
             tickLength: 0,
-            timeformat: "%d %b"
+            timeformat: '%d %b'
         },
         yaxis: {
             tickDecimals: 0
@@ -116,7 +116,7 @@ $(document).ready(function(){
     }
 
     function getXAxisLabel (el) {
-        return el.find('[data-role="category"]').attr('data-value');
+        return el.find('[data-role="date"]').attr('data-value');
     }
 
     function storeDatum (el, label) {
