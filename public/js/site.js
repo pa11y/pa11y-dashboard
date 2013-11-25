@@ -20,6 +20,9 @@ $(document).ready(function(){
             mode: 'categories',
             tickLength: 0
         },
+        yaxis: {
+            tickDecimals: 0
+        },
         lines: {
             lineWidth: 3
         },
