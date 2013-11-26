@@ -19,6 +19,7 @@ $(document).ready(function(){
         xaxis: {
             mode: 'time',
             tickLength: 0,
+            minTickSize: [1, 'day'],
             timeformat: '%d %b'
         },
         yaxis: {
