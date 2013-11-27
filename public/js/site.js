@@ -217,7 +217,8 @@ $(document).ready(function(){
                 previousPoint = item.dataIndex;
                 $('[data-role="tooltip"]').remove();
                 var count = item.datapoint[1].toFixed(0);
-                var date = $.plot.formatDate(new Date(item.datapoint[0]), '%d %b <small> (%H:%M)</small>');
+                var date = $.plot.formatDate(new Date(item.datapoint[0]), '%d %b' +
+                '<small> (%H:%M)</small>');
                 var contents = '<p class="crunch">' +
                     date + '<br/>' +
                     count + ' ' + item.series.label +
