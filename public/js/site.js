@@ -205,7 +205,7 @@ $(document).ready(function(){
     }
 
     function showTooltip(x, y, contents) {
-        $('<div data-role="tooltip" class="tooltip in"><div class="tooltip-inner">' +
+        $('<div data-role="tooltip" class="tooltip tooltip-graph in"><div class="tooltip-inner">' +
         contents +
         '</div></div>').css({top: y + 5,left: x + 5}).appendTo('body').fadeIn(200);
     }
@@ -216,8 +216,13 @@ $(document).ready(function(){
             if (previousPoint != item.dataIndex) {
                 previousPoint = item.dataIndex;
                 $('[data-role="tooltip"]').remove();
-                var y = item.datapoint[1].toFixed(0);
-                var contents = '<h6 class="crunch">' + y + ' ' + item.series.label + '</h6>';
+                var count = item.datapoint[1].toFixed(0);
+                var date = $.plot.formatDate(new Date(item.datapoint[0]), '%d %b' +
+                '<small> (%H:%M)</small>');
+                var contents = '<p class="crunch">' +
+                    date + '<br/>' +
+                    count + ' ' + item.series.label +
+                '</[h6]>';
                 showTooltip(item.pageX, item.pageY, contents);
             }
         } else {
