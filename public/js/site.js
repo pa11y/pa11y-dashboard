@@ -216,8 +216,12 @@ $(document).ready(function(){
             if (previousPoint != item.dataIndex) {
                 previousPoint = item.dataIndex;
                 $('[data-role="tooltip"]').remove();
-                var y = item.datapoint[1].toFixed(0);
-                var contents = '<h6 class="crunch">' + y + ' ' + item.series.label + '</h6>';
+                var count = item.datapoint[1].toFixed(0);
+                var date = $.plot.formatDate(new Date(item.datapoint[0]), '%d %b (%H:%M)');
+                var contents = '<h6 class="crunch">' +
+                    date + '<br/>' +
+                    count + ' ' + item.series.label +
+                '</h6>';
                 showTooltip(item.pageX, item.pageY, contents);
             }
         } else {
