@@ -36,7 +36,36 @@ function route (app) {
 	});
 
 	app.express.post('/:id/edit', function (req, res, next) {
-		res.redirect('/' + req.params.id + '/edit?edited');
+		app.webservice.task(req.params.id).get({}, function (err, task) {
+			if (err) {
+				return next();
+			}
+			app.webservice.task(req.params.id).edit(req.body, function (err) {
+				if (err) {
+					task.name = req.body.name;
+					task.ignore = req.body.ignore || [];
+					var standards = getStandards().map(function (standard) {
+						if (standard.title === task.standard) {
+							standard.selected = true;
+						}
+						standard.rules = standard.rules.map(function (rule) {
+							if (task.ignore.indexOf(rule.name) !== -1) {
+								rule.ignored = true;
+							}
+							return rule;
+						});
+						return standard;
+					});
+					return res.render('task/edit', {
+						error: err,
+						standards: standards,
+						task: task,
+						isTaskPage: true
+					});
+				}
+				res.redirect('/' + req.params.id + '/edit?edited');
+			});
+		});
 	});
 
 }
