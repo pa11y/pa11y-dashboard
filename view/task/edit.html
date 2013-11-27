@@ -1,12 +1,12 @@
 
 {{#content "title"}}
-	Add a new URL
+	Edit URL
 {{/content}}
 
 <form role="form" class="col-md-12" action="/new" method="post" data-test="new-url-form">
 
 	<div class="legend">
-		<h1 class="h2 crunch-top">Add a new URL</h1>
+		<h1 class="h2 crunch-top">Edit URL</h1>
 	</div>
 
 	{{#error}}
@@ -31,7 +31,7 @@
 		<div class="row">
 			<div class="col-md-8 col-sm-8 col-xs-10">
 				<label class="control-label" for="new-task-url">URL</label>
-				<input class="form-control" id="new-task-url" type="url" placeholder="E.g. http://mysite.com/" name="url" value="{{task.url}}"/>
+				<input class="form-control" id="new-task-url" type="url" placeholder="E.g. http://mysite.com/" name="url" value="{{task.url}}" disabled/>
 			</div>
 		</div>
 	</div>
@@ -40,11 +40,7 @@
 		<div class="row">
 			<div class="col-md-4 col-sm-4 col-xs-6">
 				<label class="control-label" for="new-task-standard">Standard</label>
-				<select data-role="new-task-select" class="form-control" id="new-task-standard" name="standard">
-					{{#standards}}
-						<option {{#selected}}selected{{/selected}}>{{title}}</option>
-					{{/standards}}
-				</select>
+				<p class="form-control" disabled>{{task.standard}}</p>
 			</div>
 		</div>
 	</div>
