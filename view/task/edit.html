@@ -3,7 +3,17 @@
 	Edit URL
 {{/content}}
 
-<form role="form" class="col-md-12" action="/new" method="post" data-test="new-url-form">
+{{#edited}}
+	<div class="col-md-12 clearfix" data-test="error">
+		<div class="alert alert-success">
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+			<strong>Success!</strong>
+			<p>Your changes have been saved.</p>
+		</div>
+	</div>
+{{/edited}}
+
+<form role="form" class="col-md-12" action="/{{task.id}}/edit" method="post" data-test="edit-url-form">
 
 	<div class="legend">
 		<h1 class="h2 crunch-top">Edit URL</h1>
@@ -11,9 +21,11 @@
 
 	{{#error}}
 		<div class="col-md-12 clearfix" data-test="error">
-			<div class="alert alert-danger">
-				<strong>Oh my gosh!</strong>
-				<p>{{.}}</p>
+			<div class="row">
+				<div class="alert alert-danger">
+					<strong>Oh my gosh!</strong>
+					<p>{{.}}</p>
+				</div>
 			</div>
 		</div>
 	{{/error}}
@@ -40,7 +52,11 @@
 		<div class="row">
 			<div class="col-md-4 col-sm-4 col-xs-6">
 				<label class="control-label" for="new-task-standard">Standard</label>
-				<p class="form-control" disabled>{{task.standard}}</p>
+				<select data-role="new-task-select" class="form-control" id="new-task-standard" name="standard" disabled>
+					{{#standards}}
+						<option {{#selected}}selected{{/selected}}>{{title}}</option>
+					{{/standards}}
+				</select>
 			</div>
 		</div>
 	</div>
@@ -65,6 +81,7 @@
 		{{/standards}}
 	</div>
 
-	<button type="submit" class="btn btn-success">Save changes <span class="glyphicon glyphicon-plus"></span></button>
+	<button type="submit" class="btn btn-success">Save changes <span class="glyphicon glyphicon-save"></span></button>
+	<a href="/{{task.id}}/edit" class="btn btn-primary">Undo <span class="glyphicon glyphicon-refresh"></span></a>
 
 </form>
