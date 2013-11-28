@@ -30,7 +30,7 @@ function route (app) {
 				edited: (typeof req.query.edited !== 'undefined'),
 				standards: standards,
 				task: presentTask(task),
-				isTaskPage: true
+				isTaskSubPage: true
 			});
 		});
 	});
@@ -61,7 +61,7 @@ function route (app) {
 						error: err,
 						standards: standards,
 						task: task,
-						isTaskPage: true
+						isTaskSubPage: true
 					});
 				}
 				res.redirect('/' + req.params.id + '/edit?edited');
