@@ -40,10 +40,11 @@ function route (app) {
 			if (err) {
 				return next();
 			}
+			req.body.ignore = req.body.ignore || [];
 			app.webservice.task(req.params.id).edit(req.body, function (err) {
 				if (err) {
 					task.name = req.body.name;
-					task.ignore = req.body.ignore || [];
+					task.ignore = req.body.ignore;
 					var standards = getStandards().map(function (standard) {
 						if (standard.title === task.standard) {
 							standard.selected = true;
