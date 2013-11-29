@@ -25,6 +25,10 @@ describe('GET /<task-id>/delete', function () {
 		assert.strictEqual(form.getAttribute('method'), 'post');
 	});
 
+	it('should display a link back to the task page', function () {
+		assert.greaterThan(this.last.dom.querySelectorAll('[href="/abc000000000000000000001"]').length, 0);
+	});
+
 });
 
 describe('POST /<task-id>/delete', function () {

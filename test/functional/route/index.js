@@ -39,11 +39,25 @@ describe('GET /', function () {
 		assert.strictEqual(tasks[2].querySelectorAll('[href="/abc000000000000000000003"]').length, 1);
 	});
 
-	it('should display a delete button for each task', function () {
+	it('should display an "Edit" button for each task', function () {
+		var tasks = this.last.dom.querySelectorAll('[data-test=task]');
+		assert.strictEqual(tasks[0].querySelectorAll('[href="/abc000000000000000000001/edit"]').length, 1);
+		assert.strictEqual(tasks[1].querySelectorAll('[href="/abc000000000000000000002/edit"]').length, 1);
+		assert.strictEqual(tasks[2].querySelectorAll('[href="/abc000000000000000000003/edit"]').length, 1);
+	});
+
+	it('should display a "Delete" button for each task', function () {
 		var tasks = this.last.dom.querySelectorAll('[data-test=task]');
 		assert.strictEqual(tasks[0].querySelectorAll('[href="/abc000000000000000000001/delete"]').length, 1);
 		assert.strictEqual(tasks[1].querySelectorAll('[href="/abc000000000000000000002/delete"]').length, 1);
 		assert.strictEqual(tasks[2].querySelectorAll('[href="/abc000000000000000000003/delete"]').length, 1);
+	});
+
+	it('should display a "Run" button for each task', function () {
+		var tasks = this.last.dom.querySelectorAll('[data-test=task]');
+		assert.strictEqual(tasks[0].querySelectorAll('[href="/abc000000000000000000001/run"]').length, 1);
+		assert.strictEqual(tasks[1].querySelectorAll('[href="/abc000000000000000000002/run"]').length, 1);
+		assert.strictEqual(tasks[2].querySelectorAll('[href="/abc000000000000000000003/run"]').length, 1);
 	});
 
 	it('should display the task result counts if the task has been run', function () {
