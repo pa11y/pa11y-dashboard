@@ -87,14 +87,10 @@
 		margin-bottom:0;
 	}
 } 
-.delete-button {
+.options-button {
 	position:absolute;
 	top:5px;
 	right:20px;
-	color:@brand-danger;
-}
-.delete-button:hover {
-	color:lighten(@brand-danger, 8%);
 }
 .footer a, .breadcrumb a {
 	text-decoration:underline;
@@ -188,10 +184,10 @@
 		transition: background 0.5s;
 		-webkit-transition: background 0.5s;
 	}
-	.delete-button {
+	.options-button {
 		display:none;
 	}
-	&:hover .delete-button {
+	&:hover .options-button {
 		display:block;
 	}
 	.task-card-link:hover,
@@ -210,6 +206,9 @@
 		padding:7px 0 6px 0;
 		text-align:center;
 		color:@badge-color;
+	}
+	.dropdown-menu {
+		top:25px;
 	}
 }
 

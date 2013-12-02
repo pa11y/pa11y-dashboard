@@ -25,8 +25,8 @@
 		"express": "~3.4",
 		"express-hbs": "~0.2",
 		"moment": "~2.2",
-		"pa11y-webservice": "~1.1",
-		"pa11y-webservice-client-node": "~1.0",
+		"pa11y-webservice": "~1.2",
+		"pa11y-webservice-client-node": "~1.1",
 		"underscore": "~1.5"
 	},
 	"devDependencies": {

@@ -20,22 +20,24 @@ describe('GET /<task-id>', function () {
 			assert.strictEqual(this.last.status, 200);
 		});
 
+		it('should display an "Edit" button', function () {
+			assert.strictEqual(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/edit"]').length, 1);
+		});
+
+		it('should display a "Delete" button', function () {
+			assert.strictEqual(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/delete"]').length, 1);
+		});
+
 		it('should display a "Run" button', function () {
-			var elem = this.last.dom.querySelectorAll('[data-test=run-task]');
-			assert.strictEqual(elem.length, 1);
-			assert.strictEqual(elem[0].getAttribute('href'), '/abc000000000000000000001/run');
+			assert.strictEqual(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/run"]').length, 1);
 		});
 
 		it('should display a "Download CSV" button for the latest result', function () {
-			var elem = this.last.dom.querySelectorAll('[data-test=download-csv]');
-			assert.strictEqual(elem.length, 1);
-			assert.strictEqual(elem[0].getAttribute('href'), '/abc000000000000000000001/def000000000000000000001.csv');
+			assert.strictEqual(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/def000000000000000000001.csv"]').length, 1);
 		});
 
 		it('should display a "Download JSON" button for the latest result', function () {
-			var elem = this.last.dom.querySelectorAll('[data-test=download-json]');
-			assert.strictEqual(elem.length, 1);
-			assert.strictEqual(elem[0].getAttribute('href'), '/abc000000000000000000001/def000000000000000000001.json');
+			assert.strictEqual(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/def000000000000000000001.json"]').length, 1);
 		});
 
 		it('should display links to all results', function () {
