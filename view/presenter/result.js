@@ -1,6 +1,8 @@
 'use strict';
 
 var _ = require('underscore');
+var standardsArray = require('../../data/standards')();
+var rules = createStandardDescriptionMap(standardsArray);
 
 module.exports = presentResult;
 
@@ -13,6 +15,14 @@ function presentResult (result) {
 
     // Parse date
     result.date = new Date(result.date);
+
+    // Enhance the ignored rules
+    result.ignore = result.ignore.map(function (name) {
+        return {
+            name: name,
+            description: rules[name]
+        };
+    });
 
     // Split out message types
     if (result.results) {
@@ -30,4 +40,14 @@ function presentResult (result) {
     }
 
     return result;
+}
+
+function createStandardDescriptionMap (standards) {
+    var map = {};
+    standards.forEach(function (standard) {
+        standard.rules.forEach(function (rule) {
+            map[rule.name] = rule.description;
+        });
+    });
+    return map;
 }
