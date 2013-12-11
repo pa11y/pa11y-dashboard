@@ -1,9 +1,8 @@
 'use strict';
 
 var _ = require('underscore');
+var presentIgnoreRules = require('./ignore');
 var presentResult = require('./result');
-var standardsArray = require('../../data/standards')();
-var rules = createStandardDescriptionMap(standardsArray);
 
 module.exports = presentTask;
 
@@ -17,12 +16,7 @@ function presentTask (task) {
     task.hrefEdit = '/' + task.id + '/edit';
 
     // Enhance the ignored rules
-    task.ignore = task.ignore.map(function (name) {
-        return {
-            name: name,
-            description: rules[name]
-        };
-    });
+    task.ignore = presentIgnoreRules(task.ignore);
 
     // Present the last result if present
     if (task.last_result) {
@@ -31,14 +25,4 @@ function presentTask (task) {
     }
 
     return task;
-}
-
-function createStandardDescriptionMap (standards) {
-    var map = {};
-    standards.forEach(function (standard) {
-        standard.rules.forEach(function (rule) {
-            map[rule.name] = rule.description;
-        });
-    });
-    return map;
 }
