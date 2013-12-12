@@ -22,6 +22,14 @@
 			        </a>
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 col-sm-12 clearfix">
+			<div class="well">
+				<h4 class="crunch-top">View results in browser</h4>
+				<p class="crunch-bottom">pa11y uses HTML_CodeSniffer to find accessibility issues. <a href="http://squizlabs.github.io/HTML_CodeSniffer/">Use their bookmarklet</a> to view results on the page you are testing.</p>
+			</div>
 	    </div>
 	</div>
 </div>
@@ -33,7 +41,7 @@
 			Errors ( {{mainResult.count.error}} )
 		</div>
 		<div class="task-danger tasks-list collapse clearfix in">
-
+			
 			<ul class="list-unstyled">
 				{{#mainResult.errors}}
 					<li>
@@ -89,21 +97,21 @@
 		<p class="heading label-info" id="notices">Well done! You have 0 notices. <span class="glyphicon glyphicon-ok pull-right"></span></p>
 	{{/if}}
 
-	{{#if mainResult.ignore.length}}
+	{{#if task.ignore.length}}
 		<div class="heading label-default">
 			<span data-role="expander" class="pull-right expander"> + </span>
-			Ignored Rules ( {{mainResult.ignore.length}} )
+			Ignored Rules
 		</div>
 		<div class="task-default tasks-list collapse clearfix">
 			<ul class="list-unstyled">
-			    {{#mainResult.ignore}}
+			    {{#task.ignore}}
 			        <li>
 						<p class="crunch rule-name">{{name}}</p>
 						{{#if description}}
 							<p>{{description}}</p>
 						{{/if}}
 					</li>
-			    {{/mainResult.ignore}}
+			    {{/task.ignore}}
 			</ul>
 			<a class="pull-right" href="#top" data-role="top">Back to top</a>
 		</div>
