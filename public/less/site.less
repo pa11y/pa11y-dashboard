@@ -256,9 +256,26 @@
 
 	li {
 		margin-bottom:20px;
+		padding-right:90px;
+		position:relative;
 
 		&:last-child {
 			margin-bottom:0;
+		}
+
+		.btn {
+			display:none;
+			position:absolute;
+			right:0;
+			top:20px;
+
+			&:hover {
+				color:@brand-primary;
+			}
+		}
+
+		&:hover .btn {
+			display:block;
 		}
 	}
 
@@ -267,6 +284,7 @@
 		font-style:italic;
 		word-wrap:break-word;
 	}
+
 }
 .task-danger {
 	border-color:@brand-danger;
