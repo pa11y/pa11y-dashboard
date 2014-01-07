@@ -1,75 +1,5 @@
 // Making up for the non support of IE8 and IE7 in Bootstrap 3
 .ie7, .ie8 {
-	.container {
-		width: @container-md;
-	}
-	.col-md-1,
-	.col-md-2,
-	.col-md-3,
-	.col-md-4,
-	.col-md-5,
-	.col-md-6,
-	.col-md-7,
-	.col-md-8,
-	.col-md-9,
-	.col-md-10,
-	.col-md-11 {
-		float: left;
-	}
-	.col-md-1  { width: percentage((1 / @grid-columns)); }
-	.col-md-2  { width: percentage((2 / @grid-columns)); }
-	.col-md-3  { width: percentage((3 / @grid-columns)); }
-	.col-md-4  { width: percentage((4 / @grid-columns)); }
-	.col-md-5  { width: percentage((5 / @grid-columns)); }
-	.col-md-6  { width: percentage((6 / @grid-columns)); }
-	.col-md-7  { width: percentage((7 / @grid-columns)); }
-	.col-md-8  { width: percentage((8 / @grid-columns)); }
-	.col-md-9  { width: percentage((9 / @grid-columns)); }
-	.col-md-10 { width: percentage((10/ @grid-columns)); }
-	.col-md-11 { width: percentage((11/ @grid-columns)); }
-	.col-md-12 { width: 100%; }
-
-	// Push and pull columns for source order changes
-	.col-md-push-0  { left: auto; }
-	.col-md-push-1  { left: percentage((1 / @grid-columns)); }
-	.col-md-push-2  { left: percentage((2 / @grid-columns)); }
-	.col-md-push-3  { left: percentage((3 / @grid-columns)); }
-	.col-md-push-4  { left: percentage((4 / @grid-columns)); }
-	.col-md-push-5  { left: percentage((5 / @grid-columns)); }
-	.col-md-push-6  { left: percentage((6 / @grid-columns)); }
-	.col-md-push-7  { left: percentage((7 / @grid-columns)); }
-	.col-md-push-8  { left: percentage((8 / @grid-columns)); }
-	.col-md-push-9  { left: percentage((9 / @grid-columns)); }
-	.col-md-push-10 { left: percentage((10/ @grid-columns)); }
-	.col-md-push-11 { left: percentage((11/ @grid-columns)); }
-
-	.col-md-pull-0  { right: auto; }
-	.col-md-pull-1  { right: percentage((1 / @grid-columns)); }
-	.col-md-pull-2  { right: percentage((2 / @grid-columns)); }
-	.col-md-pull-3  { right: percentage((3 / @grid-columns)); }
-	.col-md-pull-4  { right: percentage((4 / @grid-columns)); }
-	.col-md-pull-5  { right: percentage((5 / @grid-columns)); }
-	.col-md-pull-6  { right: percentage((6 / @grid-columns)); }
-	.col-md-pull-7  { right: percentage((7 / @grid-columns)); }
-	.col-md-pull-8  { right: percentage((8 / @grid-columns)); }
-	.col-md-pull-9  { right: percentage((9 / @grid-columns)); }
-	.col-md-pull-10 { right: percentage((10/ @grid-columns)); }
-	.col-md-pull-11 { right: percentage((11/ @grid-columns)); }
-
-	// Offsets
-	.col-md-offset-0  { margin-left: 0; }
-	.col-md-offset-1  { margin-left: percentage((1 / @grid-columns)); }
-	.col-md-offset-2  { margin-left: percentage((2 / @grid-columns)); }
-	.col-md-offset-3  { margin-left: percentage((3 / @grid-columns)); }
-	.col-md-offset-4  { margin-left: percentage((4 / @grid-columns)); }
-	.col-md-offset-5  { margin-left: percentage((5 / @grid-columns)); }
-	.col-md-offset-6  { margin-left: percentage((6 / @grid-columns)); }
-	.col-md-offset-7  { margin-left: percentage((7 / @grid-columns)); }
-	.col-md-offset-8  { margin-left: percentage((8 / @grid-columns)); }
-	.col-md-offset-9  { margin-left: percentage((9 / @grid-columns)); }
-	.col-md-offset-10 { margin-left: percentage((10/ @grid-columns)); }
-	.col-md-offset-11 { margin-left: percentage((11/ @grid-columns)); }
-
 	.legend {
 		display: block;
 		width: 100%;
@@ -83,9 +13,6 @@
 	.tooltip-inner {
 		background-color: #000000;
 	}
-	.clearfix {
-	    *zoom: 1;
-	}
 	.date {
 		font-size:85%;
 	}
@@ -98,34 +25,21 @@
 	.stat-type {
 		font-size:floor(@font-size-base * 0.65); // ~10px;
 	}
+	.aside .action-buttons .btn {
+		width:79%;
+	}
 }
 
 .ie7 {
-	ul {
-		margin-left:0;
-	}
-	.col-md-2 { width:14%; }
-	.col-md-3 { width:22%; }
-	.col-md-4  {
-		width: 32%;
-		padding:0 5px;
-	}
-	.col-md-9 { width:72%; }
-	.col-md-10 { width:80%; } 
-	.col-md-12 { width: 97%; }
-
 	.aside .task-stats li {
 		width:31.5%;
-	}
-	.aside .action-buttons .btn {
-		width:79%;
 	}
 	.date-selector {
 		zoom:1;
 	}
 	.zfix {
 		position:relative;
-		z-index:100;
+		z-index:1001;
 	}
 	.list-group li .list-group-item {
 		margin:0;
@@ -137,5 +51,8 @@
 	}
 	.date-selector {
 		margin-top:-155px;
+	}
+	.sr-only {
+		position:relative;
 	}
 }
