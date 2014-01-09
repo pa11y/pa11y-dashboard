@@ -109,21 +109,21 @@
 		<p class="heading label-info" id="notices">Well done! You have 0 notices. <span class="glyphicon glyphicon-ok pull-right"></span></p>
 	{{/if}}
 
-	{{#if task.ignore.length}}
+	{{#if mainResult.ignore.length}}
 		<div class="heading label-default">
 			<span data-role="expander" class="pull-right expander"> + </span>
-			Ignored Rules ( {{task.ignore.length}} )
+			Ignored Rules ( {{mainResult.ignore.length}} )
 		</div>
 		<div class="task-default tasks-list collapse clearfix">
 			<ul class="list-unstyled">
-			    {{#task.ignore}}
+			    {{#mainResult.ignore}}
 			        <li>
 						<p class="crunch rule-name">{{name}}</p>
 						{{#if description}}
 							<p>{{description}}</p>
 						{{/if}}
 					</li>
-			    {{/task.ignore}}
+			    {{/mainResult.ignore}}
 			</ul>
 			<a class="pull-right" href="#top" data-role="top">Back to top</a>
 		</div>
