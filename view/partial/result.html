@@ -47,7 +47,10 @@
 					<li>
 						<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
 						<p>{{message}}</p>
-						<button class="btn btn-sm">Ignore rule</button>
+						<form action="/{{../task.id}}/ignore" method="post">
+							<input type="hidden" name="rule" value="{{code}}"/>
+							<input type="submit" class="btn btn-sm" value="Ignore rule"/>
+						</form>
 					</li>
 				{{/mainResult.errors}}
 			</ul>
@@ -68,7 +71,10 @@
 					<li>
 						<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
 						<p>{{message}}</p>
-						<button class="btn btn-sm">Ignore rule</button>
+						<form action="/{{../task.id}}/ignore" method="post">
+							<input type="hidden" name="rule" value="{{code}}"/>
+							<input type="submit" class="btn btn-sm" value="Ignore rule"/>
+						</form>
 					</li>
 				{{/mainResult.warnings}}
 			</ul>
@@ -90,7 +96,10 @@
 					<li>
 						<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
 						<p>{{message}}</p>
-						<button class="btn btn-sm">Ignore rule</button>
+						<form action="/{{../task.id}}/ignore" method="post">
+							<input type="hidden" name="rule" value="{{code}}"/>
+							<input type="submit" class="btn btn-sm" value="Ignore rule"/>
+						</form>
 					</li>
 				{{/mainResult.notices}}
 			</ul>
