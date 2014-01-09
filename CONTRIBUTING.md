@@ -39,8 +39,8 @@ We use [Semantic Versioning][semver] in this project. The process for releasing 
 * Switch to `master` and merge the `develop` branch into it
 * Update the version number in `package.json` and `README.md`
 * Commit the changes with the message: "Version x.x.x" (x.x.x being the new version number)
-* Tag the commit with the version number (just the numbers, no "version" or "v")
-* Push with tags: `git push --tags`
+* Tag the commit with the version number (just the numbers, no "version" or "v"): `git tag x.x.x`
+* Push with tags: `git push && git push --tags`
 * Check out the `develop` branch, merge `master` into it, and push
 * On GitHub, add [release notes][release-notes] for the new version. The title should be "Version x.x.x", and the description should be a list of new features/fixes
 
