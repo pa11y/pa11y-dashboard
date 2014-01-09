@@ -31,8 +31,23 @@ Coding Guidelines
 * Don't commit code without passing tests (run `grunt test`).
 
 
+Versioning
+----------
+
+We use [Semantic Versioning][semver] in this project. The process for releasing a new version is as follows; this should only be done by core contributors – you don't need to include a tagged version in your pull-requests.
+
+* Merge the `develop` branch into `master` and switch to that branch
+* Update the version number in `package.json` and `README.md`
+* Commit the changes with the message: "Version x.x.x" (x.x.x being the new version number)
+* Tag the commit with the version number (just the numbers, no "version" or "v")
+* Push with tags: `git push --tags`
+* Check out the develop branch, merge master into it, and push
+* On GitHub, add [release notes][release-notes] for the new version. The title should be "Version x.x.x", and the description should be a list of new features/fixes
+
 
 [bugs]: https://github.com/nature/pa11y-dashboard/issues?labels=bug&state=open
 [ready]: https://github.com/nature/pa11y-dashboard/issues?labels=ready&state=open
 [issues]: https://github.com/nature/pa11y-dashboard/issues
 [milestones]: https://github.com/nature/pa11y-dashboard/issues/milestones
+[release-notes]: https://github.com/nature/pa11y-dashboard/releases
+[semver]: http://semver.org/
