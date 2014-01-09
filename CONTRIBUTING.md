@@ -36,12 +36,12 @@ Versioning
 
 We use [Semantic Versioning][semver] in this project. The process for releasing a new version is as follows; this should only be done by core contributors – you don't need to include a tagged version in your pull-requests.
 
-* Merge the `develop` branch into `master` and switch to that branch
+* Merge the `develop` branch into `master` and switch to `master`
 * Update the version number in `package.json` and `README.md`
 * Commit the changes with the message: "Version x.x.x" (x.x.x being the new version number)
 * Tag the commit with the version number (just the numbers, no "version" or "v")
 * Push with tags: `git push --tags`
-* Check out the develop branch, merge master into it, and push
+* Check out the `develop` branch, merge `master` into it, and push
 * On GitHub, add [release notes][release-notes] for the new version. The title should be "Version x.x.x", and the description should be a list of new features/fixes
 
 
