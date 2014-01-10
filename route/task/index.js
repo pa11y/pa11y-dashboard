@@ -26,6 +26,7 @@ function route (app) {
 					added: (typeof req.query.added !== 'undefined'),
 					running: (typeof req.query.running !== 'undefined'),
 					ruleIgnored: (typeof req.query['rule-ignored'] !== 'undefined'),
+					ruleUnignored: (typeof req.query['rule-unignored'] !== 'undefined'),
 					hasOneResult: (presentedResults.length < 2),
 					isTaskPage: true
 				});

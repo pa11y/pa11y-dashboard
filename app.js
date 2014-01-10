@@ -80,6 +80,7 @@ function initApp (config, callback) {
 		require('./route/task/run')(app);
 		require('./route/task/edit')(app);
 		require('./route/task/ignore')(app);
+		require('./route/task/unignore')(app);
 	}
 
 	// Error handling

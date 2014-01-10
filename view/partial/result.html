@@ -49,7 +49,7 @@
 						<p>{{message}}</p>
 						{{#unless readonly}}
 							{{#if ../../isTaskPage}}
-								<form action="/{{../../../task.id}}/ignore" method="post">
+								<form action="{{../../../task.hrefIgnore}}" method="post">
 									<input type="hidden" name="rule" value="{{code}}"/>
 									<input type="submit" class="btn btn-sm" value="Ignore rule"/>
 								</form>
@@ -77,7 +77,7 @@
 						<p>{{message}}</p>
 						{{#unless readonly}}
 							{{#if ../../isTaskPage}}
-								<form action="/{{../../../task.id}}/ignore" method="post">
+								<form action="{{../../../task.hrefIgnore}}" method="post">
 									<input type="hidden" name="rule" value="{{code}}"/>
 									<input type="submit" class="btn btn-sm" value="Ignore rule"/>
 								</form>
@@ -106,7 +106,7 @@
 						<p>{{message}}</p>
 						{{#unless readonly}}
 							{{#if ../../isTaskPage}}
-								<form action="/{{../../../task.id}}/ignore" method="post">
+								<form action="{{../../../task.hrefIgnore}}" method="post">
 									<input type="hidden" name="rule" value="{{code}}"/>
 									<input type="submit" class="btn btn-sm" value="Ignore rule"/>
 								</form>
@@ -134,6 +134,14 @@
 						{{#if description}}
 							<p>{{description}}</p>
 						{{/if}}
+						{{#unless readonly}}
+							{{#if ../../isTaskPage}}
+								<form action="{{../../../task.hrefUnignore}}" method="post">
+									<input type="hidden" name="rule" value="{{name}}"/>
+									<input type="submit" class="btn btn-sm" value="Unignore rule"/>
+								</form>
+							{{/if}}
+						{{/unless}}
 					</li>
 			    {{/mainResult.ignore}}
 			</ul>
