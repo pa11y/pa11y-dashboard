@@ -79,6 +79,7 @@ function initApp (config, callback) {
 		require('./route/task/delete')(app);
 		require('./route/task/run')(app);
 		require('./route/task/edit')(app);
+		require('./route/task/ignore')(app);
 	}
 
 	// Error handling
