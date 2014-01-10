@@ -52,7 +52,7 @@ function route (app) {
                 JSON.stringify(msg.code),
                 JSON.stringify(msg.message),
                 JSON.stringify(msg.type)
-            ].join(', '));
+            ].join(','));
         });
         res.attachment(getDownloadFileName(task, result, 'csv'));
         res.send(rows.join('\n'));
