@@ -14,6 +14,8 @@ function presentTask (task) {
     task.hrefRun = '/' + task.id + '/run';
     task.hrefJson = '/' + task.id + '.json';
     task.hrefEdit = '/' + task.id + '/edit';
+    task.hrefIgnore = '/' + task.id + '/ignore';
+    task.hrefUnignore = '/' + task.id + '/unignore';
 
     // Enhance the ignored rules
     task.ignore = presentIgnoreRules(task.ignore);
