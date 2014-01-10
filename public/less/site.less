@@ -216,8 +216,6 @@
 /* Badges */
 .badge {
 	border-radius:0.25em;
-}
-.badge {
 	display:inline-block;
 	padding:10px;
 	font-size:ceil(@font-size-base * 0.85); // ~13px;
@@ -263,18 +261,18 @@
 			margin-bottom:0;
 		}
 
-		.btn {
+		form {
 			display:none;
 			position:absolute;
 			right:0;
-			top:20px;
+			top:0;
 
-			&:hover {
+			&:hover .btn {
 				color:@brand-primary;
 			}
 		}
 
-		&:hover .btn {
+		&:hover form {
 			display:block;
 		}
 	}
