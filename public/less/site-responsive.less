@@ -1,18 +1,10 @@
 /* Media queries */
-@media (max-width:1199px) {
-	.task-card .task-card-link {
-		min-height:215px;
-	}
-}
 @media (max-width:991px) {
 	.h1, h1 {
 		font-size:floor(@font-size-base * 2.15); // ~32px;
 	}
 	.h2, h2 {
 		font-size:floor(@font-size-base * 1.9); // ~28px;
-	}
-	.task-card .task-card-link {
-		min-height:200px;
 	}
 	.task-header .h4 {
 		font-size:floor(@font-size-base * 1.15); // ~17px;
@@ -39,6 +31,9 @@
 	.task-stats,
 	.btn-full-width {
 		margin-bottom:0;
+	}
+	.task-card .task-stats {
+		margin-bottom:10px;
 	}
 	.action-buttons {
 		margin-bottom:20px;
@@ -87,6 +82,9 @@
 		.run-details {
 			text-align:left;
 		}
+	}
+	.task-card .task-card-link {
+		min-height:0;
 	}
 }
 @media (max-width:640px) {
