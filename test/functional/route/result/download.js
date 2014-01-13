@@ -20,7 +20,7 @@ describe('GET /<task-id>/<result-id>.csv', function () {
 	});
 
 	it('should output CSV results', function () {
-		assert.match(this.last.body, /^"code", "message", "type"/);
+		assert.match(this.last.body, /^"code","message","type"/);
 	});
 
 });
