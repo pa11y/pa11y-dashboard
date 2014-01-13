@@ -46,7 +46,7 @@ function route (app) {
     app.express.get('/:id/:rid.csv', getTaskAndResult, function (req, res) {
         var task = res.locals.task;
         var result = res.locals.result;
-        var rows = ['"code", "message", "type"'];
+        var rows = ['"code","message","type"'];
         result.results.forEach(function (msg) {
             rows.push([
                 JSON.stringify(msg.code),
