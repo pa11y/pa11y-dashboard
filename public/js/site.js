@@ -187,9 +187,9 @@ $(document).ready(function(){
             '</li>'
         );
     });
-    
+
     choiceContainer.find('input').click(plotAccordingToChoices);
-        
+
     function plotAccordingToChoices() {
         var data = [];
         choiceContainer.find('input:checked').each(function () {
@@ -198,7 +198,7 @@ $(document).ready(function(){
                 data.push(datasets[key]);
             }
         });
-        
+
         if (data.length > -1) {
             $.plot(graphContainer, data, graphOptions);
         }
@@ -230,4 +230,45 @@ $(document).ready(function(){
             previousPoint = null;
         }
     });
+
+
+	// Task filter
+
+	function initTaskFilter (container) {
+		var tasks = initTaskFilterTasks(container);
+		var input = initTaskFilterInput(container, tasks);
+	}
+
+	function initTaskFilterTasks (container) {
+		var tasks = container.find('[data-role=task]');
+		return tasks;
+	}
+
+	function initTaskFilterInput (container, tasks) {
+		var input = container.find('[data-role=input]');
+		input.on('keyup', function () {
+			filterTasks(tasks, input.val());
+		});
+		return input;
+	}
+
+	function filterTasks (tasks, query) {
+		query = query.replace(/[^a-z0-9\s]+/gi, '').trim();
+		tasks.removeClass('hidden');
+		if (/^\s*$/.test(query)) {
+			return;
+		}
+		var queryRegExp = new RegExp('(' + query.replace(/\s+/gi, '|') + ')', 'i');
+		tasks.filter(function () {
+			return !queryRegExp.test($(this).data('keywords'));
+		}).addClass('hidden');
+	}
+
+	var taskLists = $('[data-control=task-list]');
+	if (taskLists.length > 0) {
+		$('[data-control=task-list]').each(function () {
+			initTaskFilter($(this));
+		});
+	}
+
 });
