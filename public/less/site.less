@@ -432,3 +432,34 @@ ul.date-links {
 		}
 	}
 }
+
+.filter-toggle {
+	top:-20px;
+	margin-top:-10px;
+	font-size:18px;
+	font-weight:bold;
+
+	.filter-trigger {
+		padding-bottom:20px;
+		cursor: pointer;
+
+		.glyphicon {
+			display:block;
+			margin:0 auto;
+		}
+	}
+
+	&:before {
+		position:absolute;
+		content:"";
+		height:90px;
+		width:90px;
+		left:50%;
+		top:-45px;
+		background-color:lighten(@gray-lighter, 4%);
+		transform: translateX(-50%) rotate(45deg);
+		-ms-transform: translateX(-50%) rotate(45deg);
+		-webkit-transform: translateX(-50%) rotate(45deg);
+		z-index:-1;
+	}
+}

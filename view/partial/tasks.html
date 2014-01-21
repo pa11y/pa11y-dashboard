@@ -1,9 +1,10 @@
 
 <div data-control="task-list">
 
-	<div class="no-js-hide">
-		<label for="task-filter">Filter URLs</label>
-		<input id="task-filter" type="text" data-role="input"/>
+	<div class="col-md-6 col-md-offset-3 filter-toggle no-js-hide text-center">
+		<label for="filter-input" class="filter-trigger" data-toggle="collapse" data-target="#filter-input">Filter<span class="glyphicon glyphicon-filter"></span>
+		</label>
+		<input id="filter-input" class="form-control collapse" id="task-filter" type="text" data-role="input" placeholder="Type filter term (name or standard)"/>
 	</div>
 
 	<ul class="list-unstyled clearfix crunch-bottom">

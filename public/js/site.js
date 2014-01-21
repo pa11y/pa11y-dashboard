@@ -253,7 +253,7 @@ $(document).ready(function(){
 	}
 
 	function filterTasks (tasks, query) {
-		query = query.replace(/[^a-z0-9\s]+/gi, '').trim();
+		query = $.trim(query.replace(/[^a-z0-9\s]+/gi, ''));
 		tasks.removeClass('hidden');
 		if (/^\s*$/.test(query)) {
 			return;
