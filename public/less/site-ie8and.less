@@ -52,6 +52,20 @@
 	.date-selector .btn-full-width {
 		width:90%;
 	}
+	.filter-toggle {
+		&:before {
+			height:110%;
+			width:100%;
+			left:0;
+			top:0;
+		}
+		input {
+			width:92%;
+		}
+		.filter-trigger {
+			padding-bottom:0;
+		}
+	}
 }
 
 .ie7 {
@@ -94,5 +108,21 @@
 	}
 	.tasks-list li {
 		padding-right:105px;
+	}
+	.filter-toggle {
+		width:30%;
+		margin:0 35%;
+		margin-top:-10px;
+		background-color:lighten(@gray-lighter, 4%);
+		padding-bottom:10px;
+
+		.glyphicon {
+			display:none;
+		}
+
+		input {
+			width:80%;
+			margin-left:-25%;
+		}
 	}
 }
