@@ -1,4 +1,4 @@
-{{! 
+{{!
 This file is part of pa11y-dashboard.
 
 pa11y-dashboard is free software: you can redistribute it and/or modify
@@ -61,6 +61,15 @@ along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 						<option {{#selected}}selected{{/selected}}>{{title}}</option>
 					{{/standards}}
 				</select>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group clearfix">
+		<div class="row">
+			<div class="col-md-4 col-sm-4 col-xs-6">
+				<label class="control-label" for="new-task-timeout">Timeout (milliseconds)</label>
+				<input class="form-control" id="new-task-timeout" type="text" placeholder="E.g. 30000" name="timeout" value="{{task.timeout}}"/>
 			</div>
 		</div>
 	</div>
