@@ -41,7 +41,9 @@ function route (app) {
 			url: req.body.url,
 			standard: req.body.standard,
 			ignore: req.body.ignore || [],
-			timeout: req.body.timeout
+			timeout: req.body.timeout,
+			username: req.body.username,
+			password: req.body.password
 		};
 		app.webservice.tasks.create(newTask, function (err, task) {
 			if (err) {

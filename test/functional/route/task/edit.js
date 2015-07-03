@@ -71,6 +71,20 @@ describe('GET /<task-id>/edit', function () {
 			assert.isDefined(field.getAttribute('disabled'));
 		});
 
+		it('should have a "username" field', function () {
+			var field = this.form.querySelectorAll('input[name=username]')[0];
+			assert.isDefined(field);
+			assert.strictEqual(field.getAttribute('type'), 'text');
+			assert.strictEqual(field.getAttribute('value'), 'user');
+		});
+
+		it('should have a "password" field', function () {
+			var field = this.form.querySelectorAll('input[name=password]')[0];
+			assert.isDefined(field);
+			assert.strictEqual(field.getAttribute('type'), 'text');
+			assert.strictEqual(field.getAttribute('value'), 'access');
+		});
+
 		it('should have "ignore" fields', function () {
 			var fields = this.form.querySelectorAll('input[name="ignore[]"]');
 			assert.isDefined(fields);
@@ -89,6 +103,8 @@ describe('POST /<task-id>/edit', function () {
 			endpoint: '/abc000000000000000000001/edit',
 			body: {
 				name: 'foo',
+				username: 'newuser',
+				password: 'secure',
 				ignore: ['bar', 'baz']
 			}
 		};
@@ -102,6 +118,8 @@ describe('POST /<task-id>/edit', function () {
 	it('should edit the task', function (done) {
 		this.webservice.task('abc000000000000000000001').get({}, function (err, task) {
 			assert.strictEqual(task.name, 'foo');
+			assert.strictEqual(task.username, 'newuser');
+			assert.strictEqual(task.password, 'secure');
 			assert.deepEqual(task.ignore, ['bar', 'baz']);
 			done();
 		});
