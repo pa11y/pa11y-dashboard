@@ -4,6 +4,11 @@ language: node_js
 node_js:
   - "0.10"
 
+# Build only master (and pull-requests)
+branches:
+  only:
+    - master
+
 # Services setup
 services:
   - mongodb
