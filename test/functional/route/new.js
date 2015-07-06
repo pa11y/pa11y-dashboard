@@ -64,6 +64,20 @@ describe('GET /new', function () {
 			assert.strictEqual(field.getAttribute('value'), '');
 		});
 
+		it('should have a "username" field', function () {
+			var field = this.form.querySelectorAll('input[name=username]')[0];
+			assert.isDefined(field);
+			assert.strictEqual(field.getAttribute('type'), 'text');
+			assert.strictEqual(field.getAttribute('value'), '');
+		});
+
+		it('should have a "password" field', function () {
+			var field = this.form.querySelectorAll('input[name=password]')[0];
+			assert.isDefined(field);
+			assert.strictEqual(field.getAttribute('type'), 'text');
+			assert.strictEqual(field.getAttribute('value'), '');
+		});
+
 		it('should have a "standard" field', function () {
 			var field = this.form.querySelectorAll('select[name=standard]')[0];
 			assert.isDefined(field);

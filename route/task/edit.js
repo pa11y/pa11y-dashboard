@@ -61,6 +61,8 @@ function route (app) {
 					task.name = req.body.name;
 					task.ignore = req.body.ignore;
 					task.timeout = req.body.timeout;
+					task.username = req.body.username;
+					task.password = req.body.password;
 					var standards = getStandards().map(function (standard) {
 						if (standard.title === task.standard) {
 							standard.selected = true;
