@@ -72,7 +72,7 @@ $(document).ready(function(){
 		$(this).parent().toggleClass('showing');
 	});
 
-	 // Back to top links
+	// Back to top links
 	toTopLinks.click( function(e){
 		e.preventDefault();
 		$(animateSection($('#top'), -55));
@@ -304,9 +304,13 @@ $(document).ready(function(){
 
 		e.preventDefault();
 		e.stopPropagation();
-	}
+	};
 
 	$('[data-toggle="collapse"]').attr('role', 'button').attr('tabindex', 0);
-	$(document).on('keydown.collapse.data-api', '[data-toggle="collapse"]' ,  $.fn.collapse.Constructor.prototype.keydown);
+	$(document).on(
+		'keydown.collapse.data-api',
+		'[data-toggle="collapse"]',
+		$.fn.collapse.Constructor.prototype.keydown
+	);
 
 });
