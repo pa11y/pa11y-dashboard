@@ -288,4 +288,29 @@ $(document).ready(function(){
 		});
 	}
 
+	// Extend public/js/vendor/bootstrap/js/collapse.js
+	// Add keyboard control for filters
+
+	$.fn.collapse.Constructor.prototype.keydown = function (e) {
+		var $this = $(this);
+		var k = e.which || e.keyCode;
+
+		if (!/(13|32)/.test(k)) {
+			return;
+		}
+		if (k === 13 || k === 32) {
+			$this.click();
+		}
+
+		e.preventDefault();
+		e.stopPropagation();
+	};
+
+	$('[data-toggle="collapse"]').attr('role', 'button').attr('tabindex', 0);
+	$(document).on(
+		'keydown.collapse.data-api',
+		'[data-toggle="collapse"]',
+		$.fn.collapse.Constructor.prototype.keydown
+	);
+
 });
