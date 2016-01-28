@@ -61,16 +61,32 @@ $(document).ready(function(){
     };
 
     // Toggle appearance of lists of error/warnings/notices
-	expandLink.click( function(){
-		$(this).parent().next().slideToggle('slow', function(){});
-        if ($(this).parent().hasClass('showing')) {
-            $(this).html('+');
+    expandLink.click( function(){
+		$(this).next().slideToggle('slow', function(){});
+        if ($(this).hasClass('showing')) {
+            $(this).find('span.expander').html('+');
+            $(this).attr('aria-expanded', false);
         }
         else {
-            $(this).html('-');
+            $(this).find('span.expander').html('-');
+            $(this).attr('aria-expanded', true);
         }
-        $(this).parent().toggleClass('showing');
+        $(this).toggleClass('showing');
 	});
+    $(document).on('keydown.lists', '[data-role="expander"]', function (e) {
+        var $this = $(this);
+        var k = e.which || e.keyCode;
+
+        if (!/(13|32)/.test(k)) {
+            return;
+        }
+        if (k === 13 || k === 32) {
+            $this.click();
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+    });
 
      // Back to top links
     toTopLinks.click( function(e){
@@ -94,7 +110,7 @@ $(document).ready(function(){
         target = $(this).attr('href');
         animateSection($(target), -25);
         if (!$(target).hasClass('showing')) {
-            $(target).children('[data-role="expander"]').click();
+            $(target).click();
         }
     });
 
