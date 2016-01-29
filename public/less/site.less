@@ -1,15 +1,15 @@
 // This file is part of pa11y-dashboard.
-// 
+//
 // pa11y-dashboard is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
-// 
+//
 // pa11y-dashboard is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License
 // along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -252,7 +252,7 @@
 		word-wrap:break-word;
 	}
 	.h4 {
-		margin-bottom:22px;
+		margin-bottom:6px;
 	}
 }
 .date {
@@ -347,19 +347,35 @@ ul.date-links {
 	z-index:10;
 }
 .date-selector {
-	margin-top:-125px;
+	margin-bottom:5px;
 
-	.btn-group > .btn {
-		float:none;
+	.show-stats {
+		margin-top: 0;
 	}
 
-	&.single-result {
-		margin-top:-52px;
-
-		.show-stats {
-			display:none;
-		}
+	h2 {
+		margin-top: 0;
 	}
+
+	.dates-list {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+
+	.dates-list > li {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.dates-list a {
+		color: #fff;
+		text-decoration: underline;
+	}
+}
+.single-result .date-selector-row {
+	display: none;
 }
 
 /* Graph */
@@ -368,11 +384,11 @@ ul.date-links {
 	width:100%;
 }
 .graph-spacer {
-	margin-bottom:60px;
-	padding-bottom:60px;
+	margin-bottom:30px;
+	padding-bottom:30px;
 }
 .graph-table {
-	margin-bottom:50px;
+	margin-bottom:0;
 
 	td {
 		width:25%;
@@ -477,4 +493,22 @@ ul.date-links {
 		-webkit-transform: translateX(-50%) rotate(45deg);
 		z-index:-1;
 	}
+}
+
+/* inline link list */
+
+.inline-list {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+.inline-list > li {
+	display: inline-block;
+	border-right: 1px solid @dropdown-fallback-border; // IE8 fallback
+    border-right: 1px solid @dropdown-border;
+	padding: 0 4px 0 0;
+	margin: 0 4px 0 0;
+}
+.inline-list + div.date {
+	display: inline-block;
 }

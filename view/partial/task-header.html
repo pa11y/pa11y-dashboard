@@ -1,4 +1,4 @@
-{{! 
+{{!
 This file is part of pa11y-dashboard.
 
 pa11y-dashboard is free software: you can redistribute it and/or modify
@@ -17,27 +17,25 @@ along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 <div class="col-md-12 zfix">
 	<div class="ruled task-header">
 		<div class="row clearfix">
-			<div class="col-md-9 col-sm-9">
+			<div class="col-md-12">
 				<h1 class="h2 crunch-top">{{task.name}}</h1>
 				<p class="h4">{{simplify-url task.url}}<span class="h5"> ({{task.standard}})</span></p>
 			</div>
-			<div class="col-md-3 col-sm-3 text-right run-details">
-				{{#unless readonly}}
-					<div class="btn-group">
-				        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">Options <span class="caret"></span></button>
-				        <ul class="dropdown-menu pull-right" role="menu">
+			<div class="run-details task-header clearfix">
+				<div class="col-md-12 clearfix">
+					{{#unless readonly}}
+				        <ul class="inline-list" role="menu">
 				          	<li><a href="/{{task.id}}/edit">Edit this task</a></li>
 							<li><a href="/{{task.id}}/delete">Delete this task</a></li>
-							<li class="divider"></li>
 							<li><a href="{{task.hrefRun}}" data-test="run-task">Run pa11y</a></li>
 						</ul>
-				    </div>
-				{{/unless}}
-				{{#if mainResult}}
-					<div class="date">Last run : {{date-format mainResult.date format="DD MMM YYYY"}}</div>
-				{{else}}
-					<div class="date">Not yet run</div>
-				{{/if}}
+					{{/unless}}
+					{{#if mainResult}}
+						<div class="date">Last run: <strong>{{date-format mainResult.date format="DD MMM YYYY"}}</strong></div>
+					{{else}}
+						<div class="date">Not yet run</div>
+					{{/if}}
+				</div>
 			</div>
 		</div>
 	</div>
