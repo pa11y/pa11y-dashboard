@@ -17,7 +17,7 @@ along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
 <div class="col-md-3 aside">
 	<div class="row">
-		<div id="top" class="col-md-12 col-sm-6 col-xs-12">
+		<div class="col-md-12 col-sm-6 col-xs-12">
 			<ul data-role="task-list" class="clearfix list-unstyled floated-list task-stats">
 				{{#mainResult}}
 					<li class="danger"><a href="#errors" title="See errors">{{count.error}}<span class="stat-type">Errors</span></a></li>
@@ -42,6 +42,25 @@ along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 		</div>
 	</div>
 	<div class="row">
+		<div id="top" class="col-md-12 col-sm-12 clearfix">
+			<div class="well dark-well">
+				<div class="date-selector">
+					<div class="btn-group block-level clearfix">
+						<h2 class="h4">
+							<span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;{{date-format task.lastResult.date format="DD MMM YYYY"}}
+						</h2>
+						<h3 class="h5 show-stats">Select a date to show stats for:</h3>
+						<ul role="navigation" class="dates-list">
+							{{#results}}
+							<li><a class="" href="{{href}}">{{date-format date format="DD MMM YYYY"}}</a></li>
+							{{/results}}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
 		<div class="col-md-12 col-sm-12 clearfix">
 			<div class="well">
 				<h4 class="crunch-top">View results in browser</h4>
@@ -51,7 +70,7 @@ along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 	</div>
 </div>
 
-<div class="col-md-9" data-role="expandable-results">
+<div class="col-md-9" data-role="expandable-results" role="main">
 	{{#if mainResult.count.error}}
 		<div class="heading label-danger pointer showing first" id="errors" data-test="task-errors" data-role="expander" role="button" tabindex="0" aria-expanded="true" aria-controls="errors-list">
 			<span class="pull-right expander"> - <span class="hide">(close panel)</span></span>

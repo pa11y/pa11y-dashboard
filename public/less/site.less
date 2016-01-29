@@ -252,7 +252,7 @@
 		word-wrap:break-word;
 	}
 	.h4 {
-		margin-bottom:22px;
+		margin-bottom:6px;
 	}
 }
 .date {
@@ -347,18 +347,31 @@ ul.date-links {
 	z-index:10;
 }
 .date-selector {
-	margin-top:-125px;
+	margin-bottom:5px;
 
-	.btn-group > .btn {
-		float:none;
+	.show-stats {
+		margin-top: 0;
 	}
 
-	&.single-result {
-		margin-top:-52px;
+	h2 {
+		margin-top: 0;
+	}
 
-		.show-stats {
-			display:none;
-		}
+	.dates-list {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+
+	.dates-list > li {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.dates-list a {
+		color: #fff;
+		text-decoration: underline;
 	}
 }
 
@@ -368,11 +381,11 @@ ul.date-links {
 	width:100%;
 }
 .graph-spacer {
-	margin-bottom:60px;
-	padding-bottom:60px;
+	margin-bottom:30px;
+	padding-bottom:30px;
 }
 .graph-table {
-	margin-bottom:50px;
+	margin-bottom:0;
 
 	td {
 		width:25%;
