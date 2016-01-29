@@ -31,7 +31,7 @@ along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 						</ul>
 					{{/unless}}
 					{{#if mainResult}}
-						<div class="date">Last run : {{date-format mainResult.date format="DD MMM YYYY"}}</div>
+						<div class="date">Last run: <strong>{{date-format mainResult.date format="DD MMM YYYY"}}</strong></div>
 					{{else}}
 						<div class="date">Not yet run</div>
 					{{/if}}
