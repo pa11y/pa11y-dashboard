@@ -61,6 +61,11 @@ $(document).ready(function(){
                 left: 1
             }
         },
+        legend: {
+            labelFormatter: function(label, series) {
+                return '<span id="' + label +'Legend">' + label + '</span>';
+            }
+        },
         selection: {
             mode: 'x'
         }
@@ -168,8 +173,98 @@ $(document).ready(function(){
         });
     }
 
+    function newLegend () {
+        var errors = graphContainer.find('.legend #ErrorsLegend');
+        var warnings = graphContainer.find('.legend #WarningsLegend');
+        var notices = graphContainer.find('.legend #NoticesLegend');
+        var legend = graphContainer.find('.legend');
+        var table = graphContainer.find('table');
+
+        var tableStyle = table.attr('style');
+        legend.attr('style', tableStyle);
+        table.removeAttr('style');
+
+        legend.css({
+            background: 'rgba(255, 255, 255, 0.75)'
+        });
+
+        table.css({
+            background: '#fff',
+            border: '1px solid #808080',
+            margin: '5px'
+        });
+        table.find('tr > td:first-child').css({
+            paddingLeft: '10px',
+            paddingRight: '5px'
+        });
+        table.find('tr > td:last-child').css({
+            paddingRight: '10px'
+        });
+        table.find('tr:first-child > td').css({
+            paddingTop: '5px'
+        });
+        table.find('tr:last-child > td').css({
+            paddingBottom: '5px'
+        });
+        table.prev('div').remove();
+
+        if (errors.length) {
+            var icon = errors.parent().prev().children('div');
+            icon.css({
+                padding: 3
+            });
+            icon.find('div').css({
+                width: '25px',
+                borderWidth: 3,
+                borderBottom: 0,
+                borderLeft: 0,
+                borderRight: 0,
+            })
+        }
+
+        if (warnings.length) {
+            var icon = warnings.parent().prev().children('div');
+            icon.addClass('clearfix').css({
+                padding: 3
+            });
+            icon.find('div').clone().appendTo(icon[0]);
+            icon.find('div').css({
+                float: 'left',
+                width: '10px',
+                borderWidth: 3,
+                borderBottom: 0,
+                borderLeft: 0,
+                borderRight: 0,
+            })
+            icon.find('div:first-child').css({
+                marginRight: '5px'
+            });
+        }
+
+        if (notices.length) {
+            var icon = notices.parent().prev().children('div');
+            icon.addClass('clearfix').css({
+                padding: 3
+            });
+            icon.find('div').clone().appendTo(icon[0]).end().clone().appendTo(icon[0]);
+            icon.find('div').css({
+                float: 'left',
+                width: '5px',
+                marginRight: '5px',
+                borderWidth: 3,
+                borderBottom: 0,
+                borderLeft: 0,
+                borderRight: 0,
+            })
+            icon.find('div:last-child').css({
+                marginRight: '0'
+            });
+        }
+    }
+
     function plotGraphData () {
         $.plot(graphContainer, getData(), graphOptions);
+        newLegend();
     }
 
     function getData() {
@@ -184,7 +279,7 @@ $(document).ready(function(){
                 label: 'Warnings',
                 data: data.warning,
                 lines: { show: false },
-                dashes: { show: true }
+                dashes: { show: true, dashLength: [10, 5] }
             },
             {
                 color: 'rgb(23, 123, 190)',
@@ -256,6 +351,7 @@ $(document).ready(function(){
 
         if (data.length > -1) {
             $.plot(graphContainer, data, graphOptions);
+            newLegend();
         }
     }
 
