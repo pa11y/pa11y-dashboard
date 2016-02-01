@@ -183,29 +183,6 @@ $(document).ready(function(){
         var tableStyle = table.attr('style');
         legend.attr('style', tableStyle);
         table.removeAttr('style');
-
-        legend.css({
-            background: 'rgba(255, 255, 255, 0.75)'
-        });
-
-        table.css({
-            background: '#fff',
-            border: '1px solid #808080',
-            margin: '5px'
-        });
-        table.find('tr > td:first-child').css({
-            paddingLeft: '10px',
-            paddingRight: '5px'
-        });
-        table.find('tr > td:last-child').css({
-            paddingRight: '10px'
-        });
-        table.find('tr:first-child > td').css({
-            paddingTop: '5px'
-        });
-        table.find('tr:last-child > td').css({
-            paddingBottom: '5px'
-        });
         table.prev('div').remove();
 
         if (errors.length) {
