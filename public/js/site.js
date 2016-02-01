@@ -46,7 +46,7 @@ $(document).ready(function(){
         },
         points: {
             fill: true,
-            fillColor: "rgb(255, 255, 255)"
+            fillColor: 'rgb(255, 255, 255)'
         },
         shadowSize: 0,
         grid: {
@@ -186,45 +186,46 @@ $(document).ready(function(){
         table.prev('div').remove();
 
         if (errors.length) {
-            var icon = errors.parent().prev().children('div');
-            icon.css({
+            var errorIcon = errors.parent().prev().children('div');
+            errorIcon.css({
                 padding: 3
             });
-            icon.find('div').css({
+            errorIcon.find('div').css({
                 width: '25px',
                 borderWidth: 3,
                 borderBottom: 0,
                 borderLeft: 0,
                 borderRight: 0,
-            })
+            });
         }
 
         if (warnings.length) {
-            var icon = warnings.parent().prev().children('div');
-            icon.addClass('clearfix').css({
+            var warningIcon = warnings.parent().prev().children('div');
+            warningIcon.addClass('clearfix').css({
                 padding: 3
             });
-            icon.find('div').clone().appendTo(icon[0]);
-            icon.find('div').css({
+            warningIcon.find('div').clone().appendTo(warningIcon[0]);
+            warningIcon.find('div').css({
                 float: 'left',
                 width: '10px',
                 borderWidth: 3,
                 borderBottom: 0,
                 borderLeft: 0,
                 borderRight: 0,
-            })
-            icon.find('div:first-child').css({
+            });
+            warningIcon.find('div:first-child').css({
                 marginRight: '5px'
             });
         }
 
         if (notices.length) {
-            var icon = notices.parent().prev().children('div');
-            icon.addClass('clearfix').css({
+            var noticeIcon = notices.parent().prev().children('div');
+            noticeIcon.addClass('clearfix').css({
                 padding: 3
             });
-            icon.find('div').clone().appendTo(icon[0]).end().clone().appendTo(icon[0]);
-            icon.find('div').css({
+            noticeIcon.find('div').clone().appendTo(noticeIcon[0]).end()
+                .clone().appendTo(noticeIcon[0]);
+            noticeIcon.find('div').css({
                 float: 'left',
                 width: '5px',
                 marginRight: '5px',
@@ -232,8 +233,8 @@ $(document).ready(function(){
                 borderBottom: 0,
                 borderLeft: 0,
                 borderRight: 0,
-            })
-            icon.find('div:last-child').css({
+            });
+            noticeIcon.find('div:last-child').css({
                 marginRight: '0'
             });
         }
