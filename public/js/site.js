@@ -47,7 +47,8 @@ $(document).ready(function(){
         },
         points: {
             fill: true,
-            fillColor: 'rgb(255, 255, 255)'
+            radius:4,
+            lineWidth:3
         },
         shadowSize: 0,
         grid: {
