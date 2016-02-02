@@ -20,6 +20,38 @@ along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 		<div class="row">
 			<ul class="list-unstyled floated-list series-checkboxes clearfix crunch-bottom col-md-3 col-sm-6 col-xs-12 pull-right" data-role="series-checkboxes"></ul>
 		</div>
+		<div class="dashedLegend">
+			<div class="dashedContainer">
+			    <table>
+			        <tbody>
+			            <tr>
+			                <td class="legendColorBox">
+			                    <div class="clearfix legendIcon legendErrors">
+			                        <div></div>
+			                    </div>
+			                </td>
+			                <td class="legendLabel">Errors</td>
+			            </tr>
+			            <tr>
+			                <td class="legendColorBox">
+			                    <div class="clearfix legendIcon legendWarnings">
+			                        <div></div><div></div>
+			                    </div>
+			                </td>
+			                <td class="legendLabel">Warnings</td>
+			            </tr>
+			            <tr>
+			                <td class="legendColorBox">
+			                    <div class="clearfix legendIcon legendNotices">
+			                        <div></div><div></div><div></div>
+			                    </div>
+			                </td>
+			                <td class="legendLabel">Notices</td>
+			            </tr>
+			        </tbody>
+			    </table>
+			</div>
+		</div>
 		<button data-role='zoom-reset' class="btn btn-xs btn-primary pull-right btn-reset hidden">Reset Zoom <i class="glyphicon glyphicon-zoom-out"></i></button>
 	</div>
 </div>

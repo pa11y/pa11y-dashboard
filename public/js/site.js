@@ -24,6 +24,7 @@ $(document).ready(function(){
     var zoomResetButton = $('[data-role="zoom-reset"]');
     var graphContainer = $('[data-role="graph"]');
     var dateSelectDropdownMenu = $('[data-role="date-select-dropdown-menu"]');
+    var legend = graphContainer.parent('.graph-container').find('.dashedLegend');
 
     var graphOptions = {
         series: {
@@ -61,15 +62,15 @@ $(document).ready(function(){
                 left: 1
             }
         },
-        legend: {
-            labelFormatter: function(label, series) {
-                return '<span id="' + label +'Legend">' + label + '</span>';
-            }
-        },
         selection: {
             mode: 'x'
         }
     };
+
+    // have we declared a custom legend
+    if (legend.length === 1) {
+        $('body').addClass('custom-legend');
+    }
 
     // Toggle appearance of lists of error/warnings/notices
     expandLink.click( function(){
@@ -173,76 +174,8 @@ $(document).ready(function(){
         });
     }
 
-    function newLegend () {
-        var errors = graphContainer.find('.legend #ErrorsLegend');
-        var warnings = graphContainer.find('.legend #WarningsLegend');
-        var notices = graphContainer.find('.legend #NoticesLegend');
-        var legend = graphContainer.find('.legend');
-        var table = graphContainer.find('table');
-
-        var tableStyle = table.attr('style');
-        legend.attr('style', tableStyle);
-        table.removeAttr('style');
-        table.prev('div').remove();
-
-        if (errors.length) {
-            var errorIcon = errors.parent().prev().children('div');
-            errorIcon.css({
-                padding: 3
-            });
-            errorIcon.find('div').css({
-                width: '25px',
-                borderWidth: 3,
-                borderBottom: 0,
-                borderLeft: 0,
-                borderRight: 0,
-            });
-        }
-
-        if (warnings.length) {
-            var warningIcon = warnings.parent().prev().children('div');
-            warningIcon.addClass('clearfix').css({
-                padding: 3
-            });
-            warningIcon.find('div').clone().appendTo(warningIcon[0]);
-            warningIcon.find('div').css({
-                float: 'left',
-                width: '10px',
-                borderWidth: 3,
-                borderBottom: 0,
-                borderLeft: 0,
-                borderRight: 0,
-            });
-            warningIcon.find('div:first-child').css({
-                marginRight: '5px'
-            });
-        }
-
-        if (notices.length) {
-            var noticeIcon = notices.parent().prev().children('div');
-            noticeIcon.addClass('clearfix').css({
-                padding: 3
-            });
-            noticeIcon.find('div').clone().appendTo(noticeIcon[0]).end()
-                .clone().appendTo(noticeIcon[0]);
-            noticeIcon.find('div').css({
-                float: 'left',
-                width: '5px',
-                marginRight: '5px',
-                borderWidth: 3,
-                borderBottom: 0,
-                borderLeft: 0,
-                borderRight: 0,
-            });
-            noticeIcon.find('div:last-child').css({
-                marginRight: '0'
-            });
-        }
-    }
-
     function plotGraphData () {
         $.plot(graphContainer, getData(), graphOptions);
-        newLegend();
     }
 
     function getData() {
@@ -320,16 +253,27 @@ $(document).ready(function(){
 
     function plotAccordingToChoices() {
         var data = [];
+        var labels = [];
         choiceContainer.find('input:checked').each(function () {
             var key = $(this).attr('name');
             if (key && datasets[key]) {
+                labels.push(datasets[key].label);
                 data.push(datasets[key]);
             }
         });
 
+        if (labels.length && legend.length === 1) {
+            legend.find('tr').hide();
+            $.each(labels, function (index, value) {
+                $('.legend' + value).parents('tr').show();
+            });
+            legend.show();
+        } else {
+            legend.hide();
+        }
+
         if (data.length > -1) {
             $.plot(graphContainer, data, graphOptions);
-            newLegend();
         }
     }
 

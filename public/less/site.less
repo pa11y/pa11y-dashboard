@@ -439,26 +439,66 @@ ul.date-links {
 .tooltip-graph {
 	font-size:12px;
 }
-.legend {
+.custom-legend .legend {
+	display:none !important;
+}
+.dashedLegend {
+	position:absolute;
+	top:14px;
+	right:39px;
+	font-size:smaller;
+	color:#545454;
 	background-color: #fff;
 	background-color: rgba(255, 255, 255, 0.75);
+	display:none;
 }
-.legend table {
+.dashedContainer {
 	background: #fff;
 	border: 1px solid #808080;
 	margin: 5px;
-}
-.legend tr > td:first-child {
-	padding-left: 10px;
-	padding-right: 5px;
-}
-.legend tr > td:last-child {
-	padding-right: 10px;
-}
-.legend tr:first-child > td {
 	padding-top: 5px;
 }
-.legend tr:last-child > td {
+.dashedLegend tr {
+	display: none;
+}
+.dashedLegend .legendColorBox > div:first-child {
+	border: 1px solid rgb(204, 204, 204);
+	padding: 3px;
+}
+.dashedLegend .legendIcon div {
+	height: 0px;
+	border-width: 3px 0px 0px;
+	border-top-style: solid;
+	overflow: hidden;
+}
+.dashedLegend .legendErrors div {
+	width: 25px;
+	border-top-color: rgb(216, 61, 45);
+}
+.dashedLegend .legendWarnings div {
+	width: 10px;
+	border-top-color: rgb(168, 103, 0);
+	float: left;
+}
+.dashedLegend .legendWarnings div:first-child {
+	margin-right: 5px;
+}
+.dashedLegend .legendNotices div {
+	width: 5px;
+	border-top-color: rgb(23, 123, 190);
+	float: left;
+	margin-left: 5px;
+}
+.dashedLegend .legendNotices div:first-child {
+	margin-left: 0;
+}
+.dashedLegend td.legendColorBox {
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
+.dashedLegend td.legendLabel {
+	padding-right: 10px;
 	padding-bottom: 5px;
 }
 
