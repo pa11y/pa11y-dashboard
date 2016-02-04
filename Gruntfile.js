@@ -94,6 +94,7 @@ module.exports = function (grunt) {
 						'public/js/vendor/bootstrap/js/transition.js',
 						'public/js/vendor/bootstrap/js/collapse.js',
 						'public/js/vendor/flot/jquery.flot.js',
+						'public/js/vendor/flot/jquery.flot.dashes.js',
 						'public/js/vendor/flot/jquery.flot.time.js',
 						'public/js/vendor/flot/jquery.flot.selection.js',
 						'public/js/vendor/flot/jquery.flot.resize.js',

@@ -24,9 +24,11 @@ $(document).ready(function(){
     var zoomResetButton = $('[data-role="zoom-reset"]');
     var graphContainer = $('[data-role="graph"]');
     var dateSelectDropdownMenu = $('[data-role="date-select-dropdown-menu"]');
+    var legend = graphContainer.parent('.graph-container').find('.dashedLegend');
 
     var graphOptions = {
         series: {
+            dashes: { show: false, lineWidth: 3 },
             lines: { show: true },
             points: { show: true },
             hoverable: true
@@ -43,6 +45,12 @@ $(document).ready(function(){
         lines: {
             lineWidth: 3
         },
+        points: {
+            fill: true,
+            radius:4,
+            lineWidth:3
+        },
+        shadowSize: 0,
         grid: {
             backgroundColor: '#fff',
             borderColor: '#808080',
@@ -59,6 +67,11 @@ $(document).ready(function(){
             mode: 'x'
         }
     };
+
+    // have we declared a custom legend
+    if (legend.length === 1) {
+        $('body').addClass('custom-legend');
+    }
 
     // Toggle appearance of lists of error/warnings/notices
     expandLink.click( function(){
@@ -168,9 +181,25 @@ $(document).ready(function(){
 
     function getData() {
         return [
-            { color: 'rgb(216, 61, 45)', label: 'Errors', data:  data.error },
-            { color: 'rgb(168, 103, 0)', label: 'Warnings', data:  data.warning  },
-            { color: 'rgb(23, 123, 190)', label: 'Notices', data:  data.notice }
+            {
+                color: 'rgb(216, 61, 45)',
+                label: 'Errors',
+                data: data.error
+            },
+            {
+                color: 'rgb(168, 103, 0)',
+                label: 'Warnings',
+                data: data.warning,
+                lines: { show: false },
+                dashes: { show: true, dashLength: [10, 5] }
+            },
+            {
+                color: 'rgb(23, 123, 190)',
+                label: 'Notices',
+                data: data.notice,
+                lines: { show: false },
+                dashes: { show: true, dashLength: 5 }
+            }
         ];
     }
 
@@ -225,12 +254,24 @@ $(document).ready(function(){
 
     function plotAccordingToChoices() {
         var data = [];
+        var labels = [];
         choiceContainer.find('input:checked').each(function () {
             var key = $(this).attr('name');
             if (key && datasets[key]) {
+                labels.push(datasets[key].label);
                 data.push(datasets[key]);
             }
         });
+
+        if (labels.length && legend.length === 1) {
+            legend.find('tr').hide();
+            $.each(labels, function (index, value) {
+                $('.legend' + value).parents('tr').show();
+            });
+            legend.show();
+        } else {
+            legend.hide();
+        }
 
         if (data.length > -1) {
             $.plot(graphContainer, data, graphOptions);
