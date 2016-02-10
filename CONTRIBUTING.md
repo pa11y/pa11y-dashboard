@@ -45,9 +45,9 @@ We use [Semantic Versioning][semver] in this project. The process for releasing 
 * On GitHub, add [release notes][release-notes] for the new version. The title should be "Version x.x.x", and the description should be a list of new features/fixes
 
 
-[bugs]: https://github.com/nature/pa11y-dashboard/issues?labels=bug&state=open
-[ready]: https://github.com/nature/pa11y-dashboard/issues?labels=ready&state=open
-[issues]: https://github.com/nature/pa11y-dashboard/issues
-[milestones]: https://github.com/nature/pa11y-dashboard/issues/milestones
-[release-notes]: https://github.com/nature/pa11y-dashboard/releases
+[bugs]: https://github.com/springernature/pa11y-dashboard/issues?labels=bug&state=open
+[ready]: https://github.com/springernature/pa11y-dashboard/issues?labels=ready&state=open
+[issues]: https://github.com/springernature/pa11y-dashboard/issues
+[milestones]: https://github.com/springernature/pa11y-dashboard/issues/milestones
+[release-notes]: https://github.com/springernature/pa11y-dashboard/releases
 [semver]: http://semver.org/

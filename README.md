@@ -92,7 +92,7 @@ For users with push-access, don't commit to the master branch. Code should be in
 License
 -------
 
-[Copyright 2013 Nature Publishing Group](LICENSE.txt).  
+[Copyright 2013 Springer Nature](LICENSE.txt).  
 pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
 
 
@@ -101,9 +101,9 @@ pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
 [grunt]: http://gruntjs.com/
 [mongo]: http://www.mongodb.org/
 [node]: http://nodejs.org/
-[pa11y]: https://github.com/nature/pa11y
-[pa11y-webservice]: https://github.com/nature/pa11y-webservice
-[pa11y-webservice-config]: https://github.com/nature/pa11y-webservice#configurations
+[pa11y]: https://github.com/springernature/pa11y
+[pa11y-webservice]: https://github.com/springernature/pa11y-webservice
+[pa11y-webservice-config]: https://github.com/springernature/pa11y-webservice#configurations
 [phantom]: http://phantomjs.org/
-[travis]: https://travis-ci.org/nature/pa11y-dashboard
-[travis-img]: https://travis-ci.org/nature/pa11y-dashboard.png?branch=master
+[travis]: https://travis-ci.org/springernature/pa11y-dashboard
+[travis-img]: https://travis-ci.org/springernature/pa11y-dashboard.png?branch=master
