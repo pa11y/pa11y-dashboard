@@ -82,7 +82,8 @@ along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 				{{#mainResult.errors}}
 					<li>
 						<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
-						<p>{{message}}</p>
+						<p><em>First result:</em> {{message}}</p>
+						<p><em>Selector:</em> {{selector}}, <em>Context:</em> {{context}}</p>
 						{{#unless readonly}}
 							{{#if ../../isTaskPage}}
 								<form action="{{../../../task.hrefIgnore}}" method="post">
@@ -110,7 +111,8 @@ along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 				{{#mainResult.warnings}}
 					<li>
 						<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
-						<p>{{message}}</p>
+						<p><em>First result:</em> {{message}}</p>
+						<p><em>Selector:</em> {{selector}}, <em>Context:</em> {{context}}</p>
 						{{#unless readonly}}
 							{{#if ../../isTaskPage}}
 								<form action="{{../../../task.hrefIgnore}}" method="post">
@@ -139,7 +141,8 @@ along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 				{{#mainResult.notices}}
 					<li>
 						<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
-						<p>{{message}}</p>
+						<p><em>First result:</em> {{message}}</p>
+						<p><em>Selector:</em> {{selector}}, <em>Context:</em> {{context}}</p>
 						{{#unless readonly}}
 							{{#if ../../isTaskPage}}
 								<form action="{{../../../task.hrefIgnore}}" method="post">
