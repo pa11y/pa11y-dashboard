@@ -61,12 +61,14 @@ function route(app) {
 	app.express.get('/:id/:rid.csv', getTaskAndResult, function(req, res) {
 		var task = res.locals.task;
 		var result = res.locals.result;
-		var rows = ['"code","message","type"'];
+		var rows = ['"code","message","type","context","selector"'];
 		result.results.forEach(function(msg) {
 			rows.push([
 				JSON.stringify(msg.code),
 				JSON.stringify(msg.message),
-				JSON.stringify(msg.type)
+				JSON.stringify(msg.type),
+				JSON.stringify(msg.context),
+				JSON.stringify(msg.selector)
 			].join(','));
 		});
 		res.attachment(getDownloadFileName(task, result, 'csv'));
