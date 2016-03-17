@@ -18,6 +18,11 @@
 var chalk = require('chalk');
 var config = require('./config/' + (process.env.NODE_ENV || 'development') + '.json');
 
+process.on( 'SIGINT', function() {
+    console.log( '\nGracefully shutting down from SIGINT (Ctrl-C)' );
+    process.exit( );
+});
+
 require('./app')(config, function (err, app) {
 
 	console.log('');
