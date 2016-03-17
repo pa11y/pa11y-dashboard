@@ -16,7 +16,7 @@
 'use strict';
 
 var chalk = require('chalk');
-var config = require('./config/' + (process.env.NODE_ENV || 'development') + '.json');
+var config = require('./config');
 
 require('./app')(config, function (err, app) {
 
