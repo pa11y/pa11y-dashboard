@@ -22,9 +22,9 @@ You'll then need to clone this repo locally and install dependencies with `npm i
 Once you have a local clone, you'll need to copy some sample configuration files in order to run the application. From within the repo, run the following commands:
 
 ```sh
-$ cp config/development.sample.json config/development.json
-$ cp config/production.sample.json config/production.json
-$ cp config/test.sample.json config/test.json
+cp config/development.sample.json config/development.json
+cp config/production.sample.json config/production.json
+cp config/test.sample.json config/test.json
 ```
 
 Each of these files defines configurations for a different environment. If you're just running the application locally, then you should be OK with just development configurations. The [available configurations are documented here](#configurations).
@@ -32,9 +32,9 @@ Each of these files defines configurations for a different environment. If you'r
 Now that you've got your application configured, you can run in each mode with the following commands:
 
 ```sh
-$ NODE_ENV=production node .   # Run in production
-$ NODE_ENV=development node .  # Run in development
-$ NODE_ENV=test node .         # Run in test
+NODE_ENV=production node index.js   # Run in production
+NODE_ENV=development node index.js  # Run in development
+NODE_ENV=test node index.js         # Run in test
 ```
 
 Check the [development instructions](#development) for more information about running locally (and restarting automatically when files change).
@@ -64,29 +64,30 @@ This can either be an object containing [pa11y-webservice configurations][pa11y-
 Development
 -----------
 
-To develop pa11y-dashboard, you'll need to clone the repo and get set up as outlined in the [setup guide](#setup). You'll also need [Grunt][grunt] to be installed globally in order to run tests, you can do this with `npm install -g grunt-cli`.
+To develop pa11y-dashboard, you'll need to clone the repo and get set up as outlined in the [setup guide](#setup).
 
-Once you've done this, you'll need to start the application in test mode with:
+You'll need to start the application in test mode with:
 
 ```sh
-$ grunt start-test
+NODE_ENV=test node index.js
 ```
 
 Now you'll be able to run the following commands:
 
 ```sh
-$ grunt             # Run the lint and test tasks together
-$ grunt lint        # Run JSHint with the correct config
-$ grunt compile     # Compile front-end assets
-$ grunt start       # Run app in development mode, restarting if files change
-$ grunt start-test  # Run app in test mode, restarting if files change
-$ grunt test        # Run functional tests
-$ grunt watch       # Watch for file changes and compile assets
+make       # Run the lint and test tasks together
+make lint  # Run linters with the correct config
+make test  # Run integration tests
 ```
 
 Code with lint errors or failing tests will not be accepted, please use the build tools outlined above.
 
-For users with push-access, don't commit to the master branch. Code should be in `develop` until it's ready to be released.
+To compile the client-side JavaScript and CSS, you'll need the following commands. Compiled code is committed to the repository.
+
+```sh
+make css     # Compile the site CSS from LESS files
+make uglify  # Compile and uglify the client-side JavaScript
+```
 
 
 License
@@ -98,7 +99,6 @@ pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
 
 
 [gpl]: http://www.gnu.org/licenses/gpl-3.0.html
-[grunt]: http://gruntjs.com/
 [mongo]: http://www.mongodb.org/
 [node]: http://nodejs.org/
 [pa11y]: https://github.com/springernature/pa11y

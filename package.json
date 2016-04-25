@@ -31,19 +31,18 @@
 	},
 	"devDependencies": {
 		"bower": "~1.2",
-		"grunt": "~0.4",
-		"grunt-contrib-jshint": "~0.7",
-		"grunt-contrib-less": "~0.8",
-		"grunt-contrib-uglify": "~0.2",
-		"grunt-contrib-watch": "~0.5",
-		"grunt-mocha-test": "~0.7",
-		"grunt-nodemon": "~0.1",
-		"jsdom": "~0.8",
-		"proclaim": "~2.0",
-		"request": "~2.27"
+		"jscs": "^2",
+		"jsdom": "^3",
+		"jshint": "^2",
+		"less": "~1.5",
+		"mocha": "^2",
+		"proclaim": "^3",
+		"request": "~2.27",
+		"uglify-js": "~2.4"
 	},
 
 	"scripts": {
-		"start": "node ."
+		"start": "node index.js",
+		"test": "make ci"
 	}
 }

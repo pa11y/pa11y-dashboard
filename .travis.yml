@@ -1,8 +1,18 @@
 
 # Language/versions
 language: node_js
-node_js:
-  - "0.10"
+matrix:
+  include:
+
+    # Run tests in Node.js 0.10 (unsupported)
+    - node_js: '0.10'
+
+    # Run tests in Node.js 0.12
+    - node_js: '0.12'
+
+  # Allow Node.js 0.10 to fail – it's unsupported
+  allow_failures:
+    - node_js: '0.10'
 
 # Build only master (and pull-requests)
 branches:
@@ -15,15 +25,7 @@ services:
 
 # Build script
 before_script:
-  - npm install -g grunt-cli
   - cp config/test.sample.json config/test.json
-  - grunt start-test &
+  - NODE_ENV=test node index.js &
   - sleep 5 # give server time to start
-script: 'grunt ci'
-
-# Notifications
-notifications:
- email:
-   - j.robinson@nature.com
-   - perry.harlock@nature.com
-   - rowan.manning@nature.com
+script: 'make ci'
