@@ -83,7 +83,13 @@ along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 					<li>
 						<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
 						<p><em>First result:</em> {{message}}</p>
-						<p><em>Selector:</em> {{selector}}, <em>Context:</em> {{context}}</p>
+						<p>
+							<b>Selector:</b>
+							<code style="text-wrap:pre-wrap">{{#if selector}}{{selector}}{{else}}-{{/if}}</code>
+							<br/>
+							<b>Context:</b>
+							<code style="text-wrap:pre-wrap">{{#if context}}{{context}}{{else}}-{{/if}}</code>
+						</p>
 						{{#unless readonly}}
 							{{#if ../../isTaskPage}}
 								<form action="{{../../../task.hrefIgnore}}" method="post">
@@ -112,7 +118,13 @@ along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 					<li>
 						<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
 						<p><em>First result:</em> {{message}}</p>
-						<p><em>Selector:</em> {{selector}}, <em>Context:</em> {{context}}</p>
+						<p>
+							<b>Selector:</b>
+							<code style="text-wrap:pre-wrap">{{#if selector}}{{selector}}{{else}}-{{/if}}</code>
+							<br/>
+							<b>Context:</b>
+							<code style="text-wrap:pre-wrap">{{#if context}}{{context}}{{else}}-{{/if}}</code>
+						</p>
 						{{#unless readonly}}
 							{{#if ../../isTaskPage}}
 								<form action="{{../../../task.hrefIgnore}}" method="post">
@@ -142,7 +154,13 @@ along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 					<li>
 						<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
 						<p><em>First result:</em> {{message}}</p>
-						<p><em>Selector:</em> {{selector}}, <em>Context:</em> {{context}}</p>
+						<p>
+							<b>Selector:</b>
+							<code style="text-wrap:pre-wrap">{{#if selector}}{{selector}}{{else}}-{{/if}}</code>
+							<br/>
+							<b>Context:</b>
+							<code style="text-wrap:pre-wrap">{{#if context}}{{context}}{{else}}-{{/if}}</code>
+						</p>
 						{{#unless readonly}}
 							{{#if ../../isTaskPage}}
 								<form action="{{../../../task.hrefIgnore}}" method="post">
