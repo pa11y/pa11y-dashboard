@@ -13,8 +13,6 @@
 // You should have received a copy of the GNU General Public License
 // along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
-/* global afterEach, before */
-/* jshint maxlen: false, maxstatements: false */
 'use strict';
 
 var config = require('../../config/test.json');

@@ -1,4 +1,3 @@
 coverage
 node_modules
-public/js/site.min.js
-public/js/vendor
+public/js

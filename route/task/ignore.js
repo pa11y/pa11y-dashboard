@@ -1,9 +1,5 @@
 'use strict';
 
-var _ = require('underscore');
-var presentTask = require('../../view/presenter/task');
-var getStandards = require('../../data/standards');
-
 module.exports = route;
 
 // Route definition
