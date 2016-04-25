@@ -33,11 +33,6 @@ test-integration:
 	@echo "$(C_CYAN)> running integration tests$(C_RESET)"
 	@./node_modules/.bin/mocha ./test/integration --reporter spec --recursive --timeout 5000 --slow 50
 
-# Add fixtures
-fixtures:
-	@echo "$(C_CYAN)> adding fixtures$(C_RESET)"
-	@node ./script/fixtures.js
-
 # Compile LESS
 less:
 	@echo "$(C_CYAN)> compiling less$(C_RESET)"
