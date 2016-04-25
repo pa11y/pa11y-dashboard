@@ -21,18 +21,18 @@ var getStandards = require('../../data/standards');
 module.exports = route;
 
 // Route definition
-function route (app) {
+function route(app) {
 
-	app.express.get('/:id/edit', function (req, res, next) {
-		app.webservice.task(req.params.id).get({}, function (err, task) {
+	app.express.get('/:id/edit', function(req, res, next) {
+		app.webservice.task(req.params.id).get({}, function(err, task) {
 			if (err) {
 				return next();
 			}
-			var standards = getStandards().map(function (standard) {
+			var standards = getStandards().map(function(standard) {
 				if (standard.title === task.standard) {
 					standard.selected = true;
 				}
-				standard.rules = standard.rules.map(function (rule) {
+				standard.rules = standard.rules.map(function(rule) {
 					if (task.ignore.indexOf(rule.name) !== -1) {
 						rule.ignored = true;
 					}
@@ -49,24 +49,24 @@ function route (app) {
 		});
 	});
 
-	app.express.post('/:id/edit', function (req, res, next) {
-		app.webservice.task(req.params.id).get({}, function (err, task) {
+	app.express.post('/:id/edit', function(req, res, next) {
+		app.webservice.task(req.params.id).get({}, function(err, task) {
 			if (err) {
 				return next();
 			}
 			req.body.ignore = req.body.ignore || [];
-			app.webservice.task(req.params.id).edit(req.body, function (err) {
+			app.webservice.task(req.params.id).edit(req.body, function(err) {
 				if (err) {
 					task.name = req.body.name;
 					task.ignore = req.body.ignore;
 					task.timeout = req.body.timeout;
 					task.username = req.body.username;
 					task.password = req.body.password;
-					var standards = getStandards().map(function (standard) {
+					var standards = getStandards().map(function(standard) {
 						if (standard.title === task.standard) {
 							standard.selected = true;
 						}
-						standard.rules = standard.rules.map(function (rule) {
+						standard.rules = standard.rules.map(function(rule) {
 							if (task.ignore.indexOf(rule.name) !== -1) {
 								rule.ignored = true;
 							}

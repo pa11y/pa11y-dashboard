@@ -25,7 +25,7 @@ var pkg = require('./package.json');
 module.exports = initApp;
 
 // Initialise the application
-function initApp (config, callback) {
+function initApp(config, callback) {
 	config = defaultConfig(config);
 
 	var webserviceUrl = config.webservice;
@@ -58,7 +58,7 @@ function initApp (config, callback) {
 		contentHelperName: 'content',
 		layoutsDir: __dirname + '/view/layout',
 		partialsDir: __dirname + '/view/partial',
-		defaultLayout: __dirname + '/view/layout/default',
+		defaultLayout: __dirname + '/view/layout/default'
 	}));
 	app.express.set('view engine', 'html');
 
@@ -79,7 +79,7 @@ function initApp (config, callback) {
 		siteMessage: config.siteMessage
 	});
 
-	app.express.use(function (req, res, next) {
+	app.express.use(function(req, res, next) {
 		res.locals.isHomePage = (req.path === '/');
 		res.locals.host = req.host;
 		next();
@@ -100,11 +100,11 @@ function initApp (config, callback) {
 	}
 
 	// Error handling
-	app.express.get('*', function (req, res) {
+	app.express.get('*', function(req, res) {
 		res.status(404);
 		res.render('404');
 	});
-	app.express.use(function (err, req, res, next) {
+	app.express.use(function(err, req, res, next) {
 		/* jshint unused: false */
 		if (err.code === 'ECONNREFUSED') {
 			err = new Error('Could not connect to pa11y-webservice');
@@ -117,7 +117,7 @@ function initApp (config, callback) {
 		res.render('500');
 	});
 
-	app.server.listen(config.port, function (err) {
+	app.server.listen(config.port, function(err) {
 		var address = app.server.address();
 		app.address = 'http://' + address.address + ':' + address.port;
 		callback(err, app);
@@ -126,7 +126,7 @@ function initApp (config, callback) {
 }
 
 // Get default configurations
-function defaultConfig (config) {
+function defaultConfig(config) {
 	if (typeof config.noindex !== 'boolean') {
 		config.noindex = true;
 	}

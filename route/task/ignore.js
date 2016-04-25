@@ -3,10 +3,10 @@
 module.exports = route;
 
 // Route definition
-function route (app) {
+function route(app) {
 
-	app.express.post('/:id/ignore', function (req, res, next) {
-		app.webservice.task(req.params.id).get({}, function (err, task) {
+	app.express.post('/:id/ignore', function(req, res, next) {
+		app.webservice.task(req.params.id).get({}, function(err, task) {
 			if (err) {
 				return next();
 			}
@@ -17,7 +17,7 @@ function route (app) {
 			if (typeof req.body.rule === 'string') {
 				edit.ignore.push(req.body.rule);
 			}
-			app.webservice.task(req.params.id).edit(edit, function () {
+			app.webservice.task(req.params.id).edit(edit, function() {
 				res.redirect('/' + req.params.id + '?rule-ignored');
 			});
 		});

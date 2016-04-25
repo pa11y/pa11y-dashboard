@@ -1,24 +1,24 @@
 // This file is part of pa11y-dashboard.
-// 
+//
 // pa11y-dashboard is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
-// 
+//
 // pa11y-dashboard is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License
 // along with pa11y-dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
-/* jshint maxlen: false */
+// jscs:disable maximumLineLength
 'use strict';
 
 module.exports = getStandards;
 
-function getStandards () {
+function getStandards() {
 	return [
 		{
 			title: 'Section508',
@@ -656,10 +656,12 @@ function getStandards () {
 				{
 					name: 'WCAG2AA.Principle1.Guideline1_1.1_1_1.H30.2',
 					description: 'Img element is the only content of the link, but is missing alt text. The alt text should describe the purpose of the link.'
-				},          {
+				},
+				{
 					name: 'WCAG2AA.Principle1.Guideline1_1.1_1_1.H37',
 					description: 'Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.'
-				},          {
+				},
+				{
 					name: 'WCAG2AA.Principle1.Guideline1_1.1_1_1.H67.1',
 					description: 'Img element with empty alt text must have absent or empty title attribute.'
 				},

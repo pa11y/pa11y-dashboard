@@ -17,11 +17,11 @@
 
 var assert = require('proclaim');
 
-describe('GET /<task-id>', function () {
+describe('GET /<task-id>', function() {
 
-	describe('when task has results', function () {
+	describe('when task has results', function() {
 
-		beforeEach(function (done) {
+		beforeEach(function(done) {
 			var req = {
 				method: 'GET',
 				endpoint: '/abc000000000000000000001'
@@ -29,48 +29,48 @@ describe('GET /<task-id>', function () {
 			this.navigate(req, done);
 		});
 
-		it('should send a 200 status', function () {
+		it('should send a 200 status', function() {
 			assert.strictEqual(this.last.status, 200);
 		});
 
-		it('should display an "Edit" button', function () {
+		it('should display an "Edit" button', function() {
 			assert.strictEqual(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/edit"]').length, 1);
 		});
 
-		it('should display a "Delete" button', function () {
+		it('should display a "Delete" button', function() {
 			assert.strictEqual(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/delete"]').length, 1);
 		});
 
-		it('should display a "Run" button', function () {
+		it('should display a "Run" button', function() {
 			assert.strictEqual(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/run"]').length, 1);
 		});
 
-		it('should display a "Download CSV" button for the latest result', function () {
+		it('should display a "Download CSV" button for the latest result', function() {
 			assert.strictEqual(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/def000000000000000000001.csv"]').length, 1);
 		});
 
-		it('should display a "Download JSON" button for the latest result', function () {
+		it('should display a "Download JSON" button for the latest result', function() {
 			assert.strictEqual(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/def000000000000000000001.json"]').length, 1);
 		});
 
-		it('should display links to all results', function () {
+		it('should display links to all results', function() {
 			assert.isDefined(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/def000000000000000000001"]')[0]);
 			assert.isDefined(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/def000000000000000000003"]')[0]);
 		});
 
-		it('should display errors', function () {
+		it('should display errors', function() {
 			var elem = this.last.dom.querySelectorAll('[data-test=task-errors]')[0];
 			assert.isDefined(elem);
 			assert.match(elem.textContent, /errors \( 1 \)/i);
 		});
 
-		it('should display warnings', function () {
+		it('should display warnings', function() {
 			var elem = this.last.dom.querySelectorAll('[data-test=task-warnings]')[0];
 			assert.isDefined(elem);
 			assert.match(elem.textContent, /warnings \( 2 \)/i);
 		});
 
-		it('should display notices', function () {
+		it('should display notices', function() {
 			var elem = this.last.dom.querySelectorAll('[data-test=task-notices]')[0];
 			assert.isDefined(elem);
 			assert.match(elem.textContent, /notices \( 3 \)/i);
@@ -78,9 +78,9 @@ describe('GET /<task-id>', function () {
 
 	});
 
-	describe('when task has no results', function () {
+	describe('when task has no results', function() {
 
-		beforeEach(function (done) {
+		beforeEach(function(done) {
 			var req = {
 				method: 'GET',
 				endpoint: '/abc000000000000000000003'
@@ -88,17 +88,17 @@ describe('GET /<task-id>', function () {
 			this.navigate(req, done);
 		});
 
-		it('should send a 200 status', function () {
+		it('should send a 200 status', function() {
 			assert.strictEqual(this.last.status, 200);
 		});
 
-		it('should display a "Run" button', function () {
+		it('should display a "Run" button', function() {
 			var elem = this.last.dom.querySelectorAll('[data-test=run-task]');
 			assert.strictEqual(elem.length, 1);
 			assert.strictEqual(elem[0].getAttribute('href'), '/abc000000000000000000003/run');
 		});
 
-		it('should display a message indicating that there are no results', function () {
+		it('should display a message indicating that there are no results', function() {
 			var alert = this.last.dom.querySelectorAll('[data-test=alert]')[0];
 			assert.isDefined(alert);
 			assert.match(alert.textContent, /there are no results to show/i);
