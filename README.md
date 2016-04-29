@@ -3,8 +3,8 @@ pa11y-dashboard
 
 pa11y-dashboard is a web interface to the [pa11y][pa11y] accessibility reporter; allowing you to focus on *fixing* issues rather than hunting them down.
 
-**Current Version:** *1.9.0*  
-**Build Status:** [![Build Status][travis-img]][travis]  
+**Current Version:** *1.9.0*
+**Build Status:** [![Build Status][travis-img]][travis]
 **Node Version Support:** *0.10*
 
 
@@ -72,7 +72,7 @@ You'll need to start the application in test mode with:
 NODE_ENV=test node index.js
 ```
 
-Now you'll be able to run the following commands:
+Now, if you have mongo running with the `mongod` command, you'll be able to run the following commands:
 
 ```sh
 make       # Run the lint and test tasks together
@@ -93,7 +93,7 @@ make uglify  # Compile and uglify the client-side JavaScript
 License
 -------
 
-[Copyright 2013 Springer Nature](LICENSE.txt).  
+[Copyright 2013 Springer Nature](LICENSE.txt).
 pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
 
 
