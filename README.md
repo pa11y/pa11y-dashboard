@@ -29,7 +29,7 @@ cp config/test.sample.json config/test.json
 
 Each of these files defines configurations for a different environment. If you're just running the application locally, then you should be OK with just development configurations. The [available configurations are documented here](#configurations).
 
-Now that you've got your application configured, you can run in each mode with the following commands:
+Now that you've got your application configured, make sure you have a server running with the `mongod` command in another terminal window. You can then run in each mode with the following commands:
 
 ```sh
 NODE_ENV=production node index.js   # Run in production
@@ -85,7 +85,7 @@ Code with lint errors or failing tests will not be accepted, please use the buil
 To compile the client-side JavaScript and CSS, you'll need the following commands. Compiled code is committed to the repository.
 
 ```sh
-make css     # Compile the site CSS from LESS files
+make less    # Compile the site CSS from LESS files
 make uglify  # Compile and uglify the client-side JavaScript
 ```
 
