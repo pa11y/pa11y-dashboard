@@ -90,6 +90,12 @@ make uglify  # Compile and uglify the client-side JavaScript
 ```
 
 
+Useful Resources
+-------
+* [Setting up An Accessibility Dashboard from Scratch with Pa11y on DigitialOcean][resource-una-k]
+
+
+
 License
 -------
 
@@ -105,5 +111,6 @@ pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
 [pa11y-webservice]: https://github.com/springernature/pa11y-webservice
 [pa11y-webservice-config]: https://github.com/springernature/pa11y-webservice#configurations
 [phantom]: http://phantomjs.org/
+[resource-una-k]: https://una.im/pa11y-dash/
 [travis]: https://travis-ci.org/springernature/pa11y-dashboard
 [travis-img]: https://travis-ci.org/springernature/pa11y-dashboard.png?branch=master
