@@ -15,11 +15,13 @@ pa11y-dashboard is a web interface to the [pa11y][pa11y] accessibility reporter;
 Setup
 -----
 
-pa11y-dashboard requires [Node.js][node] 0.10+, [PhantomJS][phantom], and [MongoDB][mongo] to be installed. See the [pa11y][pa11y] and [pa11y-webservice][pa11y-webservice] documentation for more information on these dependencies.
+pa11y-dashboard requires [Node.js][node] 0.10+ and [PhantomJS][phantom]. See the [pa11y][pa11y] documentation for detailed instructions on how to install these dependencies on your operating system. Install the [pa11y-webservice][pa11y-webservice] separately. 
 
-You'll then need to clone this repo locally and install dependencies with `npm install`.
+You'll also need to have [MongoDB][mongo] installed and running. See the [MongoDB install guide][mongo-install] for more information on this. 
 
-Once you have a local clone, you'll need to copy some sample configuration files in order to run the application. From within the repo, run the following commands:
+Once you're done, clone this repo locally and install dependencies with `npm install`.
+
+When you have a local clone, you'll need to copy some sample configuration files in order to run the application. From within the repo, run the following commands:
 
 ```sh
 cp config/development.sample.json config/development.json
@@ -29,7 +31,7 @@ cp config/test.sample.json config/test.json
 
 Each of these files defines configurations for a different environment. If you're just running the application locally, then you should be OK with just development configurations. The [available configurations are documented here](#configurations).
 
-Now that you've got your application configured, make sure you have a server running with the `mongod` command in another terminal window. You can then run in each mode with the following commands:
+Now that you've got your application configured, make sure you have a MongoDB server running with the `mongod` command in another terminal window. You can then run in each mode with the following commands:
 
 ```sh
 NODE_ENV=production node index.js   # Run in production
@@ -106,6 +108,7 @@ pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
 
 [gpl]: http://www.gnu.org/licenses/gpl-3.0.html
 [mongo]: http://www.mongodb.org/
+[mongo-install]: https://docs.mongodb.com/manual/installation/
 [node]: http://nodejs.org/
 [pa11y]: https://github.com/springernature/pa11y
 [pa11y-webservice]: https://github.com/springernature/pa11y-webservice
