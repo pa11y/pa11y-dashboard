@@ -15,7 +15,9 @@ pa11y-dashboard is a web interface to the [pa11y][pa11y] accessibility reporter;
 Setup
 -----
 
-pa11y-dashboard requires [Node.js][node] 0.10+, [PhantomJS][phantom], and [MongoDB][mongo] to be installed. See the [pa11y][pa11y] and [pa11y-webservice][pa11y-webservice] documentation for more information on these dependencies.
+pa11y-dashboard requires [Node.js][node] 0.10+ and [PhantomJS][phantom]. See the [pa11y][pa11y] documentation for detailed instructions on how to install these dependencies on your operating system. Install the [pa11y-webservice][pa11y-webservice] separately. 
+
+You'll also need to have [MongoDB][mongo] installed and running. See the [MongoDB install guide][mongo-install] for more information on this. 
 
 You'll then need to clone this repo locally and install dependencies with `npm install`.
 
@@ -100,6 +102,7 @@ pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
 
 [gpl]: http://www.gnu.org/licenses/gpl-3.0.html
 [mongo]: http://www.mongodb.org/
+[mongo-install]: https://docs.mongodb.org/manual/installation/
 [node]: http://nodejs.org/
 [pa11y]: https://github.com/springernature/pa11y
 [pa11y-webservice]: https://github.com/springernature/pa11y-webservice
