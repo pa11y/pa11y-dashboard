@@ -99,7 +99,7 @@ Useful Resources
 License
 -------
 
-[Copyright 2013 Springer Nature](LICENSE.txt).  
+[Copyright 2016 Springer Nature](LICENSE.txt).  
 pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
 
 
