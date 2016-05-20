@@ -8,6 +8,9 @@ pa11y-dashboard is a web interface to the [pa11y][pa11y] accessibility reporter;
 **Node Version Support:** *0.10*
 
 
+✨ 🔜 ✨ The Pa11y team is very excited to announce plans for the successor to pa11y-dashboard and pa11y-webservice, codename "Sidekick". Help us define the features that you want to see by visiting the [proposal][sidekick-proposal] ✨  
+
+
 ![dashboard](https://f.cloud.github.com/assets/1225142/1549567/f0361e72-4de8-11e3-8d14-3fe6900cc15d.jpg)
 ![results-page](https://f.cloud.github.com/assets/1225142/1549568/f225aa54-4de8-11e3-8b25-ef2f405997a3.jpg)
 
@@ -114,5 +117,6 @@ pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
 [pa11y-webservice-config]: https://github.com/springernature/pa11y-webservice#configurations
 [phantom]: http://phantomjs.org/
 [resource-una-k]: https://una.im/pa11y-dash/
+[sidekick-proposal]: https://github.com/pa11y/sidekick/blob/master/PROPOSAL.md
 [travis]: https://travis-ci.org/springernature/pa11y-dashboard
 [travis-img]: https://travis-ci.org/springernature/pa11y-dashboard.png?branch=master
