@@ -42,7 +42,7 @@ function route(app) {
 			standard: req.body.standard,
 			ignore: req.body.ignore || [],
 			timeout: req.body.timeout,
-			wait: req.body.wait,
+			wait: req.body.wait || 0,
 			username: req.body.username,
 			password: req.body.password
 		};

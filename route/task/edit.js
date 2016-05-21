@@ -60,7 +60,7 @@ function route(app) {
 					task.name = req.body.name;
 					task.ignore = req.body.ignore;
 					task.timeout = req.body.timeout;
-					task.wait = req.body.wait;
+					task.wait = req.body.wait || 0;
 					task.username = req.body.username;
 					task.password = req.body.password;
 					var standards = getStandards().map(function(standard) {
