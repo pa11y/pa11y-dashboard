@@ -63,6 +63,13 @@ describe('GET /<task-id>/edit', function() {
 			assert.isDefined(field.getAttribute('disabled'));
 		});
 
+		it('should have a "wait" field', function() {
+			var field = this.form.querySelectorAll('input[name=wait]')[0];
+			assert.isDefined(field);
+			assert.strictEqual(field.getAttribute('type'), 'text');
+			assert.strictEqual(field.getAttribute('value'), '0');
+		});
+
 		it('should have a disabled "standard" field', function() {
 			var field = this.form.querySelectorAll('select[name=standard]')[0];
 			assert.isDefined(field);

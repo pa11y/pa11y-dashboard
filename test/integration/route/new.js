@@ -62,6 +62,13 @@ describe('GET /new', function() {
 			assert.strictEqual(field.getAttribute('value'), '');
 		});
 
+		it('should have a "wait" field', function() {
+			var field = this.form.querySelectorAll('input[name=wait]')[0];
+			assert.isDefined(field);
+			assert.strictEqual(field.getAttribute('type'), 'text');
+			assert.strictEqual(field.getAttribute('value'), '');
+		});
+
 		it('should have a "username" field', function() {
 			var field = this.form.querySelectorAll('input[name=username]')[0];
 			assert.isDefined(field);
