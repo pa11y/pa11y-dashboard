@@ -3,9 +3,10 @@ pa11y-dashboard
 
 pa11y-dashboard is a web interface to the [pa11y][pa11y] accessibility reporter; allowing you to focus on *fixing* issues rather than hunting them down.
 
-**Current Version:** *1.10.0*  
-**Build Status:** [![Build Status][travis-img]][travis]  
-**Node Version Support:** *0.10*
+![Version][shield-version]
+[![Node.js version support][shield-node]][info-node]
+[![Build status][shield-build]][info-build]
+[![GPL-3.0 licensed][shield-license]][info-license]
 
 ---
 
@@ -23,7 +24,7 @@ Setup
 
 pa11y-dashboard requires [Node.js][node] 0.10+ and [PhantomJS][phantom]. See the [pa11y][pa11y] documentation for detailed instructions on how to install these dependencies on your operating system.
 
-You'll also need to have [MongoDB][mongo] installed and running. See the [MongoDB install guide][mongo-install] for more information on this. 
+You'll also need to have [MongoDB][mongo] installed and running. See the [MongoDB install guide][mongo-install] for more information on this.
 
 You'll then need to clone this repo locally and install dependencies with `npm install`.
 
@@ -103,12 +104,11 @@ Useful Resources
 * [Setting up An Accessibility Dashboard from Scratch with Pa11y on DigitialOcean][resource-una-k]
 
 
-
 License
 -------
 
-[Copyright 2016 Springer Nature](LICENSE.txt).  
-pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
+pa11y-dashboard is licensed under the [GNU General Public License 3.0][info-license].  
+Copyright &copy; 2013–2016, Springer Nature
 
 
 
@@ -123,3 +123,11 @@ pa11y-dashboard is licensed under the [GNU General Public License 3.0][gpl].
 [sidekick-proposal]: https://github.com/pa11y/sidekick/blob/master/PROPOSAL.md
 [travis]: https://travis-ci.org/springernature/pa11y-dashboard
 [travis-img]: https://travis-ci.org/springernature/pa11y-dashboard.png?branch=master
+
+[info-license]: LICENSE
+[info-node]: package.json
+[info-build]: https://travis-ci.org/springernature/pa11y-dashboard
+[shield-license]: https://img.shields.io/badge/license-GPL%203.0-blue.svg
+[shield-node]: https://img.shields.io/badge/node.js%20support-0.10-brightgreen.svg
+[shield-version]: https://img.shields.io/badge/version-1.10.0-blue.svg
+[shield-build]: https://img.shields.io/travis/springernature/pa11y-dashboard/master.svg
