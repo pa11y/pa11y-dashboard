@@ -26,9 +26,21 @@ pa11y-dashboard requires [Node.js][node] 0.10+ and [PhantomJS][phantom]. See the
 
 You'll also need to have [MongoDB][mongo] installed and running. See the [MongoDB install guide][mongo-install] for more information on this.
 
-You'll then need to clone this repo locally and install dependencies with `npm install`.
+You'll then need to clone this repo locally and install dependencies with `npm install`. Now we need to add some configuration before we can run the application. We can do this in two ways:
 
-Once you have a local clone, you'll need to copy some sample configuration files in order to run the application. From within the repo, run the following commands:
+### Option 1: Using Environment Variables
+
+Each configuration can be set with an environment variable rather than a config file. For example to run the application on port `8080` you can use the following:
+
+```sh
+PORT=8080 node index.js
+```
+
+The [available configurations are documented here](#configurations).
+
+### Option 2: Using Config Files
+
+You'll need to copy and modify different config files depending on your environment (set with `NODE_ENV`):
 
 ```sh
 cp config/development.sample.json config/development.json
@@ -36,17 +48,15 @@ cp config/production.sample.json config/production.json
 cp config/test.sample.json config/test.json
 ```
 
-Each of these files defines configurations for a different environment. If you're just running the application locally, then you should be OK with just development configurations. The [available configurations are documented here](#configurations).
+Each of these files defines configurations for a different environment. If you're just running the application locally, then you should be OK with just development and test configurations. The [available configurations are documented here](#configurations).
 
-Now that you've got your application configured, make sure you have a server running with the `mongod` command in another terminal window. You can then run in each mode with the following commands:
+Now that you've got your application configured, make sure you have a MongoDB server running with the `mongod` command in another terminal window. you can run in each mode by changing the `NODE_ENV` environment variable:
 
 ```sh
-NODE_ENV=production node index.js   # Run in production
-NODE_ENV=development node index.js  # Run in development
-NODE_ENV=test node index.js         # Run in test
+NODE_ENV=development node index.js
 ```
 
-Check the [development instructions](#development) for more information about running locally (and restarting automatically when files change).
+See [development instructions](#development) for more information about running locally (and restarting automatically when files change).
 
 
 Configurations
@@ -55,19 +65,19 @@ Configurations
 The boot configurations for pa11y-dashboard are as follows. Look at the sample JSON files in the repo for example usage.
 
 ### port
-*(number)* The port to run the application on.
+*(number)* The port to run the application on. Set via a config file or the `PORT` environment variable.
 
 ### noindex
-*(boolean)* If set to `true` (default), the dashboard will not be indexed by search engines. Set to `false` to allow indexing.
+*(boolean)* If set to `true` (default), the dashboard will not be indexed by search engines. Set to `false` to allow indexing. Set via a config file or the `NOINDEX` environment variable.
 
 ### readonly
-*(boolean)* If set to `true`, users will not be able to add, delete or run URLs (defaults to `false`).
+*(boolean)* If set to `true`, users will not be able to add, delete or run URLs (defaults to `false`). Set via a config file or the `READONLY` environment variable.
 
 ### siteMessage
 *(string)* A message to display prominently on the site home page. Defaults to `null`.
 
 ### webservice
-This can either be an object containing [pa11y-webservice configurations][pa11y-webservice-config], or a string which is the base URL of a [pa11y-webservice][pa11y-webservice] instance you are running separately.
+This can either be an object containing [pa11y-webservice configurations][pa11y-webservice-config], or a string which is the base URL of a [pa11y-webservice][pa11y-webservice] instance you are running separately. If using environment variables, prefix the webservice vars with `WEBSERVICE_`.
 
 
 Development
