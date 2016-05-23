@@ -1,6 +1,13 @@
 
 # Changelog
 
+## 1.11.0 (2016-05-23)
+
+  * Add the ability to configure task wait times
+  * Allow configuration by environment variables
+  * Update repository references to the new Pa11y organisation
+  * Add a changelog
+
 ## 1.10.0 (2016-05-18)
 
   * Automatically focus on the filter input box when you select the filter
