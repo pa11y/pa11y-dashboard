@@ -26,7 +26,7 @@ pa11y-dashboard requires [Node.js][node] 0.10+ and [PhantomJS][phantom]. See the
 
 You'll also need to have [MongoDB][mongo] installed and running. See the [MongoDB install guide][mongo-install] for more information on this.
 
-You'll then need to clone this repo locally and install dependencies with `npm install`. Now we need to add some configuration before we can run the application. We can do this in two ways:
+You'll then need to clone this repo locally and install dependencies with `npm install`. Now you need to add some configuration before you can run the application. We can do this in two ways:
 
 ### Option 1: Using Environment Variables
 
@@ -50,7 +50,7 @@ cp config/test.sample.json config/test.json
 
 Each of these files defines configurations for a different environment. If you're just running the application locally, then you should be OK with just development and test configurations. The [available configurations are documented here](#configurations).
 
-Now that you've got your application configured, make sure you have a MongoDB server running with the `mongod` command in another terminal window. you can run in each mode by changing the `NODE_ENV` environment variable:
+Now that you've got your application configured, make sure you have a MongoDB server running with the `mongod` command in another terminal window. You can run in each mode by changing the `NODE_ENV` environment variable:
 
 ```sh
 NODE_ENV=development node index.js
