@@ -126,18 +126,18 @@ Copyright &copy; 2013–2016, Springer Nature
 [mongo]: http://www.mongodb.org/
 [mongo-install]: https://docs.mongodb.org/manual/installation/
 [node]: http://nodejs.org/
-[pa11y]: https://github.com/springernature/pa11y
-[pa11y-webservice-config]: https://github.com/springernature/pa11y-webservice#configurations
+[pa11y]: https://github.com/pa11y/pa11y
+[pa11y-webservice-config]: https://github.com/pa11y/pa11y-webservice#configurations
 [phantom]: http://phantomjs.org/
 [resource-una-k]: https://una.im/pa11y-dash/
 [sidekick-proposal]: https://github.com/pa11y/sidekick/blob/master/PROPOSAL.md
-[travis]: https://travis-ci.org/springernature/pa11y-dashboard
-[travis-img]: https://travis-ci.org/springernature/pa11y-dashboard.png?branch=master
+[travis]: https://travis-ci.org/pa11y/pa11y-dashboard
+[travis-img]: https://travis-ci.org/pa11y/pa11y-dashboard.png?branch=master
 
 [info-license]: LICENSE
 [info-node]: package.json
-[info-build]: https://travis-ci.org/springernature/pa11y-dashboard
+[info-build]: https://travis-ci.org/pa11y/pa11y-dashboard
 [shield-license]: https://img.shields.io/badge/license-GPL%203.0-blue.svg
 [shield-node]: https://img.shields.io/badge/node.js%20support-0.10-brightgreen.svg
 [shield-version]: https://img.shields.io/badge/version-1.10.0-blue.svg
-[shield-build]: https://img.shields.io/travis/springernature/pa11y-dashboard/master.svg
+[shield-build]: https://img.shields.io/travis/pa11y/pa11y-dashboard/master.svg

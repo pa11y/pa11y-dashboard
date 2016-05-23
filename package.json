@@ -12,10 +12,10 @@
 
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/springernature/pa11y-dashboard.git"
+		"url": "https://github.com/pa11y/pa11y-dashboard.git"
 	},
-	"homepage": "https://github.com/springernature/pa11y-dashboard",
-	"bugs": "https://github.com/springernature/pa11y-dashboard/issues",
+	"homepage": "https://github.com/pa11y/pa11y-dashboard",
+	"bugs": "https://github.com/pa11y/pa11y-dashboard/issues",
 
 	"engines": {
 		"node": ">=0.10"
