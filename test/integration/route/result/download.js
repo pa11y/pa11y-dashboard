@@ -44,7 +44,8 @@ describe('GET /<task-id>/<result-id>.json', function() {
 		var req = {
 			method: 'GET',
 			endpoint: '/abc000000000000000000001/def000000000000000000001.json',
-			nonDom: true
+			nonDom: true,
+			json: true
 		};
 		this.navigate(req, done);
 	});

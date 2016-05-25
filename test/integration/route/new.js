@@ -107,7 +107,7 @@ describe('POST /new', function() {
 			var req = {
 				method: 'POST',
 				endpoint: '/new',
-				body: {
+				form: {
 					name: '',
 					url: ''
 				}
@@ -131,7 +131,7 @@ describe('POST /new', function() {
 			var req = {
 				method: 'POST',
 				endpoint: '/new',
-				body: {
+				form: {
 					name: 'Example',
 					url: 'http://example.com/',
 					standard: 'WCAG2AA'

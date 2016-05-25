@@ -2,10 +2,10 @@
 
 module.exports = helper;
 
-function helper(register) {
+function helper(hbs) {
 
 	// Convert a string to lower-case
-	register('lowercase', function(context) {
+	hbs.registerHelper('lowercase', function(context) {
 		return context.toLowerCase();
 	});
 

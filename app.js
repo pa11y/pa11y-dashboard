@@ -15,6 +15,8 @@
 
 'use strict';
 
+var bodyParser = require('body-parser');
+var compression = require('compression');
 var createClient = require('pa11y-webservice-client-node');
 var EventEmitter = require('events').EventEmitter;
 var express = require('express');
@@ -40,7 +42,7 @@ function initApp(config, callback) {
 	app.webservice = createClient(webserviceUrl);
 
 	// Compression
-	app.express.use(express.compress());
+	app.express.use(compression());
 
 	// Public files
 	app.express.use(express.static(__dirname + '/public', {
@@ -49,26 +51,28 @@ function initApp(config, callback) {
 
 	// General express config
 	app.express.disable('x-powered-by');
-	app.express.use(express.bodyParser());
+	app.express.use(bodyParser.urlencoded({
+		extended: true
+	}));
 
 	// View engine
-	app.express.set('views', __dirname + '/view');
-	app.express.engine('html', hbs.express3({
+	app.express.engine('html', hbs.express4({
 		extname: '.html',
 		contentHelperName: 'content',
 		layoutsDir: __dirname + '/view/layout',
 		partialsDir: __dirname + '/view/partial',
 		defaultLayout: __dirname + '/view/layout/default'
 	}));
+	app.express.set('views', __dirname + '/view');
 	app.express.set('view engine', 'html');
 
 	// View helpers
-	require('./view/helper/date')(hbs.registerHelper);
-	require('./view/helper/string')(hbs.registerHelper);
-	require('./view/helper/url')(hbs.registerHelper);
+	require('./view/helper/date')(hbs);
+	require('./view/helper/string')(hbs);
+	require('./view/helper/url')(hbs);
 
 	// Populate view locals
-	app.express.locals({
+	app.express.locals = {
 		lang: 'en',
 		year: (new Date()).getFullYear(),
 		version: pkg.version,
@@ -76,12 +80,13 @@ function initApp(config, callback) {
 		bugtracker: pkg.bugs,
 		noindex: config.noindex,
 		readonly: config.readonly,
-		siteMessage: config.siteMessage
-	});
+		siteMessage: config.siteMessage,
+		settings: {}
+	};
 
 	app.express.use(function(req, res, next) {
 		res.locals.isHomePage = (req.path === '/');
-		res.locals.host = req.host;
+		res.locals.host = req.hostname;
 		next();
 	});
 

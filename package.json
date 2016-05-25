@@ -21,9 +21,12 @@
 		"node": ">=0.10"
 	},
 	"dependencies": {
+		"body-parser": "~1.15",
+		"compression": "~1.6",
 		"chalk": "~1.1",
-		"express": "~3.4",
-		"express-hbs": "~0.2",
+		"compression": "~1.6",
+		"express": "~4.13",
+		"express-hbs": "~1.0",
 		"moment": "~2.13",
 		"pa11y-webservice": "~1.10",
 		"pa11y-webservice-client-node": "~1.1",

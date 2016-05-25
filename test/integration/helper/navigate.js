@@ -34,8 +34,8 @@ function createNavigator(baseUrl, store) {
 		request({
 			url: baseUrl + opts.endpoint,
 			method: opts.method || 'GET',
-			body: opts.body,
-			json: true,
+			form: opts.form,
+			json: opts.json || false,
 			qs: opts.query,
 			followAllRedirects: true
 		}, function(err, res, body) {

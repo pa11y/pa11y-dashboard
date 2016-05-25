@@ -106,7 +106,7 @@ describe('POST /<task-id>/edit', function() {
 		var req = {
 			method: 'POST',
 			endpoint: '/abc000000000000000000001/edit',
-			body: {
+			form: {
 				name: 'foo',
 				username: 'newuser',
 				password: 'secure',
