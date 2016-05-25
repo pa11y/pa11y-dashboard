@@ -17,7 +17,7 @@
 
 var assert = require('proclaim');
 
-describe('GET /', function() {
+describe.only('GET /', function() {
 
 	beforeEach(function(done) {
 		var req = {
@@ -32,61 +32,61 @@ describe('GET /', function() {
 	});
 
 	it('should display an "Add new URL" button', function() {
-		var elem = this.last.dom.querySelectorAll('[data-test=add-task]');
+		var elem = this.last.dom('[data-test=add-task]');
 		assert.strictEqual(elem.length, 1);
-		assert.strictEqual(elem[0].getAttribute('href'), '/new');
+		assert.strictEqual(elem.eq(0).attr('href'), '/new');
 	});
 
 	it('should display all of the expected tasks', function() {
-		var tasks = this.last.dom.querySelectorAll('[data-test=task]');
+		var tasks = this.last.dom('[data-test=task]');
 		assert.strictEqual(tasks.length, 3);
-		assert.match(tasks[0].textContent, /npg home\s+\(wcag2aa\)/i);
-		assert.match(tasks[1].textContent, /npg home\s+\(wcag2aaa\)/i);
-		assert.match(tasks[2].textContent, /nature news\s+\(section508\)/i);
+		assert.match(tasks.eq(0).text(), /npg home\s+\(wcag2aa\)/i);
+		assert.match(tasks.eq(1).text(), /npg home\s+\(wcag2aaa\)/i);
+		assert.match(tasks.eq(2).text(), /nature news\s+\(section508\)/i);
 	});
 
 	it('should have links to each task', function() {
-		var tasks = this.last.dom.querySelectorAll('[data-test=task]');
-		assert.strictEqual(tasks[0].querySelectorAll('[href="/abc000000000000000000001"]').length, 1);
-		assert.strictEqual(tasks[1].querySelectorAll('[href="/abc000000000000000000002"]').length, 1);
-		assert.strictEqual(tasks[2].querySelectorAll('[href="/abc000000000000000000003"]').length, 1);
+		var tasks = this.last.dom('[data-test=task]');
+		assert.strictEqual(tasks.eq(0).find('[href="/abc000000000000000000001"]').length, 1);
+		assert.strictEqual(tasks.eq(1).find('[href="/abc000000000000000000002"]').length, 1);
+		assert.strictEqual(tasks.eq(2).find('[href="/abc000000000000000000003"]').length, 1);
 	});
 
 	it('should display an "Edit" button for each task', function() {
-		var tasks = this.last.dom.querySelectorAll('[data-test=task]');
-		assert.strictEqual(tasks[0].querySelectorAll('[href="/abc000000000000000000001/edit"]').length, 1);
-		assert.strictEqual(tasks[1].querySelectorAll('[href="/abc000000000000000000002/edit"]').length, 1);
-		assert.strictEqual(tasks[2].querySelectorAll('[href="/abc000000000000000000003/edit"]').length, 1);
+		var tasks = this.last.dom('[data-test=task]');
+		assert.strictEqual(tasks.eq(0).find('[href="/abc000000000000000000001/edit"]').length, 1);
+		assert.strictEqual(tasks.eq(1).find('[href="/abc000000000000000000002/edit"]').length, 1);
+		assert.strictEqual(tasks.eq(2).find('[href="/abc000000000000000000003/edit"]').length, 1);
 	});
 
 	it('should display a "Delete" button for each task', function() {
-		var tasks = this.last.dom.querySelectorAll('[data-test=task]');
-		assert.strictEqual(tasks[0].querySelectorAll('[href="/abc000000000000000000001/delete"]').length, 1);
-		assert.strictEqual(tasks[1].querySelectorAll('[href="/abc000000000000000000002/delete"]').length, 1);
-		assert.strictEqual(tasks[2].querySelectorAll('[href="/abc000000000000000000003/delete"]').length, 1);
+		var tasks = this.last.dom('[data-test=task]');
+		assert.strictEqual(tasks.eq(0).find('[href="/abc000000000000000000001/delete"]').length, 1);
+		assert.strictEqual(tasks.eq(1).find('[href="/abc000000000000000000002/delete"]').length, 1);
+		assert.strictEqual(tasks.eq(2).find('[href="/abc000000000000000000003/delete"]').length, 1);
 	});
 
 	it('should display a "Run" button for each task', function() {
-		var tasks = this.last.dom.querySelectorAll('[data-test=task]');
-		assert.strictEqual(tasks[0].querySelectorAll('[href="/abc000000000000000000001/run"]').length, 1);
-		assert.strictEqual(tasks[1].querySelectorAll('[href="/abc000000000000000000002/run"]').length, 1);
-		assert.strictEqual(tasks[2].querySelectorAll('[href="/abc000000000000000000003/run"]').length, 1);
+		var tasks = this.last.dom('[data-test=task]');
+		assert.strictEqual(tasks.eq(0).find('[href="/abc000000000000000000001/run"]').length, 1);
+		assert.strictEqual(tasks.eq(1).find('[href="/abc000000000000000000002/run"]').length, 1);
+		assert.strictEqual(tasks.eq(2).find('[href="/abc000000000000000000003/run"]').length, 1);
 	});
 
 	it('should display the task result counts if the task has been run', function() {
-		var tasks = this.last.dom.querySelectorAll('[data-test=task]');
-		assert.match(tasks[0].textContent, /1\s*errors/i);
-		assert.match(tasks[0].textContent, /2\s*warnings/i);
-		assert.match(tasks[0].textContent, /3\s*notices/i);
+		var tasks = this.last.dom('[data-test=task]');
+		assert.match(tasks.eq(0).text(), /1\s*errors/i);
+		assert.match(tasks.eq(0).text(), /2\s*warnings/i);
+		assert.match(tasks.eq(0).text(), /3\s*notices/i);
 	});
 
 	it('should display a message indicating that there are no results if the task has not been run', function() {
-		var tasks = this.last.dom.querySelectorAll('[data-test=task]');
-		assert.match(tasks[2].textContent, /no results/i);
+		var tasks = this.last.dom('[data-test=task]');
+		assert.match(tasks.eq(2).text(), /no results/i);
 	});
 
 	it('should not display an alert message', function() {
-		assert.strictEqual(this.last.dom.querySelectorAll('[data-test=alert]').length, 0);
+		assert.strictEqual(this.last.dom('[data-test=alert]').length, 0);
 	});
 
 });

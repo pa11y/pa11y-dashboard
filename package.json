@@ -34,8 +34,8 @@
 	},
 	"devDependencies": {
 		"bower": "~1.7",
+		"cheerio": "~0.20",
 		"jscs": "^2",
-		"jsdom": "^3",
 		"jshint": "^2",
 		"less": "~2.7",
 		"mocha": "^2",

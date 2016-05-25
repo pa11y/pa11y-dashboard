@@ -36,9 +36,9 @@ describe('GET /<task-id>/run', function() {
 	});
 
 	it('should display a success message', function() {
-		var alert = this.last.dom.querySelectorAll('[data-test=alert]')[0];
+		var alert = this.last.dom('[data-test=alert]').eq(0);
 		assert.isDefined(alert);
-		assert.match(alert.textContent, /new results are being generated/i);
+		assert.match(alert.text(), /new results are being generated/i);
 	});
 
 });

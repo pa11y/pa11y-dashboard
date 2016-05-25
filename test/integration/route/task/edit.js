@@ -32,66 +32,66 @@ describe('GET /<task-id>/edit', function() {
 	});
 
 	it('should have an "Edit URL" form', function() {
-		var form = this.last.dom.querySelectorAll('[data-test=edit-url-form]')[0];
+		var form = this.last.dom('[data-test=edit-url-form]').eq(0);
 		assert.isDefined(form);
-		assert.strictEqual(form.getAttribute('action'), '/abc000000000000000000001/edit');
-		assert.strictEqual(form.getAttribute('method'), 'post');
+		assert.strictEqual(form.attr('action'), '/abc000000000000000000001/edit');
+		assert.strictEqual(form.attr('method'), 'post');
 	});
 
 	it('should display a link back to the task page', function() {
-		assert.greaterThan(this.last.dom.querySelectorAll('[href="/abc000000000000000000001"]').length, 0);
+		assert.greaterThan(this.last.dom('[href="/abc000000000000000000001"]').length, 0);
 	});
 
 	describe('"Edit URL" form', function() {
 
 		beforeEach(function() {
-			this.form = this.last.dom.querySelectorAll('[data-test=edit-url-form]')[0];
+			this.form = this.last.dom('[data-test=edit-url-form]').eq(0);
 		});
 
 		it('should have a "name" field', function() {
-			var field = this.form.querySelectorAll('input[name=name]')[0];
+			var field = this.form.find('input[name=name]').eq(0);
 			assert.isDefined(field);
-			assert.strictEqual(field.getAttribute('type'), 'text');
-			assert.strictEqual(field.getAttribute('value'), 'NPG Home');
+			assert.strictEqual(field.attr('type'), 'text');
+			assert.strictEqual(field.attr('value'), 'NPG Home');
 		});
 
 		it('should have a disabled "url" field', function() {
-			var field = this.form.querySelectorAll('input[name=url]')[0];
+			var field = this.form.find('input[name=url]').eq(0);
 			assert.isDefined(field);
-			assert.strictEqual(field.getAttribute('type'), 'url');
-			assert.strictEqual(field.getAttribute('value'), 'nature.com');
-			assert.isDefined(field.getAttribute('disabled'));
+			assert.strictEqual(field.attr('type'), 'url');
+			assert.strictEqual(field.attr('value'), 'nature.com');
+			assert.isDefined(field.attr('disabled'));
 		});
 
 		it('should have a "wait" field', function() {
-			var field = this.form.querySelectorAll('input[name=wait]')[0];
+			var field = this.form.find('input[name=wait]').eq(0);
 			assert.isDefined(field);
-			assert.strictEqual(field.getAttribute('type'), 'text');
-			assert.strictEqual(field.getAttribute('value'), '0');
+			assert.strictEqual(field.attr('type'), 'text');
+			assert.strictEqual(field.attr('value'), '0');
 		});
 
 		it('should have a disabled "standard" field', function() {
-			var field = this.form.querySelectorAll('select[name=standard]')[0];
+			var field = this.form.find('select[name=standard]').eq(0);
 			assert.isDefined(field);
-			assert.isDefined(field.getAttribute('disabled'));
+			assert.isDefined(field.attr('disabled'));
 		});
 
 		it('should have a "username" field', function() {
-			var field = this.form.querySelectorAll('input[name=username]')[0];
+			var field = this.form.find('input[name=username]').eq(0);
 			assert.isDefined(field);
-			assert.strictEqual(field.getAttribute('type'), 'text');
-			assert.strictEqual(field.getAttribute('value'), 'user');
+			assert.strictEqual(field.attr('type'), 'text');
+			assert.strictEqual(field.attr('value'), 'user');
 		});
 
 		it('should have a "password" field', function() {
-			var field = this.form.querySelectorAll('input[name=password]')[0];
+			var field = this.form.find('input[name=password]').eq(0);
 			assert.isDefined(field);
-			assert.strictEqual(field.getAttribute('type'), 'text');
-			assert.strictEqual(field.getAttribute('value'), 'access');
+			assert.strictEqual(field.attr('type'), 'text');
+			assert.strictEqual(field.attr('value'), 'access');
 		});
 
 		it('should have "ignore" fields', function() {
-			var fields = this.form.querySelectorAll('input[name="ignore[]"]');
+			var fields = this.form.find('input[name="ignore[]"]');
 			assert.isDefined(fields);
 			assert.notStrictEqual(fields.length, 0);
 		});
@@ -131,9 +131,9 @@ describe('POST /<task-id>/edit', function() {
 	});
 
 	it('should display a success message', function() {
-		var alert = this.last.dom.querySelectorAll('[data-test=alert]')[0];
+		var alert = this.last.dom('[data-test=alert]').eq(0);
 		assert.isDefined(alert);
-		assert.match(alert.textContent, /been saved/i);
+		assert.match(alert.text(), /been saved/i);
 	});
 
 });
