@@ -22,7 +22,6 @@
 	},
 	"dependencies": {
 		"body-parser": "~1.15",
-		"compression": "~1.6",
 		"chalk": "~1.1",
 		"compression": "~1.6",
 		"express": "~4.13",
