@@ -1,6 +1,24 @@
 
 # Changelog
 
+## 1.12.0 (2016-05-26)
+
+  * Update Node.js version support to 0.10–6.0
+  * Update dependencies
+    * body-parser: added at ~1.15
+    * chalk: ~0.2 to ~1.1
+    * compression: added at ~1.6
+    * express: ~3.4 to ~4.13
+    * express-hbs: ~0.2 to ~1.0
+    * moment: ~2.2 to ~2.13
+    * pa11y-webservice: ~1.10 to ~1.11
+    * pa11y-webservice-client-node: ~1.1 to ~1.2
+    * bower: ~1.2 to ~1.7
+    * cheerio: added at ~0.20
+    * jsdom: removed
+    * request: ~2.27 to ^2
+    * uglify-js: ~2.4 to ~2.6
+
 ## 1.11.0 (2016-05-23)
 
   * Add the ability to configure task wait times
