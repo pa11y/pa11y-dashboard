@@ -17,10 +17,10 @@
 
 module.exports = helper;
 
-function helper(register) {
+function helper(hbs) {
 
 	// Simplify url by removing (eg http://, https://, trailing slashes) from url
-	register('simplify-url', function(context) {
+	hbs.registerHelper('simplify-url', function(context) {
 		return context.replace(/^https?:\/\//i, '').replace(/\/$/, '').toLowerCase();
 	});
 

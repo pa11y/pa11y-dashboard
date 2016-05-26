@@ -32,14 +32,14 @@ describe('GET /<task-id>/delete', function() {
 	});
 
 	it('should have a "Delete URL" form', function() {
-		var form = this.last.dom.querySelectorAll('[data-test=delete-url-form]')[0];
+		var form = this.last.dom('[data-test=delete-url-form]').eq(0);
 		assert.isDefined(form);
-		assert.strictEqual(form.getAttribute('action'), '/abc000000000000000000001/delete');
-		assert.strictEqual(form.getAttribute('method'), 'post');
+		assert.strictEqual(form.attr('action'), '/abc000000000000000000001/delete');
+		assert.strictEqual(form.attr('method'), 'post');
 	});
 
 	it('should display a link back to the task page', function() {
-		assert.greaterThan(this.last.dom.querySelectorAll('[href="/abc000000000000000000001"]').length, 0);
+		assert.greaterThan(this.last.dom('[href="/abc000000000000000000001"]').length, 0);
 	});
 
 });
@@ -70,9 +70,9 @@ describe('POST /<task-id>/delete', function() {
 	});
 
 	it('should display a success message', function() {
-		var alert = this.last.dom.querySelectorAll('[data-test=alert]')[0];
+		var alert = this.last.dom('[data-test=alert]').eq(0);
 		assert.isDefined(alert);
-		assert.match(alert.textContent, /been deleted/i);
+		assert.match(alert.text(), /been deleted/i);
 	});
 
 });

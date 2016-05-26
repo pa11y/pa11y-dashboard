@@ -21,24 +21,26 @@
 		"node": ">=0.10"
 	},
 	"dependencies": {
-		"chalk": "~0.2",
-		"express": "~3.4",
-		"express-hbs": "~0.2",
-		"moment": "~2.2",
-		"pa11y-webservice": "~1.10",
-		"pa11y-webservice-client-node": "~1.1",
-		"underscore": "~1.5"
+		"body-parser": "~1.15",
+		"chalk": "~1.1",
+		"compression": "~1.6",
+		"express": "~4.13",
+		"express-hbs": "~1.0",
+		"moment": "~2.13",
+		"pa11y-webservice": "~1.11",
+		"pa11y-webservice-client-node": "~1.2",
+		"underscore": "~1.8"
 	},
 	"devDependencies": {
-		"bower": "~1.2",
+		"bower": "~1.7",
+		"cheerio": "~0.20",
 		"jscs": "^2",
-		"jsdom": "^3",
 		"jshint": "^2",
-		"less": "~1.5",
+		"less": "~2.7",
 		"mocha": "^2",
 		"proclaim": "^3",
-		"request": "~2.27",
-		"uglify-js": "~2.4"
+		"request": "^2",
+		"uglify-js": "~2.6"
 	},
 
 	"scripts": {

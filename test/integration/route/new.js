@@ -32,65 +32,65 @@ describe('GET /new', function() {
 	});
 
 	it('should not display an error message', function() {
-		assert.strictEqual(this.last.dom.querySelectorAll('[data-test=error]').length, 0);
+		assert.strictEqual(this.last.dom('[data-test=error]').length, 0);
 	});
 
 	it('should have an "Add new URL" form', function() {
-		var form = this.last.dom.querySelectorAll('[data-test=new-url-form]')[0];
+		var form = this.last.dom('[data-test=new-url-form]').eq(0);
 		assert.isDefined(form);
-		assert.strictEqual(form.getAttribute('action'), '/new');
-		assert.strictEqual(form.getAttribute('method'), 'post');
+		assert.strictEqual(form.attr('action'), '/new');
+		assert.strictEqual(form.attr('method'), 'post');
 	});
 
 	describe('"Add New URL" form', function() {
 
 		beforeEach(function() {
-			this.form = this.last.dom.querySelectorAll('[data-test=new-url-form]')[0];
+			this.form = this.last.dom('[data-test=new-url-form]').eq(0);
 		});
 
 		it('should have a "name" field', function() {
-			var field = this.form.querySelectorAll('input[name=name]')[0];
+			var field = this.form.find('input[name=name]').eq(0);
 			assert.isDefined(field);
-			assert.strictEqual(field.getAttribute('type'), 'text');
-			assert.strictEqual(field.getAttribute('value'), '');
+			assert.strictEqual(field.attr('type'), 'text');
+			assert.strictEqual(field.attr('value'), '');
 		});
 
 		it('should have a "url" field', function() {
-			var field = this.form.querySelectorAll('input[name=url]')[0];
+			var field = this.form.find('input[name=url]').eq(0);
 			assert.isDefined(field);
-			assert.strictEqual(field.getAttribute('type'), 'url');
-			assert.strictEqual(field.getAttribute('value'), '');
+			assert.strictEqual(field.attr('type'), 'url');
+			assert.strictEqual(field.attr('value'), '');
 		});
 
 		it('should have a "wait" field', function() {
-			var field = this.form.querySelectorAll('input[name=wait]')[0];
+			var field = this.form.find('input[name=wait]').eq(0);
 			assert.isDefined(field);
-			assert.strictEqual(field.getAttribute('type'), 'text');
-			assert.strictEqual(field.getAttribute('value'), '');
+			assert.strictEqual(field.attr('type'), 'text');
+			assert.strictEqual(field.attr('value'), '');
 		});
 
 		it('should have a "username" field', function() {
-			var field = this.form.querySelectorAll('input[name=username]')[0];
+			var field = this.form.find('input[name=username]').eq(0);
 			assert.isDefined(field);
-			assert.strictEqual(field.getAttribute('type'), 'text');
-			assert.strictEqual(field.getAttribute('value'), '');
+			assert.strictEqual(field.attr('type'), 'text');
+			assert.strictEqual(field.attr('value'), '');
 		});
 
 		it('should have a "password" field', function() {
-			var field = this.form.querySelectorAll('input[name=password]')[0];
+			var field = this.form.find('input[name=password]').eq(0);
 			assert.isDefined(field);
-			assert.strictEqual(field.getAttribute('type'), 'text');
-			assert.strictEqual(field.getAttribute('value'), '');
+			assert.strictEqual(field.attr('type'), 'text');
+			assert.strictEqual(field.attr('value'), '');
 		});
 
 		it('should have a "standard" field', function() {
-			var field = this.form.querySelectorAll('select[name=standard]')[0];
+			var field = this.form.find('select[name=standard]').eq(0);
 			assert.isDefined(field);
-			assert.strictEqual(field.querySelectorAll('option').length, 4);
+			assert.strictEqual(field.find('option').length, 4);
 		});
 
 		it('should have "ignore" fields', function() {
-			var fields = this.form.querySelectorAll('input[name="ignore[]"]');
+			var fields = this.form.find('input[name="ignore[]"]');
 			assert.isDefined(fields);
 			assert.notStrictEqual(fields.length, 0);
 		});
@@ -107,7 +107,7 @@ describe('POST /new', function() {
 			var req = {
 				method: 'POST',
 				endpoint: '/new',
-				body: {
+				form: {
 					name: '',
 					url: ''
 				}
@@ -120,7 +120,7 @@ describe('POST /new', function() {
 		});
 
 		it('should display an error message', function() {
-			assert.strictEqual(this.last.dom.querySelectorAll('[data-test=error]').length, 1);
+			assert.strictEqual(this.last.dom('[data-test=error]').length, 1);
 		});
 
 	});
@@ -131,7 +131,7 @@ describe('POST /new', function() {
 			var req = {
 				method: 'POST',
 				endpoint: '/new',
-				body: {
+				form: {
 					name: 'Example',
 					url: 'http://example.com/',
 					standard: 'WCAG2AA'
@@ -156,11 +156,11 @@ describe('POST /new', function() {
 		});
 
 		it('should not display an error message', function() {
-			assert.strictEqual(this.last.dom.querySelectorAll('[data-test=error]').length, 0);
+			assert.strictEqual(this.last.dom('[data-test=error]').length, 0);
 		});
 
 		it('should display a success message', function() {
-			var alert = this.last.dom.querySelectorAll('[data-test=alert]')[0];
+			var alert = this.last.dom('[data-test=alert]').eq(0);
 			assert.isDefined(alert);
 			assert.match(alert.textContent, /url has been added/i);
 		});

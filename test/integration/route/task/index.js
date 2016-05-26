@@ -34,46 +34,46 @@ describe('GET /<task-id>', function() {
 		});
 
 		it('should display an "Edit" button', function() {
-			assert.strictEqual(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/edit"]').length, 1);
+			assert.strictEqual(this.last.dom('[href="/abc000000000000000000001/edit"]').length, 1);
 		});
 
 		it('should display a "Delete" button', function() {
-			assert.strictEqual(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/delete"]').length, 1);
+			assert.strictEqual(this.last.dom('[href="/abc000000000000000000001/delete"]').length, 1);
 		});
 
 		it('should display a "Run" button', function() {
-			assert.strictEqual(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/run"]').length, 1);
+			assert.strictEqual(this.last.dom('[href="/abc000000000000000000001/run"]').length, 1);
 		});
 
 		it('should display a "Download CSV" button for the latest result', function() {
-			assert.strictEqual(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/def000000000000000000001.csv"]').length, 1);
+			assert.strictEqual(this.last.dom('[href="/abc000000000000000000001/def000000000000000000001.csv"]').length, 1);
 		});
 
 		it('should display a "Download JSON" button for the latest result', function() {
-			assert.strictEqual(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/def000000000000000000001.json"]').length, 1);
+			assert.strictEqual(this.last.dom('[href="/abc000000000000000000001/def000000000000000000001.json"]').length, 1);
 		});
 
 		it('should display links to all results', function() {
-			assert.isDefined(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/def000000000000000000001"]')[0]);
-			assert.isDefined(this.last.dom.querySelectorAll('[href="/abc000000000000000000001/def000000000000000000003"]')[0]);
+			assert.isDefined(this.last.dom('[href="/abc000000000000000000001/def000000000000000000001"]').eq(0));
+			assert.isDefined(this.last.dom('[href="/abc000000000000000000001/def000000000000000000003"]').eq(0));
 		});
 
 		it('should display errors', function() {
-			var elem = this.last.dom.querySelectorAll('[data-test=task-errors]')[0];
+			var elem = this.last.dom('[data-test=task-errors]').eq(0);
 			assert.isDefined(elem);
-			assert.match(elem.textContent, /errors \( 1 \)/i);
+			assert.match(elem.text(), /errors \( 1 \)/i);
 		});
 
 		it('should display warnings', function() {
-			var elem = this.last.dom.querySelectorAll('[data-test=task-warnings]')[0];
+			var elem = this.last.dom('[data-test=task-warnings]').eq(0);
 			assert.isDefined(elem);
-			assert.match(elem.textContent, /warnings \( 2 \)/i);
+			assert.match(elem.text(), /warnings \( 2 \)/i);
 		});
 
 		it('should display notices', function() {
-			var elem = this.last.dom.querySelectorAll('[data-test=task-notices]')[0];
+			var elem = this.last.dom('[data-test=task-notices]').eq(0);
 			assert.isDefined(elem);
-			assert.match(elem.textContent, /notices \( 3 \)/i);
+			assert.match(elem.text(), /notices \( 3 \)/i);
 		});
 
 	});
@@ -93,15 +93,15 @@ describe('GET /<task-id>', function() {
 		});
 
 		it('should display a "Run" button', function() {
-			var elem = this.last.dom.querySelectorAll('[data-test=run-task]');
+			var elem = this.last.dom('[data-test=run-task]');
 			assert.strictEqual(elem.length, 1);
-			assert.strictEqual(elem[0].getAttribute('href'), '/abc000000000000000000003/run');
+			assert.strictEqual(elem.eq(0).attr('href'), '/abc000000000000000000003/run');
 		});
 
 		it('should display a message indicating that there are no results', function() {
-			var alert = this.last.dom.querySelectorAll('[data-test=alert]')[0];
+			var alert = this.last.dom('[data-test=alert]').eq(0);
 			assert.isDefined(alert);
-			assert.match(alert.textContent, /there are no results to show/i);
+			assert.match(alert.text(), /there are no results to show/i);
 		});
 
 	});
