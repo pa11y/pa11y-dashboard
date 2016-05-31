@@ -18,7 +18,7 @@
 	"bugs": "https://github.com/pa11y/dashboard/issues",
 
 	"engines": {
-		"node": ">=0.10"
+		"node": ">=4"
 	},
 	"dependencies": {
 		"body-parser": "~1.15",

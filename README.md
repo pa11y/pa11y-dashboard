@@ -22,7 +22,7 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 Setup
 -----
 
-Pa11y Dashboard requires [Node.js][node] 0.10+ and [PhantomJS][phantom]. See the [Pa11y][pa11y] documentation for detailed instructions on how to install these dependencies on your operating system.
+Pa11y Dashboard requires [Node.js][node] 4+ and [PhantomJS][phantom]. See the [Pa11y][pa11y] documentation for detailed instructions on how to install these dependencies on your operating system.
 
 You'll also need to have [MongoDB][mongo] installed and running. See the [MongoDB install guide][mongo-install] for more information on this.
 
@@ -138,6 +138,6 @@ Copyright &copy; 2013–2016, Springer Nature
 [info-node]: package.json
 [info-build]: https://travis-ci.org/pa11y/dashboard
 [shield-license]: https://img.shields.io/badge/license-GPL%203.0-blue.svg
-[shield-node]: https://img.shields.io/badge/node.js%20support-0.10–6-brightgreen.svg
+[shield-node]: https://img.shields.io/badge/node.js%20support-4–6-brightgreen.svg
 [shield-version]: https://img.shields.io/badge/version-1.12.1-blue.svg
 [shield-build]: https://img.shields.io/travis/pa11y/dashboard/master.svg
