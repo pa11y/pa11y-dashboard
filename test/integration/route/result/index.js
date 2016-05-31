@@ -13,14 +13,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
+// jscs:disable maximumLineLength, requireArrowFunctions
 'use strict';
 
-var assert = require('proclaim');
+const assert = require('proclaim');
 
 describe('GET /<task-id>/<result-id>', function() {
 
 	beforeEach(function(done) {
-		var req = {
+		const req = {
 			method: 'GET',
 			endpoint: '/abc000000000000000000001/def000000000000000000001'
 		};
@@ -32,13 +33,13 @@ describe('GET /<task-id>/<result-id>', function() {
 	});
 
 	it('should display a "Download CSV" button', function() {
-		var elem = this.last.dom('[data-test=download-csv]');
+		const elem = this.last.dom('[data-test=download-csv]');
 		assert.strictEqual(elem.length, 1);
 		assert.strictEqual(elem.eq(0).attr('href'), '/abc000000000000000000001/def000000000000000000001.csv');
 	});
 
 	it('should display a "Download JSON" button', function() {
-		var elem = this.last.dom('[data-test=download-json]');
+		const elem = this.last.dom('[data-test=download-json]');
 		assert.strictEqual(elem.length, 1);
 		assert.strictEqual(elem.eq(0).attr('href'), '/abc000000000000000000001/def000000000000000000001.json');
 	});
@@ -48,19 +49,19 @@ describe('GET /<task-id>/<result-id>', function() {
 	});
 
 	it('should display errors', function() {
-		var elem = this.last.dom('[data-test=task-errors]').eq(0);
+		const elem = this.last.dom('[data-test=task-errors]').eq(0);
 		assert.isDefined(elem);
 		assert.match(elem.text(), /errors \( 1 \)/i);
 	});
 
 	it('should display warnings', function() {
-		var elem = this.last.dom('[data-test=task-warnings]').eq(0);
+		const elem = this.last.dom('[data-test=task-warnings]').eq(0);
 		assert.isDefined(elem);
 		assert.match(elem.text(), /warnings \( 2 \)/i);
 	});
 
 	it('should display notices', function() {
-		var elem = this.last.dom('[data-test=task-notices]').eq(0);
+		const elem = this.last.dom('[data-test=task-notices]').eq(0);
 		assert.isDefined(elem);
 		assert.match(elem.text(), /notices \( 3 \)/i);
 	});

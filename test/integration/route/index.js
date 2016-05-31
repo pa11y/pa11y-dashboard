@@ -13,14 +13,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
+// jscs:disable maximumLineLength, requireArrowFunctions
 'use strict';
 
-var assert = require('proclaim');
+const assert = require('proclaim');
 
 describe.only('GET /', function() {
 
 	beforeEach(function(done) {
-		var req = {
+		const req = {
 			method: 'GET',
 			endpoint: '/'
 		};
@@ -32,13 +33,13 @@ describe.only('GET /', function() {
 	});
 
 	it('should display an "Add new URL" button', function() {
-		var elem = this.last.dom('[data-test=add-task]');
+		const elem = this.last.dom('[data-test=add-task]');
 		assert.strictEqual(elem.length, 1);
 		assert.strictEqual(elem.eq(0).attr('href'), '/new');
 	});
 
 	it('should display all of the expected tasks', function() {
-		var tasks = this.last.dom('[data-test=task]');
+		const tasks = this.last.dom('[data-test=task]');
 		assert.strictEqual(tasks.length, 3);
 		assert.match(tasks.eq(0).text(), /npg home\s+\(wcag2aa\)/i);
 		assert.match(tasks.eq(1).text(), /npg home\s+\(wcag2aaa\)/i);
@@ -46,42 +47,42 @@ describe.only('GET /', function() {
 	});
 
 	it('should have links to each task', function() {
-		var tasks = this.last.dom('[data-test=task]');
+		const tasks = this.last.dom('[data-test=task]');
 		assert.strictEqual(tasks.eq(0).find('[href="/abc000000000000000000001"]').length, 1);
 		assert.strictEqual(tasks.eq(1).find('[href="/abc000000000000000000002"]').length, 1);
 		assert.strictEqual(tasks.eq(2).find('[href="/abc000000000000000000003"]').length, 1);
 	});
 
 	it('should display an "Edit" button for each task', function() {
-		var tasks = this.last.dom('[data-test=task]');
+		const tasks = this.last.dom('[data-test=task]');
 		assert.strictEqual(tasks.eq(0).find('[href="/abc000000000000000000001/edit"]').length, 1);
 		assert.strictEqual(tasks.eq(1).find('[href="/abc000000000000000000002/edit"]').length, 1);
 		assert.strictEqual(tasks.eq(2).find('[href="/abc000000000000000000003/edit"]').length, 1);
 	});
 
 	it('should display a "Delete" button for each task', function() {
-		var tasks = this.last.dom('[data-test=task]');
+		const tasks = this.last.dom('[data-test=task]');
 		assert.strictEqual(tasks.eq(0).find('[href="/abc000000000000000000001/delete"]').length, 1);
 		assert.strictEqual(tasks.eq(1).find('[href="/abc000000000000000000002/delete"]').length, 1);
 		assert.strictEqual(tasks.eq(2).find('[href="/abc000000000000000000003/delete"]').length, 1);
 	});
 
 	it('should display a "Run" button for each task', function() {
-		var tasks = this.last.dom('[data-test=task]');
+		const tasks = this.last.dom('[data-test=task]');
 		assert.strictEqual(tasks.eq(0).find('[href="/abc000000000000000000001/run"]').length, 1);
 		assert.strictEqual(tasks.eq(1).find('[href="/abc000000000000000000002/run"]').length, 1);
 		assert.strictEqual(tasks.eq(2).find('[href="/abc000000000000000000003/run"]').length, 1);
 	});
 
 	it('should display the task result counts if the task has been run', function() {
-		var tasks = this.last.dom('[data-test=task]');
+		const tasks = this.last.dom('[data-test=task]');
 		assert.match(tasks.eq(0).text(), /1\s*errors/i);
 		assert.match(tasks.eq(0).text(), /2\s*warnings/i);
 		assert.match(tasks.eq(0).text(), /3\s*notices/i);
 	});
 
 	it('should display a message indicating that there are no results if the task has not been run', function() {
-		var tasks = this.last.dom('[data-test=task]');
+		const tasks = this.last.dom('[data-test=task]');
 		assert.match(tasks.eq(2).text(), /no results/i);
 	});
 

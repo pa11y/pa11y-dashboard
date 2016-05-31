@@ -15,24 +15,24 @@
 
 'use strict';
 
-var chalk = require('chalk');
-var config = require('./config');
+const chalk = require('chalk');
+const config = require('./config');
 
-process.on('SIGINT', function() {
+process.on('SIGINT', () => {
 	console.log('\nGracefully shutting down from SIGINT (Ctrl-C)');
 	process.exit();
 });
 
-require('./app')(config, function(err, app) {
+require('./app')(config, (err, app) => {
 
 	console.log('');
 	console.log(chalk.underline.magenta('Pa11y Dashboard started'));
 	console.log(chalk.grey('mode: %s'), process.env.NODE_ENV);
 	console.log(chalk.grey('uri:  %s'), app.address);
 
-	app.on('route-error', function(err) {
-		var stack = (err.stack ? err.stack.split('\n') : [err.message]);
-		var msg = chalk.red(stack.shift());
+	app.on('route-error', err => {
+		const stack = (err.stack ? err.stack.split('\n') : [err.message]);
+		const msg = chalk.red(stack.shift());
 		console.error('');
 		console.error(msg);
 		console.error(chalk.grey(stack.join('\n')));
@@ -40,7 +40,7 @@ require('./app')(config, function(err, app) {
 
 	// Start the webservice if required
 	if (typeof config.webservice === 'object') {
-		require('pa11y-webservice')(config.webservice, function(err, webservice) {
+		require('pa11y-webservice')(config.webservice, (err, webservice) => {
 			console.log('');
 			console.log(chalk.underline.cyan('Pa11y Webservice started'));
 			console.log(chalk.grey('mode: %s'), process.env.NODE_ENV);

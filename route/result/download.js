@@ -15,7 +15,7 @@
 
 'use strict';
 
-var moment = require('moment');
+const moment = require('moment');
 
 module.exports = route;
 
@@ -23,14 +23,14 @@ module.exports = route;
 function route(app) {
 
 	function getTaskAndResult(req, res, next) {
-		app.webservice.task(req.params.id).get({}, function(err, task) {
+		app.webservice.task(req.params.id).get({}, (err, task) => {
 			if (err) {
 				return next('route');
 			}
 			app.webservice
 				.task(req.params.id)
 				.result(req.params.rid)
-				.get({full: true}, function(err, result) {
+				.get({full: true}, (err, result) => {
 					if (err) {
 						return next('route');
 					}
@@ -58,11 +58,11 @@ function route(app) {
 		].join('');
 	}
 
-	app.express.get('/:id/:rid.csv', getTaskAndResult, function(req, res) {
-		var task = res.locals.task;
-		var result = res.locals.result;
-		var rows = ['"code","message","type","context","selector"'];
-		result.results.forEach(function(msg) {
+	app.express.get('/:id/:rid.csv', getTaskAndResult, (req, res) => {
+		const task = res.locals.task;
+		const result = res.locals.result;
+		const rows = ['"code","message","type","context","selector"'];
+		result.results.forEach(msg => {
 			rows.push([
 				JSON.stringify(msg.code),
 				JSON.stringify(msg.message),
@@ -75,9 +75,9 @@ function route(app) {
 		res.send(rows.join('\n'));
 	});
 
-	app.express.get('/:id/:rid.json', getTaskAndResult, function(req, res) {
-		var task = res.locals.task;
-		var result = res.locals.result;
+	app.express.get('/:id/:rid.json', getTaskAndResult, (req, res) => {
+		const task = res.locals.task;
+		const result = res.locals.result;
 		res.attachment(getDownloadFileName(task, result, 'json'));
 		delete task.id;
 		delete result.id;

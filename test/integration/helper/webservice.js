@@ -13,17 +13,18 @@
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
+// jscs:disable requireArrowFunctions
 'use strict';
 
-var createClient = require('pa11y-webservice-client-node');
+const createClient = require('pa11y-webservice-client-node');
 
 module.exports = createWebserviceClient;
 
 // Create a webservice client
 function createWebserviceClient(config) {
-	var webserviceUrl = config.webservice;
+	let webserviceUrl = config.webservice;
 	if (typeof webserviceUrl === 'object') {
-		webserviceUrl = 'http://' + webserviceUrl.host + ':' + webserviceUrl.port + '/';
+		webserviceUrl = `http://${webserviceUrl.host}:${webserviceUrl.port}/`;
 	}
 	return createClient(webserviceUrl);
 }

@@ -2,6 +2,7 @@
 	"disallowEmptyBlocks": true,
 	"disallowImplicitTypeConversion": [
 		"binary",
+		"boolean",
 		"numeric",
 		"string"
 	],
@@ -13,8 +14,13 @@
 	"disallowMultipleSpaces": true,
 	"disallowMultipleVarDecl": true,
 	"disallowNewlineBeforeBlockStatements": true,
+	"disallowParenthesesAroundArrowParam": true,
 	"disallowQuotedKeysInObjects": true,
-	"disallowSpaceAfterObjectKeys": true,
+	"disallowSpaceAfterObjectKeys": {
+		"allExcept": [
+			"method"
+		]
+	},
 	"disallowSpaceAfterPrefixUnaryOperators": true,
 	"disallowSpaceBeforeComma": true,
 	"disallowSpaceBeforeSemicolon": true,
@@ -26,24 +32,22 @@
 	"disallowSpacesInsideBrackets": true,
 	"disallowSpacesInsideObjectBrackets": true,
 	"disallowSpacesInsideParentheses": true,
+	"disallowSpacesInsideTemplateStringPlaceholders": true,
 	"disallowTrailingComma": true,
 	"disallowTrailingWhitespace": true,
+	"disallowVar": true,
 	"disallowYodaConditions": true,
-	"maximumLineLength": 200,
+
+	"maximumLineLength": 100,
+
+	"requireArrowFunctions": true,
 	"requireBlocksOnNewline": true,
+	"requireCamelCaseOrUpperCaseIdentifiers": true,
 	"requireCapitalizedConstructors": true,
 	"requireCommaBeforeLineBreak": true,
-	"requireCurlyBraces": [
-		"if",
-		"else",
-		"for",
-		"while",
-		"do",
-		"switch",
-		"try",
-		"catch"
-	],
+	"requireCurlyBraces": true,
 	"requireDotNotation": true,
+	"requireFunctionDeclarations": true,
 	"requireLineBreakAfterVariableAssignment": true,
 	"requireLineFeedAtFileEnd": true,
 	"requireObjectKeysOnNewLine": true,
@@ -74,6 +78,8 @@
 	"requireSpacesInFunction": {
 		"beforeOpeningCurlyBrace": true
 	},
+	"requireTemplateStrings": true,
+
 	"validateIndentation": "\t",
 	"validateLineBreaks": "LF",
 	"validateNewlineAfterArrayElements": true,

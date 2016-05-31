@@ -13,14 +13,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
+// jscs:disable maximumLineLength, requireArrowFunctions
 'use strict';
 
-var assert = require('proclaim');
+const assert = require('proclaim');
 
 describe('GET /<task-id>/run', function() {
 
 	beforeEach(function(done) {
-		var req = {
+		const req = {
 			method: 'GET',
 			endpoint: '/abc000000000000000000001/run'
 		};
@@ -36,7 +37,7 @@ describe('GET /<task-id>/run', function() {
 	});
 
 	it('should display a success message', function() {
-		var alert = this.last.dom('[data-test=alert]').eq(0);
+		const alert = this.last.dom('[data-test=alert]').eq(0);
 		assert.isDefined(alert);
 		assert.match(alert.text(), /new results are being generated/i);
 	});
