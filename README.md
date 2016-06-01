@@ -1,7 +1,7 @@
-pa11y-dashboard
+Pa11y Dashboard
 ===============
 
-pa11y-dashboard is a web interface to the [pa11y][pa11y] accessibility reporter; allowing you to focus on *fixing* issues rather than hunting them down.
+Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter; allowing you to focus on *fixing* issues rather than hunting them down.
 
 ![Version][shield-version]
 [![Node.js version support][shield-node]][info-node]
@@ -10,7 +10,7 @@ pa11y-dashboard is a web interface to the [pa11y][pa11y] accessibility reporter;
 
 ---
 
-✨ 🔜 ✨ The Pa11y team is very excited to announce plans for the successor to pa11y-dashboard and pa11y-webservice, codename "Sidekick". Help us define the features that you want to see by visiting the [proposal][sidekick-proposal]. ✨  
+✨ 🔜 ✨ The Pa11y team is very excited to announce plans for the successor to Pa11y Dashboard and Pa11y Webservice, codename "Sidekick". Help us define the features that you want to see by visiting the [proposal][sidekick-proposal]. ✨  
 
 ---
 
@@ -22,7 +22,7 @@ pa11y-dashboard is a web interface to the [pa11y][pa11y] accessibility reporter;
 Setup
 -----
 
-pa11y-dashboard requires [Node.js][node] 0.10+ and [PhantomJS][phantom]. See the [pa11y][pa11y] documentation for detailed instructions on how to install these dependencies on your operating system.
+Pa11y Dashboard requires [Node.js][node] 0.10+ and [PhantomJS][phantom]. See the [Pa11y][pa11y] documentation for detailed instructions on how to install these dependencies on your operating system.
 
 You'll also need to have [MongoDB][mongo] installed and running. See the [MongoDB install guide][mongo-install] for more information on this.
 
@@ -62,7 +62,7 @@ See [development instructions](#development) for more information about running 
 Configurations
 --------------
 
-The boot configurations for pa11y-dashboard are as follows. Look at the sample JSON files in the repo for example usage.
+The boot configurations for Pa11y Dashboard are as follows. Look at the sample JSON files in the repo for example usage.
 
 ### port
 *(number)* The port to run the application on. Set via a config file or the `PORT` environment variable.
@@ -77,13 +77,13 @@ The boot configurations for pa11y-dashboard are as follows. Look at the sample J
 *(string)* A message to display prominently on the site home page. Defaults to `null`.
 
 ### webservice
-This can either be an object containing [pa11y-webservice configurations][pa11y-webservice-config], or a string which is the base URL of a [pa11y-webservice][pa11y-webservice] instance you are running separately. If using environment variables, prefix the webservice vars with `WEBSERVICE_`.
+This can either be an object containing [Pa11y Webservice configurations][pa11y-webservice-config], or a string which is the base URL of a [Pa11y Webservice][pa11y-webservice] instance you are running separately. If using environment variables, prefix the webservice vars with `WEBSERVICE_`.
 
 
 Development
 -----------
 
-To develop pa11y-dashboard, you'll need to clone the repo and get set up as outlined in the [setup guide](#setup).
+To develop Pa11y Dashboard, you'll need to clone the repo and get set up as outlined in the [setup guide](#setup).
 
 You'll need to start the application in test mode with:
 
@@ -117,7 +117,7 @@ Useful Resources
 License
 -------
 
-pa11y-dashboard is licensed under the [GNU General Public License 3.0][info-license].  
+Pa11y Dashboard is licensed under the [GNU General Public License 3.0][info-license].  
 Copyright &copy; 2013–2016, Springer Nature
 
 
@@ -127,17 +127,17 @@ Copyright &copy; 2013–2016, Springer Nature
 [mongo-install]: https://docs.mongodb.org/manual/installation/
 [node]: http://nodejs.org/
 [pa11y]: https://github.com/pa11y/pa11y
-[pa11y-webservice-config]: https://github.com/pa11y/pa11y-webservice#configurations
+[pa11y-webservice-config]: https://github.com/pa11y/webservice#configurations
 [phantom]: http://phantomjs.org/
 [resource-una-k]: https://una.im/pa11y-dash/
 [sidekick-proposal]: https://github.com/pa11y/sidekick/blob/master/PROPOSAL.md
-[travis]: https://travis-ci.org/pa11y/pa11y-dashboard
-[travis-img]: https://travis-ci.org/pa11y/pa11y-dashboard.png?branch=master
+[travis]: https://travis-ci.org/pa11y/dashboard
+[travis-img]: https://travis-ci.org/pa11y/dashboard.png?branch=master
 
 [info-license]: LICENSE
 [info-node]: package.json
-[info-build]: https://travis-ci.org/pa11y/pa11y-dashboard
+[info-build]: https://travis-ci.org/pa11y/dashboard
 [shield-license]: https://img.shields.io/badge/license-GPL%203.0-blue.svg
 [shield-node]: https://img.shields.io/badge/node.js%20support-0.10–6-brightgreen.svg
 [shield-version]: https://img.shields.io/badge/version-1.12.0-blue.svg
-[shield-build]: https://img.shields.io/travis/pa11y/pa11y-dashboard/master.svg
+[shield-build]: https://img.shields.io/travis/pa11y/dashboard/master.svg
