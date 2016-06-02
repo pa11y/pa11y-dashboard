@@ -3,7 +3,7 @@
 	"version": "1.12.0",
 	"private": true,
 
-	"description": "pa11y-dashboard is a visual web interface to the pa11y accessibility reporter",
+	"description": "Pa11y Dashboard is a visual web interface to the Pa11y accessibility reporter",
 	"keywords": [ "accessibility", "analysis", "report" ],
 	"contributors": [
 		"Perry Harlock (http://www.phwebs.co.uk/)",
@@ -12,10 +12,10 @@
 
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/pa11y/pa11y-dashboard.git"
+		"url": "https://github.com/pa11y/dashboard.git"
 	},
-	"homepage": "https://github.com/pa11y/pa11y-dashboard",
-	"bugs": "https://github.com/pa11y/pa11y-dashboard/issues",
+	"homepage": "https://github.com/pa11y/dashboard",
+	"bugs": "https://github.com/pa11y/dashboard/issues",
 
 	"engines": {
 		"node": ">=0.10"
