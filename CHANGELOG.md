@@ -1,6 +1,10 @@
 
 # Changelog
 
+## 1.12.1 (2016-06-05)
+
+  * Update references/links after a repo rename
+
 ## 1.12.0 (2016-05-26)
 
   * Update Node.js version support to 0.10–6.0
