@@ -114,6 +114,21 @@ Useful Resources
 * [Setting up An Accessibility Dashboard from Scratch with Pa11y on DigitialOcean][resource-una-k]
 
 
+Support and Migration
+---------------------
+
+Pa11y Dashboard major versions are normally supported for 6 months after their last minor release. This means that patch-level changes will be added and bugs will be fixed. The table below outlines the end-of-support dates for major versions, and the last minor release for that version.
+
+We also maintain a [migration guide](MIGRATION.md) to help you migrate.
+
+| :grey_question: | Major Version | Last Minor Release | Node.js Versions | Support End Date |
+| :-------------- | :------------ | :----------------- | :--------------- | :--------------- |
+| :heart:         | 2             | N/A                | 4+               | N/A              |
+| :hourglass:     | 1             | 1.12               | 0.10–6           | 2016-12-05       |
+
+If you're opening issues related to these, please mention the version that the issue relates to.
+
+
 License
 -------
 
