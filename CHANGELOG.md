@@ -1,6 +1,13 @@
 
 # Changelog
 
+## 2.0.0 (2016-06-05)
+
+  * Drop Node.js 0.10–0.12 support
+  * Update dependencies
+    * pa11y-webservice: ~1.11 to ~2.0
+  * See the [migration guide](https://github.com/pa11y/dashboard/blob/master/MIGRATION.md#migrating-from-10-to-20) for details
+
 ## 1.12.1 (2016-06-05)
 
   * Update references/links after a repo rename
