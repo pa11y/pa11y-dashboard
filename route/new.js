@@ -15,15 +15,15 @@
 
 'use strict';
 
-var getStandards = require('../data/standards');
+const getStandards = require('../data/standards');
 
 module.exports = route;
 
 // Route definition
 function route(app) {
 
-	app.express.get('/new', function(req, res) {
-		var standards = getStandards().map(function(standard) {
+	app.express.get('/new', (req, res) => {
+		const standards = getStandards().map(standard => {
 			if (standard.title === 'WCAG2AA') {
 				standard.selected = true;
 			}
@@ -35,8 +35,8 @@ function route(app) {
 		});
 	});
 
-	app.express.post('/new', function(req, res) {
-		var newTask = {
+	app.express.post('/new', (req, res) => {
+		const newTask = {
 			name: req.body.name,
 			url: req.body.url,
 			standard: req.body.standard,
@@ -46,13 +46,13 @@ function route(app) {
 			username: req.body.username,
 			password: req.body.password
 		};
-		app.webservice.tasks.create(newTask, function(err, task) {
+		app.webservice.tasks.create(newTask, (err, task) => {
 			if (err) {
-				var standards = getStandards().map(function(standard) {
+				const standards = getStandards().map(standard => {
 					if (standard.title === newTask.standard) {
 						standard.selected = true;
 					}
-					standard.rules = standard.rules.map(function(rule) {
+					standard.rules = standard.rules.map(rule => {
 						if (newTask.ignore.indexOf(rule.name) !== -1) {
 							rule.ignored = true;
 						}
@@ -66,7 +66,7 @@ function route(app) {
 					task: newTask
 				});
 			}
-			res.redirect('/' + task.id + '?added');
+			res.redirect(`/${task.id}?added`);
 		});
 	});
 

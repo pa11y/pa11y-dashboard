@@ -13,16 +13,17 @@
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
+// jscs:disable maximumLineLength, requireArrowFunctions
 'use strict';
 
-var assert = require('proclaim');
+const assert = require('proclaim');
 
 describe('GET /<task-id>', function() {
 
 	describe('when task has results', function() {
 
 		beforeEach(function(done) {
-			var req = {
+			const req = {
 				method: 'GET',
 				endpoint: '/abc000000000000000000001'
 			};
@@ -59,19 +60,19 @@ describe('GET /<task-id>', function() {
 		});
 
 		it('should display errors', function() {
-			var elem = this.last.dom('[data-test=task-errors]').eq(0);
+			const elem = this.last.dom('[data-test=task-errors]').eq(0);
 			assert.isDefined(elem);
 			assert.match(elem.text(), /errors \( 1 \)/i);
 		});
 
 		it('should display warnings', function() {
-			var elem = this.last.dom('[data-test=task-warnings]').eq(0);
+			const elem = this.last.dom('[data-test=task-warnings]').eq(0);
 			assert.isDefined(elem);
 			assert.match(elem.text(), /warnings \( 2 \)/i);
 		});
 
 		it('should display notices', function() {
-			var elem = this.last.dom('[data-test=task-notices]').eq(0);
+			const elem = this.last.dom('[data-test=task-notices]').eq(0);
 			assert.isDefined(elem);
 			assert.match(elem.text(), /notices \( 3 \)/i);
 		});
@@ -81,7 +82,7 @@ describe('GET /<task-id>', function() {
 	describe('when task has no results', function() {
 
 		beforeEach(function(done) {
-			var req = {
+			const req = {
 				method: 'GET',
 				endpoint: '/abc000000000000000000003'
 			};
@@ -93,13 +94,13 @@ describe('GET /<task-id>', function() {
 		});
 
 		it('should display a "Run" button', function() {
-			var elem = this.last.dom('[data-test=run-task]');
+			const elem = this.last.dom('[data-test=run-task]');
 			assert.strictEqual(elem.length, 1);
 			assert.strictEqual(elem.eq(0).attr('href'), '/abc000000000000000000003/run');
 		});
 
 		it('should display a message indicating that there are no results', function() {
-			var alert = this.last.dom('[data-test=alert]').eq(0);
+			const alert = this.last.dom('[data-test=alert]').eq(0);
 			assert.isDefined(alert);
 			assert.match(alert.text(), /there are no results to show/i);
 		});

@@ -13,14 +13,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
+// jscs:disable maximumLineLength, requireArrowFunctions
 'use strict';
 
-var assert = require('proclaim');
+const assert = require('proclaim');
 
 describe('GET /new', function() {
 
 	beforeEach(function(done) {
-		var req = {
+		const req = {
 			method: 'GET',
 			endpoint: '/new'
 		};
@@ -36,7 +37,7 @@ describe('GET /new', function() {
 	});
 
 	it('should have an "Add new URL" form', function() {
-		var form = this.last.dom('[data-test=new-url-form]').eq(0);
+		const form = this.last.dom('[data-test=new-url-form]').eq(0);
 		assert.isDefined(form);
 		assert.strictEqual(form.attr('action'), '/new');
 		assert.strictEqual(form.attr('method'), 'post');
@@ -49,48 +50,48 @@ describe('GET /new', function() {
 		});
 
 		it('should have a "name" field', function() {
-			var field = this.form.find('input[name=name]').eq(0);
+			const field = this.form.find('input[name=name]').eq(0);
 			assert.isDefined(field);
 			assert.strictEqual(field.attr('type'), 'text');
 			assert.strictEqual(field.attr('value'), '');
 		});
 
 		it('should have a "url" field', function() {
-			var field = this.form.find('input[name=url]').eq(0);
+			const field = this.form.find('input[name=url]').eq(0);
 			assert.isDefined(field);
 			assert.strictEqual(field.attr('type'), 'url');
 			assert.strictEqual(field.attr('value'), '');
 		});
 
 		it('should have a "wait" field', function() {
-			var field = this.form.find('input[name=wait]').eq(0);
+			const field = this.form.find('input[name=wait]').eq(0);
 			assert.isDefined(field);
 			assert.strictEqual(field.attr('type'), 'text');
 			assert.strictEqual(field.attr('value'), '');
 		});
 
 		it('should have a "username" field', function() {
-			var field = this.form.find('input[name=username]').eq(0);
+			const field = this.form.find('input[name=username]').eq(0);
 			assert.isDefined(field);
 			assert.strictEqual(field.attr('type'), 'text');
 			assert.strictEqual(field.attr('value'), '');
 		});
 
 		it('should have a "password" field', function() {
-			var field = this.form.find('input[name=password]').eq(0);
+			const field = this.form.find('input[name=password]').eq(0);
 			assert.isDefined(field);
 			assert.strictEqual(field.attr('type'), 'text');
 			assert.strictEqual(field.attr('value'), '');
 		});
 
 		it('should have a "standard" field', function() {
-			var field = this.form.find('select[name=standard]').eq(0);
+			const field = this.form.find('select[name=standard]').eq(0);
 			assert.isDefined(field);
 			assert.strictEqual(field.find('option').length, 4);
 		});
 
 		it('should have "ignore" fields', function() {
-			var fields = this.form.find('input[name="ignore[]"]');
+			const fields = this.form.find('input[name="ignore[]"]');
 			assert.isDefined(fields);
 			assert.notStrictEqual(fields.length, 0);
 		});
@@ -104,7 +105,7 @@ describe('POST /new', function() {
 	describe('with invalid query', function() {
 
 		beforeEach(function(done) {
-			var req = {
+			const req = {
 				method: 'POST',
 				endpoint: '/new',
 				form: {
@@ -128,7 +129,7 @@ describe('POST /new', function() {
 	describe('with valid query', function() {
 
 		beforeEach(function(done) {
-			var req = {
+			const req = {
 				method: 'POST',
 				endpoint: '/new',
 				form: {
@@ -160,7 +161,7 @@ describe('POST /new', function() {
 		});
 
 		it('should display a success message', function() {
-			var alert = this.last.dom('[data-test=alert]').eq(0);
+			const alert = this.last.dom('[data-test=alert]').eq(0);
 			assert.isDefined(alert);
 			assert.match(alert.textContent, /url has been added/i);
 		});

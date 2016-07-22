@@ -15,14 +15,14 @@
 
 'use strict';
 
-var bodyParser = require('body-parser');
-var compression = require('compression');
-var createClient = require('pa11y-webservice-client-node');
-var EventEmitter = require('events').EventEmitter;
-var express = require('express');
-var hbs = require('express-hbs');
-var http = require('http');
-var pkg = require('./package.json');
+const bodyParser = require('body-parser');
+const compression = require('compression');
+const createClient = require('pa11y-webservice-client-node');
+const EventEmitter = require('events').EventEmitter;
+const express = require('express');
+const hbs = require('express-hbs');
+const http = require('http');
+const pkg = require('./package.json');
 
 module.exports = initApp;
 
@@ -30,12 +30,12 @@ module.exports = initApp;
 function initApp(config, callback) {
 	config = defaultConfig(config);
 
-	var webserviceUrl = config.webservice;
+	let webserviceUrl = config.webservice;
 	if (typeof webserviceUrl === 'object') {
-		webserviceUrl = 'http://' + webserviceUrl.host + ':' + webserviceUrl.port + '/';
+		webserviceUrl = `http://${webserviceUrl.host}:${webserviceUrl.port}/`;
 	}
 
-	var app = new EventEmitter();
+	const app = new EventEmitter();
 	app.address = null;
 	app.express = express();
 	app.server = http.createServer(app.express);
@@ -45,7 +45,7 @@ function initApp(config, callback) {
 	app.express.use(compression());
 
 	// Public files
-	app.express.use(express.static(__dirname + '/public', {
+	app.express.use(express.static(`${__dirname}/public`, {
 		maxAge: (process.env.NODE_ENV === 'production' ? 604800000 : 0)
 	}));
 
@@ -59,11 +59,11 @@ function initApp(config, callback) {
 	app.express.engine('html', hbs.express4({
 		extname: '.html',
 		contentHelperName: 'content',
-		layoutsDir: __dirname + '/view/layout',
-		partialsDir: __dirname + '/view/partial',
-		defaultLayout: __dirname + '/view/layout/default'
+		layoutsDir: `${__dirname}/view/layout`,
+		partialsDir: `${__dirname}/view/partial`,
+		defaultLayout: `${__dirname}/view/layout/default`
 	}));
-	app.express.set('views', __dirname + '/view');
+	app.express.set('views', `${__dirname}/view`);
 	app.express.set('view engine', 'html');
 
 	// View helpers
@@ -84,7 +84,7 @@ function initApp(config, callback) {
 		settings: {}
 	};
 
-	app.express.use(function(req, res, next) {
+	app.express.use((req, res, next) => {
 		res.locals.isHomePage = (req.path === '/');
 		res.locals.host = req.hostname;
 		next();
@@ -105,11 +105,11 @@ function initApp(config, callback) {
 	}
 
 	// Error handling
-	app.express.get('*', function(req, res) {
+	app.express.get('*', (req, res) => {
 		res.status(404);
 		res.render('404');
 	});
-	app.express.use(function(err, req, res, next) {
+	app.express.use((err, req, res, next) => {
 		/* jshint unused: false */
 		if (err.code === 'ECONNREFUSED') {
 			err = new Error('Could not connect to Pa11y Webservice');
@@ -122,9 +122,9 @@ function initApp(config, callback) {
 		res.render('500');
 	});
 
-	app.server.listen(config.port, function(err) {
-		var address = app.server.address();
-		app.address = 'http://' + address.address + ':' + address.port;
+	app.server.listen(config.port, err => {
+		const address = app.server.address();
+		app.address = `http://${address.address}:${address.port}`;
 		callback(err, app);
 	});
 

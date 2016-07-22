@@ -15,24 +15,24 @@
 
 'use strict';
 
-var presentTask = require('../../view/presenter/task');
-var getStandards = require('../../data/standards');
+const presentTask = require('../../view/presenter/task');
+const getStandards = require('../../data/standards');
 
 module.exports = route;
 
 // Route definition
 function route(app) {
 
-	app.express.get('/:id/edit', function(req, res, next) {
-		app.webservice.task(req.params.id).get({}, function(err, task) {
+	app.express.get('/:id/edit', (req, res, next) => {
+		app.webservice.task(req.params.id).get({}, (err, task) => {
 			if (err) {
 				return next();
 			}
-			var standards = getStandards().map(function(standard) {
+			const standards = getStandards().map(standard => {
 				if (standard.title === task.standard) {
 					standard.selected = true;
 				}
-				standard.rules = standard.rules.map(function(rule) {
+				standard.rules = standard.rules.map(rule => {
 					if (task.ignore.indexOf(rule.name) !== -1) {
 						rule.ignored = true;
 					}
@@ -49,13 +49,13 @@ function route(app) {
 		});
 	});
 
-	app.express.post('/:id/edit', function(req, res, next) {
-		app.webservice.task(req.params.id).get({}, function(err, task) {
+	app.express.post('/:id/edit', (req, res, next) => {
+		app.webservice.task(req.params.id).get({}, (err, task) => {
 			if (err) {
 				return next();
 			}
 			req.body.ignore = req.body.ignore || [];
-			app.webservice.task(req.params.id).edit(req.body, function(err) {
+			app.webservice.task(req.params.id).edit(req.body, err => {
 				if (err) {
 					task.name = req.body.name;
 					task.ignore = req.body.ignore;
@@ -63,11 +63,11 @@ function route(app) {
 					task.wait = req.body.wait;
 					task.username = req.body.username;
 					task.password = req.body.password;
-					var standards = getStandards().map(function(standard) {
+					const standards = getStandards().map(standard => {
 						if (standard.title === task.standard) {
 							standard.selected = true;
 						}
-						standard.rules = standard.rules.map(function(rule) {
+						standard.rules = standard.rules.map(rule => {
 							if (task.ignore.indexOf(rule.name) !== -1) {
 								rule.ignored = true;
 							}
@@ -82,7 +82,7 @@ function route(app) {
 						isTaskSubPage: true
 					});
 				}
-				res.redirect('/' + req.params.id + '/edit?edited');
+				res.redirect(`/${req.params.id}/edit?edited`);
 			});
 		});
 	});

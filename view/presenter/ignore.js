@@ -15,13 +15,13 @@
 
 'use strict';
 
-var standardsArray = require('../../data/standards')();
-var rules = createStandardDescriptionMap(standardsArray);
+const standardsArray = require('../../data/standards')();
+const rules = createStandardDescriptionMap(standardsArray);
 
 module.exports = presentIgnoreRules;
 
 function presentIgnoreRules(ignore) {
-	return ignore.map(function(name) {
+	return ignore.map(name => {
 		return {
 			name: name,
 			description: rules[name]
@@ -30,9 +30,9 @@ function presentIgnoreRules(ignore) {
 }
 
 function createStandardDescriptionMap(standards) {
-	var map = {};
-	standards.forEach(function(standard) {
-		standard.rules.forEach(function(rule) {
+	const map = {};
+	standards.forEach(standard => {
+		standard.rules.forEach(rule => {
 			map[rule.name] = rule.description;
 		});
 	});

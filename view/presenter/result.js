@@ -15,17 +15,17 @@
 
 'use strict';
 
-var _ = require('underscore');
-var presentIgnoreRules = require('./ignore');
+const _ = require('underscore');
+const presentIgnoreRules = require('./ignore');
 
 module.exports = presentResult;
 
 function presentResult(result) {
 
 	// Add additional info
-	result.href = '/' + result.task + '/' + result.id;
-	result.hrefCsv = '/' + result.task + '/' + result.id + '.csv';
-	result.hrefJson = '/' + result.task + '/' + result.id + '.json';
+	result.href = `/${result.task}/${result.id}`;
+	result.hrefCsv = `/${result.task}/${result.id}.csv`;
+	result.hrefJson = `/${result.task}/${result.id}.json`;
 
 	// Parse date
 	result.date = new Date(result.date);
@@ -35,13 +35,13 @@ function presentResult(result) {
 
 	// Split out message types
 	if (result.results) {
-		var groupedByType = _.groupBy(result.results, 'type');
-		['error', 'warning', 'notice'].forEach(function(type) {
-			var pluralType = type + 's';
-			var results = groupedByType[type] || [];
-			var groupedByCode = _.groupBy(results, 'code');
-			result[pluralType] = _.keys(groupedByCode).map(function(group) {
-				var firstMessage = groupedByCode[group][0];
+		const groupedByType = _.groupBy(result.results, 'type');
+		['error', 'warning', 'notice'].forEach(type => {
+			const pluralType = `${type}s`;
+			const results = groupedByType[type] || [];
+			const groupedByCode = _.groupBy(results, 'code');
+			result[pluralType] = _.keys(groupedByCode).map(group => {
+				const firstMessage = groupedByCode[group][0];
 				firstMessage.count = groupedByCode[group].length;
 				return firstMessage;
 			});

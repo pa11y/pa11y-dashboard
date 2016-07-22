@@ -15,14 +15,14 @@
 
 'use strict';
 
-var presentTask = require('../view/presenter/task');
+const presentTask = require('../view/presenter/task');
 
 module.exports = route;
 
 // Route definition
 function route(app) {
-	app.express.get('/', function(req, res, next) {
-		app.webservice.tasks.get({lastres: true}, function(err, tasks) {
+	app.express.get('/', (req, res, next) => {
+		app.webservice.tasks.get({lastres: true}, (err, tasks) => {
 			if (err) {
 				return next(err);
 			}

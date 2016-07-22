@@ -15,8 +15,9 @@
 
 'use strict';
 
-var fs = require('fs');
-var jsonPath = './config/' + (process.env.NODE_ENV || 'development') + '.json';
+const fs = require('fs');
+const environment = (process.env.NODE_ENV || 'development');
+const jsonPath = `./config/${environment}.json`;
 
 if (fs.existsSync(jsonPath)) {
 	module.exports = require(jsonPath);
@@ -36,6 +37,6 @@ if (fs.existsSync(jsonPath)) {
 }
 
 function env(name, defaultValue) {
-	var value = process.env[name];
+	const value = process.env[name];
 	return typeof value === 'string' ? value : defaultValue;
 }

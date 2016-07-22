@@ -13,23 +13,24 @@
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
+// jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 'use strict';
 
-var presentIgnoreRules = require('./ignore');
-var presentResult = require('./result');
+const presentIgnoreRules = require('./ignore');
+const presentResult = require('./result');
 
 module.exports = presentTask;
 
 function presentTask(task) {
 
 	// Add additional info
-	task.href = '/' + task.id;
-	task.hrefDelete = '/' + task.id + '/delete';
-	task.hrefRun = '/' + task.id + '/run';
-	task.hrefJson = '/' + task.id + '.json';
-	task.hrefEdit = '/' + task.id + '/edit';
-	task.hrefIgnore = '/' + task.id + '/ignore';
-	task.hrefUnignore = '/' + task.id + '/unignore';
+	task.href = `/${task.id}`;
+	task.hrefDelete = `/${task.id}/delete`;
+	task.hrefRun = `/${task.id}/run`;
+	task.hrefJson = `/${task.id}.json`;
+	task.hrefEdit = `/${task.id}/edit`;
+	task.hrefIgnore = `/${task.id}/ignore`;
+	task.hrefUnignore = `/${task.id}/unignore`;
 
 	// Enhance the ignored rules
 	task.ignore = presentIgnoreRules(task.ignore);

@@ -20,12 +20,12 @@ module.exports = route;
 // Route definition
 function route(app) {
 
-	app.express.get('/:id/run', function(req, res, next) {
-		app.webservice.task(req.params.id).run(function(err) {
+	app.express.get('/:id/run', (req, res, next) => {
+		app.webservice.task(req.params.id).run(err => {
 			if (err) {
 				return next();
 			}
-			res.redirect('/' + req.params.id + '?running');
+			res.redirect(`/${req.params.id}?running`);
 		});
 	});
 

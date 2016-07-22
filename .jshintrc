@@ -1,7 +1,7 @@
 {
-	"browser": true,
 	"curly": true,
 	"eqeqeq": true,
+	"esversion": 6,
 	"forin": true,
 	"globals": {
 		"after": true,
@@ -19,11 +19,8 @@
 	"node": true,
 	"nonew": true,
 	"nonstandard": true,
-	"regexp": true,
-	"shadow": true,
+	"shadow": false,
 	"strict": true,
-	"sub": true,
-	"trailing": true,
 	"undef": true,
 	"unused": true
 }
