@@ -111,7 +111,7 @@ make uglify  # Compile and uglify the client-side JavaScript
 
 Useful Resources
 -------
-* [Setting up An Accessibility Dashboard from Scratch with Pa11y on DigitialOcean][resource-una-k]
+* [Setting up An Accessibility Dashboard from Scratch with Pa11y on DigitalOcean][resource-una-k]
 
 
 Support and Migration
