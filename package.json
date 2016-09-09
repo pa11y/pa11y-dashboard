@@ -39,7 +39,7 @@
 		"less": "~2.7",
 		"mocha": "^2",
 		"proclaim": "^3",
-		"request": "^2",
+		"request": "^2.74",
 		"uglify-js": "~2.6"
 	},
 
