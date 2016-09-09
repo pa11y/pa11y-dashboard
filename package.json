@@ -27,7 +27,7 @@
 		"express": "~4.14",
 		"express-hbs": "~1.0",
 		"moment": "~2.13",
-		"pa11y-webservice": "~2.0",
+		"pa11y-webservice": "^2.0.1",
 		"pa11y-webservice-client-node": "~1.2",
 		"underscore": "~1.8"
 	},
