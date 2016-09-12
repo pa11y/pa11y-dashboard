@@ -1,6 +1,22 @@
 
 # Changelog
 
+## 2.0.1 (2016-09-12)
+
+  * Update dependencies and devDependencies
+    * express: ~4.13 to ~4.14
+    * pa11y-webservice: ~2.0 to ^2.0.1
+    * request: ^2 to ^2.74
+    * mocha: ^2 to ^3
+    * pa11y-webservice-client-node: ~1.2 to ^1.2.1
+    This fixes the following vulnerabilities:
+    * https://nodesecurity.io/advisories/45
+    * https://nodesecurity.io/advisories/63
+    * https://nodesecurity.io/advisories/65
+    * https://nodesecurity.io/advisories/106
+    * https://nodesecurity.io/advisories/121
+    * https://nodesecurity.io/advisories/130
+
 ## 2.0.0 (2016-06-05)
 
   * Drop Node.js 0.10–0.12 support
