@@ -58,6 +58,8 @@ NODE_ENV=development node index.js
 
 See [development instructions](#development) for more information about running locally (and restarting automatically when files change).
 
+If you run into problems, check the [troubleshooting][troubleshooting guide]. 
+
 
 Configurations
 --------------
@@ -148,6 +150,7 @@ Copyright &copy; 2013–2016, Springer Nature
 [sidekick-proposal]: https://github.com/pa11y/sidekick/blob/master/PROPOSAL.md
 [travis]: https://travis-ci.org/pa11y/dashboard
 [travis-img]: https://travis-ci.org/pa11y/dashboard.png?branch=master
+[troubleshooting]: https://github.com/pa11y/dashboard/blob/master/TROUBLESHOOTING.md
 
 [info-license]: LICENSE
 [info-node]: package.json
