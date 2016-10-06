@@ -58,7 +58,7 @@ NODE_ENV=development node index.js
 
 See [development instructions](#development) for more information about running locally (and restarting automatically when files change).
 
-If you run into problems, check the [troubleshooting][troubleshooting guide]. 
+If you run into problems, check the [troubleshooting guide][troubleshooting]. 
 
 
 Configurations
