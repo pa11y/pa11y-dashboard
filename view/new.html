@@ -102,6 +102,24 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 		</div>
 	</div>
 
+	<div class="form-group clearfix">
+		<div class="row">
+			<div class="col-md-4 col-sm-4 col-xs-6">
+				<label class="control-label" for="new-task-headers">Headers Object (JSON)</label>
+				<input class="form-control" id="new-task-headers" type="text" name="headers" value="{{task.headers}}" placeholder='{headers: {"Cookie": "foo=bar"}}'/>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group clearfix">
+		<div class="row">
+			<div class="col-md-4 col-sm-4 col-xs-6">
+				<label class="control-label" for="new-task-hide-elements">Hide Elements</label>
+				<input class="form-control" id="new-task-hide-elements" type="text" name="hide-elements" value="{{task.hide-elements}}" placeholder=".advert, #modal, div[aria-role=presentation]"/> <em>(CSS selector)</em>
+			</div>
+		</div>
+	</div>
+
 	<p class="control-label"><b>Ignore these rules</b> <a target="_blank" href="https://github.com/pa11y/pa11y/wiki/HTML-CodeSniffer-Rules">(full list of rules here)</a></p>
 
 	<div class="standards-lists">
