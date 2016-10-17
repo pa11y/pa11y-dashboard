@@ -36,6 +36,15 @@ function route(app) {
 	});
 
 	app.express.post('/new', (req, res) => {
+
+		let parsedHeaders = '';
+
+		try {
+			parsedHeaders = JSON.parse(req.body.headers);
+		} catch (e) {
+			console.log(`error parsing headers object: ${req.body.headers}. Ignoring.`);
+		}
+
 		const newTask = {
 			name: req.body.name,
 			url: req.body.url,
@@ -45,7 +54,10 @@ function route(app) {
 			wait: req.body.wait || undefined,
 			username: req.body.username || undefined,
 			password: req.body.password || undefined
+			headers: parsedHeaders || undefined,
+			hideElements: req.body.hide || undefined
 		};
+
 		app.webservice.tasks.create(newTask, (err, task) => {
 			if (err) {
 				const standards = getStandards().map(standard => {
