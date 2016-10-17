@@ -18,9 +18,12 @@
 const fs = require('fs');
 const environment = (process.env.NODE_ENV || 'development');
 const jsonPath = `./config/${environment}.json`;
+const jsPath = `./config/${environment}.js`;
 
 if (fs.existsSync(jsonPath)) {
 	module.exports = require(jsonPath);
+} else if (fs.existsSync(jsPath)) {
+	module.exports = require(jsPath);
 } else {
 	module.exports = {
 		port: Number(env('PORT', '4000')),
