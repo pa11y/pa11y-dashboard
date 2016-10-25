@@ -63,6 +63,8 @@ function route(app) {
 					task.wait = req.body.wait;
 					task.username = req.body.username;
 					task.password = req.body.password;
+					task.headers = req.body.headers;
+					task.hideElements = req.body.hideElements;
 					const standards = getStandards().map(standard => {
 						if (standard.title === task.standard) {
 							standard.selected = true;
