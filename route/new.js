@@ -53,9 +53,9 @@ function route(app) {
 			timeout: req.body.timeout || undefined,
 			wait: req.body.wait || undefined,
 			username: req.body.username || undefined,
-			password: req.body.password || undefined
+			password: req.body.password || undefined,
 			headers: parsedHeaders || undefined,
-			hideElements: req.body.hide || undefined
+			hideElements: req.body['hide-elements'] || undefined
 		};
 
 		app.webservice.tasks.create(newTask, (err, task) => {
