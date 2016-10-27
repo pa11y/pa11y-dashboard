@@ -77,11 +77,11 @@ $(document).ready(function(){
     expandLink.click( function(){
 		$(this).next().slideToggle('slow', function(){});
         if ($(this).hasClass('showing')) {
-            $(this).find('span.expander').html('+');
+            $(this).find('span.expander').html('↓');
             $(this).attr('aria-expanded', false);
         }
         else {
-            $(this).find('span.expander').html('-');
+            $(this).find('span.expander').html('↑');
             $(this).attr('aria-expanded', true);
         }
         $(this).toggleClass('showing');

@@ -73,7 +73,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 <div class="col-md-9" data-role="expandable-results" role="main">
 	{{#if mainResult.count.error}}
 		<div class="heading label-danger pointer showing first" id="errors" data-test="task-errors" data-role="expander" role="button" tabindex="0" aria-expanded="true" aria-controls="errors-list">
-			<span class="pull-right expander"> - <span class="hide">(close panel)</span></span>
+			<span class="pull-right expander"> ↑ <span class="hide">(close panel)</span></span>
 			Errors ( {{mainResult.count.error}} )
 		</div>
 		<div class="task-danger tasks-list collapse clearfix in" id="errors-list">
@@ -109,7 +109,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
 	{{#if mainResult.count.warning}}
 		<div class="heading label-warning pointer" id="warnings" data-test="task-warnings" data-role="expander" role="button" tabindex="0" aria-expanded="false" aria-controls="warnings-list">
-			<span class="pull-right expander"> + <span class="hide">(open panel)</span></span>
+			<span class="pull-right expander"> ↓ <span class="hide">(open panel)</span></span>
 			Warnings ( {{mainResult.count.warning}} )
 		</div>
 		<div class="task-warning tasks-list collapse clearfix" id="warnings-list">
@@ -145,7 +145,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
 	{{#if mainResult.count.notice}}
 		<div class="heading label-info pointer" id="notices" data-test="task-notices" data-role="expander" role="button" tabindex="0" aria-expanded="false" aria-controls="notices-list">
-			<span class="pull-right expander"> + <span class="hide">(open panel)</span></span>
+			<span class="pull-right expander"> ↓ <span class="hide">(open panel)</span></span>
 			Notices ( {{mainResult.count.notice}} )
 		</div>
 		<div class="task-info tasks-list collapse clearfix" id="notices-list">
@@ -180,7 +180,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
 	{{#if mainResult.ignore.length}}
 		<div class="heading label-default pointer" id="ignore" data-role="expander" role="button" tabindex="0" aria-expanded="false" aria-controls="ignore-list">
-			<span class="pull-right expander"> + <span class="hide">(open panel)</span></span>
+			<span class="pull-right expander"> ↓ <span class="hide">(open panel)</span></span>
 			Ignored Rules ( {{mainResult.ignore.length}} )
 		</div>
 		<div class="task-default tasks-list collapse clearfix" id="ignore-list">
