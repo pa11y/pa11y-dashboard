@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
-/*jshint maxcomplexity:8*/
+/*jshint maxcomplexity:10*/
 
 'use strict';
 
