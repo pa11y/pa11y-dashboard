@@ -61,6 +61,7 @@ function route(app) {
 			req.body.wait = req.body.wait || undefined;
 			req.body.username = req.body.username || undefined;
 			req.body.password = req.body.password || undefined;
+			req.body.hideElements = req.body.hideElements || undefined;
 			app.webservice.task(req.params.id).edit(req.body, err => {
 				if (err) {
 					task.name = req.body.name;
