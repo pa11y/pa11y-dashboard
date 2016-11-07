@@ -13,6 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
+/*jshint maxcomplexity:8*/
+
 'use strict';
 
 const presentTask = require('../../view/presenter/task');
@@ -55,6 +57,10 @@ function route(app) {
 				return next();
 			}
 			req.body.ignore = req.body.ignore || [];
+			req.body.timeout = req.body.timeout || undefined;
+			req.body.wait = req.body.wait || undefined;
+			req.body.username = req.body.username || undefined;
+			req.body.password = req.body.password || undefined;
 			app.webservice.task(req.params.id).edit(req.body, err => {
 				if (err) {
 					task.name = req.body.name;
