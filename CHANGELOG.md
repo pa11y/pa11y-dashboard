@@ -1,6 +1,15 @@
 
 # Changelog
 
+## 2.1.0 (2016-11-07)
+
+  * Allow for configuration files to be JavaScript rather than JSON
+  * Allow setting of HTTP headers for task runs
+  * Allow hiding/ignoring elements for task runs
+  * Update dependencies and devDependencies
+    * pa11y-webservice: ~2.0.1 to ^2.1.2
+    * mocha: ^3 to ^2 (temporary – tests weren't running)
+
 ## 2.0.1 (2016-09-12)
 
   * Update dependencies and devDependencies
