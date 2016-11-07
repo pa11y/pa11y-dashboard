@@ -41,10 +41,10 @@ function route(app) {
 			url: req.body.url,
 			standard: req.body.standard,
 			ignore: req.body.ignore || [],
-			timeout: req.body.timeout,
-			wait: req.body.wait,
-			username: req.body.username,
-			password: req.body.password
+			timeout: req.body.timeout || undefined,
+			wait: req.body.wait || undefined,
+			username: req.body.username || undefined,
+			password: req.body.password || undefined
 		};
 		app.webservice.tasks.create(newTask, (err, task) => {
 			if (err) {

@@ -28,7 +28,7 @@
 		"express": "~4.14",
 		"express-hbs": "~1.0",
 		"moment": "~2.13",
-		"pa11y-webservice": "^2.0.1",
+		"pa11y-webservice": "^2.1.1",
 		"pa11y-webservice-client-node": "^1.2.1",
 		"underscore": "~1.8"
 	},
@@ -38,7 +38,7 @@
 		"jscs": "^2",
 		"jshint": "^2",
 		"less": "~2.7",
-		"mocha": "^3",
+		"mocha": "^2",
 		"proclaim": "^3",
 		"request": "^2.74",
 		"uglify-js": "~2.6"
