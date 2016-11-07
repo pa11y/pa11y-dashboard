@@ -91,6 +91,18 @@ describe('GET /<task-id>/edit', function() {
 			assert.strictEqual(field.attr('value'), 'access');
 		});
 
+		it('should have a "hideElements" field', function() {
+			const field = this.form.find('input[name=hideElements]').eq(0);
+			assert.isDefined(field);
+			assert.strictEqual(field.attr('type'), 'text');
+			assert.strictEqual(field.attr('value'), '');
+		});
+
+		it('should have a "headers" field', function() {
+			const field = this.form.find('textarea[name=headers]').eq(0);
+			assert.isDefined(field);
+		});
+
 		it('should have "ignore" fields', function() {
 			const fields = this.form.find('input[name="ignore[]"]');
 			assert.isDefined(fields);
