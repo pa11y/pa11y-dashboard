@@ -55,7 +55,7 @@ function route(app) {
 			username: req.body.username || undefined,
 			password: req.body.password || undefined,
 			headers: parsedHeaders || undefined,
-			hideElements: req.body['hide-elements'] || undefined
+			hideElements: req.body.hideElements || undefined
 		};
 
 		app.webservice.tasks.create(newTask, (err, task) => {
