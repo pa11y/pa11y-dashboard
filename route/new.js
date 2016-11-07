@@ -16,6 +16,7 @@
 'use strict';
 
 const getStandards = require('../data/standards');
+const httpHeaders = require('http-headers');
 
 module.exports = route;
 
@@ -37,13 +38,11 @@ function route(app) {
 
 	app.express.post('/new', (req, res) => {
 
-		let parsedHeaders = '';
-
-		try {
-			parsedHeaders = JSON.parse(req.body.headers);
-		} catch (e) {
-			console.log(`error parsing headers object: ${req.body.headers}. Ignoring.`);
+		let parsedHeaders;
+		if (req.body.headers) {
+			parsedHeaders = httpHeaders(req.body.headers, true);
 		}
+		console.log(parsedHeaders);
 
 		const newTask = {
 			name: req.body.name,
@@ -54,7 +53,7 @@ function route(app) {
 			wait: req.body.wait || undefined,
 			username: req.body.username || undefined,
 			password: req.body.password || undefined,
-			headers: parsedHeaders || undefined,
+			headers: parsedHeaders,
 			hideElements: req.body.hideElements || undefined
 		};
 

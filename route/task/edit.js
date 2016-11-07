@@ -19,6 +19,7 @@
 
 const presentTask = require('../../view/presenter/task');
 const getStandards = require('../../data/standards');
+const httpHeaders = require('http-headers');
 
 module.exports = route;
 
@@ -56,12 +57,14 @@ function route(app) {
 			if (err) {
 				return next();
 			}
+			const originalHeaders = req.body.headers;
 			req.body.ignore = req.body.ignore || [];
 			req.body.timeout = req.body.timeout || undefined;
 			req.body.wait = req.body.wait || undefined;
 			req.body.username = req.body.username || undefined;
 			req.body.password = req.body.password || undefined;
 			req.body.hideElements = req.body.hideElements || undefined;
+			req.body.headers = httpHeaders(req.body.headers || '', true);
 			app.webservice.task(req.params.id).edit(req.body, err => {
 				if (err) {
 					task.name = req.body.name;
@@ -70,7 +73,7 @@ function route(app) {
 					task.wait = req.body.wait;
 					task.username = req.body.username;
 					task.password = req.body.password;
-					task.headers = req.body.headers;
+					task.headers = originalHeaders;
 					task.hideElements = req.body.hideElements;
 					const standards = getStandards().map(standard => {
 						if (standard.title === task.standard) {
