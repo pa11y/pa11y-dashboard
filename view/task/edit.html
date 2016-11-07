@@ -50,7 +50,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 		<div class="row">
 			<div class="col-md-8 col-sm-8 col-xs-10">
 				<label class="control-label" for="new-task-name">Name</label>
-				<input class="form-control" id="new-task-name" type="text" placeholder="E.g. My Home Page" name="name" value="{{task.name}}"/>
+				<input class="form-control" id="new-task-name" type="text" required placeholder="E.g. My Home Page" name="name" value="{{task.name}}"/>
 			</div>
 		</div>
 	</div>
@@ -59,7 +59,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 		<div class="row">
 			<div class="col-md-8 col-sm-8 col-xs-10">
 				<label class="control-label" for="new-task-url">URL</label>
-				<input class="form-control" id="new-task-url" type="url" placeholder="E.g. http://mysite.com/" name="url" value="{{task.url}}" disabled/>
+				<input class="form-control" id="new-task-url" type="url" required pattern="https?:\/\/.+" placeholder="E.g. http://mysite.com/" name="url" value="{{task.url}}" disabled/>
 			</div>
 		</div>
 	</div>
