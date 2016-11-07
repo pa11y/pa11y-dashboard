@@ -105,8 +105,9 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 	<div class="form-group clearfix">
 		<div class="row">
 			<div class="col-md-4 col-sm-4 col-xs-6">
-				<label class="control-label" for="new-task-headers">Headers Object (JSON)</label>
-				<input class="form-control" id="new-task-headers" type="text" name="headers" value="{{task.headers}}" placeholder='{"Cookie": "foo=bar"}'/>
+				<label class="control-label" for="new-task-headers">HTTP Headers</label>
+				<textarea class="form-control" id="new-task-headers" name="headers" placeholder="Cookie: foo=bar">{{task.headers}}</textarea>
+				<em>(As key/value pairs, separated by newlines/colons)</em>
 			</div>
 		</div>
 	</div>
