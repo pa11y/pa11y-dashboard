@@ -1,6 +1,11 @@
 
 # Changelog
 
+## 2.1.1 (2016-11-20)
+
+  * Use arrows instead of plus and minus for collapsibles/expanders
+  * Supply more detailed 500 messages
+
 ## 2.1.0 (2016-11-07)
 
   * Allow for configuration files to be JavaScript rather than JSON
