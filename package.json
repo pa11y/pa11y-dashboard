@@ -1,52 +1,52 @@
 {
-	"name": "pa11y-dashboard",
-	"version": "2.1.1",
-	"private": true,
-
-	"description": "Pa11y Dashboard is a visual web interface to the Pa11y accessibility reporter",
-	"keywords": [ "accessibility", "analysis", "report" ],
-	"contributors": [
-		"Perry Harlock (http://www.phwebs.co.uk/)",
-		"Rowan Manning (http://rowanmanning.com/)"
-	],
-
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/pa11y/dashboard.git"
-	},
-	"homepage": "https://github.com/pa11y/dashboard",
-	"bugs": "https://github.com/pa11y/dashboard/issues",
-	"license": "GPL-3.0",
-
-	"engines": {
-		"node": ">=4"
-	},
-	"dependencies": {
-		"body-parser": "~1.15",
-		"chalk": "~1.1",
-		"compression": "~1.6",
-		"express": "~4.14",
-		"express-hbs": "~1.0",
-		"http-headers": "^3.0.1",
-		"moment": "~2.13",
-		"pa11y-webservice": "^2.1.2",
-		"pa11y-webservice-client-node": "^1.2.1",
-		"underscore": "~1.8"
-	},
-	"devDependencies": {
-		"bower": "~1.7",
-		"cheerio": "~0.20",
-		"jscs": "^2",
-		"jshint": "^2",
-		"less": "~2.7",
-		"mocha": "^2",
-		"proclaim": "^3",
-		"request": "^2.74",
-		"uglify-js": "~2.6"
-	},
-
-	"scripts": {
-		"start": "node index.js",
-		"test": "make ci"
-	}
+  "name": "pa11y-dashboard",
+  "version": "2.1.1",
+  "private": true,
+  "description": "Pa11y Dashboard is a visual web interface to the Pa11y accessibility reporter",
+  "keywords": [
+    "accessibility",
+    "analysis",
+    "report"
+  ],
+  "contributors": [
+    "Perry Harlock (http://www.phwebs.co.uk/)",
+    "Rowan Manning (http://rowanmanning.com/)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pa11y/dashboard.git"
+  },
+  "homepage": "https://github.com/pa11y/dashboard",
+  "bugs": "https://github.com/pa11y/dashboard/issues",
+  "license": "GPL-3.0",
+  "engines": {
+    "node": ">=4"
+  },
+  "dependencies": {
+    "body-parser": "~1.15",
+    "chalk": "~1.1",
+    "compression": "~1.6",
+    "express": "~4.14",
+    "express-hbs": "~1.0",
+    "http-headers": "^3.0.1",
+    "moment": "~2.15.2",
+    "pa11y-webservice": "^2.1.2",
+    "pa11y-webservice-client-node": "^1.2.1",
+    "underscore": "~1.8"
+  },
+  "devDependencies": {
+    "bower": "~1.7",
+    "cheerio": "~0.20",
+    "jscs": "^2",
+    "jshint": "^2",
+    "less": "~2.7",
+    "mocha": "^2",
+    "proclaim": "^3",
+    "request": "^2.74",
+    "uglify-js": "~2.6"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "make ci"
+  }
 }
