@@ -82,10 +82,12 @@ The boot configurations for Pa11y Dashboard are as follows. Look at the sample J
 This can either be an object containing [Pa11y Webservice configurations][pa11y-webservice-config], or a string which is the base URL of a [Pa11y Webservice][pa11y-webservice] instance you are running separately. If using environment variables, prefix the webservice vars with `WEBSERVICE_`.
 
 
-Development
------------
+Contributing
+------------
 
-To develop Pa11y Dashboard, you'll need to clone the repo and get set up as outlined in the [setup guide](#setup).
+There are many ways to contribute to Pa11y Dashboard, we cover these in the [contributing guide](CONTRIBUTING.md) for this repo.
+
+If you're ready to contribute some code, you'll need to clone the repo and get set up as outlined in the [setup guide](#setup).
 
 You'll need to start the application in test mode with:
 
