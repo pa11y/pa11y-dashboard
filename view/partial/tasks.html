@@ -16,19 +16,15 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 }}
 
 <ul class="list-unstyled clearfix crunch-bottom">
-	<li class="col-md-4 col-sm-6 task-card add-task">
-		{{#if readonly}}
-			<span class="well task-card-link crunch-bottom">
-				<p class="h3 crunch">Add new URL</p>
-				<p class="supersize-me crunch">+</p>
-			</span>
-		{{else}}
+
+	{{#unless readonly}}
+	        <li class="col-md-4 col-sm-6 task-card add-task">
 			<a class="well task-card-link crunch-bottom" data-role="add-task" href="/new" data-test="add-task">
 				<p class="h3 crunch">Add new URL</p>
 				<p class="supersize-me crunch">+</p>
 			</a>
-		{{/if}}
-	</li>
+		</li>
+	{{/unless}}
 	{{#each tasks}}
 		<li class="col-md-4 col-sm-6 task-card" data-test="task" data-role="task" data-keywords="{{lowercase name}} {{lowercase standard}} {{simplify-url url}}">
 			<a class="well task-card-link crunch-bottom" title="Details for URL {{simplify-url url}}" href="{{href}}">
@@ -49,14 +45,14 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 			</a>
 			{{#unless ../readonly}}
 				<div class="btn-group options-button text-right">
-						<button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown"><span class="sr-only">Options</span><span class="glyphicon glyphicon-cog"></span></button>
-						<ul class="dropdown-menu pull-right" role="menu">
-							<li><a href="{{href}}/edit">Edit this task</a></li>
-							<li><a href="{{href}}/delete">Delete this task</a></li>
-							<li class="divider"></li>
-							<li><a href="{{href}}/run" data-test="run-task">Run Pa11y</a></li>
-						</ul>
-					</div>
+					<button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown"><span class="sr-only">Options</span><span class="glyphicon glyphicon-cog"></span></button>
+					<ul class="dropdown-menu pull-right" role="menu">
+						<li><a href="{{href}}/edit">Edit this task</a></li>
+						<li><a href="{{href}}/delete">Delete this task</a></li>
+						<li class="divider"></li>
+						<li><a href="{{href}}/run" data-test="run-task">Run Pa11y</a></li>
+					</ul>
+				</div>
 			{{/unless}}
 		</li>
 	{{/each}}
