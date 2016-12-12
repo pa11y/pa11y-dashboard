@@ -1,6 +1,6 @@
 {
   "name": "pa11y-dashboard",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "private": true,
   "description": "Pa11y Dashboard is a visual web interface to the Pa11y accessibility reporter",
   "keywords": [

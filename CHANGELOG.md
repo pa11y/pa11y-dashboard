@@ -1,6 +1,11 @@
 
 # Changelog
 
+## 2.1.2 (2016-12-12)
+
+  * Hide the "add" button in readonly mode
+  * Add a contributing guide
+
 ## 2.1.1 (2016-11-20)
 
   * Use arrows instead of plus and minus for collapsibles/expanders
