@@ -22,7 +22,7 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 Setup
 -----
 
-Pa11y Dashboard requires [Node.js][node] 4+ and [PhantomJS][phantom]. See the [Pa11y][pa11y] documentation for detailed instructions on how to install these dependencies on your operating system.
+Pa11y Dashboard requires [Node.js][node] 4+. See the [Pa11y][pa11y] documentation for detailed instructions on how to install this on your operating system.
 
 You'll also need to have [MongoDB][mongo] installed and running. See the [MongoDB install guide][mongo-install] for more information on this.
 
