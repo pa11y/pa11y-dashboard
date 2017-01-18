@@ -128,7 +128,7 @@ We also maintain a [migration guide](MIGRATION.md) to help you migrate.
 | :grey_question: | Major Version | Last Minor Release | Node.js Versions | Support End Date |
 | :-------------- | :------------ | :----------------- | :--------------- | :--------------- |
 | :heart:         | 2             | N/A                | 4+               | N/A              |
-| :hourglass:     | 1             | 1.12               | 0.10–6           | 2016-12-05       |
+| :skull:         | 1             | 1.12               | 0.10–6           | 2016-12-05       |
 
 If you're opening issues related to these, please mention the version that the issue relates to.
 
