@@ -136,8 +136,8 @@ If you're opening issues related to these, please mention the version that the i
 License
 -------
 
-Pa11y Dashboard is licensed under the [GNU General Public License 3.0][info-license].  
-Copyright &copy; 2013–2016, Springer Nature
+Pa11y Dashboard is licensed under the [GNU General Public License 3.0][info-license].<br/>
+Copyright &copy; 2013–2017, Team Pa11y
 
 
 
