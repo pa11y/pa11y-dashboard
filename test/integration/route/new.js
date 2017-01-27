@@ -70,6 +70,11 @@ describe('GET /new', function() {
 			assert.strictEqual(field.attr('value'), '');
 		});
 
+		it('should have an "actions" field', function() {
+			const field = this.form.find('textarea[name=actions]').eq(0);
+			assert.isDefined(field);
+		});
+
 		it('should have a "username" field', function() {
 			const field = this.form.find('input[name=username]').eq(0);
 			assert.isDefined(field);

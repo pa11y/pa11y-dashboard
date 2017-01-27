@@ -40,11 +40,21 @@ function route(app) {
 
 	app.express.post('/new', (req, res) => {
 
+		let parsedActions;
+		if (req.body.actions) {
+			parsedActions = req.body.actions.split(/[\r\n]+/)
+				.map(action => {
+					return action.trim();
+				})
+				.filter(action => {
+					return Boolean(action);
+				});
+		}
+
 		let parsedHeaders;
 		if (req.body.headers) {
 			parsedHeaders = httpHeaders(req.body.headers, true);
 		}
-		console.log(parsedHeaders);
 
 		const newTask = {
 			name: req.body.name,
@@ -53,6 +63,7 @@ function route(app) {
 			ignore: req.body.ignore || [],
 			timeout: req.body.timeout || undefined,
 			wait: req.body.wait || undefined,
+			actions: parsedActions,
 			username: req.body.username || undefined,
 			password: req.body.password || undefined,
 			headers: parsedHeaders,
@@ -73,6 +84,8 @@ function route(app) {
 					});
 					return standard;
 				});
+				newTask.actions = req.body.actions;
+				newTask.headers = req.body.headers;
 				return res.render('new', {
 					error: err,
 					standards: standards,
