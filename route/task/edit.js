@@ -43,6 +43,7 @@ function route(app) {
 				});
 				return standard;
 			});
+			task.actions = (task.actions ? task.actions.join('\n') : '');
 			res.render('task/edit', {
 				edited: (typeof req.query.edited !== 'undefined'),
 				standards: standards,
@@ -57,10 +58,20 @@ function route(app) {
 			if (err) {
 				return next();
 			}
+			const originalActions = req.body.actions;
 			const originalHeaders = req.body.headers;
 			req.body.ignore = req.body.ignore || [];
 			req.body.timeout = req.body.timeout || undefined;
 			req.body.wait = req.body.wait || undefined;
+			if (req.body.actions) {
+				req.body.actions = req.body.actions.split(/[\r\n]+/)
+					.map(action => {
+						return action.trim();
+					})
+					.filter(action => {
+						return Boolean(action);
+					});
+			}
 			req.body.username = req.body.username || undefined;
 			req.body.password = req.body.password || undefined;
 			req.body.hideElements = req.body.hideElements || undefined;
@@ -71,6 +82,7 @@ function route(app) {
 					task.ignore = req.body.ignore;
 					task.timeout = req.body.timeout;
 					task.wait = req.body.wait;
+					task.actions = originalActions;
 					task.username = req.body.username;
 					task.password = req.body.password;
 					task.headers = originalHeaders;

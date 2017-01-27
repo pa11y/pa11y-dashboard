@@ -71,6 +71,11 @@ describe('GET /<task-id>/edit', function() {
 			assert.strictEqual(field.attr('value'), '0');
 		});
 
+		it('should have an "actions" field', function() {
+			const field = this.form.find('textarea[name=actions]').eq(0);
+			assert.isDefined(field);
+		});
+
 		it('should have a disabled "standard" field', function() {
 			const field = this.form.find('select[name=standard]').eq(0);
 			assert.isDefined(field);
