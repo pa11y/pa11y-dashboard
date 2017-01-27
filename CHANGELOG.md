@@ -1,6 +1,12 @@
 
 # Changelog
 
+## 2.2.0 (2017-01-27)
+
+  * Add support for Pa11y actions
+  * Update dependencies
+    * pa11y-webservice: ~2.1.2 to ^2.3.0
+
 ## 2.1.2 (2016-12-12)
 
   * Hide the "add" button in readonly mode
