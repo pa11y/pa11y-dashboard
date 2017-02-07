@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
-/*jshint maxcomplexity:10*/
+/*jshint maxcomplexity:12*/
 
 'use strict';
 
@@ -71,6 +71,9 @@ function route(app) {
 					.filter(action => {
 						return Boolean(action);
 					});
+			}
+			if (!req.body.actions) {
+				req.body.actions = [];
 			}
 			req.body.username = req.body.username || undefined;
 			req.body.password = req.body.password || undefined;
