@@ -1,6 +1,10 @@
 
 # Changelog
 
+## 2.2.1 (2017-02-07)
+
+  * Fix task editing when no actions are specified
+
 ## 2.2.0 (2017-01-27)
 
   * Add support for Pa11y actions
