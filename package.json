@@ -30,7 +30,7 @@
     "express": "~4.14",
     "express-hbs": "~1.0",
     "http-headers": "^3.0.1",
-    "moment": "~2.13",
+    "moment": "~2.15.2",
     "pa11y-webservice": "^2.3.0",
     "pa11y-webservice-client-node": "^1.2.1",
     "underscore": "~1.8"
