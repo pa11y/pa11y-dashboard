@@ -87,23 +87,19 @@ Contributing
 
 There are many ways to contribute to Pa11y Dashboard, we cover these in the [contributing guide](CONTRIBUTING.md) for this repo.
 
-If you're ready to contribute some code, you'll need to clone the repo and get set up as outlined in the [setup guide](#setup).
-
-You'll need to start the application in test mode with:
+If you're ready to contribute some code, you'll need to clone the repo and get set up as outlined in the [setup guide](#setup). You'll then need to start the application in test mode with:
 
 ```sh
 NODE_ENV=test node index.js
 ```
 
-Now you'll be able to run the following commands:
+You'll now be able to run the following commands:
 
 ```sh
-make       # Run the lint and test tasks together
-make lint  # Run linters with the correct config
-make test  # Run integration tests
+make verify              # Verify all of the code (ESLint)
+make test                # Run all tests
+make test-integration    # Run the integration tests
 ```
-
-Code with lint errors or failing tests will not be accepted, please use the build tools outlined above.
 
 To compile the client-side JavaScript and CSS, you'll need the following commands. Compiled code is committed to the repository.
 
