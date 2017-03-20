@@ -12,7 +12,6 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
 'use strict';
 
 const presentTask = require('../../view/presenter/task');
@@ -24,24 +23,24 @@ module.exports = route;
 // Route definition
 function route(app) {
 
-	app.express.get('/:id', (req, res, next) => {
-		app.webservice.task(req.params.id).get({lastres: true}, (err, task) => {
-			if (err) {
+	app.express.get('/:id', (request, response, next) => {
+		app.webservice.task(request.params.id).get({lastres: true}, (error, task) => {
+			if (error) {
 				return next();
 			}
-			app.webservice.task(req.params.id).results({}, (err, results) => {
-				if (err) {
-					return next(err);
+			app.webservice.task(request.params.id).results({}, (error, results) => {
+				if (error) {
+					return next(error);
 				}
 				const presentedResults = presentResultList(results.map(presentResult));
-				res.render('task', {
+				response.render('task', {
 					task: presentTask(task),
 					results: presentedResults,
 					mainResult: task.lastResult || null,
-					added: (typeof req.query.added !== 'undefined'),
-					running: (typeof req.query.running !== 'undefined'),
-					ruleIgnored: (typeof req.query['rule-ignored'] !== 'undefined'),
-					ruleUnignored: (typeof req.query['rule-unignored'] !== 'undefined'),
+					added: (typeof request.query.added !== 'undefined'),
+					running: (typeof request.query.running !== 'undefined'),
+					ruleIgnored: (typeof request.query['rule-ignored'] !== 'undefined'),
+					ruleUnignored: (typeof request.query['rule-unignored'] !== 'undefined'),
 					hasOneResult: (presentedResults.length < 2),
 					isTaskPage: true
 				});

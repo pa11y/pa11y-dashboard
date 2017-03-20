@@ -12,7 +12,6 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
 'use strict';
 
 const bodyParser = require('body-parser');
@@ -84,9 +83,9 @@ function initApp(config, callback) {
 		settings: {}
 	};
 
-	app.express.use((req, res, next) => {
-		res.locals.isHomePage = (req.path === '/');
-		res.locals.host = req.hostname;
+	app.express.use((request, response, next) => {
+		response.locals.isHomePage = (request.path === '/');
+		response.locals.host = request.hostname;
 		next();
 	});
 
@@ -105,27 +104,27 @@ function initApp(config, callback) {
 	}
 
 	// Error handling
-	app.express.get('*', (req, res) => {
-		res.status(404);
-		res.render('404');
+	app.express.get('*', (request, response) => {
+		response.status(404);
+		response.render('404');
 	});
-	app.express.use((err, req, res, next) => {
-		/* jshint unused: false */
-		if (err.code === 'ECONNREFUSED') {
-			err = new Error('Could not connect to Pa11y Webservice');
+	app.express.use((error, request, response, next) => {
+		/* eslint no-unused-vars: 'off' */
+		if (error.code === 'ECONNREFUSED') {
+			error = new Error('Could not connect to Pa11y Webservice');
 		}
-		app.emit('route-error', err);
+		app.emit('route-error', error);
 		if (process.env.NODE_ENV !== 'production') {
-			res.locals.error = err;
+			response.locals.error = error;
 		}
-		res.status(500);
-		res.render('500');
+		response.status(500);
+		response.render('500');
 	});
 
-	app.server.listen(config.port, err => {
+	app.server.listen(config.port, error => {
 		const address = app.server.address();
 		app.address = `http://${address.address}:${address.port}`;
-		callback(err, app);
+		callback(error, app);
 	});
 
 }

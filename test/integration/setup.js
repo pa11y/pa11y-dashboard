@@ -40,8 +40,8 @@ afterEach(function(done) {
 
 // Check that the test application is running, and exit if not
 function assertTestAppIsRunning(url, done) {
-	request(url, err => {
-		if (err) {
+	request(url, error => {
+		if (error) {
 			console.error('Error: Test app not started; run with `NODE_ENV=test node index.js`');
 			process.exit(1);
 		}

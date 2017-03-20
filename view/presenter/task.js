@@ -12,8 +12,6 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
-// jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 'use strict';
 
 const presentIgnoreRules = require('./ignore');

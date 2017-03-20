@@ -23,11 +23,11 @@ describe('GET /<task-id>', function() {
 	describe('when task has results', function() {
 
 		beforeEach(function(done) {
-			const req = {
+			const request = {
 				method: 'GET',
 				endpoint: '/abc000000000000000000001'
 			};
-			this.navigate(req, done);
+			this.navigate(request, done);
 		});
 
 		it('should send a 200 status', function() {
@@ -82,11 +82,11 @@ describe('GET /<task-id>', function() {
 	describe('when task has no results', function() {
 
 		beforeEach(function(done) {
-			const req = {
+			const request = {
 				method: 'GET',
 				endpoint: '/abc000000000000000000003'
 			};
-			this.navigate(req, done);
+			this.navigate(request, done);
 		});
 
 		it('should send a 200 status', function() {

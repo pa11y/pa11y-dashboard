@@ -21,12 +21,12 @@ const assert = require('proclaim');
 describe('GET /<task-id>/<result-id>.csv', function() {
 
 	beforeEach(function(done) {
-		const req = {
+		const request = {
 			method: 'GET',
 			endpoint: '/abc000000000000000000001/def000000000000000000001.csv',
 			nonDom: true
 		};
-		this.navigate(req, done);
+		this.navigate(request, done);
 	});
 
 	it('should send a 200 status', function() {
@@ -42,13 +42,13 @@ describe('GET /<task-id>/<result-id>.csv', function() {
 describe('GET /<task-id>/<result-id>.json', function() {
 
 	beforeEach(function(done) {
-		const req = {
+		const request = {
 			method: 'GET',
 			endpoint: '/abc000000000000000000001/def000000000000000000001.json',
 			nonDom: true,
 			json: true
 		};
-		this.navigate(req, done);
+		this.navigate(request, done);
 	});
 
 	it('should send a 200 status', function() {

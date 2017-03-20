@@ -12,7 +12,6 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
 'use strict';
 
 module.exports = route;
@@ -20,12 +19,12 @@ module.exports = route;
 // Route definition
 function route(app) {
 
-	app.express.get('/:id/run', (req, res, next) => {
-		app.webservice.task(req.params.id).run(err => {
-			if (err) {
+	app.express.get('/:id/run', (request, response, next) => {
+		app.webservice.task(request.params.id).run(error => {
+			if (error) {
 				return next();
 			}
-			res.redirect(`/${req.params.id}?running`);
+			response.redirect(`/${request.params.id}?running`);
 		});
 	});
 

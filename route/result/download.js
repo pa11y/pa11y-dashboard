@@ -12,7 +12,6 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
 'use strict';
 
 const moment = require('moment');
@@ -22,20 +21,20 @@ module.exports = route;
 // Route definition
 function route(app) {
 
-	function getTaskAndResult(req, res, next) {
-		app.webservice.task(req.params.id).get({}, (err, task) => {
-			if (err) {
+	function getTaskAndResult(request, response, next) {
+		app.webservice.task(request.params.id).get({}, (error, task) => {
+			if (error) {
 				return next('route');
 			}
 			app.webservice
-				.task(req.params.id)
-				.result(req.params.rid)
-				.get({full: true}, (err, result) => {
-					if (err) {
+				.task(request.params.id)
+				.result(request.params.rid)
+				.get({full: true}, (error, result) => {
+					if (error) {
 						return next('route');
 					}
-					res.locals.task = task;
-					res.locals.result = result;
+					response.locals.task = task;
+					response.locals.result = result;
 					next();
 				});
 		});
@@ -48,7 +47,7 @@ function route(app) {
 			task.url
 				.replace(/^https?:\/\//i, '')
 				.replace(/\/$/, '')
-				.replace(/[^a-z0-9\.\-\_]+/gi, '-'),
+				.replace(/[^a-z0-9.\-_]+/gi, '-'),
 			'--',
 			task.standard.toLowerCase(),
 			'--',
@@ -58,9 +57,9 @@ function route(app) {
 		].join('');
 	}
 
-	app.express.get('/:id/:rid.csv', getTaskAndResult, (req, res) => {
-		const task = res.locals.task;
-		const result = res.locals.result;
+	app.express.get('/:id/:rid.csv', getTaskAndResult, (request, response) => {
+		const task = response.locals.task;
+		const result = response.locals.result;
 		const rows = ['"code","message","type","context","selector"'];
 		result.results.forEach(msg => {
 			rows.push([
@@ -71,18 +70,18 @@ function route(app) {
 				JSON.stringify(msg.selector)
 			].join(','));
 		});
-		res.attachment(getDownloadFileName(task, result, 'csv'));
-		res.send(rows.join('\n'));
+		response.attachment(getDownloadFileName(task, result, 'csv'));
+		response.send(rows.join('\n'));
 	});
 
-	app.express.get('/:id/:rid.json', getTaskAndResult, (req, res) => {
-		const task = res.locals.task;
-		const result = res.locals.result;
-		res.attachment(getDownloadFileName(task, result, 'json'));
+	app.express.get('/:id/:rid.json', getTaskAndResult, (request, response) => {
+		const task = response.locals.task;
+		const result = response.locals.result;
+		response.attachment(getDownloadFileName(task, result, 'json'));
 		delete task.id;
 		delete result.id;
 		result.task = task;
-		res.send(result);
+		response.send(result);
 	});
 
 }

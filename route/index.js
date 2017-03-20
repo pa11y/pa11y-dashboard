@@ -12,7 +12,6 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
 'use strict';
 
 const presentTask = require('../view/presenter/task');
@@ -21,14 +20,14 @@ module.exports = route;
 
 // Route definition
 function route(app) {
-	app.express.get('/', (req, res, next) => {
-		app.webservice.tasks.get({lastres: true}, (err, tasks) => {
-			if (err) {
-				return next(err);
+	app.express.get('/', (request, response, next) => {
+		app.webservice.tasks.get({lastres: true}, (error, tasks) => {
+			if (error) {
+				return next(error);
 			}
-			res.render('index', {
+			response.render('index', {
 				tasks: tasks.map(presentTask),
-				deleted: (typeof req.query.deleted !== 'undefined'),
+				deleted: (typeof request.query.deleted !== 'undefined'),
 				isHomePage: true
 			});
 		});
