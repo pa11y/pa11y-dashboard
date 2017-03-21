@@ -38,12 +38,15 @@ function createNavigator(baseUrl, store) {
 			json: opts.json || false,
 			qs: opts.query,
 			followAllRedirects: true
-		}, function(err, res, body) {
+		}, function(error, response, body) {
+			if (error) {
+				return callback(error);
+			}
 
 			store.body = body;
-			store.request = res.request;
-			store.response = res;
-			store.status = res.statusCode;
+			store.request = response.request;
+			store.response = response;
+			store.status = response.statusCode;
 
 			if (opts.nonDom) {
 				store.dom = null;

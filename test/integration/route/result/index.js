@@ -21,11 +21,11 @@ const assert = require('proclaim');
 describe('GET /<task-id>/<result-id>', function() {
 
 	beforeEach(function(done) {
-		const req = {
+		const request = {
 			method: 'GET',
 			endpoint: '/abc000000000000000000001/def000000000000000000001'
 		};
-		this.navigate(req, done);
+		this.navigate(request, done);
 	});
 
 	it('should send a 200 status', function() {

@@ -12,9 +12,6 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
-/*jshint maxcomplexity:10*/
-
 'use strict';
 
 const getStandards = require('../data/standards');
@@ -25,24 +22,24 @@ module.exports = route;
 // Route definition
 function route(app) {
 
-	app.express.get('/new', (req, res) => {
+	app.express.get('/new', (request, response) => {
 		const standards = getStandards().map(standard => {
 			if (standard.title === 'WCAG2AA') {
 				standard.selected = true;
 			}
 			return standard;
 		});
-		res.render('new', {
+		response.render('new', {
 			standards: standards,
 			isNewTaskPage: true
 		});
 	});
 
-	app.express.post('/new', (req, res) => {
+	app.express.post('/new', (request, response) => {
 
 		let parsedActions;
-		if (req.body.actions) {
-			parsedActions = req.body.actions.split(/[\r\n]+/)
+		if (request.body.actions) {
+			parsedActions = request.body.actions.split(/[\r\n]+/)
 				.map(action => {
 					return action.trim();
 				})
@@ -52,26 +49,26 @@ function route(app) {
 		}
 
 		let parsedHeaders;
-		if (req.body.headers) {
-			parsedHeaders = httpHeaders(req.body.headers, true);
+		if (request.body.headers) {
+			parsedHeaders = httpHeaders(request.body.headers, true);
 		}
 
 		const newTask = {
-			name: req.body.name,
-			url: req.body.url,
-			standard: req.body.standard,
-			ignore: req.body.ignore || [],
-			timeout: req.body.timeout || undefined,
-			wait: req.body.wait || undefined,
+			name: request.body.name,
+			url: request.body.url,
+			standard: request.body.standard,
+			ignore: request.body.ignore || [],
+			timeout: request.body.timeout || undefined,
+			wait: request.body.wait || undefined,
 			actions: parsedActions,
-			username: req.body.username || undefined,
-			password: req.body.password || undefined,
+			username: request.body.username || undefined,
+			password: request.body.password || undefined,
 			headers: parsedHeaders,
-			hideElements: req.body.hideElements || undefined
+			hideElements: request.body.hideElements || undefined
 		};
 
-		app.webservice.tasks.create(newTask, (err, task) => {
-			if (err) {
+		app.webservice.tasks.create(newTask, (error, task) => {
+			if (error) {
 				const standards = getStandards().map(standard => {
 					if (standard.title === newTask.standard) {
 						standard.selected = true;
@@ -84,15 +81,15 @@ function route(app) {
 					});
 					return standard;
 				});
-				newTask.actions = req.body.actions;
-				newTask.headers = req.body.headers;
-				return res.render('new', {
-					error: err,
+				newTask.actions = request.body.actions;
+				newTask.headers = request.body.headers;
+				return response.render('new', {
+					error: error,
 					standards: standards,
 					task: newTask
 				});
 			}
-			res.redirect(`/${task.id}?added`);
+			response.redirect(`/${task.id}?added`);
 		});
 	});
 

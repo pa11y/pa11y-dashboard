@@ -5,21 +5,21 @@ module.exports = route;
 // Route definition
 function route(app) {
 
-	app.express.post('/:id/unignore', (req, res, next) => {
-		app.webservice.task(req.params.id).get({}, (err, task) => {
-			if (err) {
+	app.express.post('/:id/unignore', (request, response, next) => {
+		app.webservice.task(request.params.id).get({}, (error, task) => {
+			if (error) {
 				return next();
 			}
 			const edit = {
 				name: task.name,
 				ignore: task.ignore
 			};
-			const indexOfRule = edit.ignore.indexOf(req.body.rule);
-			if (typeof req.body.rule === 'string' && indexOfRule !== -1) {
+			const indexOfRule = edit.ignore.indexOf(request.body.rule);
+			if (typeof request.body.rule === 'string' && indexOfRule !== -1) {
 				edit.ignore.splice(indexOfRule, 1);
 			}
-			app.webservice.task(req.params.id).edit(edit, () => {
-				res.redirect(`/${req.params.id}?rule-unignored`);
+			app.webservice.task(request.params.id).edit(edit, () => {
+				response.redirect(`/${request.params.id}?rule-unignored`);
 			});
 		});
 	});

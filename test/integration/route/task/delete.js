@@ -21,11 +21,11 @@ const assert = require('proclaim');
 describe('GET /<task-id>/delete', function() {
 
 	beforeEach(function(done) {
-		const req = {
+		const request = {
 			method: 'GET',
 			endpoint: '/abc000000000000000000001/delete'
 		};
-		this.navigate(req, done);
+		this.navigate(request, done);
 	});
 
 	it('should send a 200 status', function() {
@@ -48,11 +48,11 @@ describe('GET /<task-id>/delete', function() {
 describe('POST /<task-id>/delete', function() {
 
 	beforeEach(function(done) {
-		const req = {
+		const request = {
 			method: 'POST',
 			endpoint: '/abc000000000000000000001/delete'
 		};
-		this.navigate(req, done);
+		this.navigate(request, done);
 	});
 
 	it('should send a 200 status', function() {
@@ -60,8 +60,8 @@ describe('POST /<task-id>/delete', function() {
 	});
 
 	it('should delete the task', function(done) {
-		this.webservice.task('abc000000000000000000001').get({}, function(err) {
-			assert.strictEqual(err.message, 'Error 404');
+		this.webservice.task('abc000000000000000000001').get({}, function(error) {
+			assert.strictEqual(error.message, 'Error 404');
 			done();
 		});
 	});

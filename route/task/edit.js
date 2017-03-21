@@ -12,9 +12,6 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
-/*jshint maxcomplexity:12*/
-
 'use strict';
 
 const presentTask = require('../../view/presenter/task');
@@ -26,9 +23,9 @@ module.exports = route;
 // Route definition
 function route(app) {
 
-	app.express.get('/:id/edit', (req, res, next) => {
-		app.webservice.task(req.params.id).get({}, (err, task) => {
-			if (err) {
+	app.express.get('/:id/edit', (request, response, next) => {
+		app.webservice.task(request.params.id).get({}, (error, task) => {
+			if (error) {
 				return next();
 			}
 			const standards = getStandards().map(standard => {
@@ -44,8 +41,8 @@ function route(app) {
 				return standard;
 			});
 			task.actions = (task.actions ? task.actions.join('\n') : '');
-			res.render('task/edit', {
-				edited: (typeof req.query.edited !== 'undefined'),
+			response.render('task/edit', {
+				edited: (typeof request.query.edited !== 'undefined'),
 				standards: standards,
 				task: presentTask(task),
 				isTaskSubPage: true
@@ -53,18 +50,18 @@ function route(app) {
 		});
 	});
 
-	app.express.post('/:id/edit', (req, res, next) => {
-		app.webservice.task(req.params.id).get({}, (err, task) => {
-			if (err) {
+	app.express.post('/:id/edit', (request, response, next) => {
+		app.webservice.task(request.params.id).get({}, (error, task) => {
+			if (error) {
 				return next();
 			}
-			const originalActions = req.body.actions;
-			const originalHeaders = req.body.headers;
-			req.body.ignore = req.body.ignore || [];
-			req.body.timeout = req.body.timeout || undefined;
-			req.body.wait = req.body.wait || undefined;
-			if (req.body.actions) {
-				req.body.actions = req.body.actions.split(/[\r\n]+/)
+			const originalActions = request.body.actions;
+			const originalHeaders = request.body.headers;
+			request.body.ignore = request.body.ignore || [];
+			request.body.timeout = request.body.timeout || undefined;
+			request.body.wait = request.body.wait || undefined;
+			if (request.body.actions) {
+				request.body.actions = request.body.actions.split(/[\r\n]+/)
 					.map(action => {
 						return action.trim();
 					})
@@ -72,24 +69,24 @@ function route(app) {
 						return Boolean(action);
 					});
 			}
-			if (!req.body.actions) {
-				req.body.actions = [];
+			if (!request.body.actions) {
+				request.body.actions = [];
 			}
-			req.body.username = req.body.username || undefined;
-			req.body.password = req.body.password || undefined;
-			req.body.hideElements = req.body.hideElements || undefined;
-			req.body.headers = httpHeaders(req.body.headers || '', true);
-			app.webservice.task(req.params.id).edit(req.body, err => {
-				if (err) {
-					task.name = req.body.name;
-					task.ignore = req.body.ignore;
-					task.timeout = req.body.timeout;
-					task.wait = req.body.wait;
+			request.body.username = request.body.username || undefined;
+			request.body.password = request.body.password || undefined;
+			request.body.hideElements = request.body.hideElements || undefined;
+			request.body.headers = httpHeaders(request.body.headers || '', true);
+			app.webservice.task(request.params.id).edit(request.body, error => {
+				if (error) {
+					task.name = request.body.name;
+					task.ignore = request.body.ignore;
+					task.timeout = request.body.timeout;
+					task.wait = request.body.wait;
 					task.actions = originalActions;
-					task.username = req.body.username;
-					task.password = req.body.password;
+					task.username = request.body.username;
+					task.password = request.body.password;
 					task.headers = originalHeaders;
-					task.hideElements = req.body.hideElements;
+					task.hideElements = request.body.hideElements;
 					const standards = getStandards().map(standard => {
 						if (standard.title === task.standard) {
 							standard.selected = true;
@@ -102,14 +99,14 @@ function route(app) {
 						});
 						return standard;
 					});
-					return res.render('task/edit', {
-						error: err,
+					return response.render('task/edit', {
+						error: error,
 						standards: standards,
 						task: task,
 						isTaskSubPage: true
 					});
 				}
-				res.redirect(`/${req.params.id}/edit?edited`);
+				response.redirect(`/${request.params.id}/edit?edited`);
 			});
 		});
 	});

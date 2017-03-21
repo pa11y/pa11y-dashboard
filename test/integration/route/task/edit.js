@@ -21,11 +21,11 @@ const assert = require('proclaim');
 describe('GET /<task-id>/edit', function() {
 
 	beforeEach(function(done) {
-		const req = {
+		const request = {
 			method: 'GET',
 			endpoint: '/abc000000000000000000001/edit'
 		};
-		this.navigate(req, done);
+		this.navigate(request, done);
 	});
 
 	it('should send a 200 status', function() {
@@ -121,7 +121,7 @@ describe('GET /<task-id>/edit', function() {
 describe('POST /<task-id>/edit', function() {
 
 	beforeEach(function(done) {
-		const req = {
+		const request = {
 			method: 'POST',
 			endpoint: '/abc000000000000000000001/edit',
 			form: {
@@ -131,7 +131,7 @@ describe('POST /<task-id>/edit', function() {
 				ignore: ['bar', 'baz']
 			}
 		};
-		this.navigate(req, done);
+		this.navigate(request, done);
 	});
 
 	it('should send a 200 status', function() {
@@ -139,12 +139,12 @@ describe('POST /<task-id>/edit', function() {
 	});
 
 	it('should edit the task', function(done) {
-		this.webservice.task('abc000000000000000000001').get({}, function(err, task) {
+		this.webservice.task('abc000000000000000000001').get({}, function(error, task) {
 			assert.strictEqual(task.name, 'foo');
 			assert.strictEqual(task.username, 'newuser');
 			assert.strictEqual(task.password, 'secure');
 			assert.deepEqual(task.ignore, ['bar', 'baz']);
-			done();
+			done(error);
 		});
 	});
 

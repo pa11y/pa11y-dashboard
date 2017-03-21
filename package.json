@@ -38,10 +38,10 @@
   "devDependencies": {
     "bower": "~1.7",
     "cheerio": "~0.20",
-    "jscs": "^2",
-    "jshint": "^2",
+    "eslint": "^3.18.0",
     "less": "~2.7",
     "mocha": "^2",
+    "pa11y-lint-config": "^1.0.0",
     "proclaim": "^3",
     "request": "^2.74",
     "uglify-js": "~2.6"
