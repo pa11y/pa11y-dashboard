@@ -24,10 +24,10 @@
     "node": ">=4"
   },
   "dependencies": {
-    "body-parser": "~1.15",
+    "body-parser": "~1.17.1",
     "chalk": "~1.1",
     "compression": "~1.6",
-    "express": "~4.14",
+    "express": "~4.15.2",
     "express-hbs": "~1.0",
     "http-headers": "^3.0.1",
     "moment": "~2.15.2",
