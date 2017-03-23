@@ -1,6 +1,10 @@
 
 # Changelog
 
+## 2.2.2 (2017-03-23)
+
+  * Upgrades `body-parser` and `express`. Fixes a vulnerability in `qs`: https://snyk.io/vuln/npm:qs:20170213
+
 ## 2.2.1 (2017-02-07)
 
   * Fix task editing when no actions are specified
