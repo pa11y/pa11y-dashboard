@@ -1,9 +1,3 @@
-
-# Config files
-config/development.json
-config/production.json
-config/test.json
-
 # Generated npm files
 node_modules
 npm-debug.log

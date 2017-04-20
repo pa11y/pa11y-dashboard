@@ -1,0 +1,12 @@
+{
+	"port": 4000,
+	"noindex": true,
+	"readonly": false,
+
+	"webservice": {
+		"database": "mongodb://heroku_fntb7sw4:tester1@ds035766.mlab.com:35766/heroku_fntb7sw4",
+		"host": "ft-next-pa11y.herokuapp.com",
+		"port": 3000,
+		"cron": "0 30 0 * * *"
+	}
+}
