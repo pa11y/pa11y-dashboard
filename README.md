@@ -115,8 +115,8 @@ make uglify  # Compile and uglify the client-side JavaScript
 
 Useful Resources
 -------
-* [Setting up An Accessibility Dashboard from Scratch with Pa11y on DigitalOcean][resource-una-k]
-
+* [Setting up An Accessibility Dashboard from Scratch with Pa11y on DigitalOcean](https://una.im/pa11y-dash/)
+* [Monitoring Web Accessibility Compliance With Pa11y Dashboard](https://www.lullabot.com/articles/monitoring-web-accessibility-compliance-with-pa11y-dashboard)
 
 Support and Migration
 ---------------------
@@ -148,7 +148,6 @@ Copyright &copy; 2013–2017, Team Pa11y
 [pa11y]: https://github.com/pa11y/pa11y
 [pa11y-webservice-config]: https://github.com/pa11y/webservice#configurations
 [phantom]: http://phantomjs.org/
-[resource-una-k]: https://una.im/pa11y-dash/
 [sidekick-proposal]: https://github.com/pa11y/sidekick/blob/master/PROPOSAL.md
 [survey]: https://goo.gl/forms/AiMDJR2IuaqX4iD03
 [travis]: https://travis-ci.org/pa11y/dashboard
