@@ -12,8 +12,6 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 
 ## Latest news from Pa11y
 
-💭 We'd like to find out how you use Pa11y and what you think about it. Please [fill in our survey][survey] to let us know your thoughts!
-
 ✨ 🔜 ✨ The Pa11y team is very excited to announce plans for the successor to Pa11y Dashboard and Pa11y Webservice, codename "Sidekick". Help us define the features that you want to see by visiting the [proposal][sidekick-proposal]. ✨  
 
 ---
@@ -149,7 +147,6 @@ Copyright &copy; 2013–2017, Team Pa11y
 [pa11y-webservice-config]: https://github.com/pa11y/webservice#configurations
 [phantom]: http://phantomjs.org/
 [sidekick-proposal]: https://github.com/pa11y/sidekick/blob/master/PROPOSAL.md
-[survey]: https://goo.gl/forms/AiMDJR2IuaqX4iD03
 [travis]: https://travis-ci.org/pa11y/dashboard
 [travis-img]: https://travis-ci.org/pa11y/dashboard.png?branch=master
 [troubleshooting]: https://github.com/pa11y/dashboard/blob/master/TROUBLESHOOTING.md
