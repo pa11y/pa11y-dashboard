@@ -18,8 +18,11 @@ $(document).ready(function(){
     var data = {};
 	var standardsList = $('[data-role="standards-list"]');
 	var standardSelect = $('[data-role="new-task-select"]');
-	var expandLink = $('[data-role="expander"]');
     var taskListSelector = $('[data-role="task-list"] a');
+	var detailsCollapse = $('[data-role="details-collapse"]');
+	var contextPopover = $('[data-role="context-popover"]');
+	var ruleTooltip = $('[data-role="rule-tooltip"]');
+	var selectorTooltip = $('[data-role="selector-tooltip"]');
     var toTopLinks = $('[data-role="top"]');
     var zoomResetButton = $('[data-role="zoom-reset"]');
     var graphContainer = $('[data-role="graph"]');
@@ -73,33 +76,7 @@ $(document).ready(function(){
         $('body').addClass('custom-legend');
     }
 
-    // Toggle appearance of lists of error/warnings/notices
-    expandLink.click( function(){
-		$(this).next().slideToggle('slow', function(){});
-        if ($(this).hasClass('showing')) {
-            $(this).find('span.expander').html('↓');
-            $(this).attr('aria-expanded', false);
-        }
-        else {
-            $(this).find('span.expander').html('↑');
-            $(this).attr('aria-expanded', true);
-        }
-        $(this).toggleClass('showing');
-	});
-    $(document).on('keydown.lists', '[data-role="expander"]', function (e) {
-        var $this = $(this);
-        var k = e.which || e.keyCode;
 
-        if (!/(13|32)/.test(k)) {
-            return;
-        }
-        if (k === 13 || k === 32) {
-            $this.click();
-        }
-
-        e.preventDefault();
-        e.stopPropagation();
-    });
 
      // Back to top links
     toTopLinks.click( function(e){
@@ -137,7 +114,7 @@ $(document).ready(function(){
         plotGraphData();
     });
 
-    $('[data-role="rules-tooltip"]').tooltip();
+    $(ruleTooltip, selectorTooltip).tooltip();
 
     // Function to animate sections
     function animateSection (sectionName, offset){
