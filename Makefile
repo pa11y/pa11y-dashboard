@@ -28,11 +28,14 @@ uglify:
 		public/js/vendor/bootstrap/js/tooltip.js \
 		public/js/vendor/bootstrap/js/transition.js \
 		public/js/vendor/bootstrap/js/collapse.js \
+		public/js/vendor/bootstrap/js/tab.js \
+		public/js/vendor/bootstrap/js/popover.js \
 		public/js/vendor/flot/jquery.flot.js \
 		public/js/vendor/flot/jquery.flot.dashes.js \
 		public/js/vendor/flot/jquery.flot.time.js \
 		public/js/vendor/flot/jquery.flot.selection.js \
 		public/js/vendor/flot/jquery.flot.resize.js \
+		public/js/vendor/helpers/html2canvas.min.js \
 		public/js/site.js \
 		-o ./public/js/site.min.js
 	@$(TASK_DONE)
