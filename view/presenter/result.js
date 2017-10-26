@@ -42,6 +42,7 @@ function presentResult(result) {
 			result[pluralType] = _.keys(groupedByCode).map(group => {
 				const firstMessage = groupedByCode[group][0];
 				firstMessage.count = groupedByCode[group].length;
+				firstMessage.selectors = groupedByCode[group].map(plural => (`${plural.selector}`));
 				return firstMessage;
 			});
 		});
