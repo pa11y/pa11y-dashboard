@@ -51,7 +51,7 @@ function presentResult(result) {
 				const data = groupMessage.code.split('.');
 				data.splice(0, 4);
 				const techniques = data.join('.').split(',').map(code => code.split('.')[0]);
-				groupMessage.solutions = techniques.reduce((prev,technique) => {
+				groupMessage.solutions = techniques.reduce((prev, technique) => {
 					if (techs[technique] && techs[technique].title) {
 						prev.push({
 							title: techs[technique].title || null,
@@ -61,7 +61,10 @@ function presentResult(result) {
 					return prev;
 				}, []);
 				return groupMessage;
-			});
+			})
+				.sort((currentItem, nextItem) => {
+					return nextItem.count - currentItem.count;
+				});
 		});
 	}
 
