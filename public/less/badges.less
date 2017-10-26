@@ -2,7 +2,6 @@
 // Badges
 // --------------------------------------------------
 
-
 // Base classes
 .badge {
   display: inline-block;
@@ -20,7 +19,7 @@
 
   // Empty badges collapse automatically (not available in IE8)
   &:empty {
-    display: none;
+	display: none;
   }
 }
 
@@ -28,9 +27,9 @@
 a.badge {
   &:hover,
   &:focus {
-    color: @badge-link-hover-color;
-    text-decoration: none;
-    cursor: pointer;
+	color: @badge-link-hover-color;
+	text-decoration: none;
+	cursor: pointer;
   }
 }
 
@@ -46,6 +45,7 @@ a.list-group-item.active > .badge,
   color: @badge-active-color;
   background-color: @badge-active-bg;
 }
+
 .nav-pills > li > a > .badge {
   margin-left: 3px;
 }

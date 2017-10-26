@@ -2,7 +2,6 @@
 // Dropdown menus
 // --------------------------------------------------
 
-
 // Dropdown arrow/caret
 .caret {
   display: inline-block;
@@ -10,9 +9,9 @@
   height: 0;
   margin-left: 2px;
   vertical-align: middle;
-  border-top:   @caret-width-base solid @dropdown-caret-color;
+  border-top: @caret-width-base solid @dropdown-caret-color;
   border-right: @caret-width-base solid transparent;
-  border-left:  @caret-width-base solid transparent;
+  border-left: @caret-width-base solid transparent;
   // Firefox fix for https://github.com/twbs/bootstrap/issues/9538. Once fixed,
   // we can just straight up remove this.
   border-bottom: 0 dotted;
@@ -46,29 +45,29 @@
   border: 1px solid @dropdown-fallback-border; // IE8 fallback
   border: 1px solid @dropdown-border;
   border-radius: @border-radius-base;
-  .box-shadow(0 6px 12px rgba(0,0,0,.175));
+  .box-shadow(0 6px 12px rgba(0, 0, 0, .175));
   background-clip: padding-box;
 
   // Aligns the dropdown menu to right
   &.pull-right {
-    right: 0;
-    left: auto;
+	right: 0;
+	left: auto;
   }
 
   // Dividers (basically an hr) within the dropdown
   .divider {
-    .nav-divider(@dropdown-divider-bg);
+	.nav-divider(@dropdown-divider-bg);
   }
 
   // Links within the dropdown menu
   > li > a {
-    display: block;
-    padding: 3px 20px;
-    clear: both;
-    font-weight: normal;
-    line-height: @line-height-base;
-    color: @dropdown-link-color;
-    white-space: nowrap; // prevent links from randomly breaking onto new lines
+	display: block;
+	padding: 3px 20px;
+	clear: both;
+	font-weight: normal;
+	line-height: @line-height-base;
+	color: @dropdown-link-color;
+	white-space: nowrap; // prevent links from randomly breaking onto new lines
   }
 }
 
@@ -76,9 +75,9 @@
 .dropdown-menu > li > a {
   &:hover,
   &:focus {
-    text-decoration: none;
-    color: @dropdown-link-hover-color;
-    background-color: @dropdown-link-hover-bg;
+	text-decoration: none;
+	color: @dropdown-link-hover-color;
+	background-color: @dropdown-link-hover-bg;
   }
 }
 
@@ -87,10 +86,10 @@
   &,
   &:hover,
   &:focus {
-    color: @dropdown-link-active-color;
-    text-decoration: none;
-    outline: 0;
-    background-color: @dropdown-link-active-bg;
+	color: @dropdown-link-active-color;
+	text-decoration: none;
+	outline: 0;
+	background-color: @dropdown-link-active-bg;
   }
 }
 
@@ -102,18 +101,19 @@
   &,
   &:hover,
   &:focus {
-    color: @dropdown-link-disabled-color;
+	color: @dropdown-link-disabled-color;
   }
 }
+
 // Nuke hover/focus effects
 .dropdown-menu > .disabled > a {
   &:hover,
   &:focus {
-    text-decoration: none;
-    background-color: transparent;
-    background-image: none; // Remove CSS gradient
-    .reset-filter();
-    cursor: not-allowed;
+	text-decoration: none;
+	background-color: transparent;
+	background-image: none; // Remove CSS gradient
+	.reset-filter();
+	cursor: not-allowed;
   }
 }
 
@@ -121,12 +121,12 @@
 .open {
   // Show the menu
   > .dropdown-menu {
-    display: block;
+	display: block;
   }
 
   // Remove the outline when :focus is triggered
   > a {
-    outline: 0;
+	outline: 0;
   }
 }
 
@@ -164,20 +164,20 @@
 .navbar-fixed-bottom .dropdown {
   // Reverse the caret
   .caret {
-    // Firefox fix for https://github.com/twbs/bootstrap/issues/9538. Once this
-    // gets fixed, restore `border-top: 0;`.
-    border-top: 0 dotted;
-    border-bottom: 4px solid @dropdown-caret-color;
-    content: "";
+	// Firefox fix for https://github.com/twbs/bootstrap/issues/9538. Once this
+	// gets fixed, restore `border-top: 0;`.
+	border-top: 0 dotted;
+	border-bottom: 4px solid @dropdown-caret-color;
+	content: "";
   }
+
   // Different positioning for bottom up menu
   .dropdown-menu {
-    top: auto;
-    bottom: 100%;
-    margin-bottom: 1px;
+	top: auto;
+	bottom: 100%;
+	margin-bottom: 1px;
   }
 }
-
 
 // Component alignment
 //
@@ -185,9 +185,9 @@
 
 @media (min-width: @grid-float-breakpoint) {
   .navbar-right {
-    .dropdown-menu {
-      .pull-right > .dropdown-menu();
-    }
+	.dropdown-menu {
+	  .pull-right > .dropdown-menu();
+	}
   }
 }
 

@@ -15,111 +15,132 @@
 
 // Making up for the non support of IE8 and IE7 in Bootstrap 3
 .ie7, .ie8 {
-	.legend {
-		display: block;
-		width: 100%;
-		font-size: (@font-size-base * 1.5);
-		line-height: inherit;
-		color: @legend-color;
-		border: 0;
-		border-bottom: 1px solid @legend-border-color;
-		margin-bottom:20px;
+  .legend {
+	display: block;
+	width: 100%;
+	font-size: (@font-size-base * 1.5);
+	line-height: inherit;
+	color: @legend-color;
+	border: 0;
+	border-bottom: 1px solid @legend-border-color;
+	margin-bottom: 20px;
+  }
+
+  .tooltip-inner {
+	background-color: #000000;
+  }
+
+  .date {
+	font-size: 85%;
+  }
+
+  .task-card-link {
+	min-height: 160px;
+  }
+
+  .series-checkboxes li {
+	margin-right: 1%;
+  }
+
+  .stat-type {
+	font-size: floor(@font-size-base * 0.65); // ~10px;
+  }
+
+  .aside .action-buttons .btn {
+	width: 79%;
+  }
+
+  .pull-right.dropdown-menu {
+	right: 134px;
+  }
+
+  .run-details .pull-right.dropdown-menu {
+	right: 64px;
+  }
+
+  .date-selector .btn-full-width {
+	width: 90%;
+  }
+
+  .filter-toggle {
+	&:before {
+	  height: 110%;
+	  width: 100%;
+	  left: 0;
+	  top: 0;
 	}
-	.tooltip-inner {
-		background-color: #000000;
+
+	input {
+	  width: 92%;
 	}
-	.date {
-		font-size:85%;
+
+	.filter-trigger {
+	  padding-bottom: 0;
 	}
-	.task-card-link {
-		min-height:160px;
-	}
-	.series-checkboxes li {
-		margin-right:1%;
-	}
-	.stat-type {
-		font-size:floor(@font-size-base * 0.65); // ~10px;
-	}
-	.aside .action-buttons .btn {
-		width:79%;
-	}
-	.pull-right.dropdown-menu {
-		right:134px;
-	}
-	.run-details .pull-right.dropdown-menu {
-		right:64px;
-	}
-	.date-selector .btn-full-width {
-		width:90%;
-	}
-	.filter-toggle {
-		&:before {
-			height:110%;
-			width:100%;
-			left:0;
-			top:0;
-		}
-		input {
-			width:92%;
-		}
-		.filter-trigger {
-			padding-bottom:0;
-		}
-	}
+  }
 }
 
 .ie7 {
-	.zfix {
-		position:relative;
-		z-index:1001;
-	}
-	.list-group li .list-group-item {
-		margin:0;
-		position:static;
-	}
-	.graph-spacer {
-		margin-bottom:90px;
-		padding-bottom:90px;
-	}
-	.date-selector {
-		zoom:1;
+  .zfix {
+	position: relative;
+	z-index: 1001;
+  }
 
-		.btn-full-width {
-			width:100%;
-		}
-	}
-	.sr-only {
-		position:relative;
-	}
-	.breadcrumb li {
-		vertical-align: top;
-		zoom: 1;
-		display: inline;
-		margin-right:10px;
-	}
-	.pull-right.dropdown-menu {
-		right:0;
-	}
-	.run-details .pull-right.dropdown-menu {
-		right:82px;
-	}
-	.tasks-list li {
-		padding-right:105px;
-	}
-	.filter-toggle {
-		width:30%;
-		margin:0 35%;
-		margin-top:-10px;
-		background-color:lighten(@gray-lighter, 4%);
-		padding-bottom:10px;
+  .list-group li .list-group-item {
+	margin: 0;
+	position: static;
+  }
 
-		.glyphicon {
-			display:none;
-		}
+  .graph-spacer {
+	margin-bottom: 90px;
+	padding-bottom: 90px;
+  }
 
-		input {
-			width:80%;
-			margin-left:-25%;
-		}
+  .date-selector {
+	zoom: 1;
+
+	.btn-full-width {
+	  width: 100%;
 	}
+  }
+
+  .sr-only {
+	position: relative;
+  }
+
+  .breadcrumb li {
+	vertical-align: top;
+	zoom: 1;
+	display: inline;
+	margin-right: 10px;
+  }
+
+  .pull-right.dropdown-menu {
+	right: 0;
+  }
+
+  .run-details .pull-right.dropdown-menu {
+	right: 82px;
+  }
+
+  .tasks-list li {
+	padding-right: 105px;
+  }
+
+  .filter-toggle {
+	width: 30%;
+	margin: 0 35%;
+	margin-top: -10px;
+	background-color: lighten(@gray-lighter, 4%);
+	padding-bottom: 10px;
+
+	.glyphicon {
+	  display: none;
+	}
+
+	input {
+	  width: 80%;
+	  margin-left: -25%;
+	}
+  }
 }

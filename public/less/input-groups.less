@@ -11,14 +11,14 @@
 
   // Undo padding and float of grid classes
   &.col {
-    float: none;
-    padding-left: 0;
-    padding-right: 0;
+	float: none;
+	padding-left: 0;
+	padding-right: 0;
   }
 
   .form-control {
-    width: 100%;
-    margin-bottom: 0;
+	width: 100%;
+	margin-bottom: 0;
   }
 }
 
@@ -29,11 +29,15 @@
 
 .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
-.input-group-lg > .input-group-btn > .btn { .input-lg(); }
+.input-group-lg > .input-group-btn > .btn {
+  .input-lg();
+}
+
 .input-group-sm > .form-control,
 .input-group-sm > .input-group-addon,
-.input-group-sm > .input-group-btn > .btn { .input-sm(); }
-
+.input-group-sm > .input-group-btn > .btn {
+  .input-sm();
+}
 
 // Display as table-cell
 // -------------------------
@@ -43,9 +47,10 @@
   display: table-cell;
 
   &:not(:first-child):not(:last-child) {
-    border-radius: 0;
+	border-radius: 0;
   }
 }
+
 // Addon and addon wrapper for buttons
 .input-group-addon,
 .input-group-btn {
@@ -69,20 +74,20 @@
 
   // Sizing
   &.input-sm {
-    padding: @padding-small-vertical @padding-small-horizontal;
-    font-size: @font-size-small;
-    border-radius: @border-radius-small;
+	padding: @padding-small-vertical @padding-small-horizontal;
+	font-size: @font-size-small;
+	border-radius: @border-radius-small;
   }
   &.input-lg {
-    padding: @padding-large-vertical @padding-large-horizontal;
-    font-size: @font-size-large;
-    border-radius: @border-radius-large;
+	padding: @padding-large-vertical @padding-large-horizontal;
+	font-size: @font-size-large;
+	border-radius: @border-radius-large;
   }
 
   // Nuke default margins from checkboxes and radios to vertically center within.
   input[type="radio"],
   input[type="checkbox"] {
-    margin-top: 0;
+	margin-top: 0;
   }
 }
 
@@ -94,9 +99,11 @@
 .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle) {
   .border-right-radius(0);
 }
+
 .input-group-addon:first-child {
   border-right: 0;
 }
+
 .input-group .form-control:last-child,
 .input-group-addon:last-child,
 .input-group-btn:last-child > .btn,
@@ -104,6 +111,7 @@
 .input-group-btn:first-child > .btn:not(:first-child) {
   .border-left-radius(0);
 }
+
 .input-group-addon:last-child {
   border-left: 0;
 }
@@ -116,21 +124,22 @@
 
   // Negative margin to only have a 1px border between the two
   &:first-child > .btn {
-    margin-right: -1px;
+	margin-right: -1px;
   }
   &:last-child > .btn {
-    margin-left: -1px;
+	margin-left: -1px;
   }
 }
+
 .input-group-btn > .btn {
   position: relative;
   // Jankily prevent input button groups from wrapping
   + .btn {
-    margin-left: -4px;
+	margin-left: -4px;
   }
   // Bring the "active" button to the front
   &:hover,
   &:active {
-    z-index: 2;
+	z-index: 2;
   }
 }
