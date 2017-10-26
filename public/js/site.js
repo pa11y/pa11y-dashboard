@@ -76,7 +76,26 @@ $(document).ready(function(){
         $('body').addClass('custom-legend');
     }
 
+	// Update details button title by click
+	detailsCollapse.click(function(){
+		$(this).find('.task-actions .btn-link').toggleClass('btn_state_collapsed');
+	});
 
+	// Initialize context popovers
+	$(contextPopover).popover({
+		container: 'body',
+		placement: 'bottom'
+	});
+
+	$(document.body).click(function (e) {
+		$(contextPopover).each(function () {
+			if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+				if ($(this).data('bs.popover').tip().hasClass('in')) {
+					$(this).popover('toggle');
+				}
+			}
+		});
+	});
 
      // Back to top links
     toTopLinks.click( function(e){
@@ -264,7 +283,7 @@ $(document).ready(function(){
     var previousPoint = null;
     graphContainer.bind('plothover', function (event, pos, item) {
         if (item) {
-            if (previousPoint != item.dataIndex) {
+            if (previousPoint !== item.dataIndex) {
                 previousPoint = item.dataIndex;
                 $('[data-role="tooltip"]').remove();
                 var count = item.datapoint[1].toFixed(0);
