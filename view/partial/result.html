@@ -21,12 +21,12 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 			<div class="row">
 				<div class="col-md-12 col-sm-6 col-xs-12">
 			        <a href="{{mainResult.hrefCsv}}" class="btn-full-width btn btn-default" data-test="download-csv">
-			        	Download CSV <span class="glyphicon glyphicon-download"></span>
+			        	Download CSV <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
 			        </a>
 				</div>
 				<div class="col-md-12 col-sm-6 col-xs-12">
 			        <a href="{{mainResult.hrefJson}}" class="btn-full-width btn btn-default" data-test="download-json">
-			        	Download JSON <span class="glyphicon glyphicon-download"></span>
+			        	Download JSON <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
 			        </a>
 				</div>
 			</div>
@@ -38,12 +38,12 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 				<div class="date-selector">
 					<div class="btn-group block-level clearfix">
 						<h2 class="h4">
-							<span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;{{date-format task.lastResult.date format="DD MMM YYYY"}}
+							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;&nbsp;{{date-format task.lastResult.date format="DD MMM YYYY"}}
 						</h2>
 						<h3 class="h5 show-stats">Select a date to show stats for:</h3>
 						<ul role="navigation" class="dates-list">
 							{{#results}}
-							<li><a class="" href="{{href}}">{{date-format date format="DD MMM YYYY"}}</a></li>
+								<li><a class="" href="{{href}}">{{date-format date format="DD MMM YYYY"}}</a></li>
 							{{/results}}
 						</ul>
 					</div>
@@ -61,141 +61,266 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 	</div>
 </div>
 
-<div class="col-md-9" data-role="expandable-results" role="main">
-	{{#if mainResult.count.error}}
-		<div class="heading label-danger pointer showing first" id="errors" data-test="task-errors" data-role="expander" role="button" tabindex="0" aria-expanded="true" aria-controls="errors-list">
-			<span class="pull-right expander"> ↑ <span class="hide">(close panel)</span></span>
-			Errors ( {{mainResult.count.error}} )
-		</div>
-		<div class="task-danger tasks-list collapse clearfix in" id="errors-list">
+<div class="col-md-9" role="main">
+	<ul class="nav nav-tabs category-list" role="tablist">
+		<li class="category-list__item category-list__item_type_error active" role="presentation">
+			<a class="category-list__link" id="errors" href="#errors-list" aria-controls="errors-list" role="tab" data-toggle="tab" data-test="task-errors">
+				Errors ( {{mainResult.count.error}} )
+			</a>
+		</li>
+		<li class="category-list__item category-list__item_type_warning" role="presentation">
+			<a class="category-list__link" id="warnings" href="#warnings-list" aria-controls="warnings-list" role="tab" data-toggle="tab" data-test="task-warnings">
+				Warnings ( {{mainResult.count.warning}} )
+			</a>
+		</li>
+		<li class="category-list__item category-list__item_type_notice" role="presentation">
+			<a class="category-list__link" id="notices" href="#notices-list" aria-controls="notices-list" role="tab" data-toggle="tab" data-test="task-notices">
+				Notices ( {{mainResult.count.notice}} )
+			</a>
+		</li>
+		<li class="category-list__item category-list__item_type_ignore" role="presentation">
+			<a class="category-list__link" id="ignore" href="#ignore-list" aria-controls="ignore-list" role="tab" data-toggle="tab">
+				Ignored rules ( {{mainResult.ignore.length}} )
+			</a>
+		</li>
+	</ul>
 
-			<ul class="list-unstyled">
+	<div class="tab-content">
+		<div id="errors-list" role="tabpanel" class="tab-pane tasks-list fade in active">
+			{{#if mainResult.count.error}}
 				{{#mainResult.errors}}
-					<li>
-						<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
-						<p><em>First result:</em> {{message}}</p>
-						<p>
-							<b>Selector:</b>
-							<code style="text-wrap:pre-wrap">{{#if selector}}{{selector}}{{else}}-{{/if}}</code>
-							<br/>
-							<b>Context:</b>
-							<code style="text-wrap:pre-wrap">{{#if context}}{{context}}{{else}}-{{/if}}</code>
-						</p>
-						{{#unless readonly}}
-							{{#if ../../isTaskPage}}
-								<form action="{{../../../task.hrefIgnore}}" method="post">
-									<input type="hidden" name="rule" value="{{code}}"/>
-									<input type="submit" class="btn btn-sm" value="Ignore rule"/>
-								</form>
-							{{/if}}
-						{{/unless}}
-					</li>
+					<div class="panel panel-default task task_type_error">
+						<div class="panel-heading" data-role="details-collapse" data-toggle="collapse" data-target="#error-index-{{@index}}" aria-expanded="false" aria-controls="error-index-{{@index}}">
+							<div class="row">
+								<div class="col-md-9 col-sm-9 col-xs-8">
+									<span class="rule-name">{{code}}&ensp;
+										<span class="badge" title="{{count}} selector(s)" data-toggle="tooltip" data-role="selector-tooltip">{{count}}</span>
+									</span>
+								</div>
+								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
+									<span class="btn btn-link btn-sm link">details</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel-body">
+							<span class="text">{{message}}</span>
+
+							{{#unless readonly}}
+								{{#if ../../isTaskPage}}
+									<form action="{{../../../task.hrefIgnore}}" method="post">
+										<input type="hidden" name="rule" value="{{code}}"/>
+										<input type="submit" role="link" class="btn btn-link btn-sm link" value="Ignore rule"/>
+									</form>
+								{{/if}}
+							{{/unless}}
+
+							<div class="task-details collapse" id="error-index-{{@index}}">
+								{{#if solutions.length}}
+									<div class="subtitle" id="error-solutions">Solutions:</div>
+									<ul class="list-unstyled solutions-list" role="list" aria-labelledby="error-solutions">
+										{{#each solutions}}
+											<li class="list-unstyled__item" role="listitem">
+												<a class="link" href="{{url}}" target="_blank">
+													<span class="glyphicon glyphicon-share" aria-hidden="true"></span>&nbsp;{{title}}
+												</a>
+											</li>
+										{{/each}}
+									</ul>
+								{{/if}}
+
+								{{#if items.length}}
+									<div class="subtitle" id="error-selectors">Selectors:</div>
+									<ul class="list-unstyled selectors-list" role="list" aria-labelledby="error-selectors">
+										{{#each items}}
+											<li class="list-unstyled__item" role="listitem">
+												<span title="Context" data-role="context-popover" data-toggle="popover" data-content="{{context}}">
+													<code class="code">{{selector}}</code>
+												</span>
+											</li>
+										{{/each}}
+									</ul>
+								{{/if}}
+							</div>
+						</div>
+					</div>
 				{{/mainResult.errors}}
-			</ul>
-			<a class="pull-right" href="#top" data-role="top">Back to top</a>
+				<div class="to-top">
+					<a class="link" href="#top" data-role="top"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>Back to top</a>
+				</div>
+			{{else}}
+				<div class="text">Well done! You have 0 errors. <span class="glyphicon glyphicon-ok pull-right" aria-hidden="true"></span></div>
+			{{/if}}
 		</div>
-	{{else}}
-		<p class="heading label-danger" id="errors">Well done! You have 0 errors. <span class="glyphicon glyphicon-ok pull-right"></span></p>
-	{{/if}}
 
-	{{#if mainResult.count.warning}}
-		<div class="heading label-warning pointer" id="warnings" data-test="task-warnings" data-role="expander" role="button" tabindex="0" aria-expanded="false" aria-controls="warnings-list">
-			<span class="pull-right expander"> ↓ <span class="hide">(open panel)</span></span>
-			Warnings ( {{mainResult.count.warning}} )
-		</div>
-		<div class="task-warning tasks-list collapse clearfix" id="warnings-list">
-			<ul class="list-unstyled">
+		<div id="warnings-list" role="tabpanel" class="tab-pane tasks-list fade">
+			{{#if mainResult.count.warning}}
 				{{#mainResult.warnings}}
-					<li>
-						<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
-						<p><em>First result:</em> {{message}}</p>
-						<p>
-							<b>Selector:</b>
-							<code style="text-wrap:pre-wrap">{{#if selector}}{{selector}}{{else}}-{{/if}}</code>
-							<br/>
-							<b>Context:</b>
-							<code style="text-wrap:pre-wrap">{{#if context}}{{context}}{{else}}-{{/if}}</code>
-						</p>
-						{{#unless readonly}}
-							{{#if ../../isTaskPage}}
-								<form action="{{../../../task.hrefIgnore}}" method="post">
-									<input type="hidden" name="rule" value="{{code}}"/>
-									<input type="submit" class="btn btn-sm" value="Ignore rule"/>
-								</form>
-							{{/if}}
-						{{/unless}}
-					</li>
+					<div class="panel panel-default task task_type_warning">
+						<div class="panel-heading" data-role="details-collapse" data-toggle="collapse" data-target="#warning-index-{{@index}}" aria-expanded="false" aria-controls="warning-index-{{@index}}">
+							<div class="row">
+								<div class="col-md-9 col-sm-9 col-xs-8">
+									<span class="rule-name">{{code}}&ensp;
+										<span class="badge" title="{{count}} selector(s)" data-toggle="tooltip" data-role="selector-tooltip">{{count}}</span>
+									</span>
+								</div>
+								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
+									<span class="btn btn-link btn-sm link">details</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel-body">
+							<span class="text">{{message}}</span>
+
+							{{#unless readonly}}
+								{{#if ../../isTaskPage}}
+									<form action="{{../../../task.hrefIgnore}}" method="post">
+										<input type="hidden" name="rule" value="{{code}}"/>
+										<input type="submit" role="link" class="btn btn-link btn-sm link" value="Ignore rule"/>
+									</form>
+								{{/if}}
+							{{/unless}}
+
+							<div class="task-details collapse" id="warning-index-{{@index}}">
+								{{#if solutions.length}}
+									<div class="subtitle" id="warning-solutions">Solutions:</div>
+									<ul class="list-unstyled solutions-list" role="list" aria-labelledby="warning-solutions">
+										{{#each solutions}}
+											<li class="list-unstyled__item" role="listitem">
+												<a class="link" href="{{url}}" target="_blank">
+													<span class="glyphicon glyphicon-share" aria-hidden="true"></span>&nbsp;{{title}}
+												</a>
+											</li>
+										{{/each}}
+									</ul>
+								{{/if}}
+
+								{{#if items.length}}
+									<div class="subtitle" id="warning-selectors">Selectors:</div>
+									<ul class="list-unstyled selectors-list" role="list" aria-labelledby="warning-selectors">
+										{{#each items}}
+											<li class="list-unstyled__item" role="listitem">
+												<span title="Context" data-role="context-popover" data-toggle="popover" data-content="{{context}}">
+													<code class="code">{{selector}}</code>
+												</span>
+											</li>
+										{{/each}}
+									</ul>
+								{{/if}}
+							</div>
+						</div>
+					</div>
 				{{/mainResult.warnings}}
-			</ul>
-			<a class="pull-right" href="#top" data-role="top">Back to top</a>
+				<div class="to-top">
+					<a class="link" href="#top" data-role="top"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>Back to top</a>
+				</div>
+			{{else}}
+				<div class="text">Well done! You have 0 warnings. <span class="glyphicon glyphicon-ok pull-right" aria-hidden="true"></span></div>
+			{{/if}}
 		</div>
 
-	{{else}}
-		<p class="heading label-warning" id="warnings">Well done! You have 0 warnings. <span class="glyphicon glyphicon-ok pull-right"></span></p>
-	{{/if}}
-
-	{{#if mainResult.count.notice}}
-		<div class="heading label-info pointer" id="notices" data-test="task-notices" data-role="expander" role="button" tabindex="0" aria-expanded="false" aria-controls="notices-list">
-			<span class="pull-right expander"> ↓ <span class="hide">(open panel)</span></span>
-			Notices ( {{mainResult.count.notice}} )
-		</div>
-		<div class="task-info tasks-list collapse clearfix" id="notices-list">
-			<ul class="list-unstyled">
+		<div id="notices-list" role="tabpanel" class="tab-pane tasks-list fade">
+			{{#if mainResult.count.notice}}
 				{{#mainResult.notices}}
-					<li>
-						<p class="crunch rule-name">{{code}} <span class="badge">{{count}}</span></p>
-						<p><em>First result:</em> {{message}}</p>
-						<p>
-							<b>Selector:</b>
-							<code style="text-wrap:pre-wrap">{{#if selector}}{{selector}}{{else}}-{{/if}}</code>
-							<br/>
-							<b>Context:</b>
-							<code style="text-wrap:pre-wrap">{{#if context}}{{context}}{{else}}-{{/if}}</code>
-						</p>
-						{{#unless readonly}}
-							{{#if ../../isTaskPage}}
-								<form action="{{../../../task.hrefIgnore}}" method="post">
-									<input type="hidden" name="rule" value="{{code}}"/>
-									<input type="submit" class="btn btn-sm" value="Ignore rule"/>
-								</form>
-							{{/if}}
-						{{/unless}}
-					</li>
-				{{/mainResult.notices}}
-			</ul>
-			<a class="pull-right" href="#top" data-role="top">Back to top</a>
-		</div>
-	{{else}}
-		<p class="heading label-info" id="notices">Well done! You have 0 notices. <span class="glyphicon glyphicon-ok pull-right"></span></p>
-	{{/if}}
+					<div class="panel panel-default task task_type_notice">
+						<div class="panel-heading" data-role="details-collapse" data-toggle="collapse" data-target="#notice-index-{{@index}}" aria-expanded="false" aria-controls="notice-index-{{@index}}">
+							<div class="row">
+								<div class="col-md-9 col-sm-9 col-xs-8">
+									<span class="rule-name">{{code}}&ensp;
+										<span class="badge" title="{{count}} selector(s)" data-toggle="tooltip" data-role="selector-tooltip">{{count}}</span>
+									</span>
+								</div>
+								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
+									<span class="btn btn-link btn-sm link">details</span>
+								</div>
+							</div>
+						</div>
 
-	{{#if mainResult.ignore.length}}
-		<div class="heading label-default pointer" id="ignore" data-role="expander" role="button" tabindex="0" aria-expanded="false" aria-controls="ignore-list">
-			<span class="pull-right expander"> ↓ <span class="hide">(open panel)</span></span>
-			Ignored Rules ( {{mainResult.ignore.length}} )
+						<div class="panel-body">
+							<span class="text">{{message}}</span>
+
+							{{#unless readonly}}
+								{{#if ../../isTaskPage}}
+									<form action="{{../../../task.hrefIgnore}}" method="post">
+										<input type="hidden" name="rule" value="{{code}}"/>
+										<input type="submit" role="link" class="btn btn-link btn-sm link" value="Ignore rule"/>
+									</form>
+								{{/if}}
+							{{/unless}}
+
+							<div class="task-details collapse" id="notice-index-{{@index}}">
+								{{#if solutions.length}}
+									<div class="subtitle" id="notice-solutions">Solutions:</div>
+									<ul class="list-unstyled solutions-list" role="list" aria-labelledby="notice-solutions">
+										{{#each solutions}}
+											<li class="list-unstyled__item" role="listitem">
+												<a class="link" href="{{url}}" target="_blank">
+													<span class="glyphicon glyphicon-share" aria-hidden="true"></span>&nbsp;{{title}}
+												</a>
+											</li>
+										{{/each}}
+									</ul>
+								{{/if}}
+
+								{{#if items.length}}
+									<div class="subtitle" id="notice-selectors">Selectors:</div>
+									<ul class="list-unstyled selectors-list" role="list" aria-labelledby="notice-selectors">
+										{{#each items}}
+											<li class="list-unstyled__item" role="listitem">
+												<span title="Context" data-role="context-popover" data-toggle="popover" data-content="{{context}}">
+													<code class="code">{{selector}}</code>
+												</span>
+											</li>
+										{{/each}}
+									</ul>
+								{{/if}}
+							</div>
+						</div>
+					</div>
+				{{/mainResult.notices}}
+				<div class="to-top">
+					<a class="link" href="#top" data-role="top"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>Back to top</a>
+				</div>
+			{{else}}
+				<div class="text">Well done! You have 0 notices. <span class="glyphicon glyphicon-ok pull-right" aria-hidden="true"></span></div>
+			{{/if}}
 		</div>
-		<div class="task-default tasks-list collapse clearfix" id="ignore-list">
-			<ul class="list-unstyled">
-			    {{#mainResult.ignore}}
-			        <li>
-						<p class="crunch rule-name">{{name}}</p>
-						{{#if description}}
-							<p>{{description}}</p>
-						{{/if}}
-						{{#unless readonly}}
-							{{#if ../../isTaskPage}}
-								<form action="{{../../../task.hrefUnignore}}" method="post">
-									<input type="hidden" name="rule" value="{{name}}"/>
-									<input type="submit" class="btn btn-sm" value="Unignore rule"/>
-								</form>
+
+		<div id="ignore-list" role="tabpanel" class="tab-pane tasks-list fade">
+			{{#if mainResult.ignore.length}}
+				{{#mainResult.ignore}}
+					<div class="panel panel-default task task_type_ignore">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-md-12">
+									<span class="rule-name">{{name}}</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel-body">
+							{{#if description}}
+								<span class="text">{{description}}</span>
 							{{/if}}
-						{{/unless}}
-					</li>
-			    {{/mainResult.ignore}}
-			</ul>
-			<a class="pull-right" href="#top" data-role="top">Back to top</a>
+
+							{{#unless readonly}}
+								{{#if ../../isTaskPage}}
+									<form action="{{../../../task.hrefUnignore}}" method="post">
+										<input type="hidden" name="rule" value="{{name}}"/>
+										<input type="submit" role="link" class="btn btn-link btn-sm link" value="Unignore rule"/>
+									</form>
+								{{/if}}
+							{{/unless}}
+						</div>
+					</div>
+				{{/mainResult.ignore}}
+				<div class="to-top">
+					<a class="link" href="#top" data-role="top"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>Back to top</a>
+				</div>
+			{{else}}
+				<div class="text">You have no ignored rules.</div>
+			{{/if}}
 		</div>
-	{{else}}
-		<p class="heading label-default">You have no ignored rules.</p>
-	{{/if}}
+	</div>
 </div>
