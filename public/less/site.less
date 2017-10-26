@@ -491,6 +491,7 @@ ul.date-links {
 	}
 }
 .series-checkboxes {
+  	padding: 0 30px;
 	margin-top:15px;
 
 	li {
@@ -498,21 +499,19 @@ ul.date-links {
 		margin-right:2%;
 		border-radius: @border-radius-base;
 
-		label {
-			margin-bottom:0;
-		}
-
 		.series-checkbox-container {
 			padding:2px 4px 3px 4px;
 		}
 
-		input {
-			margin:5px auto 3px auto;
-		}
+	  	label {
+		  margin: 0;
+		  padding: 0 0 0 12px;
+		  cursor: pointer;
+	  	}
 
-		input, label {
-			cursor: pointer;
-			display:block;
+		input {
+		  margin: 6px 0;
+		  cursor: pointer;
 		}
 
 		&:last-child {
@@ -562,8 +561,8 @@ ul.date-links {
 	padding: 3px;
 }
 .dashedLegend .legendIcon div {
-	height: 0px;
-	border-width: 3px 0px 0px;
+	height: 0;
+	border-width: 3px 0 0;
 	border-top-style: solid;
 	overflow: hidden;
 }
@@ -604,7 +603,7 @@ ul.date-links {
 	overflow:hidden;
 	overflow-y:auto;
 	margin-bottom:15px;
-	border-bottom:solid 1px @gray-lighter;
+	border-bottom: 1px solid @gray-lighter;
 
 	.checkbox {
 		cursor: pointer;
@@ -639,7 +638,7 @@ ul.date-links {
 
 	&:before {
 		position:absolute;
-		content:"";
+		content:'';
 		height:90px;
 		width:90px;
 		left:50%;
@@ -668,4 +667,9 @@ ul.date-links {
 }
 .inline-list + div.date {
 	display: inline-block;
+}
+
+/* Popovers */
+.popover-content {
+  overflow-x: auto;
 }
