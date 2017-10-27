@@ -22,7 +22,6 @@ $(document).ready(function(){
 	var detailsCollapse = $('[data-role="details-collapse"]');
 	var contextPopover = $('[data-role="context-popover"]');
 	var ruleTooltip = $('[data-role="rule-tooltip"]');
-	var selectorTooltip = $('[data-role="selector-tooltip"]');
     var toTopLinks = $('[data-role="top"]');
     var zoomResetButton = $('[data-role="zoom-reset"]');
     var graphContainer = $('[data-role="graph"]');
@@ -133,7 +132,7 @@ $(document).ready(function(){
         plotGraphData();
     });
 
-    $(ruleTooltip, selectorTooltip).tooltip();
+    $(ruleTooltip).tooltip();
 
     // Function to animate sections
     function animateSection (sectionName, offset){
