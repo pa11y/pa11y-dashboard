@@ -77,7 +77,7 @@ $(document).ready(function(){
 
 	// Update details button title by click
 	detailsCollapse.click(function(){
-		$(this).find('.task-actions .btn-link').toggleClass('btn_state_collapsed');
+		$(this).toggleClass('btn_state_collapsed');
 	});
 
 	// Initialize context popovers

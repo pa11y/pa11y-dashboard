@@ -90,7 +90,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 			{{#if mainResult.count.error}}
 				{{#mainResult.errors}}
 					<div class="panel panel-default task task_type_error">
-						<div class="panel-heading" data-role="details-collapse" data-toggle="collapse" data-target="#error-index-{{@index}}" aria-expanded="false" aria-controls="error-index-{{@index}}">
+						<div class="panel-heading">
 							<div class="row">
 								<div class="col-md-9 col-sm-9 col-xs-8">
 									<span class="rule-name">{{code}}&ensp;
@@ -98,22 +98,21 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 									</span>
 								</div>
 								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
-									<span class="btn btn-link btn-sm link">details</span>
+									{{#unless readonly}}
+										{{#if ../../isTaskPage}}
+											<form action="{{../../../task.hrefIgnore}}" method="post">
+												<input type="hidden" name="rule" value="{{code}}"/>
+												<input type="submit" role="link" class="btn btn-link btn-sm link" value="Ignore rule"/>
+											</form>
+										{{/if}}
+									{{/unless}}
 								</div>
 							</div>
 						</div>
 
 						<div class="panel-body">
 							<span class="text">{{message}}</span>
-
-							{{#unless readonly}}
-								{{#if ../../isTaskPage}}
-									<form action="{{../../../task.hrefIgnore}}" method="post">
-										<input type="hidden" name="rule" value="{{code}}"/>
-										<input type="submit" role="link" class="btn btn-link btn-sm link" value="Ignore rule"/>
-									</form>
-								{{/if}}
-							{{/unless}}
+							<span class="btn btn-xs btn-link link btn-details" data-role="details-collapse" data-toggle="collapse" data-target="#error-index-{{@index}}" aria-expanded="false" aria-controls="error-index-{{@index}}">details</span>
 
 							<div class="task-details collapse" id="error-index-{{@index}}">
 								{{#if solutions.length}}
@@ -157,7 +156,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 			{{#if mainResult.count.warning}}
 				{{#mainResult.warnings}}
 					<div class="panel panel-default task task_type_warning">
-						<div class="panel-heading" data-role="details-collapse" data-toggle="collapse" data-target="#warning-index-{{@index}}" aria-expanded="false" aria-controls="warning-index-{{@index}}">
+						<div class="panel-heading">
 							<div class="row">
 								<div class="col-md-9 col-sm-9 col-xs-8">
 									<span class="rule-name">{{code}}&ensp;
@@ -165,22 +164,21 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 									</span>
 								</div>
 								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
-									<span class="btn btn-link btn-sm link">details</span>
+									{{#unless readonly}}
+										{{#if ../../isTaskPage}}
+											<form action="{{../../../task.hrefIgnore}}" method="post">
+												<input type="hidden" name="rule" value="{{code}}"/>
+												<input type="submit" role="link" class="btn btn-link btn-sm link" value="Ignore rule"/>
+											</form>
+										{{/if}}
+									{{/unless}}
 								</div>
 							</div>
 						</div>
 
 						<div class="panel-body">
 							<span class="text">{{message}}</span>
-
-							{{#unless readonly}}
-								{{#if ../../isTaskPage}}
-									<form action="{{../../../task.hrefIgnore}}" method="post">
-										<input type="hidden" name="rule" value="{{code}}"/>
-										<input type="submit" role="link" class="btn btn-link btn-sm link" value="Ignore rule"/>
-									</form>
-								{{/if}}
-							{{/unless}}
+							<span class="btn btn-xs btn-link link btn-details" data-role="details-collapse" data-toggle="collapse" data-target="#warning-index-{{@index}}" aria-expanded="false" aria-controls="warning-index-{{@index}}">details</span>
 
 							<div class="task-details collapse" id="warning-index-{{@index}}">
 								{{#if solutions.length}}
@@ -224,7 +222,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 			{{#if mainResult.count.notice}}
 				{{#mainResult.notices}}
 					<div class="panel panel-default task task_type_notice">
-						<div class="panel-heading" data-role="details-collapse" data-toggle="collapse" data-target="#notice-index-{{@index}}" aria-expanded="false" aria-controls="notice-index-{{@index}}">
+						<div class="panel-heading">
 							<div class="row">
 								<div class="col-md-9 col-sm-9 col-xs-8">
 									<span class="rule-name">{{code}}&ensp;
@@ -232,22 +230,21 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 									</span>
 								</div>
 								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
-									<span class="btn btn-link btn-sm link">details</span>
+									{{#unless readonly}}
+										{{#if ../../isTaskPage}}
+											<form action="{{../../../task.hrefIgnore}}" method="post">
+												<input type="hidden" name="rule" value="{{code}}"/>
+												<input type="submit" role="link" class="btn btn-link btn-sm link" value="Ignore rule"/>
+											</form>
+										{{/if}}
+									{{/unless}}
 								</div>
 							</div>
 						</div>
 
 						<div class="panel-body">
 							<span class="text">{{message}}</span>
-
-							{{#unless readonly}}
-								{{#if ../../isTaskPage}}
-									<form action="{{../../../task.hrefIgnore}}" method="post">
-										<input type="hidden" name="rule" value="{{code}}"/>
-										<input type="submit" role="link" class="btn btn-link btn-sm link" value="Ignore rule"/>
-									</form>
-								{{/if}}
-							{{/unless}}
+							<span class="btn btn-xs btn-link link btn-details" data-role="details-collapse" data-toggle="collapse" data-target="#notice-index-{{@index}}" aria-expanded="false" aria-controls="notice-index-{{@index}}">details</span>
 
 							<div class="task-details collapse" id="notice-index-{{@index}}">
 								{{#if solutions.length}}
@@ -293,8 +290,18 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 					<div class="panel panel-default task task_type_ignore">
 						<div class="panel-heading">
 							<div class="row">
-								<div class="col-md-12">
+								<div class="col-md-9 col-sm-9 col-xs-8">
 									<span class="rule-name">{{name}}</span>
+								</div>
+								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
+									{{#unless readonly}}
+										{{#if ../../isTaskPage}}
+											<form action="{{../../../task.hrefUnignore}}" method="post">
+												<input type="hidden" name="rule" value="{{name}}"/>
+												<input type="submit" role="link" class="btn btn-link btn-sm link" value="Unignore rule"/>
+											</form>
+										{{/if}}
+									{{/unless}}
 								</div>
 							</div>
 						</div>
@@ -303,15 +310,6 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 							{{#if description}}
 								<span class="text">{{description}}</span>
 							{{/if}}
-
-							{{#unless readonly}}
-								{{#if ../../isTaskPage}}
-									<form action="{{../../../task.hrefUnignore}}" method="post">
-										<input type="hidden" name="rule" value="{{name}}"/>
-										<input type="submit" role="link" class="btn btn-link btn-sm link" value="Unignore rule"/>
-									</form>
-								{{/if}}
-							{{/unless}}
 						</div>
 					</div>
 				{{/mainResult.ignore}}

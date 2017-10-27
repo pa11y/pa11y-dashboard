@@ -404,29 +404,8 @@
   &-actions {
 	position: relative;
 	text-align: right;
-
-	.btn {
-	  padding: 0;
-
-	  &:last-of-type {
-		margin-left: 15px;
-
-		&:before {
-		  content: 'Show ';
-		}
-	  }
-
-	  &.btn_state_collapsed {
-		&:last-of-type {
-		  &:before {
-			content: 'Hide ';
-		  }
-		}
-	  }
-	}
   }
 
-  .panel-heading,
   .code {
 	cursor: pointer;
 	outline: none;
@@ -435,6 +414,21 @@
   .panel-body {
 	.text {
 	  vertical-align: middle;
+	}
+  }
+
+  .btn-details {
+	padding: 0;
+	margin: 0 5px;
+
+	&:before {
+	  content: 'Show ';
+	}
+
+	&.btn_state_collapsed {
+	  &:before {
+		content: 'Hide ';
+	  }
 	}
   }
 }
