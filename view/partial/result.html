@@ -100,7 +100,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
 									{{#unless readonly}}
 										{{#if ../../isTaskPage}}
-											<form action="{{../../../task.hrefIgnore}}" method="post">
+											<form class="ignore-form" action="{{../../../task.hrefIgnore}}" method="post">
 												<input type="hidden" name="rule" value="{{code}}"/>
 												<input type="submit" role="link" class="btn btn-link btn-sm link" value="Ignore rule"/>
 											</form>
@@ -166,7 +166,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
 									{{#unless readonly}}
 										{{#if ../../isTaskPage}}
-											<form action="{{../../../task.hrefIgnore}}" method="post">
+											<form class="ignore-form" action="{{../../../task.hrefIgnore}}" method="post">
 												<input type="hidden" name="rule" value="{{code}}"/>
 												<input type="submit" role="link" class="btn btn-link btn-sm link" value="Ignore rule"/>
 											</form>
@@ -232,7 +232,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
 									{{#unless readonly}}
 										{{#if ../../isTaskPage}}
-											<form action="{{../../../task.hrefIgnore}}" method="post">
+											<form class="ignore-form" action="{{../../../task.hrefIgnore}}" method="post">
 												<input type="hidden" name="rule" value="{{code}}"/>
 												<input type="submit" role="link" class="btn btn-link btn-sm link" value="Ignore rule"/>
 											</form>
@@ -296,7 +296,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
 									{{#unless readonly}}
 										{{#if ../../isTaskPage}}
-											<form action="{{../../../task.hrefUnignore}}" method="post">
+											<form class="ignore-form" action="{{../../../task.hrefUnignore}}" method="post">
 												<input type="hidden" name="rule" value="{{name}}"/>
 												<input type="submit" role="link" class="btn btn-link btn-sm link" value="Unignore rule"/>
 											</form>

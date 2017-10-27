@@ -328,7 +328,7 @@
 	  margin-bottom: 0;
 	}
 
-	form {
+	.ignore-form {
 	  display: inline-block;
 	  vertical-align: middle;
 
@@ -361,7 +361,8 @@
   margin-bottom: 16px;
 
   &_type_error {
-	.rule-name {
+	.rule-name,
+	.ignore-form .link {
 	  color: @brand-danger;
 	}
 
@@ -371,7 +372,8 @@
   }
 
   &_type_warning {
-	.rule-name {
+	.rule-name,
+	.ignore-form .link {
 	  color: @brand-warning;
 	}
 
@@ -381,12 +383,19 @@
   }
 
   &_type_notice {
-	.rule-name {
+	.rule-name,
+	.ignore-form .link {
 	  color: @brand-info;
 	}
 
 	.badge {
 	  background: @brand-info;
+	}
+  }
+
+  &_type_ignore {
+	.ignore-form .link {
+	  color: @badge-bg;
 	}
   }
 
