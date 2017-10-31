@@ -1,12 +1,8 @@
-
 //
 // Load core variables and mixins
 // --------------------------------------------------
-
 @import "variables.less";
 @import "mixins.less";
-
-
 
 //
 // Buttons
@@ -19,14 +15,14 @@
 .btn-info,
 .btn-warning,
 .btn-danger {
-  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
-  @shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+  @shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
   .box-shadow(@shadow);
 
   // Reset the shadow
   &:active,
   &.active {
-    .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+	.box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
   }
 }
 
@@ -37,15 +33,15 @@
   border-color: darken(@btn-color, 14%);
 
   &:hover,
-  &:focus  {
-    background-color: darken(@btn-color, 12%);
-    background-position: 0 -15px;
+  &:focus {
+	background-color: darken(@btn-color, 12%);
+	background-position: 0 -15px;
   }
 
   &:active,
   &.active {
-    background-color: darken(@btn-color, 12%);
-    border-color: darken(@btn-color, 14%);
+	background-color: darken(@btn-color, 12%);
+	border-color: darken(@btn-color, 14%);
   }
 }
 
@@ -54,19 +50,36 @@
   // Remove the gradient for the pressed/active state
   &:active,
   &.active {
-    background-image: none;
+	background-image: none;
   }
 }
 
 // Apply the mixin to the buttons
-.btn-default { .btn-styles(@btn-default-bg); text-shadow: 0 1px 0 #fff; border-color: #ccc; }
-.btn-primary { .btn-styles(@btn-primary-bg); }
-.btn-success { .btn-styles(@btn-success-bg); }
-.btn-warning { .btn-styles(@btn-warning-bg); }
-.btn-danger  { .btn-styles(@btn-danger-bg); }
-.btn-info    { .btn-styles(@btn-info-bg); }
+.btn-default {
+  .btn-styles(@btn-default-bg);
+  text-shadow: 0 1px 0 #fff;
+  border-color: #ccc;
+}
 
+.btn-primary {
+  .btn-styles(@btn-primary-bg);
+}
 
+.btn-success {
+  .btn-styles(@btn-success-bg);
+}
+
+.btn-warning {
+  .btn-styles(@btn-warning-bg);
+}
+
+.btn-danger {
+  .btn-styles(@btn-danger-bg);
+}
+
+.btn-info {
+  .btn-styles(@btn-info-bg);
+}
 
 //
 // Images
@@ -74,10 +87,8 @@
 
 .thumbnail,
 .img-thumbnail {
-  .box-shadow(0 1px 2px rgba(0,0,0,.075));
+  .box-shadow(0 1px 2px rgba(0, 0, 0, .075));
 }
-
-
 
 //
 // Dropdowns
@@ -88,14 +99,13 @@
   #gradient > .vertical(@start-color: @dropdown-link-hover-bg; @end-color: darken(@dropdown-link-hover-bg, 5%));
   background-color: darken(@dropdown-link-hover-bg, 5%);
 }
+
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
   #gradient > .vertical(@start-color: @dropdown-link-active-bg; @end-color: darken(@dropdown-link-active-bg, 5%));
   background-color: darken(@dropdown-link-active-bg, 5%);
 }
-
-
 
 //
 // Navbar
@@ -105,17 +115,18 @@
 .navbar-default {
   #gradient > .vertical(@start-color: lighten(@navbar-default-bg, 10%); @end-color: @navbar-default-bg);
   border-radius: @navbar-border-radius;
-  @shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 5px rgba(0,0,0,.075);
+  @shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
   .box-shadow(@shadow);
 
   .navbar-nav > .active > a {
-    #gradient > .vertical(@start-color: darken(@navbar-default-bg, 5%); @end-color: darken(@navbar-default-bg, 2%));
-    .box-shadow(inset 0 3px 9px rgba(0,0,0,.075));
+	#gradient > .vertical(@start-color: darken(@navbar-default-bg, 5%); @end-color: darken(@navbar-default-bg, 2%));
+	.box-shadow(inset 0 3px 9px rgba(0, 0, 0, .075));
   }
 }
+
 .navbar-brand,
 .navbar-nav > li > a {
-  text-shadow: 0 1px 0 rgba(255,255,255,.25);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .25);
 }
 
 // Inverted navbar
@@ -123,13 +134,13 @@
   #gradient > .vertical(@start-color: lighten(@navbar-inverse-bg, 10%); @end-color: @navbar-inverse-bg);
 
   .navbar-nav > .active > a {
-    #gradient > .vertical(@start-color: @navbar-inverse-bg; @end-color: lighten(@navbar-inverse-bg, 2.5%));
-    .box-shadow(inset 0 3px 9px rgba(0,0,0,.25));
+	#gradient > .vertical(@start-color: @navbar-inverse-bg; @end-color: lighten(@navbar-inverse-bg, 2.5%));
+	.box-shadow(inset 0 3px 9px rgba(0, 0, 0, .25));
   }
 
   .navbar-brand,
   .navbar-nav > li > a {
-    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
   }
 }
 
@@ -140,16 +151,14 @@
   border-radius: 0;
 }
 
-
-
 //
 // Alerts
 // --------------------------------------------------
 
 // Common styles
 .alert {
-  text-shadow: 0 1px 0 rgba(255,255,255,.2);
-  @shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 1px 2px rgba(0,0,0,.05);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .2);
+  @shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 1px 2px rgba(0, 0, 0, .05);
   .box-shadow(@shadow);
 }
 
@@ -160,12 +169,21 @@
 }
 
 // Apply the mixin to the alerts
-.alert-success    { .alert-styles(@alert-success-bg); }
-.alert-info       { .alert-styles(@alert-info-bg); }
-.alert-warning    { .alert-styles(@alert-warning-bg); }
-.alert-danger     { .alert-styles(@alert-danger-bg); }
+.alert-success {
+  .alert-styles(@alert-success-bg);
+}
 
+.alert-info {
+  .alert-styles(@alert-info-bg);
+}
 
+.alert-warning {
+  .alert-styles(@alert-warning-bg);
+}
+
+.alert-danger {
+  .alert-styles(@alert-danger-bg);
+}
 
 //
 // Progress bars
@@ -182,13 +200,25 @@
 }
 
 // Apply the mixin to the progress bars
-.progress-bar            { .progress-bar-styles(@progress-bar-bg); }
-.progress-bar-success    { .progress-bar-styles(@progress-bar-success-bg); }
-.progress-bar-info       { .progress-bar-styles(@progress-bar-info-bg); }
-.progress-bar-warning    { .progress-bar-styles(@progress-bar-warning-bg); }
-.progress-bar-danger     { .progress-bar-styles(@progress-bar-danger-bg); }
+.progress-bar {
+  .progress-bar-styles(@progress-bar-bg);
+}
 
+.progress-bar-success {
+  .progress-bar-styles(@progress-bar-success-bg);
+}
 
+.progress-bar-info {
+  .progress-bar-styles(@progress-bar-info-bg);
+}
+
+.progress-bar-warning {
+  .progress-bar-styles(@progress-bar-warning-bg);
+}
+
+.progress-bar-danger {
+  .progress-bar-styles(@progress-bar-danger-bg);
+}
 
 //
 // List groups
@@ -196,8 +226,9 @@
 
 .list-group {
   border-radius: @border-radius-base;
-  .box-shadow(0 1px 2px rgba(0,0,0,.075));
+  .box-shadow(0 1px 2px rgba(0, 0, 0, .075));
 }
+
 .list-group-item.active,
 .list-group-item.active:hover,
 .list-group-item.active:focus {
@@ -206,15 +237,13 @@
   border-color: darken(@list-group-active-border, 7.5%);
 }
 
-
-
 //
 // Panels
 // --------------------------------------------------
 
 // Common styles
 .panel {
-  .box-shadow(0 1px 2px rgba(0,0,0,.05));
+  .box-shadow(0 1px 2px rgba(0, 0, 0, .05));
 }
 
 // Mixin for generating new styles
@@ -223,14 +252,29 @@
 }
 
 // Apply the mixin to the panel headings only
-.panel-default > .panel-heading   { .panel-heading-styles(@panel-default-heading-bg); }
-.panel-primary > .panel-heading   { .panel-heading-styles(@panel-primary-heading-bg); }
-.panel-success > .panel-heading   { .panel-heading-styles(@panel-success-heading-bg); }
-.panel-info > .panel-heading      { .panel-heading-styles(@panel-info-heading-bg); }
-.panel-warning > .panel-heading   { .panel-heading-styles(@panel-warning-heading-bg); }
-.panel-danger > .panel-heading    { .panel-heading-styles(@panel-danger-heading-bg); }
+.panel-default > .panel-heading {
+  .panel-heading-styles(@panel-default-heading-bg);
+}
 
+.panel-primary > .panel-heading {
+  .panel-heading-styles(@panel-primary-heading-bg);
+}
 
+.panel-success > .panel-heading {
+  .panel-heading-styles(@panel-success-heading-bg);
+}
+
+.panel-info > .panel-heading {
+  .panel-heading-styles(@panel-info-heading-bg);
+}
+
+.panel-warning > .panel-heading {
+  .panel-heading-styles(@panel-warning-heading-bg);
+}
+
+.panel-danger > .panel-heading {
+  .panel-heading-styles(@panel-danger-heading-bg);
+}
 
 //
 // Wells
@@ -239,6 +283,6 @@
 .well {
   #gradient > .vertical(@start-color: darken(@well-bg, 5%); @end-color: @well-bg);
   border-color: darken(@well-bg, 10%);
-  @shadow: inset 0 1px 3px rgba(0,0,0,.05), 0 1px 0 rgba(255,255,255,.1);
+  @shadow: inset 0 1px 3px rgba(0, 0, 0, .05), 0 1px 0 rgba(255, 255, 255, .1);
   .box-shadow(@shadow);
 }

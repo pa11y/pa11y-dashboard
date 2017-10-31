@@ -2,7 +2,6 @@
 // Forms
 // --------------------------------------------------
 
-
 // Normalize non-controls
 //
 // Restyle and baseline non-control form elements.
@@ -30,7 +29,6 @@ label {
   margin-bottom: 5px;
   font-weight: bold;
 }
-
 
 // Normalize form controls
 
@@ -78,7 +76,7 @@ input[type="checkbox"]:focus {
 input[type="number"] {
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
-    height: auto;
+	height: auto;
   }
 }
 
@@ -99,7 +97,6 @@ output {
 .form-control {
   .placeholder();
 }
-
 
 // Common form controls
 //
@@ -136,7 +133,7 @@ output {
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid @input-border;
   border-radius: @input-border-radius;
-  .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  .box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075));
   .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
 
   // Customize the `:focus` state to imitate native WebKit styles.
@@ -149,16 +146,15 @@ output {
   &[disabled],
   &[readonly],
   fieldset[disabled] & {
-    cursor: not-allowed;
-    background-color: @input-bg-disabled;
+	cursor: not-allowed;
+	background-color: @input-bg-disabled;
   }
 
   // Reset height for `textarea`s
   textarea& {
-    height: auto;
+	height: auto;
   }
 }
-
 
 // Form groups
 //
@@ -168,7 +164,6 @@ output {
 .form-group {
   margin-bottom: 15px;
 }
-
 
 // Checkboxes and radios
 //
@@ -182,13 +177,15 @@ output {
   margin-bottom: 10px;
   padding-left: 20px;
   vertical-align: middle;
+
   label {
-    display: inline;
-    margin-bottom: 0;
-    font-weight: normal;
-    cursor: pointer;
+	display: inline;
+	margin-bottom: 0;
+	font-weight: normal;
+	cursor: pointer;
   }
 }
+
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
@@ -196,6 +193,7 @@ output {
   float: left;
   margin-left: -20px;
 }
+
 .radio + .radio,
 .checkbox + .checkbox {
   margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
@@ -211,6 +209,7 @@ output {
   font-weight: normal;
   cursor: pointer;
 }
+
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
   margin-top: 0;
@@ -228,7 +227,7 @@ input[type="checkbox"],
 .checkbox-inline {
   &[disabled],
   fieldset[disabled] & {
-    cursor: not-allowed;
+	cursor: not-allowed;
   }
 }
 
@@ -241,7 +240,6 @@ input[type="checkbox"],
   .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
 }
 
-
 // Form control feedback states
 //
 // Apply contextual and semantic states to individual form controls.
@@ -250,15 +248,16 @@ input[type="checkbox"],
 .has-warning {
   .form-control-validation(@state-warning-text; @state-warning-text; @state-warning-bg);
 }
+
 // Error
 .has-error {
   .form-control-validation(@state-danger-text; @state-danger-text; @state-danger-bg);
 }
+
 // Success
 .has-success {
   .form-control-validation(@state-success-text; @state-success-text; @state-success-bg);
 }
-
 
 // Static form control text
 //
@@ -269,7 +268,6 @@ input[type="checkbox"],
   margin-bottom: 0; // Remove default margin from `p`
   padding-top: (@padding-base-vertical + 1);
 }
-
 
 // Help text
 //
@@ -283,8 +281,6 @@ input[type="checkbox"],
   color: lighten(@text-color, 25%); // lighten the text some for contrast
 }
 
-
-
 // Inline forms
 //
 // Make forms appear inline(-block) by adding the `.form-inline` class. Inline
@@ -297,39 +293,38 @@ input[type="checkbox"],
 // Heads up! This is mixin-ed into `.navbar-form` in navbars.less.
 
 .form-inline {
-
   // Kick in the inline
   @media (min-width: @screen-sm) {
-    // Inline-block all the things for "inline"
-    .form-group  {
-      display: inline-block;
-      margin-bottom: 0;
-      vertical-align: middle;
-    }
+	// Inline-block all the things for "inline"
+	.form-group {
+	  display: inline-block;
+	  margin-bottom: 0;
+	  vertical-align: middle;
+	}
 
-    // In navbar-form, allow folks to *not* use `.form-group`
-    .form-control {
-      display: inline-block;
-    }
+	// In navbar-form, allow folks to *not* use `.form-group`
+	.form-control {
+	  display: inline-block;
+	}
 
-    // Remove default margin on radios/checkboxes that were used for stacking, and
-    // then undo the floating of radios and checkboxes to match (which also avoids
-    // a bug in WebKit: https://github.com/twbs/bootstrap/issues/1969).
-    .radio,
-    .checkbox {
-      display: inline-block;
-      margin-top: 0;
-      margin-bottom: 0;
-      padding-left: 0;
-    }
-    .radio input[type="radio"],
-    .checkbox input[type="checkbox"] {
-      float: none;
-      margin-left: 0;
-    }
+	// Remove default margin on radios/checkboxes that were used for stacking, and
+	// then undo the floating of radios and checkboxes to match (which also avoids
+	// a bug in WebKit: https://github.com/twbs/bootstrap/issues/1969).
+	.radio,
+	.checkbox {
+	  display: inline-block;
+	  margin-top: 0;
+	  margin-bottom: 0;
+	  padding-left: 0;
+	}
+
+	.radio input[type="radio"],
+	.checkbox input[type="checkbox"] {
+	  float: none;
+	  margin-left: 0;
+	}
   }
 }
-
 
 // Horizontal forms
 //
@@ -337,27 +332,26 @@ input[type="checkbox"],
 // labels on the left and inputs on the right.
 
 .form-horizontal {
-
   // Consistent vertical alignment of labels, radios, and checkboxes
   .control-label,
   .radio,
   .checkbox,
   .radio-inline,
   .checkbox-inline {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: (@padding-base-vertical + 1); // Default padding plus a border
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: (@padding-base-vertical + 1); // Default padding plus a border
   }
 
   // Make form groups behave like rows
   .form-group {
-    .make-row();
+	.make-row();
   }
 
   // Only right align form labels here when the columns stop stacking
   @media (min-width: @screen-sm-min) {
-    .control-label {
-      text-align: right;
-    }
+	.control-label {
+	  text-align: right;
+	}
   }
 }

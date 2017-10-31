@@ -12,44 +12,16 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
+'use strict';
 
-/* No javascript */
-.no-javascript {
-  .graph-container, .expander {
-	display: none;
-  }
+module.exports = helper;
 
-  .hidden {
-	display: block !important;
-	visibility: visible !important;
-  }
-
-  .date-links.hidden {
-	display: none !important;
-  }
-
-  .btn-group:hover ul {
-	display: block !important;
-  }
-
-  table.hidden {
-	display: table !important;
-  }
-
-  .collapse {
-	display: block;
-  }
-
-  .heading {
-	margin-top: 0;
-	border-radius: 3px 3px 0 0;
-  }
-
-  .show-class {
-	display: block;
-  }
-
-  .no-js-hide {
-	display: none;
-  }
+function helper(hbs) {
+	// Compare if one value is greater than another
+	hbs.registerHelper('ifgtr', function(conditional, condition, options) {
+		if (conditional > condition) {
+			// eslint-disable-next-line no-invalid-this
+			return options.fn(this);
+		}
+	});
 }

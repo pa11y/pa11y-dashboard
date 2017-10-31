@@ -1,194 +1,231 @@
 // This file is part of Pa11y Dashboard.
-// 
+//
 // Pa11y Dashboard is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
-// 
+//
 // Pa11y Dashboard is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
 /* Media queries */
-@media (max-width:991px) {
-	.h1, h1 {
-		font-size:floor(@font-size-base * 2.15); // ~32px;
+@media (max-width: 991px) {
+  .h1, h1 {
+	font-size: floor(@font-size-base * 2.15); // ~32px;
+  }
+
+  .h2, h2 {
+	font-size: floor(@font-size-base * 1.9); // ~28px;
+  }
+
+  .task-header .h4 {
+	font-size: floor(@font-size-base * 1.15); // ~17px;
+  }
+
+  .header {
+	margin-bottom: 2rem;
+	padding-bottom: 1rem;
+  }
+
+  .task-header .btn {
+	padding: 5px 10px;
+	font-size: 12px;
+	line-height: 1.5rem;
+  }
+
+  .task-header h2 {
+	margin-bottom: 3px;
+  }
+
+  .date {
+	margin-top: 10px;
+	float: right;
+  }
+
+  .other-tasks {
+	.sr-only();
+  }
+
+  .task-stats,
+  .btn-full-width {
+	margin-bottom: 0;
+  }
+
+  .task-card .task-stats {
+	margin-bottom: 10px;
+  }
+
+  .action-buttons {
+	margin-bottom: 20px;
+  }
+
+  .aside {
+	margin-bottom: 15px;
+  }
+
+  .graph-spacer {
+	padding-bottom: 80px;
+  }
+
+  .footer {
+	text-align: center;
+
+	.nav {
+	  float: none;
+
+	  li {
+		width: 25%;
+	  }
 	}
-	.h2, h2 {
-		font-size:floor(@font-size-base * 1.9); // ~28px;
-	}
-	.task-header .h4 {
-		font-size:floor(@font-size-base * 1.15); // ~17px;
-	}
-	.header {
-		margin-bottom:2rem;
-		padding-bottom:1rem;
-	}
-	.task-header .btn {
-		padding:5px 10px;
-		font-size:12px;
-		line-height:1.5rem;
-	}
-	.task-header h2 {
-		margin-bottom:3px;
-	}
-	.date {
-		margin-top:10px;
-		float:right;
-	}
-	.other-tasks {
-		.sr-only();
-	}
-	.task-stats,
+  }
+}
+
+@media (max-width: 767px) {
+  .date-selector {
+	margin-top: 0;
+	margin-bottom: 25px;
+  }
+
+  .readonly-mode .date {
+	margin-top: 0;
+	margin-bottom: 5px;
+	float: none;
+  }
+
+  .graph-spacer {
+	padding-bottom: 20px;
+	margin-bottom: 15px;
+  }
+
+  .action-buttons {
+	margin-top: 10px;
+	margin-bottom: 0;
+
 	.btn-full-width {
-		margin-bottom:0;
+	  margin-bottom: 10px;
 	}
-	.task-card .task-stats {
-		margin-bottom:10px;
-	}
-	.action-buttons {
-		margin-bottom:20px;
-	}
-	.aside {
-		margin-bottom:15px;
-	}
-	.graph-spacer {
-		padding-bottom:80px;
-	}
-	.footer {
-		text-align:center;
+  }
 
-		.nav {
-			float:none;
+  .task-header {
+	.run-details {
+	  text-align: left;
+	}
+  }
 
-			li {
-				width:25%;
-			}
-		}
-	}
+  .task-card .task-card-link {
+	min-height: 0;
+  }
 }
-@media (max-width:767px) {
-	.date-selector {
-		margin-top:0;
-		margin-bottom:25px;
-	}
-	.readonly-mode .date {
-		margin-top:0;
-		margin-bottom:5px;
-		float:none;
-	}
-	.graph-spacer {
-		padding-bottom:20px;
-		margin-bottom:15px;
-	}
-	.action-buttons {
-		margin-top:10px;
-		margin-bottom:0;
 
-		.btn-full-width {
-			margin-bottom:10px;
-		}
+@media (max-width: 640px) {
+  body {
+	font-size: 14px;
+  }
+
+  .h1, h1 {
+	font-size: floor(@font-size-base * 1.75); // ~26px;
+  }
+
+  .h2, h2 {
+	font-size: floor(@font-size-base * 1.6); // ~24px;
+  }
+
+  .task-header .h4 {
+	font-size: floor(@font-size-base * 1.1); // ~16px;
+  }
+
+  .badge {
+	font-size: floor(@font-size-base * 0.75); // ~11px;
+	padding: 7px;
+  }
+
+  .rule-name .badge {
+	padding: 3px;
+  }
+
+  .graph {
+	margin-bottom: 3rem;
+  }
+
+  .delete-button {
+	font-size: floor(@font-size-base * 1.35); // ~20px;
+	top: 10px;
+	right: 25px;
+  }
+
+  .standards-lists {
+	.tooltip {
+	  &.top .tooltip-inner {
+		max-width: 400px;
+	  }
 	}
-	.task-header {
-		.run-details {
-			text-align:left;
-		}
+  }
+
+  .tasks-list {
+	.panel {
+	  margin-bottom: 20px;
 	}
-	.task-card .task-card-link {
-		min-height:0;
+  }
+
+  .footer .nav {
+	li {
+	  width: 50%;
 	}
+  }
 }
-@media (max-width:640px) {
-	body {
-		font-size:14px;
-	}
-	.h1, h1 {
-		font-size:floor(@font-size-base * 1.75); // ~26px;
-	}
-	.h2, h2 {
-		font-size:floor(@font-size-base * 1.6); // ~24px;
-	}
-	.task-header .h4 {
-		font-size:floor(@font-size-base * 1.1); // ~16px;
-	}
-	.badge {
-		font-size:floor(@font-size-base * 0.75); // ~11px;
-		padding:7px;
-	}
-	.rule-name .badge {
-		padding:3px;
-	}
-	.graph {
-		margin-bottom:3rem;
-	}
-	.delete-button {
-		font-size:floor(@font-size-base * 1.35); // ~20px;
-		top:10px;
-		right:25px;
-	}
-	.standards-lists {
-		.tooltip {
-			&.top .tooltip-inner {
-				max-width:400px;
-			}
-		}
-	}
-	.tasks-list {
-		li {
-			margin-bottom:20px;
-		}
-	}
-	.footer .nav {
-		li {
-			width:50%;
-		}
-	}
+
+@media (max-width: 479px) {
+  .graph {
+	height: 200px;
+	margin-bottom: 1.5rem;
+  }
+
+  .series-checkboxes li {
+	font-size: floor(@font-size-base * 0.8); // ~12px;
+  }
+
+  .task-header .h3 {
+	float: none !important;
+	text-align: center;
+	margin-bottom: 15px !important;
+	padding: 10px;
+  }
+
+  .task-header h1 {
+	margin-bottom: 3px;
+  }
 }
-@media (max-width:479px) {
-	.graph {
-		height:200px;
-		margin-bottom:1.5rem;
+
+@media (max-width: 360px) {
+  .delete-button {
+	display: block !important;
+	font-size: floor(@font-size-base * 1); // ~15px;
+	top: 5px;
+	right: 20px;
+	.opacity(0.7)
+  }
+
+  .standards-lists {
+	.checkbox {
+	  font-size: floor(@font-size-base * 0.9); // ~13px;
 	}
-	.series-checkboxes li {
-		font-size:floor(@font-size-base * 0.8); // ~12px;
+	.tooltip {
+	  &.top .tooltip-inner {
+		max-width: 260px;
+	  }
 	}
-	.task-header .h3 {
-		float:none !important;
-		text-align:center;
-		margin-bottom:15px !important;
-		padding:10px;
+  }
+
+  .footer {
+	.nav {
+	  a {
+		padding: 10px 5px;
+	  }
 	}
-	.task-header h1 {
-		margin-bottom:3px;
-	}
-}
-@media (max-width:360px) {
-	.delete-button {
-		display:block !important;
-		font-size:floor(@font-size-base * 1); // ~15px;
-		top:5px;
-		right:20px;
-		.opacity(0.7)
-	}
-	.standards-lists {
-		.checkbox {
-			font-size:floor(@font-size-base * 0.9); // ~13px;
-		}
-		.tooltip {
-			&.top .tooltip-inner {
-				max-width:260px;
-			}
-		}
-	}
-	.footer {
-		.nav {
-			a {
-				padding:10px 5px;
-			}
-		}
-	}
+  }
 }

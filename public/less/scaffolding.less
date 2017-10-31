@@ -2,7 +2,6 @@
 // Scaffolding
 // --------------------------------------------------
 
-
 // Reset the box-sizing
 
 *,
@@ -11,12 +10,11 @@
   .box-sizing(border-box);
 }
 
-
 // Body reset
 
 html {
   font-size: 62.5%;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -37,7 +35,6 @@ textarea {
   line-height: inherit;
 }
 
-
 // Links
 
 a {
@@ -46,15 +43,14 @@ a {
 
   &:hover,
   &:focus {
-    color: @link-hover-color;
-    text-decoration: underline;
+	color: @link-hover-color;
+	text-decoration: underline;
   }
 
   &:focus {
-    .tab-focus();
+	.tab-focus();
   }
 }
-
 
 // Images
 
@@ -92,16 +88,14 @@ img {
   border-radius: 50%; // set radius in percents
 }
 
-
 // Horizontal rules
 
 hr {
-  margin-top:    @line-height-computed;
+  margin-top: @line-height-computed;
   margin-bottom: @line-height-computed;
   border: 0;
   border-top: 1px solid @hr-border;
 }
-
 
 // Only display content to screen readers
 //

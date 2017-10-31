@@ -2,7 +2,6 @@
 // Thumbnails
 // --------------------------------------------------
 
-
 // Mixin and adjust the regular image class
 .thumbnail {
   .img-thumbnail();
@@ -10,10 +9,9 @@
   margin-bottom: @line-height-computed;
 
   > img {
-    .img-responsive();
+	.img-responsive();
   }
 }
-
 
 // Add a hover state for linked versions only
 a.thumbnail:hover,
@@ -26,6 +24,7 @@ a.thumbnail:focus {
   margin-left: auto;
   margin-right: auto;
 }
+
 .thumbnail .caption {
   padding: @thumbnail-caption-padding;
   color: @thumbnail-caption-color;

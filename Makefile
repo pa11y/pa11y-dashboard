@@ -28,6 +28,8 @@ uglify:
 		public/js/vendor/bootstrap/js/tooltip.js \
 		public/js/vendor/bootstrap/js/transition.js \
 		public/js/vendor/bootstrap/js/collapse.js \
+		public/js/vendor/bootstrap/js/tab.js \
+		public/js/vendor/bootstrap/js/popover.js \
 		public/js/vendor/flot/jquery.flot.js \
 		public/js/vendor/flot/jquery.flot.dashes.js \
 		public/js/vendor/flot/jquery.flot.time.js \
