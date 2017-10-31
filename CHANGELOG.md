@@ -1,6 +1,10 @@
 
 # Changelog
 
+## 2.3.0 (2017-10-31)
+
+  * Large overhaul of the results page, see #196 for more information
+
 ## 2.2.2 (2017-03-23)
 
   * Upgrades `body-parser` and `express`. Fixes a vulnerability in `qs`: https://snyk.io/vuln/npm:qs:20170213
