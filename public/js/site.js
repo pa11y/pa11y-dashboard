@@ -132,7 +132,7 @@ $(document).ready(function(){
         plotGraphData();
     });
 
-    $(ruleTooltip).tooltip();
+    ruleTooltip.tooltip();
 
     // Function to animate sections
     function animateSection (sectionName, offset){
@@ -172,6 +172,7 @@ $(document).ready(function(){
 
     function plotGraphData () {
         $.plot(graphContainer, getData(), graphOptions);
+        exportGraph();
     }
 
     function getData() {
@@ -201,6 +202,37 @@ $(document).ready(function(){
     function toggleResetZoomButton() {
         zoomResetButton.toggleClass('hidden');
     }
+
+	function exportGraph() {
+		var exportBtn = $('.btn_action_export');
+
+		exportBtn.click(function(e) {
+			e.preventDefault();
+
+			var fileName = $('h1').text().toLowerCase().split(' ').join('_');
+			var date = new Date();
+
+			fileName += '_' + date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
+
+			html2canvas($('.graph').get(0), {
+				onrendered: function (canvas) {
+					downloadFile(canvas.toDataURL('image/png'), fileName + '.png');
+				}
+			});
+		});
+	}
+
+	function downloadFile(dataurl, filename) {
+		var link = document.createElement('a');
+		link.href = dataurl;
+		link.setAttribute('download', filename);
+
+		var clickEvent = document.createEvent('MouseEvents');
+		clickEvent.initEvent('click', false, true);
+		link.dispatchEvent(clickEvent);
+
+		return false;
+	}
 
     graphContainer.bind('plotselected', function (event, ranges) {
         // clamp the zooming to prevent eternal zoom
