@@ -1,6 +1,10 @@
 
 # Changelog
 
+## 2.4.0 (2017-11-23)
+
+  * Add the ability to export the results graph as a PNG, see #197 for more information
+
 ## 2.3.0 (2017-10-31)
 
   * Large overhaul of the results page, see #196 for more information
