@@ -17,7 +17,13 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 <div class="col-md-12 clearfix">
 	<div class="graph-container graph-spacer ruled clearfix">
 		<div class="row">
-			<ul class="list-unstyled floated-list series-checkboxes clearfix col-md-5 col-sm-6 col-xs-12 pull-right" data-role="series-checkboxes"></ul>
+			<div class="col-md-3 col-sm-4 col-xs-3">
+				<span class="btn btn-sm btn-default btn-full-width btn_action_export">Export graph</span>
+			</div>
+
+			<div class="col-md-5 col-sm-6 col-xs-9 pull-right">
+				<ul class="list-unstyled floated-list series-checkboxes clearfix" data-role="series-checkboxes"></ul>
+			</div>
 		</div>
 		<div data-role="graph" class="graph"></div>
 		<div class="dashedLegend">
