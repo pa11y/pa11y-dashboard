@@ -1,6 +1,11 @@
 
 # Changelog
 
+## 2.4.1 (2017-11-28)
+
+  * Update dependencies
+    * pa11y-webservice: ^2.3.0 to ^2.3.1
+
 ## 2.4.0 (2017-11-23)
 
   * Add the ability to export the results graph as a PNG, see #197 for more information
