@@ -910,7 +910,7 @@ function getStandards() {
 					description: 'If any audio plays automatically for longer than 3 seconds, check that there is the ability to pause, stop or mute the audio.'
 				},
 				{
-					name: 'WCAG2AA.Principle1.Guideline1_4.1_4_3.G18',
+					name: 'WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail',
 					description: 'This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of /{value/}. Recommendation: /{colour recommendations/}.'
 				},
 				{
