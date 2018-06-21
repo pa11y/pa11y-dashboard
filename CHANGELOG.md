@@ -1,6 +1,14 @@
 
 # Changelog
 
+## 2.4.2 (2018-06-21)
+
+  * Update dependencies
+    * body-parser: ~1.17.1 to ^1.18.3
+    * compression: ~1.6 to ^1.7.2
+    * express: ~4.15.2 to ^4.16.3
+    * moment: ~2.15.2 to ^2.22.2
+
 ## 2.4.1 (2017-11-28)
 
   * Update dependencies
