@@ -26,7 +26,7 @@ Setup
 
 Pa11y Dashboard requires [Node.js][node] 4+. See the [Pa11y][pa11y] documentation for detailed instructions on how to install this on your operating system.
 
-You'll also need to have [MongoDB][mongo] installed and running. See the [MongoDB install guide][mongo-install] for more information on this.
+You'll also need to have [MongoDB][mongo] installed and running. For quick access, you can install via a package manager such as on Mac OS `brew install mongodb` or on Linux (Debian) it would be `apt-get install mongodb`. To run MongoDB, you can run `mongod` in the command line. See the [MongoDB install guide][mongo-install] for more detailed information.
 
 You'll then need to clone this repo locally and install dependencies with `npm install`. Now you need to add some configuration before you can run the application. We can do this in two ways:
 
