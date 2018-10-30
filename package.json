@@ -28,6 +28,7 @@
     "chalk": "~1.1",
     "compression": "^1.7.2",
     "express": "^4.16.3",
+    "express-fileupload": "1.0.0",
     "express-hbs": "~1.0",
     "http-headers": "^3.0.1",
     "moment": "^2.22.2",

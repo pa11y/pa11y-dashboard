@@ -21,6 +21,7 @@ const EventEmitter = require('events').EventEmitter;
 const express = require('express');
 const hbs = require('express-hbs');
 const http = require('http');
+const fileUploads = require('express-fileupload');
 const pkg = require('./package.json');
 
 module.exports = initApp;
@@ -84,6 +85,7 @@ function initApp(config, callback) {
 		settings: {}
 	};
 
+	app.express.use(fileUploads());
 	app.express.use((request, response, next) => {
 		response.locals.isHomePage = (request.path === '/');
 		response.locals.host = request.hostname;
@@ -95,6 +97,8 @@ function initApp(config, callback) {
 	require('./route/task/index')(app);
 	require('./route/result/index')(app);
 	require('./route/result/download')(app);
+	require('./route/task/export')(app);
+	require('./route/task/import')(app);
 	if (!config.readonly) {
 		require('./route/new')(app);
 		require('./route/task/delete')(app);
