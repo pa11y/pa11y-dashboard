@@ -20,7 +20,11 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 			{{#if isHomePage}}<h1>{{else}}<div class="h1">{{/if}}
 				<a href="/">Pa11y Dashboard</a> -
 				<span class="h3">your automated accessibility testing pal</span>
-			{{#if isHomePage}}</h1>{{else}}</div>{{/if}}
+				{{#if isHomePage}}</h1>{{else}}</div>{{/if}}
+			{{#if isHomePage}}
+				<a class="pull-right" href="/export" id="importConfiguration">Export</a>
+			{{/if}}
+				
 		</div>
 	</div>
 </header>
