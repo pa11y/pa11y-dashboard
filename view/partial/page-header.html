@@ -22,7 +22,20 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 				<span class="h3">your automated accessibility testing pal</span>
 				{{#if isHomePage}}</h1>{{else}}</div>{{/if}}
 			{{#if isHomePage}}
-				<a class="pull-right" href="/export" id="importConfiguration">Export</a>
+				<a class="pull-right" href="/export">Export</a>
+				<form ref='uploadForm' 
+					id='uploadForm' 
+					action='/import' 
+					method='post' 
+					encType="multipart/form-data"
+					class="hidden">
+					<input type="file" name="tasks" id="uploadConfiguartion"/>
+					<input type='submit' value='Upload!' />
+				</form>
+				<!-- <form action="/import" class="hidden" method="POST">
+					<input type="file" name="fileupload" value="fileupload" id="uploadConfiguartion">
+				</form> -->
+				<a class="pull-right btn-file" id="importConfiguration" style="margin-right: .5rem;">Import</a>
 			{{/if}}
 				
 		</div>
