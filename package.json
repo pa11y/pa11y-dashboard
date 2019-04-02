@@ -21,19 +21,19 @@
   "bugs": "https://github.com/pa11y/dashboard/issues",
   "license": "GPL-3.0",
   "engines": {
-    "node": ">=4"
+    "node": ">=8",
+    "npm": ">=6"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
     "chalk": "~1.1",
     "compression": "^1.7.2",
-    "express": "^4.16.3",
     "express-hbs": "~1.0",
+    "express": "^4.16.3",
     "http-headers": "^3.0.1",
     "moment": "^2.22.2",
-    "npm": "^6.1.0",
-    "pa11y-webservice": "^2.3.1",
     "pa11y-webservice-client-node": "^1.2.1",
+    "pa11y-webservice": "^2.3.1",
     "underscore": "~1.8"
   },
   "devDependencies": {
