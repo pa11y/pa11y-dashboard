@@ -1,18 +1,29 @@
-
-Migration Guide
-===============
+# Migration Guide
 
 Pa11y Dashboard's API changes between major versions. This is a guide to help you make the switch when this happens.
 
+## Table of Contents
 
-Table Of Contents
------------------
-
+- [Migrating from 2.0 to 3.0](#migrating-from-20-to-30)
 - [Migrating from 1.0 to 2.0](#migrating-from-10-to-20)
 
+## Migrating from 2.0 to 3.0
 
-Migrating from 1.0 to 2.0
--------------------------
+### PhantomJS to Headless Chrome
+
+Pa11y Dashboard 3 uses version 5 of Pa11y, which replaces PhantomJS with [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome). This allows us to use more modern JavaScript APIs and make Pa11y testing more stable.
+
+As a result of this change, [Pa11y Dashboard's requirements](../README.md#requirements) have changed, and you may need to install additional dependencies required by Chrome before being able to use this version.
+
+### Node.js Support
+
+Pa11y Webservice 3 requires Node.js version 8 or greater. Versions 4 and 6 are not supported any more.
+
+### Miscellaneous
+
+The default viewport dimensions for Pa11y have been changed from `1024x768` to `1280x1024`. This could make pa11y report a different number of errors if different content appears on the page based on its width, so results obtained with v2 and v3 may not be comparable.
+
+## Migrating from 1.0 to 2.0
 
 ### Node.js Support
 
