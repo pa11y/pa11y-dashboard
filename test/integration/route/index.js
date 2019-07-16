@@ -40,10 +40,11 @@ describe.only('GET /', function() {
 
 	it('should display all of the expected tasks', function() {
 		const tasks = this.last.dom('[data-test=task]');
-		assert.strictEqual(tasks.length, 3);
+		assert.strictEqual(tasks.length, 4);
 		assert.match(tasks.eq(0).text(), /npg home\s+\(wcag2aa\)/i);
 		assert.match(tasks.eq(1).text(), /npg home\s+\(wcag2aaa\)/i);
 		assert.match(tasks.eq(2).text(), /nature news\s+\(section508\)/i);
+		assert.match(tasks.eq(3).text(), /z integration test\s+\(wcag2aa\)/i);
 	});
 
 	it('should have links to each task', function() {
@@ -51,6 +52,7 @@ describe.only('GET /', function() {
 		assert.strictEqual(tasks.eq(0).find('[href="/abc000000000000000000001"]').length, 1);
 		assert.strictEqual(tasks.eq(1).find('[href="/abc000000000000000000002"]').length, 1);
 		assert.strictEqual(tasks.eq(2).find('[href="/abc000000000000000000003"]').length, 1);
+		assert.strictEqual(tasks.eq(3).find('[href="/abc000000000000000000004"]').length, 1);
 	});
 
 	it('should display an "Edit" button for each task', function() {
@@ -58,6 +60,7 @@ describe.only('GET /', function() {
 		assert.strictEqual(tasks.eq(0).find('[href="/abc000000000000000000001/edit"]').length, 1);
 		assert.strictEqual(tasks.eq(1).find('[href="/abc000000000000000000002/edit"]').length, 1);
 		assert.strictEqual(tasks.eq(2).find('[href="/abc000000000000000000003/edit"]').length, 1);
+		assert.strictEqual(tasks.eq(3).find('[href="/abc000000000000000000004/edit"]').length, 1);
 	});
 
 	it('should display a "Delete" button for each task', function() {
@@ -65,6 +68,7 @@ describe.only('GET /', function() {
 		assert.strictEqual(tasks.eq(0).find('[href="/abc000000000000000000001/delete"]').length, 1);
 		assert.strictEqual(tasks.eq(1).find('[href="/abc000000000000000000002/delete"]').length, 1);
 		assert.strictEqual(tasks.eq(2).find('[href="/abc000000000000000000003/delete"]').length, 1);
+		assert.strictEqual(tasks.eq(3).find('[href="/abc000000000000000000004/delete"]').length, 1);
 	});
 
 	it('should display a "Run" button for each task', function() {
@@ -72,6 +76,7 @@ describe.only('GET /', function() {
 		assert.strictEqual(tasks.eq(0).find('[href="/abc000000000000000000001/run"]').length, 1);
 		assert.strictEqual(tasks.eq(1).find('[href="/abc000000000000000000002/run"]').length, 1);
 		assert.strictEqual(tasks.eq(2).find('[href="/abc000000000000000000003/run"]').length, 1);
+		assert.strictEqual(tasks.eq(3).find('[href="/abc000000000000000000004/run"]').length, 1);
 	});
 
 	it('should display the task result counts if the task has been run', function() {
