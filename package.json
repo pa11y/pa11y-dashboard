@@ -25,27 +25,27 @@
     "npm": ">=6"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "chalk": "~1.1",
-    "compression": "^1.7.2",
-    "express-hbs": "~1.0",
-    "express": "^4.16.3",
-    "http-headers": "^3.0.1",
-    "moment": "^2.22.2",
-    "pa11y-webservice-client-node": "^2.0.0",
-    "pa11y-webservice": "^3.0.0",
-    "underscore": "~1.8"
+    "body-parser": "~1.19.0",
+    "chalk": "~2.4.2",
+    "compression": "~1.7.4",
+    "express-hbs": "~2.1.2",
+    "express": "~4.17.1",
+    "http-headers": "~3.0.2",
+    "moment": "~2.24.0",
+    "pa11y-webservice-client-node": "~2.0.0",
+    "pa11y-webservice": "~3.0.0",
+    "underscore": "~1.9.1"
   },
   "devDependencies": {
-    "bower": "~1.7",
-    "cheerio": "~0.20",
-    "eslint": "^3.18.0",
-    "less": "~2.7",
-    "mocha": "^2",
-    "pa11y-lint-config": "^1.0.0",
-    "proclaim": "^3",
-    "request": "^2.74",
-    "uglify-js": "~2.6"
+    "bower": "^1.8.8",
+    "cheerio": "^1.0.0-rc.3",
+    "eslint": "^6.0.1",
+    "less": "^3.9.0",
+    "mocha": "^6.1.4",
+    "pa11y-lint-config": "^1.2.1",
+    "proclaim": "^3.6.0",
+    "request": "^2.88.0",
+    "uglify-js": "^3.6.0"
   },
   "scripts": {
     "start": "node index.js",
