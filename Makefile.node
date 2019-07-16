@@ -21,7 +21,7 @@
 NPM_BIN = ./node_modules/.bin
 export PATH := $(NPM_BIN):$(PATH)
 export EXPECTED_COVERAGE := 90
-export INTEGRATION_TIMEOUT := 5000
+export INTEGRATION_TIMEOUT := 10000
 export INTEGRATION_SLOW := 4000
 
 
