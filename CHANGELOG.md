@@ -1,6 +1,13 @@
 
 # Changelog
 
+## 3.0.0 (2019-07-16)
+
+  * Update pa11y to v5, which replaces Phantomjs with Headless Chrome
+  * Update dependencies
+  * Several bug fixes and documentation updates
+  * See the [migration guide](https://github.com/pa11y/pa11y-dashboard/blob/master/MIGRATION.md#migrating-from-20-to-30) for details of the breaking changes in this release
+
 ## 2.4.2 (2018-06-21)
 
   * Update dependencies

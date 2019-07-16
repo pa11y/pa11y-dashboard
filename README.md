@@ -1,5 +1,4 @@
-Pa11y Dashboard
-===============
+# Pa11y Dashboard
 
 Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter; allowing you to focus on *fixing* issues rather than hunting them down.
 
@@ -8,27 +7,39 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 [![Build status][shield-build]][info-build]
 [![GPL-3.0 licensed][shield-license]][info-license]
 
----
-
-## Latest news from Pa11y
-
-✨ 🔜 ✨ The Pa11y team is very excited to announce plans for the successor to Pa11y Dashboard and Pa11y Webservice, codename "Sidekick". Help us define the features that you want to see by visiting the [proposal][sidekick-proposal]. ✨
-
----
-
-
 ![dashboard](https://f.cloud.github.com/assets/1225142/1549567/f0361e72-4de8-11e3-8d14-3fe6900cc15d.jpg)
 ![results-page](https://f.cloud.github.com/assets/1225142/1549568/f225aa54-4de8-11e3-8b25-ef2f405997a3.jpg)
 
+---
 
-Setup
------
+## Requirements
 
-Pa11y Dashboard requires [Node.js][node] 4+. See the [Pa11y][pa11y] documentation for detailed instructions on how to install this on your operating system.
+Pa11y Dashboard is a [Node.js][node] application and requires a stable or LTS version of Node, currently version 8 or greater.
+
+Pa11y Dashboard also requires a [MongoDB][mongo] database to be available so it can store the results of the tests. The database doesn't have to be in the same server or computer where Pa11y Dashboard is running from.
+
+Since version 3, Pa11y Dashboard uses Headless Chrome in order to run the tests. This means that additional dependencies maybe be required.
+
+In [Unix-like](https://en.wikipedia.org/wiki/Unix-like) systems you may need to install the `libnss3` and `libgconf-2-4` libraries in order to be able to run Chrome. If you're trying to run the app in a headless environment (e.g. the cloud, or a headless server), you may also need to configure Xvfb before. Please refer to the documentation from your provider for details on how to do this.
+
+## Setup
+
+In order to run Pa11y Dashboard, we recommend cloning this repository locally:
+
+```sh
+git clone https://github.com/pa11y/pa11y-dashboard.git
+```
+
+Then installing the dependencies:
+
+```sh
+cd pa11y-dashboard
+npm install
+```
 
 You'll also need to have [MongoDB][mongo] installed and running. For quick access, you can install via a package manager such as on Mac OS `brew install mongodb` or on Linux (Debian) it would be `apt-get install mongodb`. To run MongoDB, you can run `mongod` in the command line. See the [MongoDB install guide][mongo-install] for more detailed information.
 
-You'll then need to clone this repo locally and install dependencies with `npm install`. Now you need to add some configuration before you can run the application. We can do this in two ways:
+The last step before being able to run the application is to define a configuration for it. This can be done in two ways:
 
 ### Option 1: Using Environment Variables
 
@@ -62,9 +73,7 @@ See [Contributing](#contributing) for more information about running locally (an
 
 If you run into problems, check the [troubleshooting guide][troubleshooting].
 
-
-Configurations
---------------
+## Configurations
 
 The boot configurations for Pa11y Dashboard are as follows. Look at the sample JSON files in the repo for example usage.
 
@@ -83,9 +92,7 @@ The boot configurations for Pa11y Dashboard are as follows. Look at the sample J
 ### webservice
 This can either be an object containing [Pa11y Webservice configurations][pa11y-webservice-config], or a string which is the base URL of a [Pa11y Webservice][pa11y-webservice] instance you are running separately. If using environment variables, prefix the webservice vars with `WEBSERVICE_`.
 
-
-Contributing
-------------
+## Contributing
 
 There are many ways to contribute to Pa11y Dashboard, we cover these in the [contributing guide](CONTRIBUTING.md) for this repo.
 
@@ -110,14 +117,12 @@ make less    # Compile the site CSS from LESS files
 make uglify  # Compile and uglify the client-side JavaScript
 ```
 
+## Useful Resources
 
-Useful Resources
--------
 * [Setting up An Accessibility Dashboard from Scratch with Pa11y on DigitalOcean](https://una.im/pa11y-dash/)
 * [Monitoring Web Accessibility Compliance With Pa11y Dashboard](https://www.lullabot.com/articles/monitoring-web-accessibility-compliance-with-pa11y-dashboard)
 
-Support and Migration
----------------------
+## Support and Migration
 
 Pa11y Dashboard major versions are normally supported for 6 months after their last minor release. This means that patch-level changes will be added and bugs will be fixed. The table below outlines the end-of-support dates for major versions, and the last minor release for that version.
 
@@ -125,19 +130,16 @@ We also maintain a [migration guide](MIGRATION.md) to help you migrate.
 
 | :grey_question: | Major Version | Last Minor Release | Node.js Versions | Support End Date |
 | :-------------- | :------------ | :----------------- | :--------------- | :--------------- |
-| :heart:         | 2             | N/A                | 4+               | N/A              |
+| :heart:         | 3             | N/A                | 8+               | N/A              |
+| :hourglass:     | 2             | 2.4.2              | 4+               | 2020-01-16       |
 | :skull:         | 1             | 1.12               | 0.10–6           | 2016-12-05       |
 
 If you're opening issues related to these, please mention the version that the issue relates to.
 
-
-License
--------
+## License
 
 Pa11y Dashboard is licensed under the [GNU General Public License 3.0][info-license].<br/>
-Copyright &copy; 2013–2017, Team Pa11y
-
-
+Copyright &copy; 2013–2019, Team Pa11y and contributors
 
 [gpl]: http://www.gnu.org/licenses/gpl-3.0.html
 [mongo]: http://www.mongodb.org/
@@ -151,10 +153,10 @@ Copyright &copy; 2013–2017, Team Pa11y
 [travis-img]: https://travis-ci.org/pa11y/dashboard.png?branch=master
 [troubleshooting]: https://github.com/pa11y/dashboard/blob/master/TROUBLESHOOTING.md
 
-[info-license]: LICENSE
 [info-node]: package.json
 [info-build]: https://travis-ci.org/pa11y/pa11y-dashboard
-[shield-license]: https://img.shields.io/badge/license-GPL%203.0-blue.svg
-[shield-node]: https://img.shields.io/badge/node.js%20support-4–6-brightgreen.svg
-[shield-version]: https://img.shields.io/badge/version-2.4.2-blue.svg
+[info-license]: LICENSE
+[shield-version]: https://img.shields.io/github/package-json/v/pa11y/pa11y-dashboard.svg
+[shield-node]: https://img.shields.io/node/v/pa11y/pa11y-dashboard.svg
 [shield-build]: https://img.shields.io/travis/pa11y/pa11y-dashboard/master.svg
+[shield-license]: https://img.shields.io/badge/license-GPL%203.0-blue.svg
