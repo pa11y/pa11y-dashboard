@@ -18,7 +18,7 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 
 
 ![dashboard](https://user-images.githubusercontent.com/6110968/61603347-0bce1000-abf2-11e9-87b2-a53f91d315bb.jpg)
-![results-page](https://user-images.githubusercontent.com/6110968/61603350-0c66a680-abf2-11e9-9e57-0fead34bbe06.jpg)
+![results-page](https://user-images.githubusercontent.com/6110968/62183438-05851580-b30f-11e9-9bc4-b6a4823ae9e8.jpg)
 
 
 Setup
