@@ -7,8 +7,8 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 [![Build status][shield-build]][info-build]
 [![GPL-3.0 licensed][shield-license]][info-license]
 
-![dashboard](https://f.cloud.github.com/assets/1225142/1549567/f0361e72-4de8-11e3-8d14-3fe6900cc15d.jpg)
-![results-page](https://f.cloud.github.com/assets/1225142/1549568/f225aa54-4de8-11e3-8b25-ef2f405997a3.jpg)
+![dashboard](https://user-images.githubusercontent.com/6110968/61603347-0bce1000-abf2-11e9-87b2-a53f91d315bb.jpg)
+![results-page](https://user-images.githubusercontent.com/6110968/62183438-05851580-b30f-11e9-9bc4-b6a4823ae9e8.jpg)
 
 ---
 
