@@ -1,6 +1,12 @@
 
 # Changelog
 
+## 3.1.0 (2019-09-27)
+
+  * Display the task ID before each line of output, so it's clear to which task a line of output belongs to when they run in parallel.
+  * Bump pa11y-webservice version, which fixes an issue with some pages failing to run.
+  * Fix incorrect routes passing an invalid value to Mongo's ObjectID.
+
 ## 3.0.0 (2019-07-16)
 
   * Update pa11y to v5, which replaces Phantomjs with Headless Chrome
