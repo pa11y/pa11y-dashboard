@@ -39,9 +39,9 @@
   "devDependencies": {
     "bower": "^1.8.8",
     "cheerio": "^1.0.0-rc.3",
-    "eslint": "^6.4.0",
+    "eslint": "^6.5.1",
     "less": "^3.10.3",
-    "mocha": "^6.2.0",
+    "mocha": "^6.2.1",
     "pa11y-lint-config": "^1.2.1",
     "proclaim": "^3.6.0",
     "request": "^2.88.0",
