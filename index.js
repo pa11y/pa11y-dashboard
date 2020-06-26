@@ -14,7 +14,7 @@
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 'use strict';
 
-const chalk = require('chalk');
+const {underline, gray, magenta, cyan, red} = require('colorette');
 const config = require('./config');
 
 process.on('SIGINT', () => {
@@ -29,16 +29,16 @@ require('./app')(config, (error, app) => {
 	}
 
 	console.log('');
-	console.log(chalk.underline.magenta('Pa11y Dashboard started'));
-	console.log(chalk.grey('mode: %s'), process.env.NODE_ENV);
-	console.log(chalk.grey('uri:  %s'), app.address);
+	console.log(underline(magenta('Pa11y Dashboard started')));
+	console.log(gray('mode: %s'), process.env.NODE_ENV);
+	console.log(gray('uri:  %s'), app.address);
 
 	app.on('route-error', error => {
 		const stack = (error.stack ? error.stack.split('\n') : [error.message]);
-		const msg = chalk.red(stack.shift());
+		const msg = red(stack.shift());
 		console.error('');
 		console.error(msg);
-		console.error(chalk.grey(stack.join('\n')));
+		console.error(gray(stack.join('\n')));
 	});
 
 	// Start the webservice if required
@@ -50,11 +50,11 @@ require('./app')(config, (error, app) => {
 			}
 
 			console.log('');
-			console.log(chalk.underline.cyan('Pa11y Webservice started'));
-			console.log(chalk.grey('mode:     %s'), process.env.NODE_ENV);
-			console.log(chalk.grey('uri:      %s'), webservice.server.info.uri);
-			console.log(chalk.grey('database: %s'), config.webservice.database);
-			console.log(chalk.grey('cron:     %s'), config.webservice.cron);
+			console.log(underline(cyan('Pa11y Webservice started')));
+			console.log(gray('mode:     %s'), process.env.NODE_ENV);
+			console.log(gray('uri:      %s'), webservice.server.info.uri);
+			console.log(gray('database: %s'), config.webservice.database);
+			console.log(gray('cron:     %s'), config.webservice.cron);
 		});
 	}
 
