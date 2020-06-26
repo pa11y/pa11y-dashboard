@@ -14,7 +14,7 @@
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 'use strict';
 
-const {underline, gray, magenta, cyan, red} = require('colorette');
+const kleur = require('kleur');
 const config = require('./config');
 
 process.on('SIGINT', () => {
@@ -29,16 +29,16 @@ require('./app')(config, (error, app) => {
 	}
 
 	console.log('');
-	console.log(underline(magenta('Pa11y Dashboard started')));
-	console.log(gray('mode: %s'), process.env.NODE_ENV);
-	console.log(gray('uri:  %s'), app.address);
+	console.log(kleur.underline().magenta('Pa11y Dashboard started'));
+	console.log(kleur.grey('mode: %s'), process.env.NODE_ENV);
+	console.log(kleur.grey('uri:  %s'), app.address);
 
 	app.on('route-error', error => {
 		const stack = (error.stack ? error.stack.split('\n') : [error.message]);
 		const msg = red(stack.shift());
 		console.error('');
 		console.error(msg);
-		console.error(gray(stack.join('\n')));
+		console.error(kleur.grey(stack.join('\n')));
 	});
 
 	// Start the webservice if required
@@ -50,11 +50,11 @@ require('./app')(config, (error, app) => {
 			}
 
 			console.log('');
-			console.log(underline(cyan('Pa11y Webservice started')));
-			console.log(gray('mode:     %s'), process.env.NODE_ENV);
-			console.log(gray('uri:      %s'), webservice.server.info.uri);
-			console.log(gray('database: %s'), config.webservice.database);
-			console.log(gray('cron:     %s'), config.webservice.cron);
+			console.log(kleur.underline().cyan('Pa11y Webservice started'));
+			console.log(kleur.grey('mode:     %s'), process.env.NODE_ENV);
+			console.log(kleur.grey('uri:      %s'), webservice.server.info.uri);
+			console.log(kleur.grey('database: %s'), config.webservice.database);
+			console.log(kleur.grey('cron:     %s'), config.webservice.cron);
 		});
 	}
 
