@@ -26,14 +26,14 @@
   },
   "dependencies": {
     "body-parser": "~1.19.0",
-    "chalk": "~2.4.2",
     "compression": "~1.7.4",
-    "express-hbs": "~2.1.2",
     "express": "~4.17.1",
+    "express-hbs": "~2.1.2",
     "http-headers": "~3.0.2",
+    "kleur": "^4.0.2",
     "moment": "~2.24.0",
-    "pa11y-webservice-client-node": "~2.0.0",
     "pa11y-webservice": "~3.1.2",
+    "pa11y-webservice-client-node": "~2.0.0",
     "underscore": "~1.9.1"
   },
   "devDependencies": {

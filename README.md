@@ -139,7 +139,7 @@ If you're opening issues related to these, please mention the version that the i
 ## License
 
 Pa11y Dashboard is licensed under the [GNU General Public License 3.0][info-license].<br/>
-Copyright &copy; 2013–2019, Team Pa11y and contributors
+Copyright &copy; 2013–2020, Team Pa11y and contributors
 
 [gpl]: http://www.gnu.org/licenses/gpl-3.0.html
 [mongo]: http://www.mongodb.org/
