@@ -35,7 +35,7 @@ require('./app')(config, (error, app) => {
 
 	app.on('route-error', error => {
 		const stack = (error.stack ? error.stack.split('\n') : [error.message]);
-		const msg = red(stack.shift());
+		const msg = kleur.red(stack.shift());
 		console.error('');
 		console.error(msg);
 		console.error(kleur.grey(stack.join('\n')));
