@@ -30,22 +30,22 @@
     "express": "~4.17.1",
     "express-hbs": "~2.1.2",
     "http-headers": "~3.0.2",
-    "kleur": "^4.0.2",
-    "moment": "~2.24.0",
-    "pa11y-webservice": "~3.1.2",
+    "kleur": "~4.1.2",
+    "moment": "~2.29.0",
+    "pa11y-webservice": "~3.2.0",
     "pa11y-webservice-client-node": "~2.0.0",
-    "underscore": "~1.9.1"
+    "underscore": "~1.11.0"
   },
   "devDependencies": {
     "bower": "^1.8.8",
     "cheerio": "^1.0.0-rc.3",
     "eslint": "^6.8.0",
     "less": "^3.11.1",
-    "mocha": "^7.1.1",
+    "mocha": "^7.2.0",
     "pa11y-lint-config": "^1.2.1",
     "proclaim": "^3.6.0",
     "request": "^2.88.2",
-    "uglify-js": "^3.9.1"
+    "uglify-js": "^3.11.0"
   },
   "scripts": {
     "start": "node index.js",
