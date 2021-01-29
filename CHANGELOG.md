@@ -1,5 +1,8 @@
 # Changelog
 
+* Mocha v8.0.0 now requires Node.js v10.12.0 or newer
+* Start testing against Node.js v14 and drop testing versions below v12
+
 ## 3.2.0 (2020-10-05)
 
 * Update pa11y to version 5.3.0, which means better compatibility with sites using AMD modules
