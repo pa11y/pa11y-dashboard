@@ -92,7 +92,6 @@ function initApp(config, callback) {
 
 	// Load routes
 	require('./route/index')(app);
-	require('./route/task/index')(app);
 	require('./route/result/download')(app);
 	if (!config.readonly) {
 		require('./route/new')(app);
@@ -102,6 +101,8 @@ function initApp(config, callback) {
 		require('./route/task/ignore')(app);
 		require('./route/task/unignore')(app);
 	}
+	// Needs to be loaded after `/route/new`
+	require('./route/task/index')(app);
 	// Needs to be loaded after `/route/task/edit`
 	require('./route/result/index')(app);
 
