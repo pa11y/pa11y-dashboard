@@ -57,7 +57,7 @@ brew install mongodb-community@3.4
 
 Start the MongoDB server:
 ```sh
-brew services start mongodb/brew/mongodb-community
+brew services start mongodb/brew/mongodb-community@3.4
 ```
 
 Check that the service has started properly:
