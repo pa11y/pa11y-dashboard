@@ -221,12 +221,6 @@
 	text-decoration: none;
 	background-color: darken(@gray-lighter, 2%);
   }
-  .h3 {
-	text-overflow: ellipsis;
-	overflow: hidden;
-	width: 100%;
-	white-space: nowrap;
-  }
   .task-stats li {
 	padding: 7px 0 6px 0;
 	text-align: center;
@@ -235,6 +229,23 @@
   .dropdown-menu {
 	top: 25px;
   }
+	.gridview {
+		.h3 {
+			text-overflow: ellipsis;
+			overflow: hidden;
+			width: 100%;
+			white-space: nowrap;
+  	}
+		.h4 {
+			display: none;
+		}
+	}
+	.listview {
+		padding-left: 0;
+	}
+	.last-run {
+		clear: both;
+	}
 }
 
 /* Badges */
@@ -722,4 +733,23 @@ ul.date-links {
 /* Popovers */
 .popover-content {
   overflow-x: auto;
+}
+
+/*list and grid view buttons */
+.view-btn {
+	&.btn-default, &.btn-default:hover, &.btn-default:focus {
+		color: #ffffff;
+	}
+	&:hover {
+		color: #000000;
+	}
+	&:last-child:not(:first-child) {
+		border-bottom-left-radius: 0;
+		border-top-left-radius: 0;
+		margin-left: -3px;
+	}
+	&:first-child:not(:last-child) {
+		border-bottom-right-radius: 0;
+		border-top-right-radius: 0;
+	}
 }
