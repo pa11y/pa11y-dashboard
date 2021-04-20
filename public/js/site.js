@@ -27,6 +27,8 @@ $(document).ready(function(){
     var graphContainer = $('[data-role="graph"]');
     var dateSelectDropdownMenu = $('[data-role="date-select-dropdown-menu"]');
     var legend = graphContainer.parent('.graph-container').find('.dashedLegend');
+	var list = localStorage.getItem("listview") || "";    // get choice or nothing
+
 
     var graphOptions = {
         series: {
@@ -397,4 +399,38 @@ $(document).ready(function(){
 		$.fn.collapse.Constructor.prototype.keydown
 	);
 
+	// List View
+	$('.btn-list').click(function () {
+		var elements = $("#grid-container .task-card");
+		for (i = 0; i < elements.length; i++) {
+			$(elements[i]).removeClass('col-md-4 col-sm-6');
+			$(elements[i]).addClass('col-md-12');
+			$(elements[i]).find('.gridview:nth-child(1)').addClass('listview col-md-9 col-sm-8');
+			$(elements[i]).find('.gridview:nth-child(2)').addClass('listview col-md-3 col-sm-4 task-actions clearfix');
+			$(elements[i]).find('.gridview').removeClass('gridview');
+		};
+		$('.view-btn').removeClass('btn-default')
+		$(this).addClass('btn-default');
+		localStorage.setItem("listview", "yes") //save the choice
+	});
+
+	// Grid View
+	$('.btn-grid').click(function () {
+		var elements = $("#grid-container .task-card");
+		for (i = 0; i < elements.length; i++) {
+			$(elements[i]).removeClass('col-md-12');
+			$(elements[i]).addClass('col-md-4 col-sm-6');
+			$(elements[i]).find('.listview').addClass('gridview')
+			$(elements[i]).find('.listview:nth-child(1)').removeClass('listview col-md-9 col-sm-8');
+			$(elements[i]).find('.listview:nth-child(2)').removeClass('listview col-md-3 col-sm-4 task-actions clearfix');
+		};
+		$('.view-btn').removeClass('btn-default')
+		$(this).addClass('btn-default')
+		localStorage.setItem("listview", "") //clears the choice
+	});
+
+	//load the view as per user's choice
+	if (list === 'yes') {
+		$('.btn-list').trigger('click');
+	}
 });

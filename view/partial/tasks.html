@@ -14,11 +14,15 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 }}
+<div class="col-md-12 task-card clearfix">
+	<button class="btn view-btn btn-grid btn-default"><i class="glyphicon glyphicon-th"></i> Grid</button>
+	<button class="btn view-btn btn-list"><i class="glyphicon glyphicon-align-justify "></i> List</button>
 
-<ul class="list-unstyled clearfix crunch-bottom">
+</div>
+<ul class="list-unstyled clearfix crunch-bottom" id="grid-container">
 
 	{{#unless readonly}}
-	        <li class="col-md-4 col-sm-6 task-card add-task">
+		<li class="col-md-4 col-sm-6 task-card add-task">
 			<a class="well task-card-link crunch-bottom" data-role="add-task" href="/new" data-test="add-task">
 				<p class="h3 crunch">Add new URL</p>
 				<p class="supersize-me crunch">+</p>
@@ -28,17 +32,23 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 	{{#each tasks}}
 		<li class="col-md-4 col-sm-6 task-card" data-test="task" data-role="task" data-keywords="{{lowercase name}} {{lowercase standard}} {{simplify-url url}}">
 			<a class="well task-card-link crunch-bottom" title="Details for URL {{simplify-url url}}" href="{{href}}">
-				<p class="h3">{{name}}</p>
-				<p class="h5">({{standard}})</p>
+				<div class="gridview">
+					<p class="h3">{{name}}</p>
+					<p class="h4">{{simplify-url url}}</p>
+					<p class="h5">({{standard}})</p>
+				</div>
+
 				{{#if lastResult}}
-				<ul class="clearfix list-unstyled floated-list task-stats">
-					{{#lastResult}}
-						<li class="danger" title="Number of errors ({{count.error}})">{{count.error}}<span class="stat-type">Errors</span></li>
-						<li class="warning" title="Number of warnings ({{count.warning}})">{{count.warning}}<span class="stat-type">Warnings</span></li>
-						<li class="info last" title="Number of notices ({{count.notice}})">{{count.notice}}<span class="stat-type">Notices</span></li>
-					{{/lastResult}}
-				</ul>
-				Last run {{date-format lastResult.date format="DD MMM YYYY"}}
+				<div class="gridview">
+					<ul class="clearfix list-unstyled floated-list task-stats">
+						{{#lastResult}}
+							<li class="danger" title="Number of errors ({{count.error}})">{{count.error}}<span class="stat-type">Errors</span></li>
+							<li class="warning" title="Number of warnings ({{count.warning}})">{{count.warning}}<span class="stat-type">Warnings</span></li>
+							<li class="info last" title="Number of notices ({{count.notice}})">{{count.notice}}<span class="stat-type">Notices</span></li>
+						{{/lastResult}}
+					</ul>
+				</div>
+				<div class="last-run">Last run {{date-format lastResult.date format="DD MMM YYYY"}}</div>
 				{{else}}
 					<p class="no-results">No results</p>
 				{{/if}}
