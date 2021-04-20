@@ -41,10 +41,18 @@ describe.only('GET /', function() {
 	it('should display all of the expected tasks', function() {
 		const tasks = this.last.dom('[data-test=task]');
 		assert.strictEqual(tasks.length, 4);
-		assert.match(tasks.eq(0).text(), /npg home\s+\(wcag2aa\)/i);
-		assert.match(tasks.eq(1).text(), /npg home\s+\(wcag2aaa\)/i);
-		assert.match(tasks.eq(2).text(), /nature news\s+\(section508\)/i);
-		assert.match(tasks.eq(3).text(), /z integration test\s+\(wcag2aa\)/i);
+		assert.equal(tasks.eq(0).find('.h3').text(), 'NPG Home');
+		assert.equal(tasks.eq(0).find('.h4').text(), 'nature.com');
+		assert.equal(tasks.eq(0).find('.h5').text(), '(WCAG2AA)');
+		assert.equal(tasks.eq(1).find('.h3').text(), 'NPG Home');
+		assert.equal(tasks.eq(1).find('.h4').text(), 'nature.com');
+		assert.equal(tasks.eq(1).find('.h5').text(), '(WCAG2AAA)');
+		assert.equal(tasks.eq(2).find('.h3').text(), 'Nature News');
+		assert.equal(tasks.eq(2).find('.h4').text(), 'nature.com/news');
+		assert.equal(tasks.eq(2).find('.h5').text(), '(Section508)');
+		assert.equal(tasks.eq(3).find('.h3').text(), 'Z Integration Test');
+		assert.equal(tasks.eq(3).find('.h4').text(), 'localhost:8132');
+		assert.equal(tasks.eq(3).find('.h5').text(), '(WCAG2AA)');
 	});
 
 	it('should have links to each task', function() {
