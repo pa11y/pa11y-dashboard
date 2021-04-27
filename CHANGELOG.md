@@ -1,7 +1,8 @@
 # Changelog
 
-## 3.2.1 (2021-04-27)
+## 3.3.0 (2021-04-27)
 
+* Add new list view to the dashboard (thanks @sangitamane)
 * Upgrade express-hbs to the latest version in order to address several potential vulnerabilities
 * Fixes a MongoDB "ObjectID generation failed" error.
 * Update pa11y-webservice to version 3.2.1 and pa11y to version 5.3.1
