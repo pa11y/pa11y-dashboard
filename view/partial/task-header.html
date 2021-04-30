@@ -8,32 +8,35 @@ the Free Software Foundation, either version 3 of the License, or
 
 Pa11y Dashboard is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
+along with Pa11y Dashboard. If not, see
+<http: //www.gnu.org/licenses />.
 }}
 <div class="col-md-12 zfix">
 	<div class="ruled task-header">
 		<div class="row clearfix">
 			<div class="col-md-12">
 				<h1 class="h2 crunch-top">{{task.name}}</h1>
-				<p class="h4"><a href="{{task.url}}">{{simplify-url task.url}}</a><span class="h5"> ({{task.standard}})</span></p>
+				<p class="h4"><a href="{{task.url}}">{{simplify-url task.url}}</a><span class="h5">
+						({{task.standard}})</span></p>
 			</div>
 			<div class="run-details task-header clearfix">
 				<div class="col-md-12 clearfix">
 					{{#unless readonly}}
-				        <ul class="inline-list" role="menu">
-				          	<li><a href="/{{task.id}}/edit">Edit this task</a></li>
-							<li><a href="/{{task.id}}/delete">Delete this task</a></li>
-							<li><a href="{{task.hrefRun}}" data-test="run-task">Run Pa11y</a></li>
-						</ul>
+					<ul class="inline-list" role="menu">
+						<li><a href="/{{task.id}}/edit">Edit this task</a></li>
+						<li><a href="/{{task.id}}/delete">Delete this task</a></li>
+						<li><a href="{{task.hrefRun}}" data-test="run-task">Run Pa11y</a></li>
+					</ul>
 					{{/unless}}
 					{{#if mainResult}}
-						<div class="date">Last run: <strong>{{date-format mainResult.date format="DD MMM YYYY"}}</strong></div>
+					<div class="date">Last run: <strong>{{date-format mainResult.date format="DD MMM YYYY
+							HH:mm"}}</strong></div>
 					{{else}}
-						<div class="date">Not yet run</div>
+					<div class="date">Not yet run</div>
 					{{/if}}
 				</div>
 			</div>
