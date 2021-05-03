@@ -1,6 +1,6 @@
 {
   "name": "pa11y-dashboard",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "private": true,
   "description": "Pa11y Dashboard is a visual web interface to the Pa11y accessibility reporter",
   "keywords": [
@@ -28,11 +28,11 @@
     "body-parser": "~1.19.0",
     "compression": "~1.7.4",
     "express": "~4.17.1",
-    "express-hbs": "~2.1.2",
+    "express-hbs": "~2.4.0",
     "http-headers": "~3.0.2",
     "kleur": "~4.1.2",
     "moment": "~2.29.0",
-    "pa11y-webservice": "~3.2.0",
+    "pa11y-webservice": "~3.2.1",
     "pa11y-webservice-client-node": "~2.0.0",
     "underscore": "~1.11.0"
   },
