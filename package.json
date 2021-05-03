@@ -32,6 +32,7 @@
     "http-headers": "~3.0.2",
     "kleur": "~4.1.2",
     "moment": "~2.29.0",
+    "node-fetch": "^2.6.1",
     "pa11y-webservice": "~3.2.1",
     "pa11y-webservice-client-node": "~2.0.0",
     "underscore": "~1.11.0"
