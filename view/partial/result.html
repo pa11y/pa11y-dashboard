@@ -41,7 +41,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;&nbsp;{{date-format task.lastResult.date format="DD MMM YYYY"}}
 						</h2>
 						<h3 class="h5 show-stats">Select a date to show stats for:</h3>
-						<ul role="navigation" class="dates-list">
+						<ul role="navigation" class="dates-list" aria-label="Sidebar">
 							{{#results}}
 								<li><a class="" href="{{href}}">{{date-format date format="DD MMM YYYY"}}</a></li>
 							{{/results}}
@@ -116,8 +116,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
 							<div class="task-details collapse" id="error-index-{{@index}}">
 								{{#if solutions.length}}
-									<div class="subtitle" id="error-solutions">Solutions:</div>
-									<ul class="list-unstyled solutions-list" role="list" aria-labelledby="error-solutions">
+									<div class="subtitle">Solutions:</div>
+									<ul class="list-unstyled solutions-list" role="list">
 										{{#each solutions}}
 											<li class="list-unstyled__item" role="listitem">
 												<a class="link" href="{{url}}" target="_blank">
@@ -129,8 +129,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 								{{/if}}
 
 								{{#if items.length}}
-									<div class="subtitle" id="error-selectors">Selectors:</div>
-									<ul class="list-unstyled selectors-list" role="list" aria-labelledby="error-selectors">
+									<div class="subtitle">Selectors:</div>
+									<ul class="list-unstyled selectors-list" role="list">
 										{{#each items}}
 											<li class="list-unstyled__item" role="listitem">
 												<span title="Context" data-role="context-popover" data-toggle="popover" data-content="{{context}}">
@@ -182,8 +182,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
 							<div class="task-details collapse" id="warning-index-{{@index}}">
 								{{#if solutions.length}}
-									<div class="subtitle" id="warning-solutions">Solutions:</div>
-									<ul class="list-unstyled solutions-list" role="list" aria-labelledby="warning-solutions">
+									<div class="subtitle">Solutions:</div>
+									<ul class="list-unstyled solutions-list" role="list">
 										{{#each solutions}}
 											<li class="list-unstyled__item" role="listitem">
 												<a class="link" href="{{url}}" target="_blank">
@@ -195,8 +195,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 								{{/if}}
 
 								{{#if items.length}}
-									<div class="subtitle" id="warning-selectors">Selectors:</div>
-									<ul class="list-unstyled selectors-list" role="list" aria-labelledby="warning-selectors">
+									<div class="subtitle">Selectors:</div>
+									<ul class="list-unstyled selectors-list" role="list">
 										{{#each items}}
 											<li class="list-unstyled__item" role="listitem">
 												<span title="Context" data-role="context-popover" data-toggle="popover" data-content="{{context}}">
@@ -248,8 +248,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
 							<div class="task-details collapse" id="notice-index-{{@index}}">
 								{{#if solutions.length}}
-									<div class="subtitle" id="notice-solutions">Solutions:</div>
-									<ul class="list-unstyled solutions-list" role="list" aria-labelledby="notice-solutions">
+									<div class="subtitle">Solutions:</div>
+									<ul class="list-unstyled solutions-list" role="list">
 										{{#each solutions}}
 											<li class="list-unstyled__item" role="listitem">
 												<a class="link" href="{{url}}" target="_blank">
@@ -261,8 +261,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 								{{/if}}
 
 								{{#if items.length}}
-									<div class="subtitle" id="notice-selectors">Selectors:</div>
-									<ul class="list-unstyled selectors-list" role="list" aria-labelledby="notice-selectors">
+									<div class="subtitle">Selectors:</div>
+									<ul class="list-unstyled selectors-list" role="list">
 										{{#each items}}
 											<li class="list-unstyled__item" role="listitem">
 												<span title="Context" data-role="context-popover" data-toggle="popover" data-content="{{context}}">
