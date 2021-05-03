@@ -1,9 +1,21 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable strict */
-function runAllTasks() {
-	const run = async () => {
-		const response = await fetch('http://example.com/movies.json');
-		const myJson = await response.json(); //extract JSON from the http response
-		// do something with myJson
+/* eslint-disable id-blacklist */
+'use strict';
+
+const MongoClient = require('mongodb').MongoClient;
+const url = 'mongodb://localhost/pa11y-webservice-dev';
+
+MongoClient.connect(url, (err, db) => {
+	if (err) {
+		throw err;
 	}
-}
+	const dbo = db.db('pa11y-webservice-dev');
+	const query = {};
+
+	dbo.collection('tasks').find(query).toArray((_err, result) => {
+		if (err) {
+			throw err;
+		}
+		console.log(result);
+		db.close();
+	});
+});
