@@ -16,6 +16,12 @@ MongoClient.connect(url, (err, db) => {
 			throw err;
 		}
 		console.log(result);
+		// eslint-disable-next-line no-shadow
+		const idArray = result.map(result => {
+			// eslint-disable-next-line no-underscore-dangle
+			return result._id;
+		});
+		console.log(idArray);
 		db.close();
 	});
 });
