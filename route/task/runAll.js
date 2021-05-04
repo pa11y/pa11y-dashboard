@@ -15,17 +15,13 @@
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 'use strict';
 
-// const { runAll } = require('../../view/custom_functions/runAllTasks.js');
-
 module.exports = route;
 
 // Route definition
 function route(app) {
 	app.express.get('/run-all/', () => {
-		console.log('HEELLLLOOO - REQUEST SENT');
 		runAll();
 	});
-
 }
 
 function runAll() {
