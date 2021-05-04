@@ -56,7 +56,7 @@ function runAll() {
 				const postUrl = `http://0.0.0.0:3999/tasks/${idArray[i]}/run`;
 				fetch(postUrl, {
 					method: 'POST'
-				}).then(res => {
+				}).then(() => {
 					// eslint-disable-next-line max-len
 					console.log(`${idArray[i]} task successfully run! Request #${i} / ${idArray.length}`);
 				});
