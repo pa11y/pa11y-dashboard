@@ -1,3 +1,5 @@
+/* eslint-disable max-statements */
+/* eslint-disable id-blacklist */
 // This file is part of Pa11y Dashboard.
 //
 // Pa11y Dashboard is free software: you can redistribute it and/or modify
@@ -92,6 +94,7 @@ function initApp(config, callback) {
 
 	// Load routes
 	require('./route/index')(app);
+	require('./route/task/runAll')(app);
 	require('./route/result/download')(app);
 	if (!config.readonly) {
 		require('./route/new')(app);
