@@ -1,4 +1,4 @@
-{{! 
+{{!
 This file is part of Pa11y Dashboard.
 
 Pa11y Dashboard is free software: you can redistribute it and/or modify
@@ -8,40 +8,44 @@ the Free Software Foundation, either version 3 of the License, or
 
 Pa11y Dashboard is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
+along with Pa11y Dashboard. If not, see
+<http: //www.gnu.org/licenses />.
 }}
 <!DOCTYPE html>
 <html lang="{{lang}}" class="no-javascript">
+
 <head>
 
 	<script>
 		document.documentElement.className = document.documentElement.className.replace('no-javascript', 'javascript');
 	</script>
-	<meta charset="utf-8"/>
+	<meta charset="utf-8" />
 	<title>{{block "title"}}</title>
-	<meta name="description" content="{{block "description"}}"/>
+	<meta name="description" content="{{block " description"}}" />
 
-	{{#if noindex}}<meta name="robots" content="noindex"/>{{/if}}
+	{{#if noindex}}
+	<meta name="robots" content="noindex" />{{/if}}
 
 	<link rel="icon" type="image/png" href="/favicon.png" />
 
 	<!-- For mobile devices. -->
-	<meta name="viewport" content="width=device-width"/>
+	<meta name="viewport" content="width=device-width" />
 
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700,900,400italic"/>
-	<link rel="stylesheet" href="/css/site.min.css?v={{version}}"/>
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700,900,400italic" />
+	<link rel="stylesheet" href="/css/site.min.css?v={{version}}" />
 
 </head>
 <!--[if IE 7]><body class="ie7"><![endif]-->
 <!--[if IE 8]><body class="ie8"><![endif]-->
 <!--[if IE 9]><body class="ie9"><![endif]-->
 <!--[if !IE]>-->
+
 <body>
-<!--<![endif]-->
+	<!--<![endif]-->
 
 	{{> page-header}}
 
@@ -49,22 +53,33 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
 	<div class="container">
 		{{#if readonly}}
-			<div class="row readonly-mode">
-		{{else}}
+		<div class="row readonly-mode">
+			{{else}}
 			<div class="row">
-		{{/if}}
-			<section>
-				<div class="section" role="main">
-					{{{body}}}
-				</div>
-			</section>
+				{{/if}}
+				<section>
+					<div class="section" role="main">
+						{{{body}}}
+					</div>
+				</section>
+			</div>
 		</div>
-	</div>
 
-	{{> page-footer}}
+		{{> page-footer}}
 
-	<script type="text/javascript" src="/js/site.min.js?v={{version}}"></script>
-	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/js/vendor/flot/excanvas.min.js"></script><![endif]-->
-
+		<script type="text/javascript" src="/js/site.min.js?v={{version}}"></script>
+		<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/js/vendor/flot/excanvas.min.js"></script><![endif]-->
+		<script>
+			$(document).ready(function () {
+				$('[data-toggle="tooltip"]').tooltip();
+			});
+		</script>
+		<script type="text/javascript">
+			function clickRefresh() {
+				window.setTimeout(function () { window.location.reload(); }, 20000);
+			}
+			document.getElementById('run-all-tasks-button').onclick = clickRefresh;
+		</script>
 </body>
+
 </html>

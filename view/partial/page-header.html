@@ -21,20 +21,29 @@ along with Pa11y Dashboard. If not, see
 			{{#if isHomePage}}<h1>{{else}}<div class="h1">{{/if}}
 					<a href="/">Niche a11y Monitoring</a> -
 					<span class="h3">keeping Niche accessible for all </span>
-					{{#if isHomePage}}</h1>{{else}}</div>{{/if}}
+					{{#if isHomePage}}
+			</h1>{{else}}
+		</div>{{/if}}
 		<hr>
-		<form action="/run-all/">
-			<button id='run-all-tasks-button'
-				style="background-color: #00806F; color: white; font-size: 18px; font-weight: bold;border-color: black; border-radius: 10px;">Run/update
-				all pages
-			</button>
-		</form>
-		<script type="text/javascript">
-			function clicka() {
-				window.setTimeout(function () { window.location.reload(); }, 20000);
-			}
-			document.getElementById('run-all-tasks-button').onclick = clicka;
-		</script>
+		<div style="display:-webkit-flex; align-items:center; justify-content: center;">
+			<div>
+				<form action="/run-all/">
+					<button class="custom-header-buttons" id='run-all-tasks-button' href="#" data-toggle="tooltip"
+						title="Click to re-run all pages. Update takes about 20 seconds to complete"
+						style="background-color: #bf1900; margin-right: 20px;">🔄 Update all pages 
+					</button>
+				</form>
+			</div>
+			<div>
+				<a target="_blank" rel="noopener noreferrer" data-toggle="tooltip"
+					title="Open the Niche Accessibility Hub in a new tab. Be sure to be connected to VPN!"
+					href="https://bookstack.niche.team/books/accessibility-%28a11y%29/page/accessibility-hub">
+					<button class="custom-header-buttons" id='hub-link-button' style="background-color: #00806F;">
+						📂 Niche A11y Hub 
+					</button>
+				</a>
+			</div>
+		</div>
 	</div>
 	</div>
 </header>
