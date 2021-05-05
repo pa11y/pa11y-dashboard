@@ -6802,3 +6802,11 @@ a:hover #hub-link-button {
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+.custom-header-buttons {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-color: black;
+    border-radius: 10px;
+}

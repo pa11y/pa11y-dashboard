@@ -23,7 +23,7 @@ along with Pa11y Dashboard. If not, see
 					<span class="h3">keeping Niche accessible for all </span>
 					{{#if isHomePage}}</h1>{{else}}</div>{{/if}}
 		<hr>
-		<div style="display:flex; margin-right: 10px; margin-left:10px; align-items:center; justify-content: center;">
+		<div style="display:-webkit-flex; margin-right: 10px; margin-left:10px; align-items:center; justify-content: center;">
 			<div>
 				<script>
 					$(document).ready(function () {
@@ -31,9 +31,9 @@ along with Pa11y Dashboard. If not, see
 					});
 				</script>
 				<form action="/run-all/">
-					<button id='run-all-tasks-button' href="#" data-toggle="tooltip"
+					<button class="custom-header-buttons" id='run-all-tasks-button' href="#" data-toggle="tooltip"
 						title="Click to re-run all tasks. Update takes about 20 seconds to complete"
-						style="margin-right: 10px;background-color: #bf1900; color: white; font-size: 18px; font-weight: bold;border-color: black; border-radius: 10px;">Run/update
+						style="margin-right: 10px;background-color: #bf1900;">Run/update
 						all pages
 					</button>
 					<script type="text/javascript">
@@ -47,12 +47,11 @@ along with Pa11y Dashboard. If not, see
 			<div>
 				<a target="_blank" rel="noopener noreferrer" data-toggle="tooltip"
 					title="Opens the Niche Accessibility Hub in a new tab"
-					href="https://bookstack.niche.team/books/accessibility-%28a11y%29/page/accessibility-hub"><button
-						id='hub-link-button'
-						style="background-color: #00806F; color: white; font-size: 18px; font-weight: bold;border-color: black; border-radius: 10px;">Niche
-						A11y
-						Hub
-					</button></a>
+					href="https://bookstack.niche.team/books/accessibility-%28a11y%29/page/accessibility-hub">
+					<button class="custom-header-buttons" id='hub-link-button' style="background-color: #00806F;">
+						Niche A11y Hub
+					</button>
+				</a>
 			</div>
 		</div>
 	</div>
