@@ -21,27 +21,17 @@ along with Pa11y Dashboard. If not, see
 			{{#if isHomePage}}<h1>{{else}}<div class="h1">{{/if}}
 					<a href="/">Niche a11y Monitoring</a> -
 					<span class="h3">keeping Niche accessible for all </span>
-					{{#if isHomePage}}</h1>{{else}}</div>{{/if}}
+					{{#if isHomePage}}
+			</h1>{{else}}
+		</div>{{/if}}
 		<hr>
-		<div style="display:-webkit-flex; margin-right: 10px; margin-left:10px; align-items:center; justify-content: center;">
+		<div style="display:-webkit-flex; align-items:center; justify-content: center;">
 			<div>
-				<script>
-					$(document).ready(function () {
-						$('[data-toggle="tooltip"]').tooltip();
-					});
-				</script>
 				<form action="/run-all/">
 					<button class="custom-header-buttons" id='run-all-tasks-button' href="#" data-toggle="tooltip"
-						title="Click to re-run all tasks. Update takes about 20 seconds to complete"
-						style="margin-right: 10px;background-color: #bf1900;">Run/update
-						all pages
+						title="Click to re-run all pages. Update takes about 20 seconds to complete"
+						style="background-color: #bf1900; margin-right: 20px;">Run/update all pages
 					</button>
-					<script type="text/javascript">
-						function clicka() {
-							window.setTimeout(function () { window.location.reload(); }, 20000);
-						}
-						document.getElementById('run-all-tasks-button').onclick = clicka;
-					</script>
 				</form>
 			</div>
 			<div>
