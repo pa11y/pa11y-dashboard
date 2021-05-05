@@ -22,6 +22,19 @@ along with Pa11y Dashboard. If not, see
 					<a href="/">Niche a11y Monitoring</a> -
 					<span class="h3">keeping Niche accessible for all </span>
 					{{#if isHomePage}}</h1>{{else}}</div>{{/if}}
+		<hr>
+		<form action="/run-all/">
+			<button id='run-all-tasks-button'
+				style="background-color: #00806F; color: white; font-size: 18px; font-weight: bold;border-color: black; border-radius: 10px;">Run/update
+				all pages
+			</button>
+		</form>
+		<script type="text/javascript">
+			function clicka() {
+				window.setTimeout(function () { window.location.reload(); }, 20000);
+			}
+			document.getElementById('run-all-tasks-button').onclick = clicka;
+		</script>
 	</div>
 	</div>
 </header>
