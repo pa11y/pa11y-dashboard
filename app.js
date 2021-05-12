@@ -42,6 +42,8 @@ function initApp(config, callback) {
 	app.server = http.createServer(app.express);
 	app.webservice = createClient(webserviceUrl);
 
+	process.setMaxListeners(15);
+	
 	// Compression
 	app.express.use(compression());
 
