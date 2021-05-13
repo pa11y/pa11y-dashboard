@@ -56,12 +56,14 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 			{{#unless ../readonly}}
 				<div class="btn-group options-button text-right">
 					<button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown"><span class="sr-only">Options</span><span class="glyphicon glyphicon-cog"></span></button>
-					<ul class="dropdown-menu pull-right" role="menu">
-						<li role="presentation"><a href="{{href}}/edit" role="menuitem">Edit this task</a></li>
-						<li role="presentation"><a href="{{href}}/delete" role="menuitem">Delete this task</a></li>
-						<li class="divider"></li>
-						<li role="presentation"><a href="{{href}}/run" data-test="run-task" role="menuitem">Run Pa11y</a></li>
-					</ul>
+					<nav aria-label="task tools">
+						<ul class="dropdown-menu pull-right">
+							<li><a href="{{href}}/edit">Edit this task</a></li>
+							<li><a href="{{href}}/delete">Delete this task</a></li>
+							<li class="divider"></li>
+							<li><a href="{{href}}/run" data-test="run-task">Run Pa11y</a></li>
+						</ul>
+					</nav>
 				</div>
 			{{/unless}}
 		</li>

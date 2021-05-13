@@ -40,12 +40,14 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 						<h2 class="h4">
 							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;&nbsp;{{date-format task.lastResult.date format="DD MMM YYYY"}}
 						</h2>
-						<h3 class="h5 show-stats">Select a date to show stats for:</h3>
-						<ul role="navigation" class="dates-list" aria-label="Sidebar">
-							{{#results}}
-								<li><a class="" href="{{href}}">{{date-format date format="DD MMM YYYY"}}</a></li>
-							{{/results}}
-						</ul>
+						<h3 class="h5 show-stats" id="dates-navigation">Select a date to show stats for:</h3>
+						<nav aria-labelledby="dates-navigation">
+							<ul class="dates-list">
+								{{#results}}
+									<li><a class="" href="{{href}}">{{date-format date format="DD MMM YYYY"}}</a></li>
+								{{/results}}
+							</ul>
+						</nav>
 					</div>
 				</div>
 			</div>
@@ -61,7 +63,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 	</div>
 </div>
 
-<div class="col-md-9" role="main">
+<div class="col-md-9">
 	<ul class="nav nav-tabs category-list" role="tablist">
 		<li class="category-list__item category-list__item_type_error active" role="presentation">
 			<a class="category-list__link" id="errors" href="#errors-list" aria-controls="errors-list" role="tab" data-toggle="tab" data-test="task-errors">
@@ -117,9 +119,9 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 							<div class="task-details collapse" id="error-index-{{@index}}">
 								{{#if solutions.length}}
 									<div class="subtitle">Solutions:</div>
-									<ul class="list-unstyled solutions-list" role="list">
+									<ul class="list-unstyled solutions-list">
 										{{#each solutions}}
-											<li class="list-unstyled__item" role="listitem">
+											<li class="list-unstyled__item">
 												<a class="link" href="{{url}}" target="_blank">
 													<span class="glyphicon glyphicon-share" aria-hidden="true"></span>&nbsp;{{title}}
 												</a>
@@ -130,9 +132,9 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
 								{{#if items.length}}
 									<div class="subtitle">Selectors:</div>
-									<ul class="list-unstyled selectors-list" role="list">
+									<ul class="list-unstyled selectors-list">
 										{{#each items}}
-											<li class="list-unstyled__item" role="listitem">
+											<li class="list-unstyled__item">
 												<span title="Context" data-role="context-popover" data-toggle="popover" data-content="{{context}}">
 													<code class="code">{{selector}}</code>
 												</span>
@@ -183,9 +185,9 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 							<div class="task-details collapse" id="warning-index-{{@index}}">
 								{{#if solutions.length}}
 									<div class="subtitle">Solutions:</div>
-									<ul class="list-unstyled solutions-list" role="list">
+									<ul class="list-unstyled solutions-list">
 										{{#each solutions}}
-											<li class="list-unstyled__item" role="listitem">
+											<li class="list-unstyled__item">
 												<a class="link" href="{{url}}" target="_blank">
 													<span class="glyphicon glyphicon-share" aria-hidden="true"></span>&nbsp;{{title}}
 												</a>
@@ -196,9 +198,9 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
 								{{#if items.length}}
 									<div class="subtitle">Selectors:</div>
-									<ul class="list-unstyled selectors-list" role="list">
+									<ul class="list-unstyled selectors-list">
 										{{#each items}}
-											<li class="list-unstyled__item" role="listitem">
+											<li class="list-unstyled__item">
 												<span title="Context" data-role="context-popover" data-toggle="popover" data-content="{{context}}">
 													<code class="code">{{selector}}</code>
 												</span>
@@ -249,9 +251,9 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 							<div class="task-details collapse" id="notice-index-{{@index}}">
 								{{#if solutions.length}}
 									<div class="subtitle">Solutions:</div>
-									<ul class="list-unstyled solutions-list" role="list">
+									<ul class="list-unstyled solutions-list">
 										{{#each solutions}}
-											<li class="list-unstyled__item" role="listitem">
+											<li class="list-unstyled__item">
 												<a class="link" href="{{url}}" target="_blank">
 													<span class="glyphicon glyphicon-share" aria-hidden="true"></span>&nbsp;{{title}}
 												</a>
@@ -262,9 +264,9 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
 								{{#if items.length}}
 									<div class="subtitle">Selectors:</div>
-									<ul class="list-unstyled selectors-list" role="list">
+									<ul class="list-unstyled selectors-list">
 										{{#each items}}
-											<li class="list-unstyled__item" role="listitem">
+											<li class="list-unstyled__item">
 												<span title="Context" data-role="context-popover" data-toggle="popover" data-content="{{context}}">
 													<code class="code">{{selector}}</code>
 												</span>
