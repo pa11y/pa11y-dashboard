@@ -112,7 +112,7 @@ function getStandards() {
 					description: 'The heading structure is not logically nested. This [Node name, eg. h2] element appears to be the primary document heading, so should be an h1 element.'
 				},
 				{
-					name: 'Section508.D.HeadingOrder',
+					name: 'Section508.D.HeadingOrder ',
 					description: 'The heading structure is not logically nested. This [Node name, eg. h4] element should be an [Expected heading node name, eg. h2] to be properly nested.'
 				},
 				{
@@ -922,7 +922,7 @@ function getStandards() {
 					description: 'This element\'s text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.'
 				},
 				{
-					name: 'WCAG2AA.Principle1.Guideline1_4.1_4_3.G145',
+					name: 'WCAG2AA.Principle1.Guideline1_4.1_4_3.G145 ',
 					description: 'This element\'s text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.'
 				},
 				{
@@ -1427,11 +1427,11 @@ function getStandards() {
 					description: 'This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of /{value/}. Recommendation: /{colour recommendations/}.'
 				},
 				{
-					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17',
+					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17 ',
 					description: 'This element\'s text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 7:1.'
 				},
 				{
-					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18',
+					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18 ',
 					description: 'This element\'s text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.'
 				},
 				{
