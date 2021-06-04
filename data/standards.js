@@ -21,211 +21,6 @@ module.exports = getStandards;
 function getStandards() {
 	return [
 		{
-			title: 'Section508',
-			rules: [
-				{
-					name: 'Section508.A.Audio',
-					description: 'For multimedia containing audio only, ensure an alternative is available, such as a full text transcript.'
-				},
-				{
-					name: 'Section508.A.Img.EmptyAltInLink',
-					description: 'Img element is the only content of the link, but is missing alt text. The alt text should describe the purpose of the link.'
-				},
-				{
-					name: 'Section508.A.Img.NullAltWithTitle',
-					description: 'Img element with empty alt text must have absent or empty title attribute.'
-				},
-				{
-					name: 'Section508.A.Img.Ignored',
-					description: 'Img element is marked so that it is ignored by Assistive Technology.'
-				},
-				{
-					name: 'Section508.A.Img.MissingAlt',
-					description: 'Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.'
-				},
-				{
-					name: 'Section508.A.Img.GeneralAlt',
-					description: 'Ensure that the img element\'s alt text serves the same purpose and presents the same information as the image.'
-				},
-				{
-					name: 'Section508.A.InputImage.MissingAlt',
-					description: 'Image submit button missing an alt attribute. Specify a text alternative that describes the button\'s function, using the alt attribute.'
-				},
-				{
-					name: 'Section508.A.InputImage.GeneralAlt',
-					description: 'Ensure that the image submit button\'s alt text identifies the purpose of the button.'
-				},
-				{
-					name: 'Section508.A.Area.MissingAlt',
-					description: 'Area element in an image map missing an alt attribute. Each area element must have a text alternative that describes the function of the image map area.'
-				},
-				{
-					name: 'Section508.A.Area.GeneralAlt',
-					description: 'Ensure that the area element\'s text alternative serves the same purpose as the part of image map image it references.'
-				},
-				{
-					name: 'Section508.A.Object.MissingBody',
-					description: 'Object elements must contain a text alternative after all other alternatives are exhausted.'
-				},
-				{
-					name: 'Section508.A.Object.GeneralAlt',
-					description: 'Check that short (and if appropriate, long) text alternatives are available for non-text content that serve the same purpose and present the same information.'
-				},
-				{
-					name: 'Section508.A.Applet.MissingBody',
-					description: 'Applet elements must contain a text alternative in the element\'s body, for browsers without support for the applet element.'
-				},
-				{
-					name: 'Section508.A.Applet.MissingAlt',
-					description: 'Applet elements must contain an alt attribute, to provide a text alternative to browsers supporting the element but are unable to load the applet.'
-				},
-				{
-					name: 'Section508.A.Applet.GeneralAlt',
-					description: 'Check that short (and if appropriate, long) text alternatives are available for non-text content that serve the same purpose and present the same information.'
-				},
-				{
-					name: 'Section508.B.Video',
-					description: 'For multimedia containing video, ensure a synchronised audio description or text alternative for the video portion is provided.'
-				},
-				{
-					name: 'Section508.B.Captions',
-					description: 'For multimedia containing synchronised audio and video, ensure synchronised captions are provided for the audio portion.'
-				},
-				{
-					name: 'Section508.C.Colour',
-					description: 'Ensure that any information conveyed using colour alone is also available without colour, such as through context or markup.'
-				},
-				{
-					name: 'Section508.D.Linearised',
-					description: 'Ensure that content is ordered in a meaningful sequence when linearised, such as when style sheets are disabled.'
-				},
-				{
-					name: 'Section508.D.HiddenText',
-					description: 'If content is hidden and made visible using scripting (such as "click to expand" sections), ensure this content is readable when scripts and style sheets are disabled.'
-				},
-				{
-					name: 'Section508.D.[msgCode]',
-					description: 'Semantic markup should be used to mark emphasised or special text so that it can be programmatically determined.'
-				},
-				{
-					name: 'Section508.D.HeadingOrder',
-					description: 'The heading structure is not logically nested. This [Node name, eg. h2] element appears to be the primary document heading, so should be an h1 element.'
-				},
-				{
-					name: 'Section508.D.HeadingOrder ',
-					description: 'The heading structure is not logically nested. This [Node name, eg. h4] element should be an [Expected heading node name, eg. h2] to be properly nested.'
-				},
-				{
-					name: 'Section508.G.TableHeaders',
-					description: 'This table has no headers. If this is a data table, ensure row and column headers are identified using th elements.'
-				},
-				{
-					name: 'Section508.H.IncorrectHeadersAttr',
-					description: 'Incorrect headers attribute on this td element. Expected "[Expected list of IDs]" but found "[Actual list of IDs]".'
-				},
-				{
-					name: 'Section508.H.MissingHeadersAttrs',
-					description: 'The relationship between td elements and their associated th elements is not defined. As this table has multiple levels of th elements, you must use the headers attribute on td elements.'
-				},
-				{
-					name: 'Section508.H.MissingHeaderIds',
-					description: 'Not all th elements in this table contain an id attribute. These cells should contain ids so that they may be referenced by td elements headers attributes.\''
-				},
-				{
-					name: 'Section508.H.IncompleteHeadersAttrs',
-					description: 'Not all td elements in this table contain a headers attribute. Each headers attribute should list the ids of all th elements associated with that cell.'
-				},
-				{
-					name: 'Section508.I.Frames',
-					description: 'This [Node Name] element is missing title text. Frames should be titled with text that facilitates frame identification and navigation.'
-				},
-				{
-					name: 'Section508.J.Flicker',
-					description: 'Check that no component of the content flickers at a rate of greater than 2 and less than 55 times per second.'
-				},
-				{
-					name: 'Section508.K.AltVersion',
-					description: 'If this page cannot be made compliant, a text-only page with equivalent information or functionality should be provided. The alternative page needs to be updated in line with this page\'s content.'
-				},
-				{
-					name: 'Section508.L.EmptyAnchorNoId',
-					description: 'Anchor element found with no link content and no name and/or ID attribute.'
-				},
-				{
-					name: 'Section508.L.PlaceholderAnchor',
-					description: 'Anchor element found with link content, but no href, ID or name attribute has been supplied.'
-				},
-				{
-					name: 'Section508.L.NoContentAnchor',
-					description: 'Anchor element found with a valid href attribute, but no link content has been supplied.'
-				},
-				{
-					name: 'Section508.L.DblClick',
-					description: 'Ensure the functionality provided by double-clicking on this element is available through the keyboard.'
-				},
-				{
-					name: 'Section508.L.MouseOver',
-					description: 'Ensure the functionality provided by mousing over this element is available through the keyboard; for instance, using the focus event.'
-				},
-				{
-					name: 'Section508.L.MouseOut',
-					description: 'Ensure the functionality provided by mousing out of this element is available through the keyboard; for instance, using the blur event.'
-				},
-				{
-					name: 'Section508.L.MouseMove',
-					description: 'Ensure the functionality provided by moving the mouse on this element is available through the keyboard.'
-				},
-				{
-					name: 'Section508.L.MouseDown',
-					description: 'Ensure the functionality provided by mousing down on this element is available through the keyboard; for instance, using the keydown event.'
-				},
-				{
-					name: 'Section508.L.MouseUp',
-					description: 'Ensure the functionality provided by mousing up on this element is available through the keyboard; for instance, using the keyup event.'
-				},
-				{
-					name: 'Section508.M.PluginLink',
-					description: 'If external media requires a plugin or application to view, ensure a link is provided to a plugin or application that complies with Section 508 accessibility requirements for applications.'
-				},
-				{
-					name: 'Section508.N.Errors',
-					description: 'If an input error is automatically detected in this form, check that the item(s) in error are identified and the error(s) are described to the user in text.'
-				},
-				{
-					name: 'Section508.N.Labels',
-					description: 'Check that descriptive labels or instructions (including for required fields) are provided for user input in this form.'
-				},
-				{
-					name: 'Section508.N.KeyboardNav',
-					description: 'Ensure that this form can be navigated using the keyboard and other accessibility tools.'
-				},
-				{
-					name: 'Section508.O.SkipLinks',
-					description: 'Ensure that any common navigation elements can be bypassed; for instance, by use of skip links, header elements, or ARIA landmark roles.'
-				},
-				{
-					name: 'Section508.O.NoSuchID',
-					description: 'This link points to a named anchor [ID] within the document, but no anchor exists with that name.'
-				},
-				{
-					name: 'Section508.O.NoSuchIDFragment',
-					description: 'This link points to a named anchor [ID] within the document, but no anchor exists with that name in the fragment tested.'
-				},
-				{
-					name: 'Section508.P.TimeLimit',
-					description: 'If a timed response is required on this page, alert the user and provide sufficient time to allow them to indicate that more time is required.'
-				},
-				{
-					name: 'Section508.P.MetaRedirect',
-					description: 'Meta refresh tag used to redirect to another page, with a time limit that is not zero. Users cannot control this time limit.'
-				},
-				{
-					name: 'Section508.P.MetaRefresh',
-					description: 'Meta refresh tag used to refresh the current page. Users cannot control the time limit for this refresh.'
-				}
-			]
-		},
-		{
 			title: 'WCAG2A',
 			rules: [
 				{
@@ -517,6 +312,10 @@ function getStandards() {
 					description: 'Check that this applet or plugin provides the ability to move the focus away from itself when using the keyboard.'
 				},
 				{
+					name: 'WCAG2A.1.Principle1.Guideline2_1.2_1_4.Check',
+					description: 'Check that if a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true: \nTurn off: A mechanism is available to turn the shortcut off;\nRemap: A mechanism is available to remap the shortcut to use one or more non- printable keyboard characters(e.g.Ctrl, Alt, etc);\nActive only on focus: The keyboard shortcut for a user interface component is only active when that component has focus.'
+				},
+				{
 					name: 'WCAG2A.Principle2.Guideline2_2.2_2_1.F40.2',
 					description: 'Meta refresh tag used to redirect to another page, with a time limit that is not zero. Users cannot control this time limit.'
 				},
@@ -535,6 +334,10 @@ function getStandards() {
 				{
 					name: 'WCAG2A.Principle2.Guideline2_2.2_2_2.F47',
 					description: 'Blink elements cannot satisfy the requirement that blinking information can be stopped within five seconds.'
+				},
+				{
+					name: 'WCAG2A.Principle1.Guideline2_2.2_2_6.Check',
+					description: 'Check that users are warned of the duration of any user inactivity that could cause data loss, unless the data is preserved for more than 20 hours when the user does not take any actions.'
 				},
 				{
 					name: 'WCAG2A.Principle2.Guideline2_3.2_3_1.G19,G176',
@@ -583,6 +386,38 @@ function getStandards() {
 				{
 					name: 'WCAG2A.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81',
 					description: 'Check that the link text combined with programmatically determined link context identifies the purpose of the link.'
+				},
+				{
+					name: 'WCAG2A.Principle1.Guideline2_5.2_5_1.Check',
+					description: 'Check that all functionality that uses multipoint or path-based gestures for operation can be operated with a single pointer without a path-based gesture, unless a multipoint or path-based gesture is essential.'
+				},
+				{
+					name: 'WCAG2A.Principle1.Guideline2_5.2_5_2.SinglePointer_Check',
+					description: 'Check that for functionality that can be operated using a single pointer, at least one of the following is true: \nNo Down- Event: The down - event of the pointer is not used to execute any part of the function; \nAbort or Undo: Completion of the function is on the up - event, and a mechanism is available to abort the function before completion or to undo the function after completion; \nUp Reversal: The up - event reverses any outcome of the preceding down - event; \nEssential: Completing the function on the down - event is essential.'
+				},
+				{
+					name: 'WCAG2A.Principle1.Guideline2_5.2_5_2.Mousedown_Check',
+					description: 'This element has an mousedown event listener. Check that for functionality that can be operated using a single pointer, at least one of the following is true: \nNo Down- Event: The down - event of the pointer is not used to execute any part of the function; \nAbort or Undo: Completion of the function is on the up - event, and a mechanism is available to abort the function before completion or to undo the function after completion; \nUp Reversal: The up - event reverses any outcome of the preceding down - event; \nEssential: Completing the function on the down - event is essential.'
+				},
+				{
+					name: 'WCAG2A.Principle1.Guideline2_5.2_5_2.Touchstart_Check',
+					description: 'This element has a touchstart event listener. Check that for functionality that can be operated using a single pointer, at least one of the following is true: \nNo Down- Event: The down - event of the pointer is not used to execute any part of the function; \nAbort or Undo: Completion of the function is on the up - event, and a mechanism is available to abort the function before completion or to undo the function after completion; \nUp Reversal: The up - event reverses any outcome of the preceding down - event; \nEssential: Completing the function on the down - event is essential.'
+				},
+				{
+					name: 'WCAG2A.Principle1.Guideline2_5.2_5_3_F96.Check',
+					description: 'Check that for user interface components with labels that include text or images of text, the name contains the text that is presented visually.'
+				},
+				{
+					name: 'WCAG2A.Principle1.Guideline2_5.2_5_3_F96.AccessibleName',
+					description: 'Accessible name for this element does not contain the visible label text. Check that for user interface components with labels that include text or images of text, the name contains the text that is presented visually.'
+				},
+				{
+					name: 'WCAG2A.Principle1.Guideline2_5.2_5_4.Check',
+					description: 'Check that functionality that can be operated by device motion or user motion can also be operated by user interface components and responding to the motion can be disabled to prevent accidental actuation, except when: \nSupported Interface: The motion is used to operate functionality through an accessibility supported interface; \nEssential: The motion is essential for the function and doing so would invalidate the activity.'
+				},
+				{
+					name: 'WCAG2A.Principle1.Guideline2_5.2_5_4.Devicemotion',
+					description: 'This element has a devicemotion event listener. Check that functionality that can be operated by device motion or user motion can also be operated by user interface components and responding to the motion can be disabled to prevent accidental actuation, except when: \nSupported Interface: The motion is used to operate functionality through an accessibility supported interface; \nEssential: The motion is essential for the function and doing so would invalidate the activity.'
 				},
 				{
 					name: 'WCAG2A.Principle3.Guideline3_1.3_1_1.H57.2',
@@ -902,6 +737,54 @@ function getStandards() {
 					description: 'Where instructions are provided for understanding the content, do not rely on sensory characteristics alone (such as shape, size or location) to describe objects.'
 				},
 				{
+					name: 'WCAG2AA.Principle1.Guideline1_3.1_3_4.RestrictView',
+					description: 'Check that content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_3.1_3_5_H98.FaultyValue',
+					description: 'This element contains a potentially faulty value in its autocomplete attribute.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Text',
+					description: 'Invalid autocomplete value. Element does not belong to Text control group.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Multiline',
+					description: 'Invalid autocomplete value. Element does not belong to Multiline control group.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Password',
+					description: 'Invalid autocomplete value. Element does not belong to Password control group.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Url',
+					description: 'Invalid autocomplete value. Element does not belong to Url control group.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Telephone',
+					description: 'Invalid autocomplete value. Element does not belong to Telephone control group.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Numeric',
+					description: 'Invalid autocomplete value. Element does not belong to Numeric control group.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Month',
+					description: 'Invalid autocomplete value. Element does not belong to Month control group.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Date',
+					description: 'Invalid autocomplete value. Element does not belong to Date control group.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_3.1_3_5_H98.Purpose',
+					description: 'Check that the input field serves a purpose identified in the Input Purposes for User Interface Components section; and that the content is implemented using technologies with support for identifying the expected meaning for form input data.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_3.1_3_5_H98.MissingAutocomplete',
+					description: 'This element does not have an autocomplete attribute. If this field collects information about the user, consider adding one to comply with this Success Criterion.'
+				},
+				{
 					name: 'WCAG2AA.Principle1.Guideline1_4.1_4_1.G14,G182',
 					description: 'Check that any information conveyed using colour alone is also available in text, or through other visual cues.'
 				},
@@ -942,6 +825,30 @@ function getStandards() {
 					description: 'If the technologies being used can achieve the visual presentation, check that text is used to convey information rather than images of text, except when the image of text is essential to the information being conveyed, or can be visually customised to the user\'s requirements.'
 				},
 				{
+					name: 'WCAG2AA.Principle1.Guideline1_4.1_4_10_C32,C31,C33,C38,SCR34,G206.Check',
+					description: 'Check that content can be presented without loss of information or functionality, and without requiring scrolling in two dimensions for: \nVertical scrolling content at a width equivalent to 320 CSS pixels;\\n Horizontal scrolling content at a height equivalent to 256 CSS pixels; \nExcept for parts of the content which require two-dimensional layout for usage or meaning.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_4.1_4_10_C32,C31,C33,C38,SCR34,G206.Fixed',
+					description: 'Principle1.Guideline1_4.1_4_10_C32,C31,C33,C38,SCR34,G206.Scrolling'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_4.1_4_10_C32,C31,C33,C38,SCR34,G206.Zoom',
+					description: 'Interfering with a user agents ability to zoom may be a failure of this Success Criterion.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_4.1_4_11_G195,G207,G18,G145,G174,F78.Check',
+					description: 'Check that the visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color(s): \nUser Interface Components: Visual information required to identify user interface components and states, except for inactive components or where the appearance of the component is determined by the user agent and not modified by the author; \nGraphical Objects: Parts of graphics required to understand the content, except when a particular presentation of graphics is essential to the information being conveyed.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_4.1_4_12_C36,C35.Check',
+					description: 'Check that no loss of content or functionality occurs by setting all of the following and by changing no other style property: \nLine height(line spacing) to at least 1.5 times the font size; \nSpacing following paragraphs to at least 2 times the font size; \nLetter spacing(tracking) to at least 0.12 times the font size; \nWord spacing to at least 0.16 times the font size'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline1_4.1_4_13_F95.Check',
+					description: 'Check that where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the following are true: \nDismissable: A mechanism is available to dismiss the additional content without moving pointer hover or keyboard focus, unless the additional content communicates an input error or does not obscure or replace other content; \nHoverable: If pointer hover can trigger the additional content, then the pointer can be moved over the additional content without the additional content disappearing; \nPersistent: The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid.'
+				},
+				{
 					name: 'WCAG2AA.Principle2.Guideline2_1.2_1_1.SCR20.DblClick',
 					description: 'Ensure the functionality provided by double-clicking on this element is available through the keyboard.'
 				},
@@ -970,6 +877,10 @@ function getStandards() {
 					description: 'Check that this applet or plugin provides the ability to move the focus away from itself when using the keyboard.'
 				},
 				{
+					name: 'WCAG2AA.Principle1.Guideline2_1.2_1_4.Check',
+					description: 'Check that if a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true: \nTurn off: A mechanism is available to turn the shortcut off; \nRemap: A mechanism is available to remap the shortcut to use one or more non- printable keyboard characters(e.g.Ctrl, Alt, etc); \nActive only on focus: The keyboard shortcut for a user interface component is only active when that component has focus.'
+				},
+				{
 					name: 'WCAG2AA.Principle2.Guideline2_2.2_2_1.F40.2',
 					description: 'Meta refresh tag used to redirect to another page, with a time limit that is not zero. Users cannot control this time limit.'
 				},
@@ -988,6 +899,10 @@ function getStandards() {
 				{
 					name: 'WCAG2AA.Principle2.Guideline2_2.2_2_2.F47',
 					description: 'Blink elements cannot satisfy the requirement that blinking information can be stopped within five seconds.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline2_2.2_2_6.Check',
+					description: 'Check that users are warned of the duration of any user inactivity that could cause data loss, unless the data is preserved for more than 20 hours when the user does not take any actions.'
 				},
 				{
 					name: 'WCAG2AA.Principle2.Guideline2_3.2_3_1.G19,G176',
@@ -1048,6 +963,38 @@ function getStandards() {
 				{
 					name: 'WCAG2AA.Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31',
 					description: 'Check that there is at least one mode of operation where the keyboard focus indicator can be visually located on user interface controls.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline2_5.2_5_1.Check',
+					description: 'Check that all functionality that uses multipoint or path-based gestures for operation can be operated with a single pointer without a path-based gesture, unless a multipoint or path-based gesture is essential.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline2_5.2_5_2.SinglePointer_Check',
+					description: 'Check that for functionality that can be operated using a single pointer, at least one of the following is true: \nNo Down- Event: The down - event of the pointer is not used to execute any part of the function; \nAbort or Undo: Completion of the function is on the up - event, and a mechanism is available to abort the function before completion or to undo the function after completion; \nUp Reversal: The up - event reverses any outcome of the preceding down - event; \nEssential: Completing the function on the down - event is essential.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline2_5.2_5_2.Mousedown_Check',
+					description: 'This element has an mousedown event listener. Check that for functionality that can be operated using a single pointer, at least one of the following is true: \nNo Down- Event: The down - event of the pointer is not used to execute any part of the function; \nAbort or Undo: Completion of the function is on the up - event, and a mechanism is available to abort the function before completion or to undo the function after completion; \nUp Reversal: The up - event reverses any outcome of the preceding down - event; \nEssential: Completing the function on the down - event is essential.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline2_5.2_5_2.Touchstart_Check',
+					description: 'This element has a touchstart event listener. Check that for functionality that can be operated using a single pointer, at least one of the following is true: \nNo Down- Event: The down - event of the pointer is not used to execute any part of the function; \nAbort or Undo: Completion of the function is on the up - event, and a mechanism is available to abort the function before completion or to undo the function after completion; \nUp Reversal: The up - event reverses any outcome of the preceding down - event; \nEssential: Completing the function on the down - event is essential.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline2_5.2_5_3_F96.Check',
+					description: 'Check that for user interface components with labels that include text or images of text, the name contains the text that is presented visually.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline2_5.2_5_3_F96.AccessibleName',
+					description: 'Accessible name for this element does not contain the visible label text. Check that for user interface components with labels that include text or images of text, the name contains the text that is presented visually.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline2_5.2_5_4.Check',
+					description: 'Check that functionality that can be operated by device motion or user motion can also be operated by user interface components and responding to the motion can be disabled to prevent accidental actuation, except when: \nSupported Interface: The motion is used to operate functionality through an accessibility supported interface; \nEssential: The motion is essential for the function and doing so would invalidate the activity.'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline2_5.2_5_4.Devicemotion',
+					description: 'WCAG2AA.This element has a devicemotion event listener. Check that functionality that can be operated by device motion or user motion can also be operated by user interface components and responding to the motion can be disabled to prevent accidental actuation, except when: \nSupported Interface: The motion is used to operate functionality through an accessibility supported interface; \nEssential: The motion is essential for the function and doing so would invalidate the activity.'
 				},
 				{
 					name: 'WCAG2AA.Principle3.Guideline3_1.3_1_1.H57.2',
@@ -1140,6 +1087,10 @@ function getStandards() {
 				{
 					name: 'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.[NodeName].Value',
 					description: 'This [element type] does not have a value available to an accessibility API. Add one [using a element-specific method].'
+				},
+				{
+					name: 'WCAG2AA.Principle1.Guideline4_1.4_1_3_ARIA22,G199,ARIA19,G83,G84,G85,G139,G177,G194,ARIA23.Check',
+					description: 'Check that status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.'
 				}
 			]
 		},
@@ -1411,6 +1362,58 @@ function getStandards() {
 					description: 'Where instructions are provided for understanding the content, do not rely on sensory characteristics alone (such as shape, size or location) to describe objects.'
 				},
 				{
+					name: 'WCAG2AAA.Principle1.Guideline1_3.1_3_4.RestrictView',
+					description: 'Check that content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_3.1_3_5_H98.FaultyValue',
+					description: 'This element contains a potentially faulty value in its autocomplete attribute.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Text',
+					description: 'Invalid autocomplete value. Element does not belong to Text control group.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Multiline',
+					description: 'Invalid autocomplete value. Element does not belong to Multiline control group.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Password',
+					description: 'Invalid autocomplete value. Element does not belong to Password control group.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Url',
+					description: 'Invalid autocomplete value. Element does not belong to Url control group.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Telephone',
+					description: 'Invalid autocomplete value. Element does not belong to Telephone control group.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Numeric',
+					description: 'Invalid autocomplete value. Element does not belong to Numeric control group.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Month',
+					description: 'Invalid autocomplete value. Element does not belong to Month control group.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_3.1_3_5_H98.InvalidAutocomplete_Date',
+					description: 'Invalid autocomplete value. Element does not belong to Date control group.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_3.1_3_5_H98.Purpose',
+					description: 'Check that the input field serves a purpose identified in the Input Purposes for User Interface Components section; and that the content is implemented using technologies with support for identifying the expected meaning for form input data.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_3.1_3_5_H98.MissingAutocomplete',
+					description: 'This element does not have an autocomplete attribute. If this field collects information about the user, consider adding one to comply with this Success Criterion.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_3.1_3_6_ARIA11.Check',
+					description: 'Check that the purpose of User Interface Components, icons, and regions can be programmatically determined.'
+				},
+				{
 					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_1.G14,G182',
 					description: 'Check that any information conveyed using colour alone is also available in text, or through other visual cues.'
 				},
@@ -1461,6 +1464,34 @@ function getStandards() {
 				{
 					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_9.G140,C22,C30.NoException',
 					description: 'Check that images of text are only used for pure decoration or where a particular presentation of text is essential to the information being conveyed.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_10_C32,C31,C33,C38,SCR34,G206.Check',
+					description: 'Check that content can be presented without loss of information or functionality, and without requiring scrolling in two dimensions for: \nVertical scrolling content at a width equivalent to 320 CSS pixels;\\n Horizontal scrolling content at a height equivalent to 256 CSS pixels; \nExcept for parts of the content which require two-dimensional layout for usage or meaning.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_10_C32,C31,C33,C38,SCR34,G206.Fixed',
+					description: 'Principle1.Guideline1_4.1_4_10_C32,C31,C33,C38,SCR34,G206.Scrolling'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_10_C32,C31,C33,C38,SCR34,G206.Zoom',
+					description: 'Interfering with a user agents ability to zoom may be a failure of this Success Criterion.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_11_G195,G207,G18,G145,G174,F78.Check',
+					description: 'Check that the visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color(s): \nUser Interface Components: Visual information required to identify user interface components and states, except for inactive components or where the appearance of the component is determined by the user agent and not modified by the author; \nGraphical Objects: Parts of graphics required to understand the content, except when a particular presentation of graphics is essential to the information being conveyed.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_12_C36,C35.Check',
+					description: 'Check that no loss of content or functionality occurs by setting all of the following and by changing no other style property: \nLine height(line spacing) to at least 1.5 times the font size; \nSpacing following paragraphs to at least 2 times the font size; \nLetter spacing(tracking) to at least 0.12 times the font size; \nWord spacing to at least 0.16 times the font size'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_13_F95.Check',
+					description: 'Check that where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the following are true: \nDismissable: A mechanism is available to dismiss the additional content without moving pointer hover or keyboard focus, unless the additional content communicates an input error or does not obscure or replace other content; \nHoverable: If pointer hover can trigger the additional content, then the pointer can be moved over the additional content without the additional content disappearing; \nPersistent: The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline2_1.2_1_4.Check',
+					description: 'Check that if a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true: \nTurn off: A mechanism is available to turn the shortcut off; \nRemap: A mechanism is available to remap the shortcut to use one or more non- printable keyboard characters(e.g.Ctrl, Alt, etc); \nActive only on focus: The keyboard shortcut for a user interface component is only active when that component has focus.'
 				},
 				{
 					name: 'WCAG2AAA.Principle2.Guideline2_1.2_1_1.SCR20.DblClick',
@@ -1523,8 +1554,56 @@ function getStandards() {
 					description: 'If this Web page is part of a set of Web pages with an inactivity time limit, check that an authenticated user can continue the activity without loss of data after re-authenticating.'
 				},
 				{
+					name: 'WCAG2AAA.Principle1.Guideline2_2.2_2_6.Check',
+					description: 'Check that users are warned of the duration of any user inactivity that could cause data loss, unless the data is preserved for more than 20 hours when the user does not take any actions.'
+				},
+				{
 					name: 'WCAG2AAA.Principle2.Guideline2_3.2_3_2.G19',
 					description: 'Check that no component of the content flashes more than three times in any 1-second period.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline2_3.2_3_3.Check',
+					description: 'Check that motion animation triggered by interaction can be disabled, unless the animation is essential to the functionality or the information being conveyed.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline2_5.2_5_1.Check',
+					description: 'Check that all functionality that uses multipoint or path-based gestures for operation can be operated with a single pointer without a path-based gesture, unless a multipoint or path-based gesture is essential.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline2_5.2_5_2.SinglePointer_Check',
+					description: 'Check that for functionality that can be operated using a single pointer, at least one of the following is true: \nNo Down- Event: The down - event of the pointer is not used to execute any part of the function; \nAbort or Undo: Completion of the function is on the up - event, and a mechanism is available to abort the function before completion or to undo the function after completion; \nUp Reversal: The up - event reverses any outcome of the preceding down - event; \nEssential: Completing the function on the down - event is essential.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline2_5.2_5_2.Mousedown_Check',
+					description: 'This element has an mousedown event listener. Check that for functionality that can be operated using a single pointer, at least one of the following is true: \nNo Down- Event: The down - event of the pointer is not used to execute any part of the function; \nAbort or Undo: Completion of the function is on the up - event, and a mechanism is available to abort the function before completion or to undo the function after completion; \nUp Reversal: The up - event reverses any outcome of the preceding down - event; \nEssential: Completing the function on the down - event is essential.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline2_5.2_5_2.Touchstart_Check',
+					description: 'This element has a touchstart event listener. Check that for functionality that can be operated using a single pointer, at least one of the following is true: \nNo Down- Event: The down - event of the pointer is not used to execute any part of the function; \nAbort or Undo: Completion of the function is on the up - event, and a mechanism is available to abort the function before completion or to undo the function after completion; \nUp Reversal: The up - event reverses any outcome of the preceding down - event; \nEssential: Completing the function on the down - event is essential.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline2_5.2_5_3_F96.Check',
+					description: 'Check that for user interface components with labels that include text or images of text, the name contains the text that is presented visually.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline2_5.2_5_3_F96.AccessibleName',
+					description: 'Accessible name for this element does not contain the visible label text. Check that for user interface components with labels that include text or images of text, the name contains the text that is presented visually.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline2_5.2_5_4.Check',
+					description: 'Check that functionality that can be operated by device motion or user motion can also be operated by user interface components and responding to the motion can be disabled to prevent accidental actuation, except when: \nSupported Interface: The motion is used to operate functionality through an accessibility supported interface; \nEssential: The motion is essential for the function and doing so would invalidate the activity.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline2_5.2_5_4.Devicemotion',
+					description: 'WCAG2AA.This element has a devicemotion event listener. Check that functionality that can be operated by device motion or user motion can also be operated by user interface components and responding to the motion can be disabled to prevent accidental actuation, except when: \nSupported Interface: The motion is used to operate functionality through an accessibility supported interface; \nEssential: The motion is essential for the function and doing so would invalidate the activity.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline2_5.2_5_5.Check',
+					description: 'Check that the size of the target for pointer inputs is at least 44 by 44 CSS pixels except when:\nEquivalent: The target is available through an equivalent link or control on the same page that is at least 44 by 44 CSS pixels;\nInline: The target is in a sentence or block of text;\nUser Agent Control: The size of the target is determined by the user agent and is not modified by the author;\nEssential: A particular presentation of the target is essential to the information being conveyed.'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline2_5.2_5_6.Check',
+					description: 'Check that the content does not restrict use of input modalities available on a platform except where the restriction is essential, required to ensure the security of the content, or required to respect user settings.'
 				},
 				{
 					name: 'WCAG2AAA.Principle2.Guideline2_4.2_4_1.H64.1',
@@ -1713,6 +1792,10 @@ function getStandards() {
 				{
 					name: 'WCAG2AAA.Principle4.Guideline4_1.4_1_2.H91.[NodeName].Value',
 					description: 'This [element type] does not have a value available to an accessibility API. Add one [using a element-specific method].'
+				},
+				{
+					name: 'WCAG2AAA.Principle1.Guideline4_1.4_1_3_ARIA22,G199,ARIA19,G83,G84,G85,G139,G177,G194,ARIA23.Check',
+					description: 'Check that status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.'
 				}
 			]
 		}
