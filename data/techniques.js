@@ -603,6 +603,114 @@ function getTechniques() {
 		H91: {
 			title: 'H91: Using HTML form controls and links',
 			url: 'http://www.w3.org/TR/WCAG20-TECHS/H91'
+		},
+		F102: {
+			title: 'F102: Failure of Success Criterion 1.4.10 due to content disappearing and not being available when content has reflowed',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/failures/F102'
+		},
+		F103: {
+			title: 'F103: Failure of Success Criterion 4.1.3 due to providing status messages that cannot be programmatically determined through role or properties',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/failures/F103'
+		},
+		F104: {
+			title: 'F104: Failure of Success Criterion 1.4.12 due to clipped or overlapped content when text spacing is adjusted',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/failures/F104'
+		},
+		F105: {
+			title: 'F105: Failure of Success Criterion 2.5.1 due to providing functionality via a path- based gesture without simple pointer alternative',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/failures/F105'
+		},
+		F106: {
+			title: 'F106: Failure due to inability to deactivate motion actuation',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/failures/F106'
+		},
+		G216: {
+			title: 'G216: Providing single point activation for a control slider',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/general/G216'
+		},
+		G215: {
+			title: 'G215: Providing controls to achieve the same result as path based or multipoint gestures',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/general/G215'
+		},
+		F100: {
+			title: 'F100: Failure of Success Criterion 1.3.4 due to showing a message asking to reorient device',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/failures/F100'
+		},
+		G214: {
+			title: 'G214: Using a control to allow access to content in different orientations which is otherwise restricted',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/general/G214'
+		},
+		C40: {
+			title: 'C40: Creating a two-color focus indicator to ensure sufficient contrast with all components',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/css/C40'
+		},
+		F99: {
+			title: 'F99: Failure of Success Criterion 2.1.4 due to implementing character key shortcuts that cannot be turned off or remapped',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/failures/F99'
+		},
+		SCR39: {
+			title: 'SCR39: Making content on focus or hover hoverable, dismissible, and persistent',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39'
+		},
+		G212: {
+			title: 'G212: Using native controls to ensure functionality is triggered on the up-event.',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/general/G212'
+		},
+		F98: {
+			title: 'F98: Failure due to interactions being limited to touch-only on touchscreen devices',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/failures/F98'
+		},
+		G213: {
+			title: 'G213: Provide conventional controls and an application setting for motion activated input',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/general/G213'
+		},
+		ARIA24: {
+			title: 'ARIA24: Semantically identifying a font icon with role="img"',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA24'
+		},
+		F97: {
+			title: 'F97: Failure due to locking the orientation to landscape or portrait view',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/failures/F97'
+		},
+		F52: {
+			title: 'F52: Failure of Success Criterion 3.2.1 and 3.2.5 due to opening a new window as soon as a new page is loaded ',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/failures/F52'
+		},
+		G209: {
+			title: 'G209: Provide sufficient contrast at the boundaries between adjoining colors',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/general/G209'
+		},
+		C39: {
+			title: 'C39: Using the CSS reduce-motion query to prevent motion',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/css/C39'
+		},
+		G207: {
+			title: 'G207: Ensuring that a contrast ratio of 3:1 is provided for icons',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/general/G207'
+		},
+		C38: {
+			title: 'C38: Using CSS width, max-width and flexbox to fit labels and inputs',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/css/C38'
+		},
+		C34: {
+			title: 'C34: Using media queries to un-fixing sticky headers / footers',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/css/C34'
+		},
+		C36: {
+			title: 'C36: Allowing for text spacing override',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/css/C36'
+		},
+		C37: {
+			title: 'C37: Using CSS max-width and height to fit images',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/css/C37'
+		},
+		F95: {
+			title: 'F95: Failure of Success Criterion 1.4.13 due to content shown on hover not being hoverable',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/failures/F95'
+		},
+		F96: {
+			title: 'F96: Failure due to the accessible name not containing the visible label text',
+			url: 'https://www.w3.org/WAI/WCAG21/Techniques/failures/F96'
 		}
 	};
 }
