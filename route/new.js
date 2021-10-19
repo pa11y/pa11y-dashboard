@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 // This file is part of Pa11y Dashboard.
 //
 // Pa11y Dashboard is free software: you can redistribute it and/or modify
@@ -30,7 +31,7 @@ function route(app) {
 			return standard;
 		});
 		response.render('new', {
-			standards: standards,
+			standards,
 			isNewTaskPage: true
 		});
 	});
@@ -84,8 +85,8 @@ function route(app) {
 				newTask.actions = request.body.actions;
 				newTask.headers = request.body.headers;
 				return response.render('new', {
-					error: error,
-					standards: standards,
+					error,
+					standards,
 					task: newTask
 				});
 			}

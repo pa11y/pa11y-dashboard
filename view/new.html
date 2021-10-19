@@ -78,8 +78,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 		<div class="row">
 			<div class="col-md-4 col-sm-4 col-xs-6">
 				<label class="control-label" for="new-task-wait">Wait (milliseconds)</label>
-				<input class="form-control" id="new-task-wait" type="text" placeholder="E.g. 3000" name="wait" value="{{task.wait}}"/>
-				<em>(Note: default wait time is 0ms)</em>
+				<input class="form-control" id="new-task-wait" type="text" placeholder="E.g. 3000" name="wait" value="{{task.wait}}" aria-describedby="int3"/>
+				<em id="int3">(Note: default wait time is 0ms)</em>
 			</div>
 		</div>
 	</div>
@@ -110,7 +110,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 		<div class="row">
 			<div class="col-md-4 col-sm-4 col-xs-6">
 				<label class="control-label" for="new-task-password">Password</label>
-				<input class="form-control" id="new-task-password" type="text" name="password" value="{{task.password}}"/> <em>(Note: this will be stored and displayed in plain-text - only suitable for use in a secure environment)</em>
+				<input class="form-control" id="new-task-password" type="text" name="password" value="{{task.password}}" aria-describedby="pwd"/> <span id="pwd"><em>(Note: this will be stored and displayed in plain-text - only suitable for use in a secure environment)</em></span>
 			</div>
 		</div>
 	</div>
@@ -119,8 +119,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 		<div class="row">
 			<div class="col-md-4 col-sm-4 col-xs-6">
 				<label class="control-label" for="new-task-headers">HTTP Headers</label>
-				<textarea class="form-control" id="new-task-headers" name="headers" placeholder="Cookie: foo=bar">{{task.headers}}</textarea>
-				<em>(As key/value pairs, separated by newlines/colons)</em>
+				<textarea class="form-control" id="new-task-headers" name="headers" placeholder="Cookie: foo=bar" aria-describedby="int1">{{task.headers}}</textarea>
+				<em id="int1">(As key/value pairs, separated by newlines/colons)</em>
 			</div>
 		</div>
 	</div>
@@ -129,7 +129,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 		<div class="row">
 			<div class="col-md-4 col-sm-4 col-xs-6">
 				<label class="control-label" for="new-task-hide-elements">Hide Elements</label>
-				<input class="form-control" id="new-task-hide-elements" type="text" name="hideElements" value="{{task.hideElements}}" placeholder=".advert, #modal, div[aria-role=presentation]"/> <em>(CSS selector)</em>
+				<input class="form-control" id="new-task-hide-elements" type="text" name="hideElements" value="{{task.hideElements}}" placeholder=".advert, #modal, div[aria-role=presentation]" aria-describedby="int2"/>
+				<em id="int2">(CSS selector)</em>
 			</div>
 		</div>
 	</div>

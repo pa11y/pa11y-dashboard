@@ -68,10 +68,12 @@
     function next() {
       $active
         .removeClass('active')
+        .attr('aria-selected', false)
         .find('> .dropdown-menu > .active')
         .removeClass('active')
 
       element.addClass('active')
+      element.attr('aria-selected', true)
 
       if (transition) {
         element[0].offsetWidth // reflow for transition

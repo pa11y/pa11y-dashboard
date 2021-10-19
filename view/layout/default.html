@@ -47,19 +47,19 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
 	{{> breadcrumb}}
 
-	<div class="container">
+	<main class="container" >
 		{{#if readonly}}
 			<div class="row readonly-mode">
 		{{else}}
 			<div class="row">
 		{{/if}}
 			<section>
-				<div class="section" role="main">
+				<div class="section">
 					{{{body}}}
 				</div>
 			</section>
 		</div>
-	</div>
+	</main>
 
 	{{> page-footer}}
 
