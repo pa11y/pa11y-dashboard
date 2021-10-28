@@ -26,7 +26,7 @@ $(document).ready(function(){
     var zoomResetButton = $('[data-role="zoom-reset"]');
     var graphContainer = $('[data-role="graph"]');
     var dateSelectDropdownMenu = $('[data-role="date-select-dropdown-menu"]');
-    var legend = graphContainer.parent('.graph-container').find('.dashedLegend');
+    var legend = graphContainer.parents('.graph-container').find('.dashedLegend');
 	var list = localStorage.getItem("listview") || "";    // get choice or nothing
 
 

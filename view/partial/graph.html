@@ -14,58 +14,61 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 }}
-<div class="col-md-12 clearfix">
-	<div class="graph-container graph-spacer ruled clearfix">
-		<div class="row">
-			<div class="col-md-3 col-sm-4 col-xs-3">
-				<span class="btn btn-sm btn-default btn-full-width btn_action_export">Export graph</span>
-			</div>
+<section class="col-md-12 clearfix">
+	<h2>Results Overview</h2>
 
-			<div class="col-md-5 col-sm-6 col-xs-9 pull-right">
-				<ul class="list-unstyled floated-list series-checkboxes clearfix" data-role="series-checkboxes"></ul>
+	<div class="col-md-12 graph-container graph-spacer ruled clearfix">
+		<div class="col-md-10">
+			<div class="row">
+				<div class="col-md-3 col-sm-4 col-xs-3">
+					<button class="btn btn-sm btn-default btn-full-width btn_action_export">Export graph</button>
+				</div>
+
+				<div class="col-md-5 col-sm-6 col-xs-9 pull-right">
+					<ul class="list-unstyled floated-list series-checkboxes clearfix" data-role="series-checkboxes"></ul>
+				</div>
 			</div>
+			<div data-role="graph" class="graph"></div>
 		</div>
-		<div data-role="graph" class="graph"></div>
-		<div class="dashedLegend">
+		<div class="col-md-2 dashedLegend">
 			<div class="dashedContainer">
-			    <table>
-			        <tbody>
-			            <tr>
-			                <td class="legendColorBox">
-			                    <div class="clearfix legendIcon legendErrors">
-			                        <div></div>
-			                    </div>
-			                </td>
-			                <td class="legendLabel">Errors</td>
-			            </tr>
-			            <tr>
-			                <td class="legendColorBox">
-			                    <div class="clearfix legendIcon legendWarnings">
-			                        <div></div><div></div>
-			                    </div>
-			                </td>
-			                <td class="legendLabel">Warnings</td>
-			            </tr>
-			            <tr>
-			                <td class="legendColorBox">
-			                    <div class="clearfix legendIcon legendNotices">
-			                        <div></div><div></div><div></div>
-			                    </div>
-			                </td>
-			                <td class="legendLabel">Notices</td>
-			            </tr>
-			        </tbody>
-			    </table>
+				<table>
+					<tbody>
+						<tr>
+							<td class="legendColorBox">
+								<div class="clearfix legendIcon legendErrors">
+									<div></div>
+								</div>
+							</td>
+							<td class="legendLabel">Errors</td>
+						</tr>
+						<tr>
+							<td class="legendColorBox">
+								<div class="clearfix legendIcon legendWarnings">
+									<div></div><div></div>
+								</div>
+							</td>
+							<td class="legendLabel">Warnings</td>
+						</tr>
+						<tr>
+							<td class="legendColorBox">
+								<div class="clearfix legendIcon legendNotices">
+									<div></div><div></div><div></div>
+								</div>
+							</td>
+							<td class="legendLabel">Notices</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 		<button data-role='zoom-reset' class="btn btn-xs btn-primary pull-right btn-reset hidden">Reset Zoom <i class="glyphicon glyphicon-zoom-out"></i></button>
 	</div>
-</div>
 
-<div class="col-md-12 hidden">
-	<div class="graph-spacer ruled">
+
+	<div class="ruled col-md-12">
 		<table id="graph-data" class="table graph-table" summary="Accessibility results from Pa11y for this page">
-			<caption>Pa11y results for this URL</caption>
+			<caption>Results for {{simplify-url task.url}}</caption>
 			<thead>
 				<tr>
 					<th>Date</th>
@@ -77,7 +80,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 			<tbody>
 			{{#results}}
 				<tr data-role="url-stats">
-					<td data-value="{{date-timestamp date}}" data-role="date">{{date-format date format="DD MMM YYYY"}}</td>
+					<td data-value="{{date-timestamp date}}" data-role="date"><a href="{{href}}">{{date-format date format="DD MMM YYYY"}}</a></td>
 					<td class="text-center" data-label="error">{{count.error}}</td>
 					<td class="text-center" data-label="warning">{{count.warning}}</td>
 					<td class="text-center" data-label="notice">{{count.notice}}</td>
@@ -86,4 +89,4 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 			</tbody>
 		</table>
 	</div>
-</div>
+</section>
