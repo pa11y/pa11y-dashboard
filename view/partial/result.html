@@ -15,17 +15,56 @@ You should have received a copy of the GNU General Public License
 along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 }}
 
-<section class="col-md-12">
-	<h2 id="tabSectionHeading" class="crunch-top">Results for {{date-format task.lastResult.date format="DD MMM YYYY"}}</h2>
-	<div id="resultsDownload">
-		<a href="{{mainResult.hrefCsv}}" class="btn btn-default" data-test="download-csv">
-			Download CSV <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
-		</a>
-		<a href="{{mainResult.hrefJson}}" class="btn btn-default" data-test="download-json">
-			Download JSON <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
-		</a>
+<div class="col-md-3 aside">
+	<div class="row">
+		<div class="action-buttons col-md-12 col-sm-6">
+			<div class="row">
+				<div class="col-md-12 col-sm-6 col-xs-12">
+			        <a href="{{mainResult.hrefCsv}}" class="btn-full-width btn btn-default" data-test="download-csv">
+			        	Download CSV <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+			        </a>
+				</div>
+				<div class="col-md-12 col-sm-6 col-xs-12">
+			        <a href="{{mainResult.hrefJson}}" class="btn-full-width btn btn-default" data-test="download-json">
+			        	Download JSON <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+			        </a>
+				</div>
+			</div>
+		</div>
 	</div>
-	<ul id="top" class="nav nav-tabs category-list" aria-labelledby="tabSectionHeading" role="tablist">
+
+	<div class="row date-selector-row">
+		<div class="col-md-12 col-sm-12 clearfix">
+			<div class="well dark-well">
+				<div class="date-selector">
+					<div class="btn-group block-level clearfix">
+
+						<h2 class="h3" id="dates-navigation">Select a date to show stats for: <span class="glyphicon glyphicon-calendar"></span></h2>
+						<nav aria-labelledby="dates-navigation">
+							<ul class="dates-list">
+								{{#results}}
+									<li><a class="" href="{{href}}">{{date-format date format="DD MMM YYYY"}}</a></li>
+								{{/results}}
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 col-sm-12 clearfix">
+			<div class="well">
+				<h2 class="crunch-top h3">View results in browser</h2>
+				<p class="crunch-bottom">Pa11y uses HTML_CodeSniffer to find accessibility issues. <a href="http://squizlabs.github.io/HTML_CodeSniffer/">Use their bookmarklet</a> to view results on the page you are testing.</p>
+			</div>
+	    </div>
+	</div>
+</div>
+
+<section class="col-md-9" id="top">
+	<h2 id="tabSectionHeading" class="crunch-top">Results</h2>
+	<ul class="nav nav-tabs category-list" aria-labelledby="tabSectionHeading" role="tablist">
 		<li class="category-list__item category-list__item_type_error active" aria-selected="true" role="presentation">
 			<a class="category-list__link" id="errors" href="#errors-list" aria-controls="errors-list" role="tab" data-toggle="tab" data-test="task-errors">
 				Errors ( {{mainResult.count.error}} )
@@ -284,8 +323,4 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 			{{/if}}
 		</div>
 	</div>	
-	<div class="well">
-		<h3 class="crunch-top h3">View results in browser</h3>
-		<p class="crunch-bottom">Pa11y uses HTML_CodeSniffer to find accessibility issues. <a href="http://squizlabs.github.io/HTML_CodeSniffer/">Use their bookmarklet</a> to view results on the page you are testing.</p>
-	</div>
 </section>
