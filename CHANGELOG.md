@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.1.0 (2021-11-26)
+
+* Add support for new WCAG 2.1 rules and remove all references to Section 508.
+* Move troubleshooting guide to the README.
+
 ## 4.0.0 (2021-11-26)
 
 * Update pa11y to version 6.
