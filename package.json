@@ -1,6 +1,6 @@
 {
   "name": "pa11y-dashboard",
-  "version": "3.3.0",
+  "version": "4.0.0",
   "private": true,
   "description": "Pa11y Dashboard is a visual web interface to the Pa11y accessibility reporter",
   "keywords": [
@@ -21,8 +21,7 @@
   "bugs": "https://github.com/pa11y/dashboard/issues",
   "license": "GPL-3.0",
   "engines": {
-    "node": ">=8",
-    "npm": ">=6"
+    "node": ">=12 <16"
   },
   "dependencies": {
     "body-parser": "~1.19.0",
