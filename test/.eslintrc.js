@@ -1,7 +1,7 @@
 'use strict';
 
 // Clone the main config
-var config = module.exports = JSON.parse(JSON.stringify(require('../.eslintrc')));
+const config = module.exports = JSON.parse(JSON.stringify(require('../.eslintrc')));
 
 // We use `this` all over the integration tests
 config.rules['no-invalid-this'] = 'off';
