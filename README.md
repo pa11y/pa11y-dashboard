@@ -105,7 +105,7 @@ cp config/test.sample.json config/test.json
 
 The [available configurations](#configurations) are documented in the next section.
 
-If you run into problems, check the [troubleshooting guide][TROUBLESHOOTING.md].
+If you run into problems, check the [troubleshooting guide][#troubleshooting].
 
 ## Configurations
 
@@ -161,6 +161,17 @@ make uglify  # Compile and uglify the client-side JavaScript
 * [Setting up An Accessibility Dashboard from Scratch with Pa11y on DigitalOcean](https://una.im/pa11y-dash/)
 * [Monitoring Web Accessibility Compliance With Pa11y Dashboard](https://www.lullabot.com/articles/monitoring-web-accessibility-compliance-with-pa11y-dashboard)
 
+## Troubleshooting
+
+### Common issues
+
+* `500` errors or `Could not connect to pa11y-webservice` messages are often related to MongoDB. Ensure that you have the [appropriate version of MongoDB][#installing-mongodb] installed, and that it's running - it doesn't always start automatically.
+* Error messages saying that pa11y-webservice isn't running may be due to dependency installation problems. Try deleting your `pa11y-dashboard/node_modules` directory and running `npm install` again.
+
+### Create a new issue
+
+Check the [issue tracker][issues] for similar issues before creating a new one. If the problem that you're experiencing is not covered by one of the existing issues, you can [create a new issue][create-issue]. Please include your node.js and MongoDB version numbers, and your operating system, as well as any information that may be useful in debugging the issue.
+
 ## Support and Migration
 
 Pa11y Dashboard major versions are normally supported for 6 months after their last minor release. This means that patch-level changes will be added and bugs will be fixed. The table below outlines the end-of-support dates for major versions, and the last minor release for that version.
@@ -186,9 +197,8 @@ Copyright &copy; 2013–2020, Team Pa11y and contributors
 [node]: http://nodejs.org/
 [pa11y]: https://github.com/pa11y/pa11y
 [pa11y-webservice-config]: https://github.com/pa11y/webservice#configurations
-[travis]: https://travis-ci.org/pa11y/dashboard
-[travis-img]: https://travis-ci.org/pa11y/dashboard.png?branch=master
-
+[issues]: https://github.com/pa11y/pa11y-dashboard/issues?utf8=%E2%9C%93&q=is%3Aissue
+[create-issue]: https://github.com/pa11y/pa11y-dashboard/issues/new
 [info-node]: package.json
 [info-build]: https://travis-ci.org/pa11y/pa11y-dashboard
 [info-license]: LICENSE
