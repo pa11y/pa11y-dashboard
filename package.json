@@ -1,6 +1,6 @@
 {
   "name": "pa11y-dashboard",
-  "version": "3.3.0",
+  "version": "4.0.0",
   "private": true,
   "description": "Pa11y Dashboard is a visual web interface to the Pa11y accessibility reporter",
   "keywords": [
@@ -21,8 +21,7 @@
   "bugs": "https://github.com/pa11y/dashboard/issues",
   "license": "GPL-3.0",
   "engines": {
-    "node": ">=8",
-    "npm": ">=6"
+    "node": ">=12 <16"
   },
   "dependencies": {
     "body-parser": "~1.19.0",
@@ -30,18 +29,18 @@
     "express": "~4.17.1",
     "express-hbs": "~2.4.0",
     "http-headers": "~3.0.2",
-    "kleur": "~4.1.2",
-    "moment": "~2.29.0",
-    "pa11y-webservice": "~3.2.1",
-    "pa11y-webservice-client-node": "~2.0.0",
-    "underscore": "~1.11.0"
+    "kleur": "~4.1.4",
+    "moment": "~2.29.1",
+    "pa11y-webservice": "~4.0.0",
+    "pa11y-webservice-client-node": "~3.0.0",
+    "underscore": "~1.13.1"
   },
   "devDependencies": {
-    "bower": "^1.8.8",
-    "cheerio": "^1.0.0-rc.3",
-    "eslint": "^6.8.0",
+    "bower": "^1.8.13",
+    "cheerio": "^1.0.0-rc.10",
+    "eslint": "^7.27.0",
     "less": "^3.11.1",
-    "mocha": "^7.2.0",
+    "mocha": "^8.4.0",
     "pa11y-lint-config": "^1.2.1",
     "proclaim": "^3.6.0",
     "request": "^2.88.2",

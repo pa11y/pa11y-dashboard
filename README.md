@@ -14,7 +14,9 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 
 ## Requirements
 
-Pa11y Dashboard is a [Node.js][node] application and requires a stable or LTS version of Node, currently version 8 or greater.
+Pa11y Dashboard is a [Node.js][node] application and requires a stable or LTS version of Node, currently version 12 or 14.
+
+⚠️ At the moment, Pa11y Dashboard won't work with Node.js v16. Please use Node.js 12 or 14. ⚠️
 
 Pa11y Dashboard uses a [MongoDB][mongo] database to store the results of the tests. The database doesn't have to be in the same server or computer where Pa11y Dashboard is running from.
 
@@ -39,28 +41,32 @@ npm install
 
 Instructions for installing and running MongoDB are outside the scope of this document. When in doubt, please refer to the [MongoDB installation instructions](https://docs.mongodb.com/manual/installation/) for details of how to install and run MongoDB on your specific operating system. An example of the installation and configuration process for macOS follows.
 
-Pa11y Dashboard currently uses version `2.2` of the Node.js MongoDB driver, which means that [only MongoDB servers of versions 3.4 or older are supported](https://docs.mongodb.com/drivers/node/compatibility/). Please ensure that your MongoDB server fills the requirements before trying to run Pa11y Dashboard.
+Pa11y Dashboard currently uses version 3 of the Node.js MongoDB driver, which means that [only MongoDB servers of versions 4.4 or older are supported](https://docs.mongodb.com/drivers/node/current/compatibility/#mongodb-compatibility). Please ensure that your MongoDB server fills the requirements before trying to run Pa11y Dashboard.
 
 #### Example MongoDB installation for macOS
 
-On recent versions of macOS (10.13 or later), you can use [Homebrew](https://brew.sh/) to install MongoDB 3.4 Community Edition. More recent versions of MongoDB are untested and unsupported.
+On recent versions of macOS (10.13 or later), you can use [Homebrew](https://brew.sh/) to install MongoDB Community Edition. More recent versions of MongoDB are untested and unsupported.
 
 Tap the MongoDB Homebrew Tap:
+
 ```sh
 brew tap mongodb/brew
 ```
 
-Install the Community version of MongoDB:
+Install a supported Community version of MongoDB:
+
 ```sh
-brew install mongodb-community@3.4
+brew install mongodb-community@4.4
 ```
 
 Start the MongoDB server:
+
 ```sh
-brew services start mongodb/brew/mongodb-community@3.4
+brew services start mongodb/brew/mongodb-community@4.4
 ```
 
 Check that the service has started properly:
+
 ```sh
 $ brew services list
 Name              Status  User       Plist
@@ -150,7 +156,7 @@ make less    # Compile the site CSS from LESS files
 make uglify  # Compile and uglify the client-side JavaScript
 ```
 
-## Useful Resources
+## Useful resources
 
 * [Setting up An Accessibility Dashboard from Scratch with Pa11y on DigitalOcean](https://una.im/pa11y-dash/)
 * [Monitoring Web Accessibility Compliance With Pa11y Dashboard](https://www.lullabot.com/articles/monitoring-web-accessibility-compliance-with-pa11y-dashboard)
@@ -163,8 +169,9 @@ We also maintain a [migration guide](MIGRATION.md) to help you migrate.
 
 | :grey_question: | Major Version | Last Minor Release | Node.js Versions | Support End Date |
 | :-------------- | :------------ | :----------------- | :--------------- | :--------------- |
-| :heart:         | 3             | N/A                | 8+               | N/A              |
-| :hourglass:     | 2             | 2.4.2              | 4+               | 2020-01-16       |
+| :heart:         | 4             | N/A                | 12+              | N/A              |
+| :hourglass:     | 3             | 3.3.0              | 8+               | 2022-05-26       |
+| :skull:         | 2             | 2.4.2              | 4+               | 2020-01-16       |
 | :skull:         | 1             | 1.12               | 0.10–6           | 2016-12-05       |
 
 If you're opening issues related to these, please mention the version that the issue relates to.
