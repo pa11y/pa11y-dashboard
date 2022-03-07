@@ -20,6 +20,8 @@ const createClient = require('pa11y-webservice-client-node');
 const EventEmitter = require('events').EventEmitter;
 const express = require('express');
 const hbs = require('express-hbs');
+const morgan = require('morgan');
+const {nanoid} = require('nanoid');
 const http = require('http');
 const pkg = require('./package.json');
 
@@ -67,6 +69,24 @@ function defaultConfig(config) {
 function loadMiddleware(app) {
 	// Compression
 	app.express.use(compression());
+
+	// Adds an ID to every request, used later for logging
+	app.express.use(addRequestId);
+
+	// Logging middleware
+	morgan.token('id', request => {
+		return request.id;
+	});
+
+	// Log the start of all HTTP requests
+	const startLog = '[:date[iso] #:id] Started :method :url for :remote-addr';
+	// Immediate: true is required to log the request
+	//  before the response happens
+	app.express.use(morgan(startLog, {immediate: true}));
+
+	// Log the end of all HTTP requests
+	const endLog = '[:date[iso] #:id] Completed :status :res[content-length] in :response-time ms';
+	app.express.use(morgan(endLog));
 
 	// Public files
 	app.express.use(express.static(`${__dirname}/public`, {
@@ -163,4 +183,14 @@ function loadErrorHandling(app, config, callback) {
 		app.address = `http://${address.address}:${address.port}`;
 		callback(error, app);
 	});
+}
+
+// Express middleware
+function addRequestId(request, response, next) {
+	// Create a random request (nano)id, 10 characters long
+	// Nano ids are [0-9A-Za-z_-] so chance of collision is 1 in 64^10
+	// If a site has so much traffic that this chance is too high
+	//  we probably have worse things to worry about
+	request.id = nanoid(10);
+	next();
 }

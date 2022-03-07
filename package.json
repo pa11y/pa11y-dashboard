@@ -31,6 +31,8 @@
     "http-headers": "~3.0.2",
     "kleur": "~4.1.4",
     "moment": "~2.29.1",
+    "morgan": "~1.10.0",
+    "nanoid": "~3.3.1",
     "pa11y-webservice": "~4.0.0",
     "pa11y-webservice-client-node": "~3.0.0",
     "underscore": "~1.13.1"
