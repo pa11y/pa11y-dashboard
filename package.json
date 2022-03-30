@@ -24,18 +24,18 @@
     "node": ">=12 <16"
   },
   "dependencies": {
-    "body-parser": "~1.19.0",
+    "body-parser": "~1.19.2",
     "compression": "~1.7.4",
-    "express": "~4.17.1",
+    "express": "~4.17.3",
     "express-hbs": "~2.4.0",
     "http-headers": "~3.0.2",
     "kleur": "~4.1.4",
     "moment": "~2.29.1",
     "morgan": "~1.10.0",
-    "nanoid": "~3.3.1",
-    "pa11y-webservice": "~4.0.0",
+    "nanoid": "~3.3.2",
+    "pa11y-webservice": "~4.0.1",
     "pa11y-webservice-client-node": "~3.0.0",
-    "underscore": "~1.13.1"
+    "underscore": "~1.13.2"
   },
   "devDependencies": {
     "bower": "^1.8.13",
@@ -43,7 +43,7 @@
     "eslint": "^7.27.0",
     "less": "^3.11.1",
     "mocha": "^8.4.0",
-    "pa11y-lint-config": "^1.2.1",
+    "pa11y-lint-config": "^2.0.0",
     "proclaim": "^3.6.0",
     "request": "^2.88.2",
     "uglify-js": "^3.11.0"
