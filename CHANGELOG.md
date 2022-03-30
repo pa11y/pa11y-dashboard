@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.2.0 (2022-03-30)
+
+* Add request logging for easier debugging
+* Dependencies update
+
 ## 4.1.0 (2021-11-26)
 
 * Add support for new WCAG 2.1 rules and remove all references to Section 508.
