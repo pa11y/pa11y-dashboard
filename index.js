@@ -33,8 +33,8 @@ require('./app')(config, (error, app) => {
 	console.log(kleur.grey('mode: %s'), process.env.NODE_ENV);
 	console.log(kleur.grey('uri:  %s'), app.address);
 
-	app.on('route-error', error => {
-		const stack = (error.stack ? error.stack.split('\n') : [error.message]);
+	app.on('route-error', routeError => {
+		const stack = (routeError.stack ? routeError.stack.split('\n') : [routeError.message]);
 		const msg = kleur.red(stack.shift());
 		console.error('');
 		console.error(msg);
@@ -43,9 +43,9 @@ require('./app')(config, (error, app) => {
 
 	// Start the webservice if required
 	if (typeof config.webservice === 'object') {
-		require('pa11y-webservice')(config.webservice, (error, webservice) => {
-			if (error) {
-				console.error(error.stack);
+		require('pa11y-webservice')(config.webservice, (webserviceError, webservice) => {
+			if (webserviceError) {
+				console.error(webserviceError.stack);
 				process.exit(1);
 			}
 
