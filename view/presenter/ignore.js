@@ -22,7 +22,7 @@ module.exports = presentIgnoreRules;
 function presentIgnoreRules(ignore) {
 	return ignore.map(name => {
 		return {
-			name: name,
+			name,
 			description: rules[name]
 		};
 	});

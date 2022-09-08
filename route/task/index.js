@@ -28,9 +28,9 @@ function route(app) {
 			if (error) {
 				return next();
 			}
-			app.webservice.task(request.params.id).results({}, (error, results) => {
-				if (error) {
-					return next(error);
+			app.webservice.task(request.params.id).results({}, (webserviceError, results) => {
+				if (webserviceError) {
+					return next(webserviceError);
 				}
 				const presentedResults = presentResultList(results.map(presentResult));
 				response.render('task', {

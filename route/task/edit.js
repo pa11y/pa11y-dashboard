@@ -43,13 +43,15 @@ function route(app) {
 			task.actions = (task.actions ? task.actions.join('\n') : '');
 			response.render('task/edit', {
 				edited: (typeof request.query.edited !== 'undefined'),
-				standards: standards,
+				standards,
 				task: presentTask(task),
 				isTaskSubPage: true
 			});
 		});
 	});
 
+	/* eslint-disable complexity */
+	/* eslint-disable max-statements */
 	app.express.post('/:id/edit', (request, response, next) => {
 		app.webservice.task(request.params.id).get({}, (error, task) => {
 			if (error) {
@@ -57,9 +59,11 @@ function route(app) {
 			}
 			const originalActions = request.body.actions;
 			const originalHeaders = request.body.headers;
+
 			request.body.ignore = request.body.ignore || [];
 			request.body.timeout = request.body.timeout || undefined;
 			request.body.wait = request.body.wait || undefined;
+
 			if (request.body.actions) {
 				request.body.actions = request.body.actions.split(/[\r\n]+/)
 					.map(action => {
@@ -69,15 +73,18 @@ function route(app) {
 						return Boolean(action);
 					});
 			}
+
 			if (!request.body.actions) {
 				request.body.actions = [];
 			}
+
 			request.body.username = request.body.username || undefined;
 			request.body.password = request.body.password || undefined;
 			request.body.hideElements = request.body.hideElements || undefined;
 			request.body.headers = httpHeaders(request.body.headers || '', true);
-			app.webservice.task(request.params.id).edit(request.body, error => {
-				if (error) {
+
+			app.webservice.task(request.params.id).edit(request.body, webserviceError => {
+				if (webserviceError) {
 					task.name = request.body.name;
 					task.ignore = request.body.ignore;
 					task.timeout = request.body.timeout;
@@ -100,9 +107,9 @@ function route(app) {
 						return standard;
 					});
 					return response.render('task/edit', {
-						error: error,
-						standards: standards,
-						task: task,
+						webserviceError,
+						standards,
+						task,
 						isTaskSubPage: true
 					});
 				}

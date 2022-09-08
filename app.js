@@ -20,6 +20,8 @@ const createClient = require('pa11y-webservice-client-node');
 const EventEmitter = require('events').EventEmitter;
 const express = require('express');
 const hbs = require('express-hbs');
+const morgan = require('morgan');
+const {nanoid} = require('nanoid');
 const http = require('http');
 const pkg = require('./package.json');
 
@@ -35,13 +37,56 @@ function initApp(config, callback) {
 	}
 
 	const app = new EventEmitter();
+
 	app.address = null;
 	app.express = express();
 	app.server = http.createServer(app.express);
 	app.webservice = createClient(webserviceUrl);
 
+	loadMiddleware(app);
+
+	// View engine
+	loadViewEngine(app, config);
+
+	// Load routes
+	loadRoutes(app, config);
+
+	// Error handling
+	loadErrorHandling(app, config, callback);
+}
+
+// Get default configurations
+function defaultConfig(config) {
+	if (typeof config.noindex !== 'boolean') {
+		config.noindex = true;
+	}
+	if (typeof config.readonly !== 'boolean') {
+		config.readonly = false;
+	}
+	return config;
+}
+
+function loadMiddleware(app) {
 	// Compression
 	app.express.use(compression());
+
+	// Adds an ID to every request, used later for logging
+	app.express.use(addRequestId);
+
+	// Logging middleware
+	morgan.token('id', request => {
+		return request.id;
+	});
+
+	// Log the start of all HTTP requests
+	const startLog = '[:date[iso] #:id] Started :method :url for :remote-addr';
+	// Immediate: true is required to log the request
+	//  before the response happens
+	app.express.use(morgan(startLog, {immediate: true}));
+
+	// Log the end of all HTTP requests
+	const endLog = '[:date[iso] #:id] Completed :status :res[content-length] in :response-time ms';
+	app.express.use(morgan(endLog));
 
 	// Public files
 	app.express.use(express.static(`${__dirname}/public`, {
@@ -53,8 +98,9 @@ function initApp(config, callback) {
 	app.express.use(bodyParser.urlencoded({
 		extended: true
 	}));
+}
 
-	// View engine
+function loadViewEngine(app, config) {
 	app.express.engine('html', hbs.express4({
 		extname: '.html',
 		contentHelperName: 'content',
@@ -89,10 +135,16 @@ function initApp(config, callback) {
 		response.locals.host = request.hostname;
 		next();
 	});
+}
 
-	// Load routes
+function loadRoutes(app, config) {
+	// Because there's some overlap between the different routes,
+	//  they have to be loaded in a specific order in order to avoid
+	//  passing mongo the wrong id which would result in
+	//  "ObjectID generation failed." errors (e.g. #277)
 	require('./route/index')(app);
 	require('./route/result/download')(app);
+
 	if (!config.readonly) {
 		require('./route/new')(app);
 		require('./route/task/delete')(app);
@@ -101,12 +153,14 @@ function initApp(config, callback) {
 		require('./route/task/ignore')(app);
 		require('./route/task/unignore')(app);
 	}
+
 	// Needs to be loaded after `/route/new`
 	require('./route/task/index')(app);
 	// Needs to be loaded after `/route/task/edit`
 	require('./route/result/index')(app);
+}
 
-	// Error handling
+function loadErrorHandling(app, config, callback) {
 	app.express.get('*', (request, response) => {
 		response.status(404);
 		response.render('404');
@@ -129,16 +183,14 @@ function initApp(config, callback) {
 		app.address = `http://${address.address}:${address.port}`;
 		callback(error, app);
 	});
-
 }
 
-// Get default configurations
-function defaultConfig(config) {
-	if (typeof config.noindex !== 'boolean') {
-		config.noindex = true;
-	}
-	if (typeof config.readonly !== 'boolean') {
-		config.readonly = false;
-	}
-	return config;
+// Express middleware
+function addRequestId(request, response, next) {
+	// Create a random request (nano)id, 10 characters long
+	// Nano ids are [0-9A-Za-z_-] so chance of collision is 1 in 64^10
+	// If a site has so much traffic that this chance is too high
+	//  we probably have worse things to worry about
+	request.id = nanoid(10);
+	next();
 }

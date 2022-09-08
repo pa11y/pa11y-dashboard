@@ -1,5 +1,21 @@
 # Changelog
 
+## 4.2.0 (2022-03-30)
+
+* Add request logging for easier debugging
+* Dependencies update
+
+## 4.1.0 (2021-11-26)
+
+* Add support for new WCAG 2.1 rules and remove all references to Section 508.
+* Move troubleshooting guide to the README.
+
+## 4.0.0 (2021-11-26)
+
+* Update pa11y to version 6.
+* Drop support for versions of Node.js older than 12.
+* Update MongoDB Node driver from v2 to v3, which adds support for MongoDB v4 databases.
+
 ## 3.3.0 (2021-04-27)
 
 * Add new list view to the dashboard (thanks @sangitamane)

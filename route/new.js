@@ -38,35 +38,14 @@ function route(app) {
 
 	app.express.post('/new', (request, response) => {
 
-		let parsedActions;
-		if (request.body.actions) {
-			parsedActions = request.body.actions.split(/[\r\n]+/)
-				.map(action => {
-					return action.trim();
-				})
-				.filter(action => {
-					return Boolean(action);
-				});
-		}
-
+		const parsedActions = parseActions(request.body.actions);
 		let parsedHeaders;
+
 		if (request.body.headers) {
 			parsedHeaders = httpHeaders(request.body.headers, true);
 		}
 
-		const newTask = {
-			name: request.body.name,
-			url: request.body.url,
-			standard: request.body.standard,
-			ignore: request.body.ignore || [],
-			timeout: request.body.timeout || undefined,
-			wait: request.body.wait || undefined,
-			actions: parsedActions,
-			username: request.body.username || undefined,
-			password: request.body.password || undefined,
-			headers: parsedHeaders,
-			hideElements: request.body.hideElements || undefined
-		};
+		const newTask = createNewTask(request, parsedActions, parsedHeaders);
 
 		app.webservice.tasks.create(newTask, (error, task) => {
 			if (error) {
@@ -94,4 +73,33 @@ function route(app) {
 		});
 	});
 
+}
+
+function parseActions(actions) {
+	if (actions) {
+		return actions.split(/[\r\n]+/)
+			.map(action => {
+				return action.trim();
+			})
+			.filter(action => {
+				return Boolean(action);
+			});
+	}
+}
+
+/* eslint-disable complexity */
+function createNewTask(request, actions, headers) {
+	return {
+		name: request.body.name,
+		url: request.body.url,
+		standard: request.body.standard,
+		ignore: request.body.ignore || [],
+		timeout: request.body.timeout || undefined,
+		wait: request.body.wait || undefined,
+		actions,
+		username: request.body.username || undefined,
+		password: request.body.password || undefined,
+		headers,
+		hideElements: request.body.hideElements || undefined
+	};
 }

@@ -29,8 +29,8 @@ function route(app) {
 			app.webservice
 				.task(request.params.id)
 				.result(request.params.rid)
-				.get({full: true}, (error, result) => {
-					if (error) {
+				.get({full: true}, (webserviceError, result) => {
+					if (webserviceError) {
 						return next('route');
 					}
 					response.locals.task = task;
