@@ -16,13 +16,13 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 }}
 
 {{#content "title"}}
-	{{task.name}} - {{simplify-url task.url}} ({{task.standard}})
+	Pa11y Dashboard Results for {{task.name}} - ({{task.standard}})
 {{/content}}
 
 {{#added}}
 	<div class="col-md-12 clearfix" data-test="alert">
 		<div class="alert alert-success">
-			<button data-dismiss="alert" class="close" type="button">×</button>
+			<button data-dismiss="alert" class="close" type="button" aria-label="Close">×</button>
 			<strong>Whoop whoop!</strong>
 			<p>Your new URL has been added.</p>
 		</div>
@@ -32,7 +32,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 {{#running}}
 	<div class="col-md-12 clearfix" data-test="alert">
 		<div class="alert alert-success">
-			<button data-dismiss="alert" class="close" type="button">×</button>
+			<button data-dismiss="alert" class="close" type="button" aria-label="Close">×</button>
 			<strong>New results incoming!</strong>
 			<p>
 				New results are being generated for this URL in the background.
@@ -45,7 +45,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 {{#ruleIgnored}}
 	<div class="col-md-12 clearfix" data-test="alert">
 		<div class="alert alert-success">
-			<button data-dismiss="alert" class="close" type="button">×</button>
+			<button data-dismiss="alert" class="close" type="button" aria-label="Close">×</button>
 			<strong>Rule ignored!</strong>
 			<p>
 				You've ignored an accessibility rule for this URL.
@@ -58,7 +58,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 {{#ruleUnignored}}
 	<div class="col-md-12 clearfix" data-test="alert">
 		<div class="alert alert-success">
-			<button data-dismiss="alert" class="close" type="button">×</button>
+			<button data-dismiss="alert" class="close" type="button" aria-label="Close">×</button>
 			<strong>Rule unignored!</strong>
 			<p>
 				You've removed an ignored accessibility rule for this URL.

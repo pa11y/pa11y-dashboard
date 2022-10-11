@@ -22,7 +22,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 {{#edited}}
 	<div class="col-md-12 clearfix" data-test="alert">
 		<div class="alert alert-success">
-			<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+			<button aria-hidden="true" data-dismiss="alert" class="close" type="button" aria-label="Close">×</button>
 			<strong>Success!</strong>
 			<p>Your changes have been saved.</p>
 		</div>
@@ -146,7 +146,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 		</div>
 	</div>
 
-	<p class="control-label"><b>Ignore these rules</b> <a target="_blank" href="https://github.com/pa11y/pa11y/wiki/HTML-CodeSniffer-Rules">(full list of rules here)</a></p>
+	<p class="control-label"><b>Ignore these rules</b> (<a target="_blank" href="https://github.com/pa11y/pa11y/wiki/HTML-CodeSniffer-Rules">full list of rules here</a>) <a href="#submitEditBtn" id="skipRules">Skip list of rules</a></p>
 
 	<div class="standards-lists">
 		{{#standards}}
@@ -166,7 +166,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 		{{/standards}}
 	</div>
 
-	<button type="submit" class="btn btn-success">Save changes <span class="glyphicon glyphicon-save"></span></button>
+	<button type="submit" id="submitEditBtn" class="btn btn-success">Save changes <span class="glyphicon glyphicon-save"></span></button>
 	<a href="/{{task.id}}/edit" class="btn btn-primary">Undo <span class="glyphicon glyphicon-refresh"></span></a>
 
 </form>

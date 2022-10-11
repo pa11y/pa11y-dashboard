@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 // This file is part of Pa11y Dashboard.
 //
 // Pa11y Dashboard is free software: you can redistribute it and/or modify

@@ -95,6 +95,11 @@
 	li a {
 		text-indent: -20px;
 	}
+	ul.options-menu  {
+		list-style: none;
+		padding: 5px 0;
+		margin: 2px 10px 0 0;
+	}
 }
 
 .dropdown-toggle {
@@ -262,6 +267,7 @@
 }
 
 /* Task details page*/
+
 .task-header {
 	margin-bottom: 30px;
 
@@ -502,6 +508,10 @@ ul.date-links {
 		padding: 0;
 		margin: 0;
 	}
+	.dates-list > li:first-child a {
+		font-weight: bold;
+		font-size: 16px;
+	}
 
 	.dates-list a {
 		color: #fff;
@@ -709,6 +719,16 @@ ul.date-links {
 	}
 }
 
+/* Edit task page */
+
+#skipRules {
+	position: absolute;
+	left: -999px;
+}
+#skipRules:focus {
+	position: static;
+}
+
 /* inline link list */
 
 .inline-list {
@@ -759,4 +779,8 @@ ul.date-links {
 		color: #fff;
 		opacity: 1;
 	};
+}
+
+section {
+	margin: 1em 0;
 }

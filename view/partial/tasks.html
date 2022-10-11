@@ -25,7 +25,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 		<li class="col-md-4 col-sm-6 task-card add-task">
 			<a class="well task-card-link crunch-bottom" data-role="add-task" href="/new" data-test="add-task">
 				<p class="h3 crunch">Add new URL</p>
-				<p class="supersize-me crunch">+</p>
+				<p class="supersize-me crunch" aria-hidden="true">+</p>
 			</a>
 		</li>
 	{{/unless}}
@@ -56,8 +56,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 			{{#unless ../readonly}}
 				<div class="btn-group options-button text-right">
 					<button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown"><span class="sr-only">Options</span><span class="glyphicon glyphicon-cog"></span></button>
-					<nav aria-label="task tools">
-						<ul class="dropdown-menu pull-right">
+					<nav class="dropdown-menu pull-right" aria-label="task tools">
+						<ul class="options-menu">
 							<li><a href="{{href}}/edit">Edit this task</a></li>
 							<li><a href="{{href}}/delete">Delete this task</a></li>
 							<li class="divider"></li>

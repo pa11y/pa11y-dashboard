@@ -805,7 +805,7 @@ function getStandards() {
 					description: 'This element\'s text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.'
 				},
 				{
-					name: 'WCAG2AA.Principle1.Guideline1_4.1_4_3.G145 ',
+					name: 'WCAG2AA.Principle1.Guideline1_4.1_4_3.G1451',
 					description: 'This element\'s text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.'
 				},
 				{
@@ -1430,11 +1430,11 @@ function getStandards() {
 					description: 'This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of /{value/}. Recommendation: /{colour recommendations/}.'
 				},
 				{
-					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17 ',
+					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17-1',
 					description: 'This element\'s text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 7:1.'
 				},
 				{
-					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18 ',
+					name: 'WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18-1',
 					description: 'This element\'s text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.'
 				},
 				{

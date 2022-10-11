@@ -32,7 +32,7 @@ $(function () {
         $.support.transition = false
 
         var alertHTML = '<div class="alert-message warning fade in">'
-          + '<a class="close" href="#" data-dismiss="alert">×</a>'
+          + '<a class="close" href="#" data-dismiss="alert" aria-label="Close">×</a>'
           + '<p><strong>Holy guacamole!</strong> Best check yo self, you\'re not looking too good.</p>'
           + '</div>'
           , alert = $(alertHTML).appendTo('#qunit-fixture').alert()
