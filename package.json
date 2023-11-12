@@ -30,7 +30,7 @@
     "express-hbs": "~2.4.0",
     "http-headers": "~3.0.2",
     "kleur": "~4.1.4",
-    "moment": "~2.29.1",
+    "moment": "~2.29.4",
     "morgan": "~1.10.0",
     "nanoid": "~3.3.2",
     "pa11y-webservice": "~4.0.1",
