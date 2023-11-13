@@ -25,8 +25,9 @@ jobs:
         include:
           - { node: 12, mongo: 6.0.11 }
           - { node: 12, mongo: 5.0.22 }
-          - { node: 12, mongo: 4.0.28 }
-          - { node: 12, mongo: 3.0.15 }
+          - { node: 12, mongo: 4.4.25 }
+          - { node: 12, mongo: 3.6.23 }
+          - { node: 12, mongo: 2.6.12 }
 
     steps:
       - uses: actions/checkout@v4
