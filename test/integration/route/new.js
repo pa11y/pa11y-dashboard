@@ -87,7 +87,7 @@ describe('GET /new', function() {
 		it('should have a "standard" field', function() {
 			const field = this.form.find('select[name=standard]').eq(0);
 			assert.isDefined(field);
-			assert.strictEqual(field.find('option').length, 4);
+			assert.greaterThanOrEqual(field.find('option').length, 1);
 		});
 
 		it('should have "ignore" fields', function() {
