@@ -167,7 +167,7 @@ make uglify  # Compile and uglify the client-side JavaScript
 
 ### Common issues
 
-* `500` errors or `Could not connect to pa11y-webservice` messages are often related to MongoDB. Ensure that you have the [appropriate version of MongoDB][#installing-mongodb] installed, and that it's running - it doesn't always start automatically.
+* `500` errors or `Could not connect to pa11y-webservice` messages are often related to MongoDB. Ensure that you have the [appropriate version of MongoDB](#installing-mongodb) installed, and that it's running - it doesn't always start automatically.
 * Error messages saying that pa11y-webservice isn't running may be due to dependency installation problems. Try deleting your `pa11y-dashboard/node_modules` directory and running `npm install` again.
 
 ### Create a new issue
