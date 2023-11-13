@@ -3,8 +3,8 @@
 	"noindex": true,
 	"readonly": false,
 	"webservice": {
-		"database": "mongodb://localhost/pa11y-dashboard-integration-test",
-		"host": "0.0.0.0",
+		"database": "mongodb://127.0.0.1/pa11y-dashboard-integration-test",
+		"host": "127.0.0.1",
 		"port": 3000,
 		"cron": "0 30 0 * * *"
 	}
