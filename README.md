@@ -16,7 +16,8 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 
 Pa11y Dashboard is a [Node.js][node] application and requires a stable or LTS version of Node, currently version 12 or 14.
 
-⚠️ At the moment, Pa11y Dashboard won't work with Node.js v16. Please use Node.js 12 or 14. ⚠️
+> **NOTE**
+> Pa11y Dashboard currently won't work with Node.js v16. Please use Node.js 12 or 14 until the next major version.
 
 Pa11y Dashboard uses a [MongoDB][mongo] database to store the results of the tests. The database doesn't have to be in the same server or computer where Pa11y Dashboard is running from.
 
