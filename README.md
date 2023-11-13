@@ -105,7 +105,7 @@ cp config/test.sample.json config/test.json
 
 The [available configurations](#configurations) are documented in the next section.
 
-If you run into problems, check the [troubleshooting guide][#troubleshooting].
+If you run into problems, check the [troubleshooting guide](#troubleshooting).
 
 ## Configurations
 
