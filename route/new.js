@@ -34,13 +34,8 @@ module.exports = function route(app) {
 	});
 
 	app.express.post('/new', (request, response) => {
-
 		const parsedActions = parseActions(request.body.actions);
-		let parsedHeaders;
-
-		if (request.body.headers) {
-			parsedHeaders = httpHeaders(request.body.headers, true);
-		}
+		const parsedHeaders = request.body.headers && httpHeaders(request.body.headers, true);
 
 		const newTask = createNewTask(request, parsedActions, parsedHeaders);
 
@@ -69,8 +64,7 @@ module.exports = function route(app) {
 			response.redirect(`/${task.id}?added`);
 		});
 	});
-
-}
+};
 
 function parseActions(actions) {
 	if (actions) {
@@ -84,19 +78,19 @@ function parseActions(actions) {
 	}
 }
 
-/* eslint-disable complexity */
-function createNewTask(request, actions, headers) {
+
+function createNewTask({body}, actions, headers) {
 	return {
-		name: request.body.name,
-		url: request.body.url,
-		standard: request.body.standard,
-		ignore: request.body.ignore || [],
-		timeout: request.body.timeout || undefined,
-		wait: request.body.wait || undefined,
+		name: body.name,
+		url: body.url,
+		standard: body.standard,
+		ignore: body.ignore || [],
+		timeout: body?.timeout,
+		wait: body?.wait,
 		actions,
-		username: request.body.username || undefined,
-		password: request.body.password || undefined,
+		username: body?.username,
+		password: body?.password,
 		headers,
-		hideElements: request.body.hideElements || undefined
+		hideElements: body?.hideElements
 	};
 }
