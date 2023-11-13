@@ -14,7 +14,7 @@
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 'use strict';
 
-const {promisify} = util;
+const {promisify} = require('util');
 const createNavigator = require('./helper/navigate');
 const createWebserviceClient = require('pa11y-webservice-client-node');
 
@@ -25,7 +25,7 @@ const config = {
 	port: 4000,
 	noindex: true,
 	readonly: false
-}
+};
 
 const webserviceConfig = {
 	database: process.env.WEBSERVICE_DATABASE || 'mongodb://127.0.0.1/pa11y-webservice-test',
@@ -55,8 +55,8 @@ before(async function() {
 
 	this.webservice = createWebserviceClient(`http://${webserviceConfig.host}:${webserviceConfig.port}/`);
 
-	this.response = {};
-	this.navigate = createNavigator(this.baseUrl, this.response);
+	this.last = {};
+	this.navigate = createNavigator(this.baseUrl, this.last);
 });
 
 afterEach(async function() {
