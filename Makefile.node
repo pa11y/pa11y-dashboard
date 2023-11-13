@@ -101,11 +101,3 @@ test-unit-coverage:
 
 test-integration:
 	@if [ -d test/integration ]; then mocha test/integration --timeout $(INTEGRATION_TIMEOUT) --slow $(INTEGRATION_SLOW) $(INTEGRATION_FLAGS) && $(TASK_DONE); fi
-
-
-# Tooling tasks
-# -------------
-
-update-makefile:
-	@curl -s https://raw.githubusercontent.com/rowanmanning/makefiles/master/Makefile.node > Makefile.node
-	@$(TASK_DONE)
