@@ -42,7 +42,7 @@ npm install
 
 Instructions for installing and running MongoDB are outside the scope of this document. When in doubt, please refer to the [MongoDB installation instructions](https://docs.mongodb.com/manual/installation/) for details of how to install and run MongoDB on your specific operating system. An example of the installation and configuration process for macOS follows.
 
-Pa11y Dashboard currently uses version 3 of the Node.js MongoDB driver, which means that [only MongoDB servers of versions 4.4 or older are supported](https://docs.mongodb.com/drivers/node/current/compatibility/#mongodb-compatibility). Please ensure that your MongoDB server fills the requirements before trying to run Pa11y Dashboard.
+Pa11y Dashboard uses [MongoDB Node.js Driver][mongodb-package] version 3, which [may not support some features][mongodb-package-compatibility] of MongoDB versions 6 and beyond. We do test against MongoDB versions 2 to 7, but please ensure that your MongoDB server fills the requirements before trying to run Pa11y Dashboard.
 
 #### Example MongoDB installation for macOS
 
