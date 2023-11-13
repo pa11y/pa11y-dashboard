@@ -1,5 +1,3 @@
-name: Build and lint
-
 on:
   push:
     branches:
@@ -23,9 +21,7 @@ jobs:
         with:
           mongodb-version: 3.4
       - name: Install dependencies
-        run: npm i
-      - name: Run linter
-        if: ${{ matrix.lint }}
+        run: npm ci
       - run: make lint
       - name: Create test config
         run: cp config/test.sample.json config/test.json
