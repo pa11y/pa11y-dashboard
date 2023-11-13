@@ -190,7 +190,7 @@ If you're opening issues related to these, please mention the version that the i
 
 ## License
 
-Pa11y Dashboard is licensed under the [GNU General Public License 3.0][info-license].<br/>
+Pa11y Dashboard is licensed under the [GNU General Public License 3.0][info-license].  
 Copyright &copy; 2023, Team Pa11y and contributors
 
 [mongo]: http://www.mongodb.org/
