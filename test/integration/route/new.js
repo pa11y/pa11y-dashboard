@@ -179,7 +179,7 @@ describe('POST /new', function() {
 		it('should display a success message', function() {
 			const alert = this.last.dom('[data-test=alert]').eq(0);
 			assert.isDefined(alert);
-			assert.match(alert.textContent, /url has been added/i);
+			assert.match(alert.text(), /url has been added/i);
 		});
 	});
 });
