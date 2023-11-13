@@ -12,39 +12,53 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
-// jscs:disable requireArrowFunctions
 'use strict';
 
-const config = require('../../config/test.json');
+const {promisify} = util;
 const createNavigator = require('./helper/navigate');
-const createWebserviceClient = require('./helper/webservice');
-const loadFixtures = require('pa11y-webservice/data/fixture/load');
-const request = require('request');
+const createWebserviceClient = require('pa11y-webservice-client-node');
 
-// Run before all tests
-before(function(done) {
-	this.baseUrl = `http://localhost:${config.port}`;
-	this.last = {};
-	this.navigate = createNavigator(this.baseUrl, this.last);
-	this.webservice = createWebserviceClient(config);
-	assertTestAppIsRunning(this.baseUrl, () => {
-		loadFixtures('test', config.webservice, done);
-	});
-});
+const loadFixtures = promisify(require('pa11y-webservice/data/fixture/load'));
 
-// Run after each test
-afterEach(function(done) {
-	loadFixtures('test', config.webservice, done);
-});
-
-// Check that the test application is running, and exit if not
-function assertTestAppIsRunning(url, done) {
-	request(url, error => {
-		if (error) {
-			console.error('Error: Test app not started; run with `NODE_ENV=test node index.js`');
-			process.exit(1);
-		}
-		done();
-	});
+const config = {
+	host: '0.0.0.0',
+	port: 4000,
+	noindex: true,
+	readonly: false
 }
+
+const webserviceConfig = {
+	database: process.env.WEBSERVICE_DATABASE || 'mongodb://127.0.0.1/pa11y-webservice-test',
+	host: process.env.WEBSERVICE_HOST || '0.0.0.0',
+	port: Number(process.env.WEBSERVICE_PORT) || 3000,
+	cron: process.env.WEBSERVICE_CRON || '0 30 0 * * *'
+};
+
+async function assertServiceIsAvailable(baseUrl) {
+	try {
+		const response = await fetch(baseUrl);
+		if (!response.ok) {
+			console.error('Service found but returned an error. HTTP status:', response.status);
+			throw Error();
+		}
+	} catch (error) {
+		console.error('Service under test not found or returned error.');
+		throw error;
+	}
+}
+
+before(async function() {
+	this.baseUrl = `http://${config.host}:${config.port}`;
+
+	await assertServiceIsAvailable(this.baseUrl);
+	await loadFixtures('test', webserviceConfig);
+
+	this.webservice = createWebserviceClient(`http://${webserviceConfig.host}:${webserviceConfig.port}/`);
+
+	this.response = {};
+	this.navigate = createNavigator(this.baseUrl, this.response);
+});
+
+afterEach(async function() {
+	await loadFixtures('test', config.webservice);
+});
