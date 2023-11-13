@@ -44,7 +44,7 @@
     "less": "^3.11.1",
     "mocha": "^8.4.0",
     "node-fetch": "^3.3.2",
-    "pa11y-lint-config": "^2.0.0",
+    "pa11y-lint-config": "^3.0.0",
     "proclaim": "^3.6.0",
     "uglify-js": "^3.11.0"
   },
