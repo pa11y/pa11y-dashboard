@@ -10,12 +10,9 @@ jobs:
   checkout_and_test:
     runs-on: ubuntu-20.04
     strategy:
+      fail-fast: false
       matrix:
-        include:
-          - node-version: 12.x
-            lint: true # Linter is run only once to shorten the total build time
-          - node-version: 14.x
-
+        node-version: [12, 14, 16]
     steps:
       - name: Checkout code from ${{ github.repository }}
         uses: actions/checkout@v2
@@ -31,7 +28,7 @@ jobs:
         run: npm i
       - name: Run linter
         if: ${{ matrix.lint }}
-        run: make lint
+      - run: make lint
       - name: Create test config
         run: cp config/test.sample.json config/test.json
       - name: Start test app
