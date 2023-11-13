@@ -35,7 +35,7 @@ const webserviceConfig = {
 	dbOnly: true
 };
 
-async function assertServiceIsAvailable(baseUrl) {
+async function assertDashboardIsAvailable(baseUrl) {
 	try {
 		const response = await fetch(baseUrl);
 		if (!response.ok) {
@@ -51,7 +51,7 @@ async function assertServiceIsAvailable(baseUrl) {
 before(async function() {
 	this.baseUrl = `http://${config.host}:${config.port}`;
 
-	await assertServiceIsAvailable(this.baseUrl);
+	await assertDashboardIsAvailable(this.baseUrl);
 	await loadFixtures('test', webserviceConfig);
 
 	this.webservice = createWebserviceClient(`http://${webserviceConfig.host}:${webserviceConfig.port}/`);
