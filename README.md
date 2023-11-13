@@ -19,9 +19,9 @@ Pa11y Dashboard is a [Node.js][node] application and requires a stable or LTS ve
 > **NOTE**
 > Pa11y Dashboard currently won't work with Node.js v16. Please use Node.js 12 or 14 until the next major version.
 
-Pa11y Dashboard uses a [MongoDB][mongo] database to store the results of the tests. The database doesn't have to be in the same server or computer where Pa11y Dashboard is running from.
+Pa11y Dashboard uses a [MongoDB] database to store the results of the tests. The database doesn't have to be in the same server or computer where Pa11y Dashboard is running from.
 
-Pa11y Dashboard uses [puppeteer](https://www.npmjs.com/package/puppeteer) to create a headless instance of the Chromium browser in order to run the tests. On certain environments this may require additional dependencies to be installed. For example, in Debian/Ubuntu systems you may need to install the `libnss3` and `libgconf-2-4` libraries in order to be able to run tests on Pa11y Dashboard. Please refer to the documentation from your provider for details on how to do this.
+Pa11y Dashboard uses [puppeteer] to create a headless instance of the Chromium browser in order to run the tests. On certain environments this may require additional dependencies to be installed. For example, in Debian/Ubuntu systems you may need to install the `libnss3` and `libgconf-2-4` libraries in order to be able to run tests on Pa11y Dashboard. Please refer to the documentation from your provider for details on how to do this.
 
 ## Setting up Pa11y Dashboard
 
@@ -46,7 +46,7 @@ Pa11y Dashboard currently uses version 3 of the Node.js MongoDB driver, which me
 
 #### Example MongoDB installation for macOS
 
-On recent versions of macOS (10.13 or later), you can use [Homebrew](https://brew.sh/) to install MongoDB Community Edition. More recent versions of MongoDB are untested and unsupported.
+On recent versions of macOS (10.13 or later), you can use [Homebrew] to install MongoDB Community Edition. More recent versions of MongoDB are untested and unsupported.
 
 Tap the MongoDB Homebrew Tap:
 
@@ -101,7 +101,13 @@ Three example files are provided in this repository, you can copy and customise 
 
 ```sh
 cp config/development.sample.json config/development.json
+```
+
+```sh
 cp config/production.sample.json config/production.json
+```
+
+```sh
 cp config/test.sample.json config/test.json
 ```
 
@@ -172,7 +178,7 @@ make uglify  # Compile and uglify the client-side JavaScript
 
 ### Create a new issue
 
-Check the [issue tracker][issues] for similar issues before creating a new one. If the problem that you're experiencing is not covered by one of the existing issues, you can [create a new issue][create-issue]. Please include your node.js and MongoDB version numbers, and your operating system, as well as any information that may be useful in debugging the issue.
+Check the [issue tracker][issues] for similar issues before creating a new one. If the problem that you're experiencing is not covered by one of the existing issues, you can [create a new issue][issues-create]. Please include your node.js and MongoDB version numbers, and your operating system, as well as any information that may be useful in debugging the issue.
 
 ## Support and migration
 
@@ -195,15 +201,21 @@ The following table lists the major versions available and, for each previous ma
 Pa11y Dashboard is licensed under the [GNU General Public License 3.0][info-license].  
 Copyright &copy; 2023, Team Pa11y and contributors
 
-[mongo]: http://www.mongodb.org/
+[homebrew]: https://brew.sh/
+[issues]: https://github.com/pa11y/pa11y-dashboard/issues?utf8=%E2%9C%93&q=is%3Aissue
+[issues-create]: https://github.com/pa11y/pa11y-dashboard/issues/new
+[mongodb]: http://www.mongodb.org/
+[mongodb-package]: https://www.npmjs.com/package/mongodb
+[mongodb-package-compatibility]: https://docs.mongodb.com/drivers/node/current/compatibility
 [node]: http://nodejs.org/
 [pa11y]: https://github.com/pa11y/pa11y
 [pa11y-webservice-config]: https://github.com/pa11y/webservice#configurations
-[issues]: https://github.com/pa11y/pa11y-dashboard/issues?utf8=%E2%9C%93&q=is%3Aissue
-[create-issue]: https://github.com/pa11y/pa11y-dashboard/issues/new
+[puppeteer]: https://www.npmjs.com/package/puppeteer
+
 [info-node]: package.json
 [info-build]: https://github.com/pa11y/pa11y-dashboard/actions/workflows/tests.yml
 [info-license]: LICENSE
+
 [shield-version]: https://img.shields.io/github/package-json/v/pa11y/pa11y-dashboard.svg
 [shield-node]: https://img.shields.io/node/v/pa11y/pa11y-dashboard.svg
 [shield-build]: https://github.com/pa11y/pa11y-dashboard/actions/workflows/tests.yml/badge.svg
