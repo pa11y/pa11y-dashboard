@@ -91,7 +91,7 @@ describe.only('GET /', function() {
 		assert.match(tasks.eq(0).text(), /3\s*notices/i);
 	});
 
-	it('should display a message indicating that there are no results if the task has not been run', function() {
+	it('should indicate there are no results if the task has not been run', function() {
 		const tasks = this.last.dom('[data-test=task]');
 		assert.match(tasks.eq(2).text(), /no results/i);
 	});
