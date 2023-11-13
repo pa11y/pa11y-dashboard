@@ -136,7 +136,7 @@ This can either be an object containing [Pa11y Webservice configurations][pa11y-
 
 There are many ways to contribute to Pa11y Dashboard, we cover these in the [contributing guide](CONTRIBUTING.md) for this repo.
 
-If you're ready to contribute some code, you'll need to clone the repo and get set up as outlined in the [setup guide](#setup). You'll then need to start the application in test mode with:
+If you're ready to contribute some code, you'll need to clone the repo and get set up as outlined in the [setup guide](#setting-up-pa11y-dashboard). You'll then need to start the application in test mode with:
 
 ```sh
 NODE_ENV=test node index.js
