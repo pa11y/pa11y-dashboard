@@ -19,11 +19,10 @@ const assert = require('proclaim');
 describe('GET /<task-id>/run', function() {
 
 	beforeEach(function(done) {
-		const request = {
+		this.navigate({
 			method: 'GET',
 			endpoint: '/abc000000000000000000001/run'
-		};
-		this.navigate(request, done);
+		}, done);
 	});
 
 	it('should send a 200 status', function() {

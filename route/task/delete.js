@@ -16,13 +16,9 @@
 
 const presentTask = require('../../view/presenter/task');
 
-module.exports = route;
-
-// Route definition
-function route(app) {
-
-	app.express.get('/:id/delete', (request, response, next) => {
-		app.webservice.task(request.params.id).get({}, (error, task) => {
+module.exports = function del(app) {
+	app.express.get('/:id/delete', ({params}, response, next) => {
+		app.webservice.task(params.id).get({}, (error, task) => {
 			if (error) {
 				return next();
 			}
@@ -33,13 +29,12 @@ function route(app) {
 		});
 	});
 
-	app.express.post('/:id/delete', (request, response, next) => {
-		app.webservice.task(request.params.id).remove(error => {
+	app.express.post('/:id/delete', ({params}, response, next) => {
+		app.webservice.task(params.id).remove(error => {
 			if (error) {
 				return next();
 			}
 			response.redirect('/?deleted');
 		});
 	});
-
-}
+};

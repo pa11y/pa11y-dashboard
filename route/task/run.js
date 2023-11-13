@@ -14,11 +14,7 @@
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 'use strict';
 
-module.exports = route;
-
-// Route definition
-function route(app) {
-
+module.exports = function run(app) {
 	app.express.get('/:id/run', (request, response, next) => {
 		app.webservice.task(request.params.id).run(error => {
 			if (error) {
@@ -27,5 +23,4 @@ function route(app) {
 			response.redirect(`/${request.params.id}?running`);
 		});
 	});
-
-}
+};

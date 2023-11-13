@@ -16,11 +16,7 @@
 
 const moment = require('moment');
 
-module.exports = route;
-
-// Route definition
-function route(app) {
-
+module.exports = function download(app) {
 	function getTaskAndResult(request, response, next) {
 		app.webservice.task(request.params.id).get({}, (error, task) => {
 			if (error) {
@@ -83,5 +79,4 @@ function route(app) {
 		result.task = task;
 		response.send(result);
 	});
-
-}
+};

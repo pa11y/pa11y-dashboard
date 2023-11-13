@@ -17,15 +17,12 @@
 const assert = require('proclaim');
 
 describe('GET /<task-id>', function() {
-
 	describe('when task has results', function() {
-
 		beforeEach(function(done) {
-			const request = {
+			this.navigate({
 				method: 'GET',
 				endpoint: '/abc000000000000000000001'
-			};
-			this.navigate(request, done);
+			}, done);
 		});
 
 		it('should send a 200 status', function() {
@@ -74,11 +71,9 @@ describe('GET /<task-id>', function() {
 			assert.isDefined(elem);
 			assert.match(elem.text(), /notices \( 3 \)/i);
 		});
-
 	});
 
 	describe('when task has no results', function() {
-
 		beforeEach(function(done) {
 			const request = {
 				method: 'GET',
@@ -102,7 +97,5 @@ describe('GET /<task-id>', function() {
 			assert.isDefined(alert);
 			assert.match(alert.text(), /there are no results to show/i);
 		});
-
 	});
-
 });

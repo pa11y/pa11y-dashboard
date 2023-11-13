@@ -17,7 +17,6 @@
 const assert = require('proclaim');
 
 describe.only('GET /', function() {
-
 	beforeEach(function(done) {
 		const request = {
 			method: 'GET',
@@ -100,5 +99,4 @@ describe.only('GET /', function() {
 	it('should not display an alert message', function() {
 		assert.strictEqual(this.last.dom('[data-test=alert]').length, 0);
 	});
-
 });

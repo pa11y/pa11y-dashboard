@@ -2,9 +2,7 @@
 
 module.exports = route;
 
-// Route definition
 function route(app) {
-
 	app.express.post('/:id/unignore', (request, response, next) => {
 		app.webservice.task(request.params.id).get({}, (error, task) => {
 			if (error) {
@@ -23,5 +21,4 @@ function route(app) {
 			});
 		});
 	});
-
 }

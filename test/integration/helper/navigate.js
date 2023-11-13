@@ -17,12 +17,8 @@
 const cheerio = require('cheerio');
 const request = require('request');
 
-module.exports = createNavigator;
-
-// Create a navigate function
 function createNavigator(baseUrl, store) {
 	return function(opts, callback) {
-
 		store.body = null;
 		store.dom = null;
 		store.request = null;
@@ -52,8 +48,8 @@ function createNavigator(baseUrl, store) {
 				store.dom = cheerio.load(store.body);
 			}
 			callback();
-
 		});
-
 	};
 }
+
+module.exports = createNavigator;

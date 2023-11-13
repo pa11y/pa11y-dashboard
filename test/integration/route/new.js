@@ -17,13 +17,11 @@
 const assert = require('proclaim');
 
 describe('GET /new', function() {
-
 	beforeEach(function(done) {
-		const request = {
+		this.navigate({
 			method: 'GET',
 			endpoint: '/new'
-		};
-		this.navigate(request, done);
+		}, done);
 	});
 
 	it('should send a 200 status', function() {
@@ -42,7 +40,6 @@ describe('GET /new', function() {
 	});
 
 	describe('"Add New URL" form', function() {
-
 		beforeEach(function() {
 			this.form = this.last.dom('[data-test=new-url-form]').eq(0);
 		});
@@ -110,15 +107,11 @@ describe('GET /new', function() {
 			const field = this.form.find('textarea[name=headers]').eq(0);
 			assert.isDefined(field);
 		});
-
 	});
-
 });
 
 describe('POST /new', function() {
-
 	describe('with invalid query', function() {
-
 		beforeEach(function(done) {
 			const request = {
 				method: 'POST',
@@ -138,13 +131,11 @@ describe('POST /new', function() {
 		it('should display an error message', function() {
 			assert.strictEqual(this.last.dom('[data-test=error]').length, 1);
 		});
-
 	});
 
 	describe('with valid query', function() {
-
 		beforeEach(function(done) {
-			const request = {
+			this.navigate({
 				method: 'POST',
 				endpoint: '/new',
 				form: {
@@ -152,8 +143,7 @@ describe('POST /new', function() {
 					url: 'http://example.com/',
 					standard: 'WCAG2AA'
 				}
-			};
-			this.navigate(request, done);
+			}, done);
 		});
 
 		it('should send a 200 status', function() {
@@ -180,7 +170,5 @@ describe('POST /new', function() {
 			assert.isDefined(alert);
 			assert.match(alert.textContent, /url has been added/i);
 		});
-
 	});
-
 });
