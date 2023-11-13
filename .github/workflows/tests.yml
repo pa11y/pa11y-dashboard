@@ -5,24 +5,28 @@ on:
   pull_request:
 
 jobs:
-  checkout_and_test:
+  test:
     runs-on: ubuntu-20.04
     strategy:
-      fail-fast: false
       matrix:
-        node-version: [12, 14, 16]
+        node-version: [12, 14, 16, 18, 20]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: MongoDB in GitHub Actions
-        uses: supercharge/mongodb-github-action@1.3.0
-        with:
-          mongodb-version: 3.4
       - run: npm ci
-      - run: make lint
-      - run: cp config/test.sample.json config/test.json
-      - run: NODE_ENV=test node index.js &
+      - run: npm run lint
+      - run: npm run test:unit
+
+      - name: Supply MongoDB 7.0.2
+        uses: supercharge/mongodb-github-action@1.5.0
+        with:
+          mongodb-version: 7.0.2
+      - name: Supply integration test configuration file
+        run: cp config/test.sample.json config/test.json
+      - name: Make webservice available to be integration-tested
+        run: NODE_ENV=test node index.js &
       - run: sleep 10s
-      - run: make ci
+
+      - run: npm run test:integration

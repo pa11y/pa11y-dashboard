@@ -50,7 +50,8 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "mocha -c --require test/integration/setup.js --reporter=spec --timeout 20000 --slow 20000 --recursive \"test/integration/**/*.js\"",
+    "test": "npm run test:integration",
+    "test:integration": "mocha -c --require test/integration/setup.js --reporter=spec --timeout 20000 --slow 20000 --recursive \"test/integration/**/*.js\"",
     "lint": "eslint ."
   }
 }
