@@ -113,23 +113,23 @@ If you run into problems, check the [troubleshooting guide](#troubleshooting).
 
 The boot configurations for Pa11y Dashboard are as follows. Look at the sample JSON files in the repo for example usage.
 
-### port
+### `port`
 
 *(number)* The port to run the application on. Set via a config file or the `PORT` environment variable.
 
-### noindex
+### `noindex`
 
 *(boolean)* If set to `true` (default), the dashboard will not be indexed by search engines. Set to `false` to allow indexing. Set via a config file or the `NOINDEX` environment variable.
 
-### readonly
+### `readonly`
 
 *(boolean)* If set to `true`, users will not be able to add, delete or run URLs (defaults to `false`). Set via a config file or the `READONLY` environment variable.
 
-### siteMessage
+### `siteMessage`
 
 *(string)* A message to display prominently on the site home page. Defaults to `null`.
 
-### webservice
+### `webservice`
 
 This can either be an object containing [Pa11y Webservice configurations][pa11y-webservice-config], or a string which is the base URL of a Pa11y Webservice instance you are running separately. If using environment variables, prefix the webservice vars with `WEBSERVICE_`.
 
