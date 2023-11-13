@@ -86,12 +86,12 @@ function createNewTask({body}, actions, headers) {
 		url: body.url,
 		standard: body.standard,
 		ignore: body.ignore || [],
-		timeout: body?.timeout,
-		wait: body?.wait,
+		timeout: body && body.timeout,
+		wait: body && body.wait,
 		actions,
-		username: body?.username,
-		password: body?.password,
+		username: body && body.username,
+		password: body && body.password,
 		headers,
-		hideElements: body?.hideElements
+		hideElements: body && body.hideElements
 	};
 }
