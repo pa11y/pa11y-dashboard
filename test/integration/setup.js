@@ -17,12 +17,13 @@
 const {promisify} = require('util');
 const createNavigator = require('./helper/navigate');
 const createWebserviceClient = require('pa11y-webservice-client-node');
+const fetch = require('node-fetch');
 
 const loadFixtures = promisify(require('pa11y-webservice/data/fixture/load'));
 
 const config = {
-	host: '0.0.0.0',
-	port: 4000,
+	host: process.env.HOST || '0.0.0.0',
+	port: Number(process.env.WEBSERVICE_PORT) || 4000,
 	noindex: true,
 	readonly: false
 };
@@ -31,7 +32,7 @@ const webserviceConfig = {
 	database: process.env.WEBSERVICE_DATABASE || 'mongodb://127.0.0.1/pa11y-dashboard-integration-test',
 	host: process.env.WEBSERVICE_HOST || '0.0.0.0',
 	port: Number(process.env.WEBSERVICE_PORT) || 3000,
-	cron: process.env.WEBSERVICE_CRON || '0 30 0 * * *'
+	dbOnly: true
 };
 
 async function assertServiceIsAvailable(baseUrl) {
