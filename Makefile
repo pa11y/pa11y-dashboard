@@ -1,8 +1,5 @@
 include Makefile.node
 
-# We need to run integration tests recursively
-export INTEGRATION_FLAGS := --recursive
-
 
 # Verify tasks
 # ------------
