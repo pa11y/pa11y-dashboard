@@ -178,12 +178,12 @@ Pa11y Dashboard major versions are normally supported for 6 months after their l
 
 We also maintain a [migration guide](MIGRATION.md) to help you migrate.
 
-| :grey_question: | Major Version | Last Minor Release | Node.js Versions | Support End Date |
-| :-------------- | :------------ | :----------------- | :--------------- | :--------------- |
-| :heart:         | 4             | N/A                | 12+              | N/A              |
-| :hourglass:     | 3             | 3.3.0              | 8+               | 2022-05-26       |
-| :skull:         | 2             | 2.4.2              | 4+               | 2020-01-16       |
-| :skull:         | 1             | 1.12               | 0.10–6           | 2016-12-05       |
+| Major Version | Last Minor Release | Node.js Versions | Support End Date |
+| :------------ | :----------------- | :--------------- | :--------------- |
+| 4             | N/A                | 12+              | N/A              |
+| 3             | 3.3.0              | 8+               | 2022-05-26       |
+| 2             | 2.4.2              | 4+               | 2020-01-16       |
+| 1             | 1.12               | 0.10-6           | 2016-12-05       |
 
 If you're opening issues related to these, please mention the version that the issue relates to.
 
