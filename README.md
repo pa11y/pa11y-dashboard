@@ -68,8 +68,9 @@ brew services start mongodb/brew/mongodb-community@4.4
 
 Check that the service has started properly:
 
-```sh
+```console
 $ brew services list
+
 Name              Status  User       Plist
 mongodb-community started pa11y      /Users/pa11y/Library/LaunchAgents/homebrew.mxcl.mongodb-community.plist
 ```
