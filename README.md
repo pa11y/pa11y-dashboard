@@ -202,9 +202,9 @@ Copyright &copy; 2023, Team Pa11y and contributors
 [issues]: https://github.com/pa11y/pa11y-dashboard/issues?utf8=%E2%9C%93&q=is%3Aissue
 [create-issue]: https://github.com/pa11y/pa11y-dashboard/issues/new
 [info-node]: package.json
-[info-build]: https://travis-ci.org/pa11y/pa11y-dashboard
+[info-build]: https://github.com/pa11y/pa11y-dashboard/actions/workflows/tests.yml
 [info-license]: LICENSE
 [shield-version]: https://img.shields.io/github/package-json/v/pa11y/pa11y-dashboard.svg
 [shield-node]: https://img.shields.io/node/v/pa11y/pa11y-dashboard.svg
-[shield-build]: https://img.shields.io/travis/pa11y/pa11y-dashboard/master.svg
+[shield-build]: https://github.com/pa11y/pa11y-dashboard/actions/workflows/tests.yml/badge.svg
 [shield-license]: https://img.shields.io/badge/license-GPL%203.0-blue.svg

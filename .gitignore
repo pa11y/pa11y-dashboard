@@ -1,4 +1,3 @@
-
 # Config files
 config/development.json
 config/production.json
@@ -8,5 +7,5 @@ config/test.json
 node_modules
 npm-debug.log
 
-# JetBrains IDE
+# Editors
 .idea
