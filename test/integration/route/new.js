@@ -134,16 +134,18 @@ describe('POST /new', function() {
 	});
 
 	describe('with valid query', function() {
+		const requestOptions = {
+			method: 'POST',
+			endpoint: '/new',
+			form: {
+				name: 'Example',
+				url: 'http://example.com/',
+				standard: 'WCAG2AA'
+			}
+		};
+
 		beforeEach(function(done) {
-			this.navigate({
-				method: 'POST',
-				endpoint: '/new',
-				form: {
-					name: 'Example',
-					url: 'http://example.com/',
-					standard: 'WCAG2AA'
-				}
-			}, done);
+			this.navigate(requestOptions, done);
 		});
 
 		it('should send a 200 status', function() {
@@ -151,9 +153,18 @@ describe('POST /new', function() {
 		});
 
 		it('should create the task', function(done) {
-			this.webservice.tasks.get({}, function(error, tasks) {
-				assert.strictEqual(tasks.length, 4);
-				done(error);
+			const getTaskCount = then =>
+				this.webservice.tasks.get({}, (error, tasks) => {
+					then(tasks.length);
+				});
+
+			getTaskCount(firstTaskCount => {
+				this.navigate(requestOptions, () => {
+					getTaskCount(secondTaskCount => {
+						assert.strictEqual(secondTaskCount, firstTaskCount + 1);
+						done();
+					});
+				});
 			});
 		});
 
