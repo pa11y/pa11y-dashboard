@@ -28,7 +28,7 @@ const config = {
 };
 
 const webserviceConfig = {
-	database: process.env.WEBSERVICE_DATABASE || 'mongodb://127.0.0.1/pa11y-webservice-test',
+	database: process.env.WEBSERVICE_DATABASE || 'mongodb://127.0.0.1/pa11y-dashboard-integration-test',
 	host: process.env.WEBSERVICE_HOST || '0.0.0.0',
 	port: Number(process.env.WEBSERVICE_PORT) || 3000,
 	cron: process.env.WEBSERVICE_CRON || '0 30 0 * * *'
@@ -60,5 +60,5 @@ before(async function() {
 });
 
 afterEach(async function() {
-	await loadFixtures('test', config.webservice);
+	await loadFixtures('test', webserviceConfig);
 });
