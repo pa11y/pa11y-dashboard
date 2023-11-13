@@ -40,28 +40,29 @@ module.exports = function route(app) {
 		const newTask = createNewTask(request, parsedActions, parsedHeaders);
 
 		app.webservice.tasks.create(newTask, (error, task) => {
-			if (error) {
-				const standards = getStandards().map(standard => {
-					if (standard.title === newTask.standard) {
-						standard.selected = true;
-					}
-					standard.rules = standard.rules.map(rule => {
-						if (newTask.ignore.indexOf(rule.name) !== -1) {
-							rule.ignored = true;
-						}
-						return rule;
-					});
-					return standard;
-				});
-				newTask.actions = request.body.actions;
-				newTask.headers = request.body.headers;
-				return response.render('new', {
-					error,
-					standards,
-					task: newTask
-				});
+			if (!error) {
+				return response.redirect(`/${task.id}?added`);
 			}
-			response.redirect(`/${task.id}?added`);
+
+			const standards = getStandards().map(standard => {
+				if (standard.title === newTask.standard) {
+					standard.selected = true;
+				}
+				standard.rules = standard.rules.map(rule => {
+					if (newTask.ignore.indexOf(rule.name) !== -1) {
+						rule.ignored = true;
+					}
+					return rule;
+				});
+				return standard;
+			});
+			newTask.actions = request.body.actions;
+			newTask.headers = request.body.headers;
+			response.render('new', {
+				error,
+				standards,
+				task: newTask
+			});
 		});
 	});
 };
