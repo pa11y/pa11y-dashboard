@@ -12,13 +12,9 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
-// jscs:disable maximumLineLength
 'use strict';
 
-module.exports = getTechniques;
-
-function getTechniques() {
+module.exports = function getTechniques() {
 	return {
 		H30: {
 			title: 'H30: Providing link text that describes the purpose of a link for anchor elements',
@@ -713,4 +709,4 @@ function getTechniques() {
 			url: 'https://www.w3.org/WAI/WCAG21/Techniques/failures/F96'
 		}
 	};
-}
+};

@@ -12,13 +12,9 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
-// jscs:disable maximumLineLength
 'use strict';
 
-module.exports = getStandards;
-
-function getStandards() {
+module.exports = function getStandards() {
 	return [
 		{
 			title: 'WCAG2A',
@@ -1800,4 +1796,4 @@ function getStandards() {
 			]
 		}
 	];
-}
+};
