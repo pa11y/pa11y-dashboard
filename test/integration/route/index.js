@@ -16,7 +16,7 @@
 
 const assert = require('proclaim');
 
-describe.only('GET /', function() {
+describe('GET /', function() {
 	beforeEach(function(done) {
 		const request = {
 			method: 'GET',
