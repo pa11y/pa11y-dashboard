@@ -24,7 +24,6 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm ci
       - run: npm run lint
-      - run: npm run test:unit
 
       - name: Supply MongoDB ${{ matrix.mongo }}
         uses: supercharge/mongodb-github-action@1.5.0
@@ -36,4 +35,4 @@ jobs:
         run: NODE_ENV=test node index.js &
       - run: sleep 10s
 
-      - run: npm run test:integration
+      - run: npm test
