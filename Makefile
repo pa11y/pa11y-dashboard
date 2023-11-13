@@ -1,22 +1,10 @@
-include Makefile.node
-
-
-# Verify tasks
-# ------------
-
-# Lint alias for backwards compatibility
-lint: verify
-
-
 # Client-side asset tasks
 # -----------------------
 
-# Compile LESS
 less:
 	@lessc -x ./public/less/main.less ./public/css/site.min.css
 	@$(TASK_DONE)
 
-# Compile client-side JavaScript
 uglify:
 	@uglifyjs \
 		public/js/vendor/jquery/jquery.min.js \
