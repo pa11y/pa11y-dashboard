@@ -9,23 +9,30 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        node-version: [12, 14, 16, 18, 20]
+        node: [12, 14, 16, 18, 20]
+        mongo: [latest]
+        include:
+          - { node: 12, mongo: 6.0.11 }
+          - { node: 12, mongo: 5.0.22 }
+          - { node: 12, mongo: 4.0.28 }
+          - { node: 12, mongo: 3.0.15 }
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node }}
       - run: npm ci
       - run: npm run lint
       - run: npm run test:unit
 
-      - name: Supply MongoDB 7.0.2
+      - name: Supply MongoDB ${{ matrix.mongo }}
         uses: supercharge/mongodb-github-action@1.5.0
         with:
-          mongodb-version: 7.0.2
+          mongodb-version: ${{ matrix.mongo }}
       - name: Supply integration test configuration file
         run: cp config/test.sample.json config/test.json
-      - name: Make webservice available to be integration-tested
+      - name: Make dashboard available to be integration-tested
         run: NODE_ENV=test node index.js &
       - run: sleep 10s
 
