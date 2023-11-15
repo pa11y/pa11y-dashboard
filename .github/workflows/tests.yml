@@ -45,7 +45,7 @@ jobs:
         run: cp config/test.sample.json config/test.json
       - name: Make dashboard available to be integration-tested
         run: NODE_ENV=test node index.js &
-      - uses: iFaxity/wait-on-action
+      - uses: iFaxity/wait-on-action@v1.1.0
         with:
           resource: http://localhost:4000
 
