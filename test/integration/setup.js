@@ -23,7 +23,7 @@ const loadFixtures = promisify(require('pa11y-webservice/data/fixture/load'));
 
 const config = {
 	host: process.env.HOST || '0.0.0.0',
-	port: Number(process.env.WEBSERVICE_PORT) || 4000,
+	port: Number(process.env.PORT) || 4000,
 	noindex: true,
 	readonly: false
 };
