@@ -38,7 +38,6 @@ function initApp(config, callback) {
 
 	const app = new EventEmitter();
 
-	app.address = null;
 	app.express = express();
 	app.server = http.createServer(app.express);
 	app.webservice = createClient(webserviceUrl);
@@ -179,8 +178,6 @@ function loadErrorHandling(app, config, callback) {
 	});
 
 	app.server.listen(config.port, error => {
-		const address = app.server.address();
-		app.address = `http://${address.address}:${address.port}`;
 		callback(error, app);
 	});
 }
