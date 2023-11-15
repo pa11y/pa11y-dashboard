@@ -16,7 +16,7 @@ jobs:
       - run: npm run lint
 
   test:
-    name: Testing with Node ${{ matrix.node }}, MongoDB ${{ matrix.mongo }}
+    name: test (node ${{ matrix.node }}, mongodb ${{ matrix.mongo }})
     runs-on: ubuntu-20.04
     strategy:
       matrix:
