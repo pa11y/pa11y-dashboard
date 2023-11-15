@@ -35,7 +35,7 @@
     "moment": "~2.29.4",
     "morgan": "~1.10.0",
     "nanoid": "~3.3.2",
-    "pa11y-webservice": "^4.3.0",
+    "pa11y-webservice": "~4.2.0",
     "pa11y-webservice-client-node": "~3.0.0"
   },
   "devDependencies": {
