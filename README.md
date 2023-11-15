@@ -46,7 +46,7 @@ Pa11y Dashboard uses [MongoDB Node.js Driver][mongodb-package] version 3, which 
 
 #### Example MongoDB installation for macOS
 
-On recent versions of macOS (10.13 or later), you can use [Homebrew] to install MongoDB Community Edition. More recent versions of MongoDB are untested and unsupported.
+On recent versions of macOS (10.13 or later), you can use [Homebrew] to install MongoDB Community Edition.
 
 Tap the MongoDB Homebrew Tap:
 
