@@ -15,6 +15,7 @@
 'use strict';
 
 const groupBy = require('lodash/groupBy');
+const keys = require('lodash/keys');
 const presentIgnoreRules = require('./ignore');
 const techs = require('../../data/techniques')();
 
@@ -39,8 +40,8 @@ function presentResult(result) {
 		['error', 'warning', 'notice'].forEach(type => {
 			const pluralType = `${type}s`;
 			const results = groupedByType[type] || [];
-			const groupedByCode = _.groupBy(results, 'code');
-			result[pluralType] = _.keys(groupedByCode).map(group => {
+			const groupedByCode = groupBy(results, 'code');
+			result[pluralType] = keys(groupedByCode).map(group => {
 				const groupMessage = groupedByCode[group][0];
 				groupMessage.count = groupedByCode[group].length;
 				groupMessage.items = groupedByCode[group].map(plural => ({
