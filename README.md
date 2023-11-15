@@ -152,9 +152,8 @@ NODE_ENV=test node index.js
 You'll now be able to run the following commands:
 
 ```sh
-make verify              # Verify all of the code (ESLint)
-make test                # Run all tests
-make test-integration    # Run the integration tests
+npm run lint   # Lint the code
+npm test       # Run all tests
 ```
 
 To compile the client-side JavaScript and CSS, you'll need the following commands. Compiled code is committed to the repository.
