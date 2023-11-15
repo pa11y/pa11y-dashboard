@@ -36,8 +36,7 @@
     "morgan": "~1.10.0",
     "nanoid": "~3.3.2",
     "pa11y-webservice": "^4.3.0",
-    "pa11y-webservice-client-node": "~3.0.0",
-    "underscore": "~1.13.2"
+    "pa11y-webservice-client-node": "~3.0.0"
   },
   "devDependencies": {
     "bower": "^1.8.13",
