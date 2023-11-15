@@ -13,15 +13,14 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 ---
 
 ## Requirements
+- [Node.js][node]: Pa11y Dashboard 4 requires a stable (even-numbered) version of Node.js of 12 or above.
+- [MongoDB][mongo]: This project depends on Pa11y Webservice, which stores test results in a MongoDB database and expects one to be available and running.
 
-Pa11y Dashboard is a [Node.js][node] application and requires a stable or LTS version of Node, currently version 12 or 14.
+### Pally Dashboard 4 and Linux/Ubuntu
 
-> **NOTE**
-> Pa11y Dashboard currently won't work with Node.js v16. Please use Node.js 12 or 14 until the next major version.
+Pa11y (and therefore this service) uses Headless Chrome to perform accessibility testing. On Linux and other Unix-like systems, Pa11y's attempt to install it as a dependency sometimes fails since additional operating system packages will be required. Your distribution's documentation should describe how to install these.
 
-Pa11y Dashboard uses a [MongoDB] database to store the results of the tests. The database doesn't have to be in the same server or computer where Pa11y Dashboard is running from.
-
-Pa11y Dashboard uses [Puppeteer] to create a headless instance of the Chromium browser in order to run the tests. On certain environments this may require additional dependencies to be installed. For example, in Debian/Ubuntu systems you may need to install the `libnss3` and `libgconf-2-4` libraries in order to be able to run tests on Pa11y Dashboard. Please refer to the documentation from your provider for details on how to do this.
+In addition, to use Pa11y Webservice 4 with a version of Ubuntu above 20.04, a path to the Chrome executable must be defined in [chromeLaunchConfig](#chromelaunchconfig-config-file-only), as `chromeLaunchConfig.executablePath`. Version 5 of Pa11y Webservice, which will use Pa11y 7 along with a more recent version of Puppeteer, will resolve this issue.
 
 ## Setting up Pa11y Dashboard
 
