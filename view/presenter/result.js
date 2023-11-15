@@ -14,8 +14,8 @@
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 'use strict';
 
-const groupBy = require('lodash/groupBy');
-const keys = require('lodash/keys');
+const groupBy = require('lodash.groupby');
+const keys = require('lodash.keys');
 const presentIgnoreRules = require('./ignore');
 const techs = require('../../data/techniques')();
 
