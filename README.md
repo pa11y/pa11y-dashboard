@@ -208,7 +208,6 @@ Copyright &copy; 2023, Team Pa11y and contributors
 [node]: http://nodejs.org/
 [pa11y]: https://github.com/pa11y/pa11y
 [pa11y-webservice-config]: https://github.com/pa11y/webservice#configurations
-[puppeteer]: https://www.npmjs.com/package/puppeteer
 
 [info-node]: package.json
 [info-build]: https://github.com/pa11y/pa11y-dashboard/actions/workflows/tests.yml
