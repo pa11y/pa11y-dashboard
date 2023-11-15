@@ -14,7 +14,7 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 
 ## Requirements
 - [Node.js][node]: Pa11y Dashboard 4 requires a stable (even-numbered) version of Node.js of 12 or above.
-- [MongoDB][mongo]: This project depends on Pa11y Webservice, which stores test results in a MongoDB database and expects one to be available and running.
+- [MongoDB][mongodb]: This project depends on Pa11y Webservice, which stores test results in a MongoDB database and expects one to be available and running.
 
 ### Pally Dashboard 4 and Linux/Ubuntu
 
