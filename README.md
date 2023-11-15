@@ -21,7 +21,7 @@ Pa11y Dashboard is a [Node.js][node] application and requires a stable or LTS ve
 
 Pa11y Dashboard uses a [MongoDB] database to store the results of the tests. The database doesn't have to be in the same server or computer where Pa11y Dashboard is running from.
 
-Pa11y Dashboard uses [puppeteer] to create a headless instance of the Chromium browser in order to run the tests. On certain environments this may require additional dependencies to be installed. For example, in Debian/Ubuntu systems you may need to install the `libnss3` and `libgconf-2-4` libraries in order to be able to run tests on Pa11y Dashboard. Please refer to the documentation from your provider for details on how to do this.
+Pa11y Dashboard uses [Puppeteer] to create a headless instance of the Chromium browser in order to run the tests. On certain environments this may require additional dependencies to be installed. For example, in Debian/Ubuntu systems you may need to install the `libnss3` and `libgconf-2-4` libraries in order to be able to run tests on Pa11y Dashboard. Please refer to the documentation from your provider for details on how to do this.
 
 ## Setting up Pa11y Dashboard
 
