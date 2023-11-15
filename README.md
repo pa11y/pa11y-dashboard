@@ -13,6 +13,7 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 ---
 
 ## Requirements
+
 - [Node.js][node]: Pa11y Dashboard 4 requires a stable (even-numbered) version of Node.js of 12 or above.
 - [MongoDB][mongodb]: This project depends on Pa11y Webservice, which stores test results in a MongoDB database and expects one to be available and running.
 
@@ -164,15 +165,15 @@ make uglify  # Compile and uglify the client-side JavaScript
 
 ## Useful resources
 
-* [Setting up An Accessibility Dashboard from Scratch with Pa11y on DigitalOcean](https://una.im/pa11y-dash/)
-* [Monitoring Web Accessibility Compliance With Pa11y Dashboard](https://www.lullabot.com/articles/monitoring-web-accessibility-compliance-with-pa11y-dashboard)
+- [Setting up An Accessibility Dashboard from Scratch with Pa11y on DigitalOcean](https://una.im/pa11y-dash/)
+- [Monitoring Web Accessibility Compliance With Pa11y Dashboard](https://www.lullabot.com/articles/monitoring-web-accessibility-compliance-with-pa11y-dashboard)
 
 ## Troubleshooting
 
 ### Common issues
 
-* `500` errors or `Could not connect to pa11y-webservice` messages are often related to MongoDB. Ensure that you have the [appropriate version of MongoDB](#installing-mongodb) installed, and that it's running - it doesn't always start automatically.
-* Error messages saying that pa11y-webservice isn't running may be due to dependency installation problems. Try deleting your `pa11y-dashboard/node_modules` directory and running `npm install` again.
+- `500` errors or `Could not connect to pa11y-webservice` messages are often related to MongoDB. Ensure that you have the [appropriate version of MongoDB](#installing-mongodb) installed, and that it's running - it doesn't always start automatically.
+- Error messages saying that pa11y-webservice isn't running may be due to dependency installation problems. Try deleting your `pa11y-dashboard/node_modules` directory and running `npm install` again.
 
 ### Create a new issue
 
