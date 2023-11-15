@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.3.0 (DATE)
+
+* DESCRIPTION
+
 ## 4.2.0 (2022-03-30)
 
 * Add request logging for easier debugging
