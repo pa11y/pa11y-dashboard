@@ -41,13 +41,18 @@ jobs:
         uses: supercharge/mongodb-github-action@1.5.0
         with:
           mongodb-version: ${{ matrix.mongo }}
+
       - name: Supply integration test configuration file
         run: cp config/test.sample.json config/test.json
+
       - name: Make dashboard available to be integration-tested
         run: NODE_ENV=test node index.js &
       - name: Wait for dashboard to respond
         uses: iFaxity/wait-on-action@v1.1.0
         with:
           resource: http://localhost:4000
+          delay: 1000
+          timeout: 30000
+          log: true
 
       - run: NODE_ENV=test npm test
