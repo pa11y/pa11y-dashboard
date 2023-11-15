@@ -14,13 +14,13 @@
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 'use strict';
 
-const _ = require('underscore');
+const groupBy = require('lodash/groupBy');
 const moment = require('moment');
 
 module.exports = presentResultList;
 
 function presentResultList(results) {
-	const resultsByDay = _.groupBy(results, result => {
+	const resultsByDay = groupBy(results, result => {
 		return moment(result.date).format('YYYY-MM-DD');
 	});
 	const uniqueDayResults = [];

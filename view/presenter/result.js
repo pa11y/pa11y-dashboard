@@ -14,7 +14,7 @@
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 'use strict';
 
-const _ = require('underscore');
+const groupBy = require('lodash/groupBy');
 const presentIgnoreRules = require('./ignore');
 const techs = require('../../data/techniques')();
 
@@ -35,7 +35,7 @@ function presentResult(result) {
 
 	// Split out message types
 	if (result.results) {
-		const groupedByType = _.groupBy(result.results, 'type');
+		const groupedByType = groupBy(result.results, 'type');
 		['error', 'warning', 'notice'].forEach(type => {
 			const pluralType = `${type}s`;
 			const results = groupedByType[type] || [];
