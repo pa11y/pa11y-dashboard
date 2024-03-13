@@ -12,14 +12,11 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
-// jscs:disable maximumLineLength, requireArrowFunctions
 'use strict';
 
 const assert = require('proclaim');
 
-describe.only('GET /', function() {
-
+describe('GET /', function() {
 	beforeEach(function(done) {
 		const request = {
 			method: 'GET',
@@ -94,7 +91,7 @@ describe.only('GET /', function() {
 		assert.match(tasks.eq(0).text(), /3\s*notices/i);
 	});
 
-	it('should display a message indicating that there are no results if the task has not been run', function() {
+	it('should indicate there are no results if the task has not been run', function() {
 		const tasks = this.last.dom('[data-test=task]');
 		assert.match(tasks.eq(2).text(), /no results/i);
 	});
@@ -102,5 +99,4 @@ describe.only('GET /', function() {
 	it('should not display an alert message', function() {
 		assert.strictEqual(this.last.dom('[data-test=alert]').length, 0);
 	});
-
 });

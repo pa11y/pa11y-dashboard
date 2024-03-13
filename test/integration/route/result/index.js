@@ -12,8 +12,6 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
-// jscs:disable maximumLineLength, requireArrowFunctions
 'use strict';
 
 const assert = require('proclaim');
@@ -35,13 +33,19 @@ describe('GET /<task-id>/<result-id>', function() {
 	it('should display a "Download CSV" button', function() {
 		const elem = this.last.dom('[data-test=download-csv]');
 		assert.strictEqual(elem.length, 1);
-		assert.strictEqual(elem.eq(0).attr('href'), '/abc000000000000000000001/def000000000000000000001.csv');
+		assert.strictEqual(
+			elem.eq(0).attr('href'),
+			'/abc000000000000000000001/def000000000000000000001.csv'
+		);
 	});
 
 	it('should display a "Download JSON" button', function() {
 		const elem = this.last.dom('[data-test=download-json]');
 		assert.strictEqual(elem.length, 1);
-		assert.strictEqual(elem.eq(0).attr('href'), '/abc000000000000000000001/def000000000000000000001.json');
+		assert.strictEqual(
+			elem.eq(0).attr('href'),
+			'/abc000000000000000000001/def000000000000000000001.json'
+		);
 	});
 
 	it('should display a link back to the task', function() {

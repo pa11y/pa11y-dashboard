@@ -15,6 +15,7 @@
 'use strict';
 
 const fs = require('fs');
+
 const environment = (process.env.NODE_ENV || 'development');
 const jsonPath = `./config/${environment}.json`;
 const jsPath = `./config/${environment}.js`;
@@ -28,7 +29,6 @@ if (fs.existsSync(jsonPath)) {
 		port: Number(env('PORT', '4000')),
 		noindex: env('NOINDEX', 'true') === 'true',
 		readonly: env('READONLY', 'false') === 'true',
-
 		webservice: env('WEBSERVICE_URL', {
 			database: env('WEBSERVICE_DATABASE', 'mongodb://localhost/pa11y-webservice'),
 			host: env('WEBSERVICE_HOST', '0.0.0.0'),

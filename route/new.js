@@ -18,18 +18,15 @@
 const getStandards = require('../data/standards');
 const httpHeaders = require('http-headers');
 
-module.exports = route;
-
-// Route definition
-function route(app) {
-
+module.exports = function route(app) {
 	app.express.get('/new', (request, response) => {
-		const standards = getStandards().map(standard => {
-			if (standard.title === 'WCAG2AA') {
-				standard.selected = true;
-			}
-			return standard;
-		});
+		const standards = getStandards().map(
+			standard => {
+				if (standard.title === 'WCAG2AA') {
+					standard.selected = true;
+				}
+				return standard;
+			});
 		response.render('new', {
 			standards,
 			isNewTaskPage: true
@@ -37,43 +34,38 @@ function route(app) {
 	});
 
 	app.express.post('/new', (request, response) => {
-
 		const parsedActions = parseActions(request.body.actions);
-		let parsedHeaders;
-
-		if (request.body.headers) {
-			parsedHeaders = httpHeaders(request.body.headers, true);
-		}
+		const parsedHeaders = request.body.headers && httpHeaders(request.body.headers, true);
 
 		const newTask = createNewTask(request, parsedActions, parsedHeaders);
 
 		app.webservice.tasks.create(newTask, (error, task) => {
-			if (error) {
-				const standards = getStandards().map(standard => {
-					if (standard.title === newTask.standard) {
-						standard.selected = true;
-					}
-					standard.rules = standard.rules.map(rule => {
-						if (newTask.ignore.indexOf(rule.name) !== -1) {
-							rule.ignored = true;
-						}
-						return rule;
-					});
-					return standard;
-				});
-				newTask.actions = request.body.actions;
-				newTask.headers = request.body.headers;
-				return response.render('new', {
-					error,
-					standards,
-					task: newTask
-				});
+			if (!error) {
+				return response.redirect(`/${task.id}?added`);
 			}
-			response.redirect(`/${task.id}?added`);
+
+			const standards = getStandards().map(standard => {
+				if (standard.title === newTask.standard) {
+					standard.selected = true;
+				}
+				standard.rules = standard.rules.map(rule => {
+					if (newTask.ignore.indexOf(rule.name) !== -1) {
+						rule.ignored = true;
+					}
+					return rule;
+				});
+				return standard;
+			});
+			newTask.actions = request.body.actions;
+			newTask.headers = request.body.headers;
+			response.render('new', {
+				error,
+				standards,
+				task: newTask
+			});
 		});
 	});
-
-}
+};
 
 function parseActions(actions) {
 	if (actions) {
@@ -87,19 +79,19 @@ function parseActions(actions) {
 	}
 }
 
-/* eslint-disable complexity */
-function createNewTask(request, actions, headers) {
+
+function createNewTask({body}, actions, headers) {
 	return {
-		name: request.body.name,
-		url: request.body.url,
-		standard: request.body.standard,
-		ignore: request.body.ignore || [],
-		timeout: request.body.timeout || undefined,
-		wait: request.body.wait || undefined,
+		name: body.name,
+		url: body.url,
+		standard: body.standard,
+		ignore: body.ignore || [],
+		timeout: body.timeout || undefined,
+		wait: body.wait || undefined,
 		actions,
-		username: request.body.username || undefined,
-		password: request.body.password || undefined,
+		username: body.username || undefined,
+		password: body.password || undefined,
 		headers,
-		hideElements: request.body.hideElements || undefined
+		hideElements: body.hideElements || undefined
 	};
 }

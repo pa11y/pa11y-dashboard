@@ -12,20 +12,16 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
-// jscs:disable maximumLineLength, requireArrowFunctions
 'use strict';
 
 const assert = require('proclaim');
 
 describe('GET /<task-id>/edit', function() {
-
 	beforeEach(function(done) {
-		const request = {
+		this.navigate({
 			method: 'GET',
 			endpoint: '/abc000000000000000000001/edit'
-		};
-		this.navigate(request, done);
+		}, done);
 	});
 
 	it('should send a 200 status', function() {
@@ -113,13 +109,10 @@ describe('GET /<task-id>/edit', function() {
 			assert.isDefined(fields);
 			assert.notStrictEqual(fields.length, 0);
 		});
-
 	});
-
 });
 
 describe('POST /<task-id>/edit', function() {
-
 	beforeEach(function(done) {
 		const request = {
 			method: 'POST',
@@ -153,5 +146,4 @@ describe('POST /<task-id>/edit', function() {
 		assert.isDefined(alert);
 		assert.match(alert.text(), /been saved/i);
 	});
-
 });

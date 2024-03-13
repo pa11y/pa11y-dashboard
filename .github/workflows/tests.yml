@@ -1,5 +1,3 @@
-name: Build and lint
-
 on:
   push:
     branches:
@@ -7,38 +5,54 @@ on:
   pull_request:
 
 jobs:
-  checkout_and_test:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 12
+      - run: npm ci
+      - run: npm run lint
+
+  test:
+    name: test (node ${{ matrix.node }}, mongodb ${{ matrix.mongo }})
     runs-on: ubuntu-20.04
     strategy:
+      fail-fast: false
       matrix:
+        node: [12, 14, 16, 18, 20]
+        mongo: [latest]
         include:
-          - node-version: 12.x
-            lint: true # Linter is run only once to shorten the total build time
-          - node-version: 14.x
+          - { node: 12, mongo: 6.0.11 }
+          - { node: 12, mongo: 5.0.22 }
+          - { node: 12, mongo: 4.4.25 }
+          - { node: 12, mongo: 3.6.23 }
+          - { node: 12, mongo: 2.6.12 }
 
     steps:
-      - name: Checkout code from ${{ github.repository }}
-        uses: actions/checkout@v2
-      - name: Setup node
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: MongoDB in GitHub Actions
-        uses: supercharge/mongodb-github-action@1.3.0
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+
+      - name: Supply MongoDB ${{ matrix.mongo }}
+        uses: supercharge/mongodb-github-action@1.5.0
         with:
-          mongodb-version: 3.4
-      - name: Install dependencies
-        run: npm i
-      - name: Run linter
-        if: ${{ matrix.lint }}
-        run: make lint
-      - name: Create test config
+          mongodb-version: ${{ matrix.mongo }}
+
+      - name: Supply integration test configuration file
         run: cp config/test.sample.json config/test.json
-      - name: Start test app
+
+      - name: Make dashboard available to be integration-tested
         run: NODE_ENV=test node index.js &
-      - name: Wait / Sleep
-        uses: jakejarvis/wait-action@v0.1.0
+      - name: Wait for dashboard to respond
+        uses: iFaxity/wait-on-action@v1.1.0
         with:
-          time: '10s'
-      - name: Run tests
-        run: make ci
+          resource: http://localhost:4000
+          delay: 1000
+          timeout: 30000
+          log: true
+
+      - run: NODE_ENV=test npm test

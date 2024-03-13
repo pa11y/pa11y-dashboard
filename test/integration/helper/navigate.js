@@ -12,19 +12,13 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
-// jscs:disable requireArrowFunctions
 'use strict';
 
 const cheerio = require('cheerio');
 const request = require('request');
 
-module.exports = createNavigator;
-
-// Create a navigate function
 function createNavigator(baseUrl, store) {
 	return function(opts, callback) {
-
 		store.body = null;
 		store.dom = null;
 		store.request = null;
@@ -54,8 +48,8 @@ function createNavigator(baseUrl, store) {
 				store.dom = cheerio.load(store.body);
 			}
 			callback();
-
 		});
-
 	};
 }
+
+module.exports = createNavigator;

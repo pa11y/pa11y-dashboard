@@ -12,14 +12,11 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
-// jscs:disable maximumLineLength, requireArrowFunctions
 'use strict';
 
 const assert = require('proclaim');
 
 describe('GET /<task-id>/<result-id>.csv', function() {
-
 	beforeEach(function(done) {
 		const request = {
 			method: 'GET',
@@ -36,11 +33,9 @@ describe('GET /<task-id>/<result-id>.csv', function() {
 	it('should output CSV results', function() {
 		assert.match(this.last.body, /^"code","message","type"/);
 	});
-
 });
 
 describe('GET /<task-id>/<result-id>.json', function() {
-
 	beforeEach(function(done) {
 		const request = {
 			method: 'GET',
@@ -64,5 +59,4 @@ describe('GET /<task-id>/<result-id>.json', function() {
 		assert.strictEqual(json.count.notice, 3);
 		assert.isArray(json.results);
 	});
-
 });

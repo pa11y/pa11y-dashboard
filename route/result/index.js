@@ -17,19 +17,15 @@
 const presentTask = require('../../view/presenter/task');
 const presentResult = require('../../view/presenter/result');
 
-module.exports = route;
-
-// Route definition
-function route(app) {
-
-	app.express.get('/:id/:rid', (request, response, next) => {
-		app.webservice.task(request.params.id).get({}, (error, task) => {
+module.exports = function resultIndex(app) {
+	app.express.get('/:id/:rid', ({params}, response, next) => {
+		app.webservice.task(params.id).get({}, (error, task) => {
 			if (error) {
 				return next();
 			}
 			app.webservice
-				.task(request.params.id)
-				.result(request.params.rid)
+				.task(params.id)
+				.result(params.rid)
 				.get({full: true}, (webserviceError, result) => {
 					if (webserviceError) {
 						return next();
@@ -42,5 +38,4 @@ function route(app) {
 				});
 		});
 	});
-
-}
+};

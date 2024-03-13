@@ -17,7 +17,7 @@
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const createClient = require('pa11y-webservice-client-node');
-const EventEmitter = require('events').EventEmitter;
+const {EventEmitter} = require('events');
 const express = require('express');
 const hbs = require('express-hbs');
 const morgan = require('morgan');
@@ -27,7 +27,6 @@ const pkg = require('./package.json');
 
 module.exports = initApp;
 
-// Initialise the application
 function initApp(config, callback) {
 	config = defaultConfig(config);
 
@@ -54,7 +53,6 @@ function initApp(config, callback) {
 	loadErrorHandling(app, config, callback);
 }
 
-// Get default configurations
 function defaultConfig(config) {
 	if (typeof config.noindex !== 'boolean') {
 		config.noindex = true;
@@ -66,7 +64,6 @@ function defaultConfig(config) {
 }
 
 function loadMiddleware(app) {
-	// Compression
 	app.express.use(compression());
 
 	// Adds an ID to every request, used later for logging

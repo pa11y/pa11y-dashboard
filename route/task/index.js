@@ -18,11 +18,7 @@ const presentTask = require('../../view/presenter/task');
 const presentResult = require('../../view/presenter/result');
 const presentResultList = require('../../view/presenter/result-list');
 
-module.exports = route;
-
-// Route definition
-function route(app) {
-
+module.exports = function taskIndex(app) {
 	app.express.get('/:id', (request, response, next) => {
 		app.webservice.task(request.params.id).get({lastres: true}, (error, task) => {
 			if (error) {
@@ -47,5 +43,4 @@ function route(app) {
 			});
 		});
 	});
-
-}
+};

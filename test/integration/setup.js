@@ -12,39 +12,54 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
-// jscs:disable requireArrowFunctions
 'use strict';
 
-const config = require('../../config/test.json');
+const {promisify} = require('util');
 const createNavigator = require('./helper/navigate');
-const createWebserviceClient = require('./helper/webservice');
-const loadFixtures = require('pa11y-webservice/data/fixture/load');
-const request = require('request');
+const createWebserviceClient = require('pa11y-webservice-client-node');
+const fetch = require('node-fetch');
 
-// Run before all tests
-before(function(done) {
-	this.baseUrl = `http://localhost:${config.port}`;
+const loadFixtures = promisify(require('pa11y-webservice/data/fixture/load'));
+
+const config = {
+	host: process.env.HOST || '0.0.0.0',
+	port: Number(process.env.PORT) || 4000,
+	noindex: true,
+	readonly: false
+};
+
+const webserviceConfig = {
+	database: process.env.WEBSERVICE_DATABASE || 'mongodb://127.0.0.1/pa11y-dashboard-integration-test',
+	host: process.env.WEBSERVICE_HOST || '0.0.0.0',
+	port: Number(process.env.WEBSERVICE_PORT) || 3000,
+	dbOnly: true
+};
+
+async function assertDashboardIsAvailable(baseUrl) {
+	try {
+		const response = await fetch(baseUrl);
+		if (!response.ok) {
+			console.error('Service found but returned an error. HTTP status:', response.status);
+			throw Error();
+		}
+	} catch (error) {
+		console.error('Service under test not found or returned error.');
+		throw error;
+	}
+}
+
+before(async function() {
+	this.baseUrl = `http://${config.host}:${config.port}`;
+
+	await assertDashboardIsAvailable(this.baseUrl);
+	await loadFixtures('test', webserviceConfig);
+
+	this.webservice = createWebserviceClient(`http://${webserviceConfig.host}:${webserviceConfig.port}/`);
+
 	this.last = {};
 	this.navigate = createNavigator(this.baseUrl, this.last);
-	this.webservice = createWebserviceClient(config);
-	assertTestAppIsRunning(this.baseUrl, () => {
-		loadFixtures('test', config.webservice, done);
-	});
 });
 
-// Run after each test
-afterEach(function(done) {
-	loadFixtures('test', config.webservice, done);
+afterEach(async function() {
+	await loadFixtures('test', webserviceConfig);
 });
-
-// Check that the test application is running, and exit if not
-function assertTestAppIsRunning(url, done) {
-	request(url, error => {
-		if (error) {
-			console.error('Error: Test app not started; run with `NODE_ENV=test node index.js`');
-			process.exit(1);
-		}
-		done();
-	});
-}

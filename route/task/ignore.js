@@ -1,10 +1,6 @@
 'use strict';
 
-module.exports = route;
-
-// Route definition
-function route(app) {
-
+module.exports = function ignore(app) {
 	app.express.post('/:id/ignore', (request, response, next) => {
 		app.webservice.task(request.params.id).get({}, (error, task) => {
 			if (error) {
@@ -22,5 +18,4 @@ function route(app) {
 			});
 		});
 	});
-
-}
+};

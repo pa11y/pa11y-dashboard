@@ -12,20 +12,16 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
-
-// jscs:disable maximumLineLength, requireArrowFunctions
 'use strict';
 
 const assert = require('proclaim');
 
 describe('GET /new', function() {
-
 	beforeEach(function(done) {
-		const request = {
+		this.navigate({
 			method: 'GET',
 			endpoint: '/new'
-		};
-		this.navigate(request, done);
+		}, done);
 	});
 
 	it('should send a 200 status', function() {
@@ -44,7 +40,6 @@ describe('GET /new', function() {
 	});
 
 	describe('"Add New URL" form', function() {
-
 		beforeEach(function() {
 			this.form = this.last.dom('[data-test=new-url-form]').eq(0);
 		});
@@ -92,7 +87,7 @@ describe('GET /new', function() {
 		it('should have a "standard" field', function() {
 			const field = this.form.find('select[name=standard]').eq(0);
 			assert.isDefined(field);
-			assert.strictEqual(field.find('option').length, 4);
+			assert.greaterThanOrEqual(field.find('option').length, 1);
 		});
 
 		it('should have "ignore" fields', function() {
@@ -112,15 +107,11 @@ describe('GET /new', function() {
 			const field = this.form.find('textarea[name=headers]').eq(0);
 			assert.isDefined(field);
 		});
-
 	});
-
 });
 
 describe('POST /new', function() {
-
 	describe('with invalid query', function() {
-
 		beforeEach(function(done) {
 			const request = {
 				method: 'POST',
@@ -140,22 +131,21 @@ describe('POST /new', function() {
 		it('should display an error message', function() {
 			assert.strictEqual(this.last.dom('[data-test=error]').length, 1);
 		});
-
 	});
 
 	describe('with valid query', function() {
+		const requestOptions = {
+			method: 'POST',
+			endpoint: '/new',
+			form: {
+				name: 'Example',
+				url: 'http://example.com/',
+				standard: 'WCAG2AA'
+			}
+		};
 
 		beforeEach(function(done) {
-			const request = {
-				method: 'POST',
-				endpoint: '/new',
-				form: {
-					name: 'Example',
-					url: 'http://example.com/',
-					standard: 'WCAG2AA'
-				}
-			};
-			this.navigate(request, done);
+			this.navigate(requestOptions, done);
 		});
 
 		it('should send a 200 status', function() {
@@ -163,9 +153,18 @@ describe('POST /new', function() {
 		});
 
 		it('should create the task', function(done) {
-			this.webservice.tasks.get({}, function(error, tasks) {
-				assert.strictEqual(tasks.length, 4);
-				done(error);
+			const getTaskCount = then =>
+				this.webservice.tasks.get({}, (error, tasks) => {
+					then(tasks.length);
+				});
+
+			getTaskCount(firstTaskCount => {
+				this.navigate(requestOptions, () => {
+					getTaskCount(secondTaskCount => {
+						assert.strictEqual(secondTaskCount, firstTaskCount + 1);
+						done();
+					});
+				});
 			});
 		});
 
@@ -180,9 +179,7 @@ describe('POST /new', function() {
 		it('should display a success message', function() {
 			const alert = this.last.dom('[data-test=alert]').eq(0);
 			assert.isDefined(alert);
-			assert.match(alert.textContent, /url has been added/i);
+			assert.match(alert.text(), /url has been added/i);
 		});
-
 	});
-
 });

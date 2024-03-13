@@ -16,10 +16,7 @@
 
 const presentTask = require('../view/presenter/task');
 
-module.exports = route;
-
-// Route definition
-function route(app) {
+module.exports = function index(app) {
 	app.express.get('/', (request, response, next) => {
 		app.webservice.tasks.get({lastres: true}, (error, tasks) => {
 			if (error) {
@@ -32,4 +29,4 @@ function route(app) {
 			});
 		});
 	});
-}
+};
