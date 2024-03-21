@@ -21,7 +21,7 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 
 Pa11y (and therefore this service) uses Headless Chrome to perform accessibility testing. On Linux and other Unix-like systems, Pa11y's attempt to install it as a dependency sometimes fails since additional operating system packages will be required. Your distribution's documentation should describe how to install these.
 
-In addition, to use Pa11y Dashboard 4 with a version of Ubuntu above 20.04, a path to the Chrome executable must be defined in `chromeLaunchConfig`, as `chromeLaunchConfig.executablePath`. Version 5 of Pa11y Dashboard, which will use Pa11y 7 along with a more recent version of Puppeteer, will resolve this issue.
+In addition, to use Pa11y Dashboard 4 with a version of Ubuntu above 20.04, a path to the Chrome executable must be defined in `chromeLaunchConfig`, as `chromeLaunchConfig.executablePath`. Version 5 of Pa11y Dashboard, which will use Pa11y 8 along with a more recent version of Puppeteer, will resolve this issue.
 
 ## Setting up Pa11y Dashboard
 
