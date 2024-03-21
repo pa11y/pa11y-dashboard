@@ -198,7 +198,7 @@ The following table lists the major versions available and, for each previous ma
 ## License
 
 Pa11y Dashboard is licensed under the [GNU General Public License 3.0][info-license].  
-Copyright &copy; 2023, Team Pa11y and contributors
+Copyright &copy; 2016-2024, Team Pa11y and contributors
 
 [homebrew]: https://brew.sh/
 [issues]: https://github.com/pa11y/pa11y-dashboard/issues?utf8=%E2%9C%93&q=is%3Aissue
