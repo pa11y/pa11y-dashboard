@@ -26,7 +26,7 @@
   "dependencies": {
     "body-parser": "~1.19.2",
     "compression": "~1.7.4",
-    "express": "~4.17.3",
+    "express": "~4.19.2",
     "express-hbs": "~2.4.0",
     "http-headers": "~3.0.2",
     "kleur": "~4.1.4",
