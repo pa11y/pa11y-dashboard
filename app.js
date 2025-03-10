@@ -41,6 +41,10 @@ function initApp(config, callback) {
 	app.server = http.createServer(app.express);
 	app.webservice = createClient(webserviceUrl);
 
+	// Apply basic authentication if necessary
+	loadBasicAuth(app, config);
+
+	// Load middleware
 	loadMiddleware(app);
 
 	// View engine
@@ -61,6 +65,36 @@ function defaultConfig(config) {
 		config.readonly = false;
 	}
 	return config;
+}
+
+function loadBasicAuth(app, config) {
+	app.express.use((request, response, next) => {
+		const protection = config.protection.enabled || false;
+		if (protection) {
+			const auth = request.headers.authorization;
+		    if (!auth) {
+		      response.set('WWW-Authenticate', 'Basic realm="401"'); // Prompt the user for credentials
+		      return response.status(401).send('Authentication required.');
+		    }
+
+		    const credentials = Buffer.from(auth.split(' ')[1], 'base64').toString().split(':');
+		    const [username, password] = credentials;
+
+		    // Use credentials from config
+		    const USER = config.protection.user || "";
+		    const PASS = config.protection.pass || "";
+
+		    if (username === USER && password === PASS) {
+		      next(); // Proceed to the next middleware or route
+		    } else {
+		      response.set('WWW-Authenticate', 'Basic realm="401"'); // Prompt again
+		      return response.status(401).send('Authentication required.');
+		    }
+		}
+		else {
+			next();
+		}
+	});
 }
 
 function loadMiddleware(app) {
