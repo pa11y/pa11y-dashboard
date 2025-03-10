@@ -139,6 +139,19 @@ The boot configurations for Pa11y Dashboard are as follows. Look at the sample J
 
 This can either be an object containing [Pa11y Webservice configurations][pa11y-webservice-config], or a string which is the base URL of a Pa11y Webservice instance you are running separately. If using environment variables, prefix the webservice vars with `WEBSERVICE_`.
 
+## Docker
+You can also run Pa11y Dashboard using [Docker][docker]. In this case, you need to define your environment name, set up the appropriate config file for your environment and build the Docker image before starting the service.
+```sh
+# Define the environment name in .env, e.g. "development"
+NODE_ENV=development
+# Set up and modify the config file according to your environment
+cp config/development.sample.json config/development.json
+# Start the service
+docker compose up --build -d
+# Optionally, you can also build the image without starting the service
+docker build --build-arg ENV=development -t pa11y-dashboard:development .
+```
+
 ## Contributing
 
 There are many ways to contribute to Pa11y Dashboard, we cover these in the [contributing guide](CONTRIBUTING.md) for this repo.
@@ -200,6 +213,7 @@ The following table lists the major versions available and, for each previous ma
 Pa11y Dashboard is licensed under the [GNU General Public License 3.0][info-license].  
 Copyright &copy; 2023, Team Pa11y and contributors
 
+[docker]: https://www.docker.com/
 [homebrew]: https://brew.sh/
 [issues]: https://github.com/pa11y/pa11y-dashboard/issues?utf8=%E2%9C%93&q=is%3Aissue
 [issues-create]: https://github.com/pa11y/pa11y-dashboard/issues/new
