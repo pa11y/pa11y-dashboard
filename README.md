@@ -115,6 +115,65 @@ The [available configurations](#configurations) are documented in the next secti
 
 If you run into problems, check the [troubleshooting guide](#troubleshooting).
 
+#### Option 3: Using Docker
+
+Pa11y Dashboard can also be run using Docker. We provide a `docker-compose.yml` file that sets up both Pa11y Dashboard and MongoDB services.
+
+1. Make sure you have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed.
+
+2. Clone the repository and navigate to it:
+```sh
+git clone https://github.com/pa11y/pa11y-dashboard.git
+cd pa11y-dashboard
+```
+
+3. add configuration file at `config/production.json`
+```json
+{
+    "port": 4000,
+    "noindex": true,
+    "readonly": false,
+    "webservice": {
+        "database": "mongodb://mongo/pa11y-webservice",
+        "host": "0.0.0.0",
+        "port": 3000,
+        "chromeLaunchConfig": {
+            "ignoreHTTPSErrors": false,
+            "args": [
+                "--no-sandbox"
+            ]
+        },
+        "cron": "30 0 * * 3"
+    }
+}
+```
+
+1. Start the services:
+```sh
+docker-compose up --build
+```
+
+This will:
+- Build the Pa11y Dashboard image with all required dependencies (including Chrome)
+- Start a MongoDB container
+- Start Pa11y Dashboard and connect it to MongoDB
+- Make the dashboard available at `http://localhost:4000`
+
+To run in detached mode (in the background):
+```sh
+docker-compose up -d
+```
+
+To stop the services:
+```sh
+docker-compose down
+```
+
+The MongoDB data is persisted in a Docker volume. To completely clean up, including removing the database volume:
+```sh
+docker-compose down -v
+```
+
 ## Configurations
 
 The boot configurations for Pa11y Dashboard are as follows. Look at the sample JSON files in the repo for example usage.
