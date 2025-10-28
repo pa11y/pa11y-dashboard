@@ -9,7 +9,7 @@
 * Various accessibility improvements to dashboard pages (thanks @sangitamane)
 * Improve version support and its verification
   * Support Node 16-20
-  * Support MongoDB `2`, `4`, `5`, `6`, `latest`
+  * Support MongoDB `2`, `4`, `5`, `6`, `7`, `latest`
   * Fix various integration test issues
   * Add info to readme about Ubuntu `> 20.04` workaround (issue will be fixed by `pa11y-dashboard@5.0.0`)
 * Minor dependency upgrades
