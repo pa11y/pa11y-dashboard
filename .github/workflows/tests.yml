@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
         with:
-          node-version: 12
+          node-version: 20
       - run: npm ci
       - run: npm run lint
 
@@ -21,15 +21,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [12, 14, 16, 18, 20]
+        node: [20, 22, 24]
         mongo: [latest]
         include:
-          - { node: 12, mongo: 7.0.25 }
-          - { node: 12, mongo: 6.0.11 }
-          - { node: 12, mongo: 5.0.22 }
-          - { node: 12, mongo: 4.4.25 }
-          - { node: 12, mongo: 3.6.23 }
-          - { node: 12, mongo: 2.6.12 }
+          - { node: 20, mongo: 7.0.25 }
+          - { node: 20, mongo: 6.0.11 }
+          - { node: 20, mongo: 5.0.22 }
+          - { node: 20, mongo: 4.4.25 }
+          - { node: 20, mongo: 3.6.23 }
+          - { node: 20, mongo: 2.6.12 }
 
     steps:
       - uses: actions/checkout@v5
