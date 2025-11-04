@@ -32,6 +32,11 @@ jobs:
           - { node: 20, mongo: 2.6.12 }
 
     steps:
+      - name: Disable AppArmor User Namespace Restrictions, required to open
+          Chrome on Ubuntu 23.10+ without --no-sandbox). See
+          https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md.
+        run: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
         with:
