@@ -46,7 +46,6 @@
     "mocha": "^11.7.5",
     "pa11y-lint-config": "^3.0.0",
     "proclaim": "^3.6.0",
-    "request": "^2.88.2",
     "uglify-js": "^3.11.0"
   },
   "scripts": {
