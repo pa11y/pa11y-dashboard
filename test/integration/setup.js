@@ -16,7 +16,6 @@
 
 const createNavigator = require('./helper/navigate');
 const createWebserviceClient = require('pa11y-webservice-client-node');
-const fetch = require('node-fetch');
 
 const loadFixtures = require('pa11y-webservice/data/fixture/load');
 
