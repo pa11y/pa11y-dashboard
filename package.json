@@ -47,6 +47,7 @@
     "node-fetch": "^2.7.0",
     "pa11y-lint-config": "^3.0.0",
     "proclaim": "^3.6.0",
+    "request": "^2.88.2",
     "uglify-js": "^3.11.0"
   },
   "scripts": {
