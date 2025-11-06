@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "bower": "^1.8.13",
-    "cheerio": "^1.0.0-rc.10",
+    "cheerio": "^1.1.2",
     "eslint": "^8.57.1",
     "less": "^3.11.1",
     "mocha": "^11.7.5",
