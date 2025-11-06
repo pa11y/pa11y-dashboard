@@ -41,7 +41,7 @@
   "devDependencies": {
     "bower": "^1.8.13",
     "cheerio": "^1.0.0-rc.10",
-    "eslint": "^7.27.0",
+    "eslint": "^8.57.1",
     "less": "^3.11.1",
     "mocha": "^11.7.5",
     "node-fetch": "^2.7.0",
