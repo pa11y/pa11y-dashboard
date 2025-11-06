@@ -57,13 +57,13 @@ brew tap mongodb/brew
 Install a supported Community version of MongoDB:
 
 ```sh
-brew install mongodb-community@4.4
+brew install mongodb-community@8.0
 ```
 
 Start the MongoDB server:
 
 ```sh
-brew services start mongodb/brew/mongodb-community@4.4
+brew services start mongodb/brew/mongodb-community@8.0
 ```
 
 Check that the service has started properly:
