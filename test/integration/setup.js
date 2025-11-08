@@ -14,12 +14,10 @@
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 'use strict';
 
-const {promisify} = require('util');
 const createNavigator = require('./helper/navigate');
 const createWebserviceClient = require('pa11y-webservice-client-node');
-const fetch = require('node-fetch');
 
-const loadFixtures = promisify(require('pa11y-webservice/data/fixture/load'));
+const loadFixtures = require('pa11y-webservice/data/fixture/load');
 
 const config = {
 	host: process.env.HOST || '0.0.0.0',

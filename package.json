@@ -21,30 +21,29 @@
   "bugs": "https://github.com/pa11y/pa11y-dashboard/issues",
   "license": "GPL-3.0",
   "engines": {
-    "node": ">=12"
+    "node": ">=20"
   },
   "dependencies": {
-    "body-parser": "~1.19.2",
-    "compression": "~1.7.4",
-    "express": "~4.19.2",
+    "body-parser": "~1.20.3",
+    "compression": "~1.8.1",
+    "express": "~4.21.2",
     "express-hbs": "~2.4.0",
     "http-headers": "~3.0.2",
     "kleur": "~4.1.4",
     "lodash.groupby": "~4.6.0",
     "lodash.keys": "~4.2.0",
     "moment": "~2.29.4",
-    "morgan": "~1.10.0",
-    "nanoid": "~3.3.2",
-    "pa11y-webservice": "^4.3.1",
-    "pa11y-webservice-client-node": "~3.0.0"
+    "morgan": "~1.10.1",
+    "nanoid": "~5.1.6",
+    "pa11y-webservice": "^5.0.0",
+    "pa11y-webservice-client-node": "^5.0.0"
   },
   "devDependencies": {
     "bower": "^1.8.13",
-    "cheerio": "^1.0.0-rc.10",
-    "eslint": "^7.27.0",
+    "cheerio": "^1.1.2",
+    "eslint": "^8.57.1",
     "less": "^3.11.1",
-    "mocha": "^10.2.0",
-    "node-fetch": "^2.7.0",
+    "mocha": "^11.7.5",
     "pa11y-lint-config": "^3.0.0",
     "proclaim": "^3.6.0",
     "uglify-js": "^3.11.0"

@@ -15,40 +15,98 @@
 'use strict';
 
 const cheerio = require('cheerio');
-const request = require('request');
+
+function buildUrl(baseUrl, opts) {
+	const url = new URL(opts.endpoint, baseUrl);
+	if (opts.query) {
+		Object.keys(opts.query).forEach(key => {
+			url.searchParams.append(key, opts.query[key]);
+		});
+	}
+	return url;
+}
+
+function buildFormData(formData) {
+	const params = new URLSearchParams();
+	Object.keys(formData).forEach(key => {
+		const value = formData[key];
+		if (Array.isArray(value)) {
+			value.forEach(item => params.append(key, item));
+		} else {
+			params.append(key, value);
+		}
+	});
+	return params;
+}
+
+function buildFetchOptions(opts) {
+	const fetchOptions = {
+		method: opts.method || 'GET',
+		redirect: 'follow'
+	};
+
+	if (opts.form) {
+		fetchOptions.body = buildFormData(opts.form);
+		fetchOptions.headers = {'Content-Type': 'application/x-www-form-urlencoded'};
+	}
+
+	if (opts.json && typeof opts.json === 'object') {
+		fetchOptions.body = JSON.stringify(opts.json);
+		fetchOptions.headers = {'Content-Type': 'application/json'};
+	}
+
+	return fetchOptions;
+}
+
+function parseResponseBody(response) {
+	const contentType = response.headers.get('content-type') || '';
+	if (contentType.includes('application/json')) {
+		return response.json();
+	}
+	return response.text();
+}
+
+function saveRequest(store, response, body, opts) {
+	const finalUrl = new URL(response.url);
+	store.body = body;
+	store.request = {
+		uri: {
+			href: response.url,
+			pathname: finalUrl.pathname,
+			search: finalUrl.search,
+			hash: finalUrl.hash
+		},
+		method: opts.method || 'GET'
+	};
+	store.response = response;
+	store.status = response.status;
+	store.dom = opts.nonDom ? null : cheerio.load(store.body);
+}
+
+function resetSavedRequest(store) {
+	store.body = null;
+	store.dom = null;
+	store.request = null;
+	store.response = null;
+	store.status = null;
+}
 
 function createNavigator(baseUrl, store) {
-	return function(opts, callback) {
-		store.body = null;
-		store.dom = null;
-		store.request = null;
-		store.response = null;
-		store.status = null;
+	return async function(opts, callback) {
+		resetSavedRequest(store);
 
-		request({
-			url: baseUrl + opts.endpoint,
-			method: opts.method || 'GET',
-			form: opts.form,
-			json: opts.json || false,
-			qs: opts.query,
-			followAllRedirects: true
-		}, function(error, response, body) {
-			if (error) {
-				return callback(error);
-			}
+		try {
+			const url = buildUrl(baseUrl, opts);
+			const fetchOptions = buildFetchOptions(opts);
+			const response = await fetch(url.toString(), fetchOptions);
+			const body = await parseResponseBody(response);
 
-			store.body = body;
-			store.request = response.request;
-			store.response = response;
-			store.status = response.statusCode;
+			saveRequest(store, response, body, opts);
 
-			if (opts.nonDom) {
-				store.dom = null;
-			} else {
-				store.dom = cheerio.load(store.body);
-			}
-			callback();
-		});
+			return callback();
+		} catch (error) {
+			return callback(error);
+		}
 	};
 }
 

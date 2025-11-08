@@ -8,37 +8,43 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
         with:
-          node-version: 12
+          node-version: 20
       - run: npm ci
       - run: npm run lint
 
   test:
     name: test (node ${{ matrix.node }}, mongodb ${{ matrix.mongo }})
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        node: [12, 14, 16, 18, 20]
+        node: [20, 22, 24]
         mongo: [latest]
         include:
-          - { node: 12, mongo: 6.0.11 }
-          - { node: 12, mongo: 5.0.22 }
-          - { node: 12, mongo: 4.4.25 }
-          - { node: 12, mongo: 3.6.23 }
-          - { node: 12, mongo: 2.6.12 }
+          - { node: 20, mongo: 7.0.25 }
+          - { node: 20, mongo: 6.0.11 }
+          - { node: 20, mongo: 5.0.22 }
+          - { node: 20, mongo: 4.4.25 }
+          - { node: 20, mongo: 3.6.23 }
+          - { node: 20, mongo: 2.6.12 }
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - name: Disable AppArmor User Namespace Restrictions, required to open
+          Chrome on Ubuntu 23.10+ without --no-sandbox). See
+          https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md.
+        run: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci
 
       - name: Supply MongoDB ${{ matrix.mongo }}
-        uses: supercharge/mongodb-github-action@1.5.0
+        uses: supercharge/mongodb-github-action@1.12.0
         with:
           mongodb-version: ${{ matrix.mongo }}
 
