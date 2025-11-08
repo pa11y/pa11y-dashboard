@@ -8,10 +8,11 @@
 * Address linting issues (thanks @josebolos and @hollsk)
 * Various accessibility improvements to dashboard pages (thanks @sangitamane)
 * Improve version support and its verification
-  * Support Node `20`, `22`, `24`
+  * **Major:** Use `pa11y-webservice@5` (which uses `pa11y@9`)
+  * **Major:** Support Node `20`, `22`, `24` (support for `< 20` dropped)
   * Support MongoDB `2`, `4`, `5`, `6`, `7`, `latest`
   * Fix various integration test issues
-* Minor dependency upgrades
+* Other minor dependency upgrades
 * Update support policy
 
 ### New contributors
