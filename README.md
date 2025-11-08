@@ -14,10 +14,10 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 
 ## Requirements
 
-- [Node.js][node]: Pa11y Dashboard 4 requires a stable (even-numbered) version of Node.js of 12 or above.
+- [Node.js][node]: Pa11y Dashboard 5 requires a stable (even-numbered) version of Node.js of 20 or above.
 - [MongoDB][mongodb]: This project depends on Pa11y Webservice, which stores test results in a MongoDB database and expects one to be available and running.
 
-### Pally Dashboard 4 and Linux/Ubuntu
+### Pally Dashboard and Linux/Ubuntu
 
 Pa11y (and therefore this service) uses Headless Chrome to perform accessibility testing. On Linux and other Unix-like systems, Pa11y's attempt to install it as a dependency sometimes fails since additional operating system packages will be required. Your distribution's documentation should describe how to install these.
 
