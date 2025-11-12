@@ -5,6 +5,7 @@ Pa11y Dashboard's API changes between major versions. This is a guide to help yo
 ## Table of contents
 
 * [Table of contents](#table-of-contents)
+* [Migrating from 4.0 to 5.0](#migrating-from-40-to-50)
 * [Migrating from 3.0 to 4.0](#migrating-from-30-to-40)
 * [Migrating from 2.0 to 3.0](#migrating-from-20-to-30)
 	* [PhantomJS to Headless Chrome](#phantomjs-to-headless-chrome)
@@ -13,9 +14,15 @@ Pa11y Dashboard's API changes between major versions. This is a guide to help yo
 * [Migrating from 1.0 to 2.0](#migrating-from-10-to-20)
 	* [Node.js Support](#nodejs-support-1)
 
+## Migrating from 4.0 to 5.0
+
+Pa11y Dashboard 5 requires Node.js version 20 or greater.
+
 ## Migrating from 3.0 to 4.0
 
 Pa11y Dashboard requires Node.js version 12 or greater. Versions 8 and 10 are not supported any more.
+
+In addition, to use Pa11y Dashboard 4 with a version of Ubuntu above 20.04, a path to the Chrome executable must be defined in `chromeLaunchConfig`, as `chromeLaunchConfig.executablePath`.
 
 ## Migrating from 2.0 to 3.0
 
