@@ -17,5 +17,11 @@ module.exports = defineConfig([
 			'prefer-arrow-callback': 'off',
 			'no-invalid-this': 'off'
 		}
+	},
+	{
+		files: ['data/*'],
+		rules: {
+			'max-len': 'off',
+		}
 	}
 ]);
