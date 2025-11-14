@@ -1,12 +1,21 @@
 'use strict';
 
-const pa11yConfig = require('pa11y-lint-config/eslint/es2017');
+const {defineConfig} = require('eslint/config');
 
-const config = {
-	...pa11yConfig,
-	parserOptions: {
-		ecmaVersion: 2019
+const configPa11y = require('eslint-config-pa11y');
+
+module.exports = defineConfig([
+	configPa11y,
+	{
+		ignores: [
+			'public/js/*'
+ 		]
+	},
+	{
+		files: ['test/**/*.js', 'test/**/*.cjs'],
+		rules: {
+			'prefer-arrow-callback': 'off',
+			'no-invalid-this': 'off'
+		}
 	}
-};
-
-module.exports = config;
+]);
