@@ -9,7 +9,7 @@ module.exports = defineConfig([
 	{
 		ignores: [
 			'public/js/*'
- 		]
+		]
 	},
 	{
 		files: ['test/**/*.js', 'test/**/*.cjs'],
@@ -21,7 +21,7 @@ module.exports = defineConfig([
 	{
 		files: ['data/*'],
 		rules: {
-			'max-len': 'off',
+			'max-len': 'off'
 		}
 	}
 ]);
