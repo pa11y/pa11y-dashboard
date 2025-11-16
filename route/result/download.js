@@ -54,8 +54,8 @@ module.exports = function download(app) {
 	}
 
 	app.express.get('/:id/:rid.csv', getTaskAndResult, (request, response) => {
-		const task = response.locals.task;
-		const result = response.locals.result;
+		const {task} = response.locals;
+		const {result} = response.locals;
 		const rows = ['"code","message","type","context","selector"'];
 		result.results.forEach(msg => {
 			rows.push([
@@ -71,8 +71,8 @@ module.exports = function download(app) {
 	});
 
 	app.express.get('/:id/:rid.json', getTaskAndResult, (request, response) => {
-		const task = response.locals.task;
-		const result = response.locals.result;
+		const {task} = response.locals;
+		const {result} = response.locals;
 		response.attachment(getDownloadFileName(task, result, 'json'));
 		delete task.id;
 		delete result.id;
