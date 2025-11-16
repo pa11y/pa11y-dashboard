@@ -23,6 +23,7 @@ const hbs = require('express-hbs');
 const morgan = require('morgan');
 const {nanoid} = require('nanoid');
 const http = require('http');
+const path = require('path');
 const pkg = require('./package.json');
 
 module.exports = initApp;
@@ -85,7 +86,7 @@ function loadMiddleware(app) {
 	app.express.use(morgan(endLog));
 
 	// Public files
-	app.express.use(express.static(`${__dirname}/public`, {
+	app.express.use(express.static(path.join(__dirname, 'public'), {
 		maxAge: (process.env.NODE_ENV === 'production' ? 604800000 : 0)
 	}));
 
@@ -100,11 +101,11 @@ function loadViewEngine(app, config) {
 	app.express.engine('html', hbs.express4({
 		extname: '.html',
 		contentHelperName: 'content',
-		layoutsDir: `${__dirname}/view/layout`,
-		partialsDir: `${__dirname}/view/partial`,
-		defaultLayout: `${__dirname}/view/layout/default`
+		layoutsDir: path.join(__dirname, 'view', 'layout'),
+		partialsDir: path.join(__dirname, 'view', 'partial'),
+		defaultLayout: path.join(__dirname, 'view', 'layout', 'default')
 	}));
-	app.express.set('views', `${__dirname}/view`);
+	app.express.set('views', path.join(__dirname, 'view'));
 	app.express.set('view engine', 'html');
 
 	// View helpers
