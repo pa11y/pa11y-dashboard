@@ -15,7 +15,10 @@ module.exports = defineConfig([
 		files: ['test/**/*.js', 'test/**/*.cjs'],
 		rules: {
 			'prefer-arrow-callback': 'off',
-			'no-invalid-this': 'off'
+			'no-invalid-this': 'off',
+			'n/no-unsupported-features/node-builtins': ['error', {
+				ignores: ['fetch']
+			}]
 		}
 	},
 	{
