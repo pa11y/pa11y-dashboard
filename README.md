@@ -129,6 +129,10 @@ The boot configurations for Pa11y Dashboard are as follows. Look at the sample J
 
 *(boolean)* If set to `true`, users will not be able to add, delete or run URLs (defaults to `false`). Set via a config file or the `READONLY` environment variable.
 
+### `protection`
+
+*(boolean)* If set to `true`, the dashboard will be protected by a basic authentication popup. This can be useful when setting up Pa11y Dashboard in combination with a public custom domain. Be sure to change your username and password accordingly.
+
 ### `siteMessage`
 
 *(string)* A message to display prominently on the site home page. Defaults to `null`.
