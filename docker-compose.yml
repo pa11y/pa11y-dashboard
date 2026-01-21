@@ -1,0 +1,29 @@
+services:
+  pa11y_mongodb:
+    image: mongodb/mongodb-community-server:latest
+    container_name: pa11y_mongodb_1
+    restart: always
+    ports:
+      - "27017:27017" # Expose if needed for external access
+    volumes:
+      - mongodb_data:/data/db
+
+  pa11y_dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: ${NODE_ENV:-development}
+    image: pa11y-dashboard:${NODE_ENV:-development}
+    container_name: pa11y_dashboard_1
+    restart: always
+    ports:
+      - "4000:4000"
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 4000
+    depends_on:
+      - pa11y_mongodb
+
+volumes:
+  mongodb_data:
