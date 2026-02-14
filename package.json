@@ -24,9 +24,9 @@
     "node": ">=20"
   },
   "dependencies": {
-    "body-parser": "~1.20.3",
+    "body-parser": "~1.20.4",
     "compression": "~1.8.1",
-    "express": "~4.21.2",
+    "express": "~4.22.1",
     "express-hbs": "~2.4.0",
     "http-headers": "~3.0.2",
     "kleur": "~4.1.4",
