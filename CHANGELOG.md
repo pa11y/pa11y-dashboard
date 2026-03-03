@@ -1,6 +1,12 @@
 # Changelog
 
-## 5.0.0
+## 5.0.1 (2026-03-03)
+
+* Update dependencies to latest compatible versions by @josebolos in https://github.com/pa11y/pa11y-dashboard/pull/349
+
+**Full Changelog**: https://github.com/pa11y/pa11y-dashboard/compare/5.0.0...5.0.1
+
+## 5.0.0 (commited 2025-11-12, tagged 2026-03-03)
 
 ### Changes
 
