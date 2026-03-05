@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  pa11y-dashboard:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./config/production.json:/app/config/production.json
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
