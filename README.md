@@ -137,6 +137,13 @@ The boot configurations for Pa11y Dashboard are as follows. Look at the sample J
 
 This can either be an object containing [Pa11y Webservice configurations][pa11y-webservice-config], or a string which is the base URL of a Pa11y Webservice instance you are running separately. If using environment variables, prefix the webservice vars with `WEBSERVICE_`.
 
+### `chromeLaunchConfig`
+
+When using environment variables, the following options are available for configuring the Chromium instance launched by Pa11y:
+
+- `CHROMIUM_FLAGS`: A comma-separated list of flags to pass to Chromium. For example, `--no-sandbox,--disable-setuid-sandbox`. These are required when running in containerised environments (e.g. Docker).
+- `CHROMIUM_EXECUTABLE`: The path to a custom Chromium executable. This may be required on certain Linux distributions (see the [migration guide](MIGRATION.md) for details).
+
 ## Contributing
 
 There are many ways to contribute to Pa11y Dashboard, we cover these in the [contributing guide](CONTRIBUTING.md) for this repo.
