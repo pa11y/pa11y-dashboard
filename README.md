@@ -17,7 +17,7 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 - [Node.js][node]: Pa11y Dashboard 5 requires a stable (even-numbered) version of Node.js of 20 or above.
 - [MongoDB][mongodb]: This project depends on Pa11y Webservice, which stores test results in a MongoDB database and expects one to be available and running.
 
-### Pally Dashboard and Linux/Ubuntu
+### Pa11y Dashboard and Linux/Ubuntu
 
 Pa11y (and therefore this service) uses Headless Chrome to perform accessibility testing. On Linux and other Unix-like systems, Pa11y's attempt to install it as a dependency sometimes fails since additional operating system packages will be required. Your distribution's documentation should describe how to install these.
 
@@ -72,6 +72,17 @@ $ brew services list
 Name              Status  User       Plist
 mongodb-community started pa11y      /Users/pa11y/Library/LaunchAgents/homebrew.mxcl.mongodb-community.plist
 ```
+
+### Cloud environment considerations
+
+Pa11y Dashboard runs by default an embedded instance of [Pa11y Webservice][pa11y-webservice], which schedules accessibility tests using a cron expression. Each instance of the webservice runs its own independent cron scheduler with no distributed queue.
+
+If you deploy multiple replicas (as is typically the default in most cloud environments) of Pa11y Dashboard with an embedded webservice, every replica will trigger the same scheduled tests independently. This will result in duplicated test runs and duplicated results in the database.
+
+To avoid this, consider one of the following approaches:
+
+- **Limit to a single replica.** If running the embedded webservice, ensure only one replica is active. This is the simplest option but sacrifices availability.
+- **Run the webservice separately.** Deploy [Pa11y Webservice][pa11y-webservice] as a single-instance service and point the dashboard at it by setting [`webservice`](#webservice) to its URL. This way you can scale the dashboard replicas freely without duplicating scheduled tests.
 
 ### Configuring Pa11y Dashboard
 
@@ -207,6 +218,7 @@ Copyright &copy; 2016-2025, Team Pa11y and contributors
 [mongodb-package-compatibility]: https://docs.mongodb.com/drivers/node/current/compatibility
 [node]: http://nodejs.org/
 [pa11y]: https://github.com/pa11y/pa11y
+[pa11y-webservice]: https://github.com/pa11y/webservice
 [pa11y-webservice-config]: https://github.com/pa11y/webservice#configurations
 
 [info-node]: package.json
