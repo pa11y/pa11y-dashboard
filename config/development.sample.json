@@ -2,6 +2,11 @@
 	"port": 4000,
 	"noindex": true,
 	"readonly": false,
+	"protection": {
+		"enabled": false,
+		"user": "pa11y",
+		"pass": "pa11y"
+	},
 	"webservice": {
 		"database": "mongodb://localhost/pa11y-webservice-dev",
 		"host": "0.0.0.0",
