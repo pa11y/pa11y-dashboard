@@ -20,11 +20,6 @@ const kleur = require('kleur');
 const config = require('./config');
 const initDashboard = require('./app');
 
-process.on('SIGINT', () => {
-	console.log('\nGracefully shutting down from SIGINT (Ctrl-C)');
-	process.exit();
-});
-
 initDashboard(config, (error, app) => {
 	if (error) {
 		console.error(error.stack);
@@ -33,6 +28,17 @@ initDashboard(config, (error, app) => {
 
 	const mode = process.env.NODE_ENV;
 	const dashboardAddress = app.server.address();
+
+	function gracefulShutdown(signal) {
+		console.log(`\nGracefully shutting down (${signal})`);
+		app.server.close(() => {
+			console.log('HTTP server closed');
+			process.exit(0);
+		});
+	}
+
+	process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+	process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
 
 	console.log(kleur.underline().magenta('\nPa11y Dashboard started'));
 	console.log(kleur.grey('mode:               %s'), mode);
