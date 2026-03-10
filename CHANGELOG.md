@@ -1,5 +1,15 @@
 # Changelog
 
+## 5.1.0 (2026-03-10)
+
+Improve compatibility with Twelve-Factor App methodology
+
+* Add support for passing Chrome/Chromium config as environment variables, as currently this was only possible via a config file. These are part of the browser config that is sent to webservice and it's usually required in containerised environments.
+* Improve documentation around containerisation.
+* Improve SIGTERM and SIGINT signal handling for a more graceful shutdown process.
+
+**Full Changelog**: https://github.com/pa11y/pa11y-dashboard/compare/5.0.1...5.1.0
+
 ## 5.0.1 (2026-03-03)
 
 * Update dependencies to latest compatible versions by @josebolos in https://github.com/pa11y/pa11y-dashboard/pull/349
