@@ -22,7 +22,7 @@ Pa11y Dashboard 5 requires Node.js version 20 or greater.
 
 Pa11y Dashboard requires Node.js version 12 or greater. Versions 8 and 10 are not supported any more.
 
-In addition, to use Pa11y Dashboard 4 with a version of Ubuntu above 20.04, a path to the Chrome executable must be defined in `chromeLaunchConfig`, as `chromeLaunchConfig.executablePath`.
+In addition, to use Pa11y Dashboard 4 with a version of Ubuntu above 20.04, a path to the Chrome executable must be defined in `chromeLaunchConfig`, as `chromeLaunchConfig.executablePath`. See the README's [Pa11y Dashboard and Linux/Ubuntu](README.md#pa11y-dashboard-and-linuxubuntu) section for details.
 
 ## Migrating from 2.0 to 3.0
 

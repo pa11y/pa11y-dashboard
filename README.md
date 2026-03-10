@@ -17,9 +17,15 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 - [Node.js][node]: Pa11y Dashboard 5 requires a stable (even-numbered) version of Node.js of 20 or above.
 - [MongoDB][mongodb]: This project depends on Pa11y Webservice, which stores test results in a MongoDB database and expects one to be available and running.
 
-### Pally Dashboard and Linux/Ubuntu
+### Pa11y Dashboard and Linux/Ubuntu
 
-Pa11y (and therefore this service) uses Headless Chrome to perform accessibility testing. On Linux and other Unix-like systems, Pa11y's attempt to install it as a dependency sometimes fails since additional operating system packages will be required. Your distribution's documentation should describe how to install these.
+Pa11y Dashboard uses Puppeteer, which bundles its own Chromium binary. On some Linux distributions (notably Ubuntu 20.04 and above), this bundled binary may fail to launch because required shared libraries are not installed by default.
+
+There are two ways to resolve this:
+
+1. **Install the missing system dependencies** so that the bundled Chromium works. The list of required packages varies by distribution. Refer to [Puppeteer's troubleshooting guide](https://pptr.dev/troubleshooting#chrome-doesnt-launch-on-linux) for the current list.
+
+2. **Use a system-installed Chromium** instead of the bundled one. Install your distribution's Chromium package (e.g. `apt install chromium-browser`) and point Pa11y Dashboard to it via the `executablePath` option in [`chromeLaunchConfig`](#chromelaunchconfig), or the `CHROMIUM_EXECUTABLE` environment variable (e.g. `/usr/bin/chromium-browser`).
 
 ## Setting up Pa11y Dashboard
 
@@ -85,6 +91,20 @@ Each configuration can be set with an environment variable rather than a config 
 PORT=8080 node index.js
 ```
 
+A more complete example using all available environment variables, as you might use in a Docker or cloud deployment:
+
+```sh
+PORT=8080 \
+NOINDEX=true \
+READONLY=false \
+WEBSERVICE_DATABASE=mongodb://user:password@mongo-host:27017/pa11y \
+WEBSERVICE_HOST=0.0.0.0 \
+WEBSERVICE_PORT=3000 \
+WEBSERVICE_CRON="0 30 0 * * *" \
+CHROMIUM_FLAGS="--no-sandbox,--disable-setuid-sandbox" \
+node index.js
+```
+
 The [available configurations](#configurations) are documented in the next section.
 
 #### Option 2: Using config files
@@ -102,11 +122,33 @@ cp config/development.sample.json config/development.json
 ```
 
 ```sh
-cp config/production.sample.json config/production.json
+cp config/test.sample.json config/test.json
 ```
 
 ```sh
-cp config/test.sample.json config/test.json
+cp config/production.sample.json config/production.json
+```
+
+The [production example](config/production.sample.json) uses all the existing configuration options as it would typically be used in a containerised environment:
+
+```json
+{
+	"port": 8080,
+	"noindex": true,
+	"readonly": false,
+	"webservice": {
+		"database": "mongodb://user:password@mongo-host:27017/pa11y",
+		"host": "0.0.0.0",
+		"port": 3000,
+		"cron": "0 30 0 * * *",
+		"chromeLaunchConfig": {
+			"args": [
+				"--no-sandbox",
+				"--disable-setuid-sandbox"
+			]
+		}
+	}
+}
 ```
 
 The [available configurations](#configurations) are documented in the next section.
@@ -139,10 +181,29 @@ This can either be an object containing [Pa11y Webservice configurations][pa11y-
 
 ### `chromeLaunchConfig`
 
-When using environment variables, the following options are available for configuring the Chromium instance launched by Pa11y:
+Configuration for the Chromium instance launched by Pa11y. When using a config file, this is an object nested under `webservice`:
 
-- `CHROMIUM_FLAGS`: A comma-separated list of flags to pass to Chromium. For example, `--no-sandbox,--disable-setuid-sandbox`. These are required when running in containerised environments (e.g. Docker).
-- `CHROMIUM_EXECUTABLE`: The path to a custom Chromium executable. This may be required on certain Linux distributions (see the [migration guide](MIGRATION.md) for details).
+```json
+"webservice": {
+	"chromeLaunchConfig": {
+		"args": ["--no-sandbox", "--disable-setuid-sandbox"],
+		"executablePath": "/usr/bin/chromium"
+	}
+}
+```
+
+When using environment variables, the following options are available:
+
+- `CHROMIUM_FLAGS`: A comma-separated list of flags to pass to Chromium. For example, `--no-sandbox,--disable-setuid-sandbox`.
+- `CHROMIUM_EXECUTABLE`: The path to a Chromium executable to use instead of Puppeteer's bundled binary. See [Pa11y Dashboard and Linux/Ubuntu](#pa11y-dashboard-and-linuxubuntu) for when this is needed.
+
+### Running in Docker and other containerised environments
+
+Pa11y Dashboard uses Puppeteer to launch a Chromium browser for accessibility testing. If you are running Pa11y Dashboard inside a Docker container, a Kubernetes pod, or any similar containerised environment, you will almost certainly need to pass the `--no-sandbox` and `--disable-setuid-sandbox` flags to Chromium.
+
+This is necessary because Chromium relies on Linux user namespaces to sandbox its renderer processes. Disabling Chrome's sandbox with `--no-sandbox` is standard practice in containerised deployments and is safe provided the container runtime's own isolation is in place. The `--disable-setuid-sandbox` flag disables Chrome's older setuid-based sandbox fallback, which requires a setuid-root helper binary that is typically unavailable (and undesirable) in non-root container images.
+
+Set these flags using the `CHROMIUM_FLAGS` environment variable or the `chromeLaunchConfig.args` config file option, as shown in the [configuration examples above](#configuring-pa11y-dashboard).
 
 ## Contributing
 
