@@ -2,6 +2,11 @@
 	"port": 8080,
 	"noindex": true,
 	"readonly": false,
+	"protection": {
+		"enabled": true,
+		"user": "pa11y",
+		"pass": "pa11y"
+	},
 	"webservice": {
 		"database": "mongodb://user:password@mongo-host:27017/pa11y",
 		"host": "0.0.0.0",
