@@ -1,6 +1,6 @@
 # Pa11y Dashboard
 
-Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter; allowing you to focus on *fixing* issues rather than hunting them down.
+Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter, allowing you to focus on *fixing* issues rather than hunting them down.
 
 ![Version][shield-version]
 [![Node.js version support][shield-node]][info-node]
@@ -12,12 +12,14 @@ Pa11y Dashboard is a web interface to the [Pa11y][pa11y] accessibility reporter;
 
 ---
 
-## Requirements
+## Running Pa11y Dashboard
+
+### Requirements
 
 - [Node.js][node]: Pa11y Dashboard 5 requires a stable (even-numbered) version of Node.js of 20 or above.
 - [MongoDB][mongodb]: This project depends on Pa11y Webservice, which stores test results in a MongoDB database and expects one to be available and running.
 
-### Pa11y Dashboard and Linux/Ubuntu
+#### Pa11y Dashboard and Linux/Ubuntu
 
 Pa11y Dashboard uses Puppeteer, which bundles its own Chromium binary. On some Linux distributions (notably Ubuntu 20.04 and above), this bundled binary may fail to launch because required shared libraries are not installed by default.
 
@@ -27,7 +29,7 @@ There are two ways to resolve this:
 
 2. **Use a system-installed Chromium** instead of the bundled one. Install your distribution's Chromium package (e.g. `apt install chromium-browser`) and point Pa11y Dashboard to it via the `executablePath` option in [`chromeLaunchConfig`](#chromelaunchconfig), or the `CHROMIUM_EXECUTABLE` environment variable (e.g. `/usr/bin/chromium-browser`).
 
-## Setting up Pa11y Dashboard
+### Setting up Pa11y Dashboard
 
 In order to run Pa11y Dashboard, we recommend cloning this repository locally:
 
@@ -42,13 +44,13 @@ cd pa11y-dashboard
 npm install
 ```
 
-### Installing MongoDB
+#### Installing MongoDB
 
 Instructions for installing and running MongoDB are outside the scope of this document. When in doubt, please refer to the [MongoDB installation instructions](https://docs.mongodb.com/manual/installation/) for details of how to install and run MongoDB on your specific operating system. An example of the installation and configuration process for macOS follows.
 
 Pa11y Dashboard uses [MongoDB Node.js Driver][mongodb-package] version 3, which [may not support some features][mongodb-package-compatibility] of MongoDB versions 6 and beyond. We do however test against MongoDB versions 2 to 7, plus the latest major version, which at the time of writing is `8`.
 
-#### Example MongoDB installation for macOS
+##### Example MongoDB installation for macOS
 
 On recent versions of macOS (10.13 or later), you can use [Homebrew] to install MongoDB Community Edition.
 
@@ -79,11 +81,11 @@ Name              Status  User       Plist
 mongodb-community started pa11y      /Users/pa11y/Library/LaunchAgents/homebrew.mxcl.mongodb-community.plist
 ```
 
-### Configuring Pa11y Dashboard
+#### Configuring Pa11y Dashboard
 
 The last step before being able to run Pa11y Dashboard is to define a configuration for it. This can be done in two ways:
 
-#### Option 1: Using environment variables
+##### Option 1: Using environment variables
 
 Each configuration can be set with an environment variable rather than a config file. For example to run the application on port `8080` you can use the following:
 
@@ -107,7 +109,7 @@ node index.js
 
 The [available configurations](#configurations) are documented in the next section.
 
-#### Option 2: Using config files
+##### Option 2: Using config files
 
 You can store the configuration for Pa11y Dashboard on a JSON file. You can use a different configuration file for each environment you're planning to run Pa11y Dashboard on. You can choose a specific environment to run the application from by setting the `NODE_ENV` environment variable:
 
@@ -155,31 +157,39 @@ The [available configurations](#configurations) are documented in the next secti
 
 If you run into problems, check the [troubleshooting guide](#troubleshooting).
 
-## Configurations
+### Running in Docker and other containerised environments
+
+Pa11y Dashboard uses Puppeteer to launch a Chromium browser for accessibility testing. If you are running Pa11y Dashboard inside a Docker container, a Kubernetes pod, or any similar containerised environment, you will almost certainly need to pass the `--no-sandbox` and `--disable-setuid-sandbox` flags to Chromium.
+
+This is necessary because Chromium relies on Linux user namespaces to sandbox its renderer processes. Disabling Chrome's sandbox with `--no-sandbox` is standard practice in containerised deployments and is safe provided the container runtime's own isolation is in place. The `--disable-setuid-sandbox` flag disables Chrome's older setuid-based sandbox fallback, which requires a setuid-root helper binary that is typically unavailable (and undesirable) in non-root container images.
+
+Set these flags using the `CHROMIUM_FLAGS` environment variable or the `chromeLaunchConfig.args` config file option, as shown in the [configuration examples above](#configuring-pa11y-dashboard).
+
+### Configurations
 
 The boot configurations for Pa11y Dashboard are as follows. Look at the sample JSON files in the repo for example usage.
 
-### `port`
+#### `port`
 
 *(number)* The port to run the application on. Set via a config file or the `PORT` environment variable.
 
-### `noindex`
+#### `noindex`
 
 *(boolean)* If set to `true` (default), the dashboard will not be indexed by search engines. Set to `false` to allow indexing. Set via a config file or the `NOINDEX` environment variable.
 
-### `readonly`
+#### `readonly`
 
 *(boolean)* If set to `true`, users will not be able to add, delete or run URLs (defaults to `false`). Set via a config file or the `READONLY` environment variable.
 
-### `siteMessage`
+#### `siteMessage`
 
 *(string)* A message to display prominently on the site home page. Defaults to `null`.
 
-### `webservice`
+#### `webservice`
 
 This can either be an object containing [Pa11y Webservice configurations][pa11y-webservice-config], or a string which is the base URL of a Pa11y Webservice instance you are running separately. If using environment variables, prefix the webservice vars with `WEBSERVICE_`.
 
-### `chromeLaunchConfig`
+#### `chromeLaunchConfig`
 
 Configuration for the Chromium instance launched by Pa11y. When using a config file, this is an object nested under `webservice`:
 
@@ -196,14 +206,6 @@ When using environment variables, the following options are available:
 
 - `CHROMIUM_FLAGS`: A comma-separated list of flags to pass to Chromium. For example, `--no-sandbox,--disable-setuid-sandbox`.
 - `CHROMIUM_EXECUTABLE`: The path to a Chromium executable to use instead of Puppeteer's bundled binary. See [Pa11y Dashboard and Linux/Ubuntu](#pa11y-dashboard-and-linuxubuntu) for when this is needed.
-
-### Running in Docker and other containerised environments
-
-Pa11y Dashboard uses Puppeteer to launch a Chromium browser for accessibility testing. If you are running Pa11y Dashboard inside a Docker container, a Kubernetes pod, or any similar containerised environment, you will almost certainly need to pass the `--no-sandbox` and `--disable-setuid-sandbox` flags to Chromium.
-
-This is necessary because Chromium relies on Linux user namespaces to sandbox its renderer processes. Disabling Chrome's sandbox with `--no-sandbox` is standard practice in containerised deployments and is safe provided the container runtime's own isolation is in place. The `--disable-setuid-sandbox` flag disables Chrome's older setuid-based sandbox fallback, which requires a setuid-root helper binary that is typically unavailable (and undesirable) in non-root container images.
-
-Set these flags using the `CHROMIUM_FLAGS` environment variable or the `chromeLaunchConfig.args` config file option, as shown in the [configuration examples above](#configuring-pa11y-dashboard).
 
 ## Contributing
 
@@ -228,11 +230,6 @@ To compile the client-side JavaScript and CSS, you'll need the following command
 make less    # Compile the site CSS from LESS files
 make uglify  # Compile and uglify the client-side JavaScript
 ```
-
-## Useful resources
-
-- [Setting up An Accessibility Dashboard from Scratch with Pa11y on DigitalOcean](https://una.im/pa11y-dash/)
-- [Monitoring Web Accessibility Compliance With Pa11y Dashboard](https://www.lullabot.com/articles/monitoring-web-accessibility-compliance-with-pa11y-dashboard)
 
 ## Troubleshooting
 
