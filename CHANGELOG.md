@@ -1,5 +1,16 @@
 # Changelog
 
+## 5.2.0 (2026-03-25)
+
+Additional containerisation-related improvements.
+
+* Add new /health health check endpoint to help containerisation
+* Minor refactoring of initialisation code
+* Add example Dockerfile and containerisation tips
+* Minor documentation improvements
+
+**Full Changelog**: https://github.com/pa11y/pa11y-dashboard/compare/5.1.0...5.2.0
+
 ## 5.1.0 (2026-03-10)
 
 Improve compatibility with Twelve-Factor App methodology
