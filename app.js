@@ -48,7 +48,7 @@ function initApp(config, callback) {
 	loadViewEngine(app, config);
 
 	// Load routes
-	loadRoutes(app, config);
+	loadRoutes(app, config, webserviceUrl);
 
 	// Error handling
 	loadErrorHandling(app, config, callback);
@@ -134,7 +134,11 @@ function loadViewEngine(app, config) {
 	});
 }
 
-function loadRoutes(app, config) {
+function loadRoutes(app, config, webserviceUrl) {
+	// Health check endpoint (must be registered before task routes
+	// to avoid the ID parameter matching '/health' as a task ID)
+	require('./route/health')(app, webserviceUrl);
+
 	// Because there's some overlap between the different routes,
 	//  they have to be loaded in a specific order in order to avoid
 	//  passing mongo the wrong id which would result in
