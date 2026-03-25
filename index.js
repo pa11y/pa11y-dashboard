@@ -26,9 +26,15 @@ initDashboard(config, (error, app) => {
 		process.exit(1);
 	}
 
-	const mode = process.env.NODE_ENV;
-	const dashboardAddress = app.server.address();
+	setupSignalHandlers(app);
+	logStartup(app);
+	setupErrorLogging(app);
+	startWebservice();
+});
 
+// Handle SIGINT and SIGTERM signals so hopefully in-flight requests and
+// Chromium processes are not orphaned on shutdown
+function setupSignalHandlers(app) {
 	function gracefulShutdown(signal) {
 		console.log(`\nGracefully shutting down (${signal})`);
 		app.server.close(() => {
@@ -36,10 +42,15 @@ initDashboard(config, (error, app) => {
 			process.exit(0);
 		});
 	}
-
 	process.on('SIGINT', () => gracefulShutdown('SIGINT'));
 	process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
+}
 
+// Log both the intended URI and the actual bound address, which can differ when
+// the OS assigns a different port or the app binds to 0.0.0.0 vs localhost
+function logStartup(app) {
+	const mode = process.env.NODE_ENV;
+	const dashboardAddress = app.server.address();
 	console.log(kleur.underline().magenta('\nPa11y Dashboard started'));
 	console.log(kleur.grey('mode:               %s'), mode);
 	console.log(kleur.grey('uri (intended):     %s'), `http://localhost:${config.port}/`);
@@ -47,7 +58,11 @@ initDashboard(config, (error, app) => {
 		kleur.grey(`uri (actual, ${dashboardAddress.family}): %s`),
 		`http://${dashboardAddress.address}:${dashboardAddress.port}/`
 	);
+}
 
+// Route errors are emitted as events rather than crashing the process
+// so they need an explicit listener to be logged
+function setupErrorLogging(app) {
 	app.on('route-error', routeError => {
 		const stack = (routeError.stack ? routeError.stack.split('\n') : [routeError.message]);
 		const msg = kleur.red(stack.shift());
@@ -55,21 +70,24 @@ initDashboard(config, (error, app) => {
 		console.error(msg);
 		console.error(kleur.grey(stack.join('\n')));
 	});
+}
 
-	// Start the webservice if required
-	if (typeof config.webservice === 'object') {
-		console.log(kleur.underline().cyan('\nPa11y Webservice starting'));
-		initService(config.webservice, (webserviceError, webservice) => {
-			if (webserviceError) {
-				console.error(webserviceError.stack);
-				process.exit(1);
-			}
-
-			console.log(kleur.cyan('\nPa11y Webservice started'));
-			console.log(kleur.grey('mode:     %s'), mode);
-			console.log(kleur.grey('uri:      %s'), webservice.server.info.uri);
-			console.log(kleur.grey('database: %s'), config.webservice.database);
-			console.log(kleur.grey('cron:     %s'), config.webservice.cron);
-		});
+// Start webservice unless we're connecting to an already-running external webservice instead
+function startWebservice() {
+	if (typeof config.webservice !== 'object') {
+		return;
 	}
-});
+	const mode = process.env.NODE_ENV;
+	console.log(kleur.underline().cyan('\nPa11y Webservice starting'));
+	initService(config.webservice, (webserviceError, webservice) => {
+		if (webserviceError) {
+			console.error(webserviceError.stack);
+			process.exit(1);
+		}
+		console.log(kleur.cyan('\nPa11y Webservice started'));
+		console.log(kleur.grey('mode:     %s'), mode);
+		console.log(kleur.grey('uri:      %s'), webservice.server.info.uri);
+		console.log(kleur.grey('database: %s'), config.webservice.database);
+		console.log(kleur.grey('cron:     %s'), config.webservice.cron);
+	});
+}
