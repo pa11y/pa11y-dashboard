@@ -165,6 +165,56 @@ This is necessary because Chromium relies on Linux user namespaces to sandbox it
 
 Set these flags using the `CHROMIUM_FLAGS` environment variable or the `chromeLaunchConfig.args` config file option, as shown in the [configuration examples above](#configuring-pa11y-dashboard).
 
+#### Cloud environment considerations
+
+Pa11y Dashboard runs by default an embedded instance of [Pa11y Webservice][pa11y-webservice], which schedules accessibility tests using a cron expression. Each instance of the webservice runs its own independent cron scheduler with no distributed queue.
+
+If you deploy multiple replicas (as is typically the default in most cloud environments) of Pa11y Dashboard with an embedded webservice, every replica will trigger the same scheduled tests independently. This will result in duplicated test runs and duplicated results in the database.
+
+To avoid this, consider one of the following approaches:
+
+- **Limit to a single replica.** If running the embedded webservice, ensure only one replica is active. This is the simplest option but sacrifices availability.
+- **Run the webservice separately.** Deploy [Pa11y Webservice][pa11y-webservice] as a single-instance service and point the dashboard at it by setting [`webservice`](#webservice) to its URL. This way you can scale the dashboard replicas freely without duplicating scheduled tests.
+
+#### Example Dockerfile
+
+An example Dockerfile is provided at [`Dockerfile.example`](Dockerfile.example) to help you get started with containerised deployments. It is a starting point — **you are expected to review it and adapt it to your specific infrastructure before use**.
+
+The example Dockerfile handles the non-obvious parts of containerising a Puppeteer-based application:
+
+- **Multi-stage build** to keep the final image small (build tools and git are not included in the runtime image).
+- **Chromium system dependencies** — Puppeteer bundles its own Chromium binary, but that binary depends on shared libraries that are not present in slim base images. The Dockerfile installs all required libraries in both the build and runtime stages.
+- **Puppeteer cache directory** — Puppeteer downloads Chromium to a cache directory during `npm install`. By default this goes to `~/.cache`, which is outside the application directory and would not survive the `COPY --from=build` step in a multi-stage build. The Dockerfile sets `PUPPETEER_CACHE_DIR` inside the application directory so the Chromium binary is carried over to the final image.
+- **Non-root user** — the application and Chromium run as a non-root user (`pptruser`).
+
+The Dockerfile does **not** include MongoDB. You are expected to provision your database separately (as a managed service, a sidecar container, or however your organisation handles databases) and pass the connection string via the `WEBSERVICE_DATABASE` environment variable.
+
+**Approach 1 — Dockerfile inside the pa11y-dashboard repo:**
+
+If you are building directly from a clone of this repository then the default `COPY . .` instruction in the example Dockerfile will work. The included [`.dockerignore`](.dockerignore) excludes tests, development tooling, and config files from the build context. Copy the example and build:
+
+```sh
+cp Dockerfile.example Dockerfile
+docker build -t pa11y-dashboard .
+```
+
+**Approach 2 — Dockerfile in a separate deployment repo:**
+
+If you prefer to keep your deployment configuration (Dockerfile, CI/CD pipeline, manifests) in a separate repository, switch from `COPY . .` to the commented-out `git clone` alternative in the Dockerfile. This clones pa11y-dashboard at a pinned version during the build, keeping your deployment repo independent from the application source code. See the comments in `Dockerfile.example` for instructions.
+
+**Running the image:**
+
+Pass all configuration via environment variables at runtime. No config files need to be baked into the image. For example:
+
+```sh
+docker run -p 4000:4000 \
+  -e WEBSERVICE_DATABASE="mongodb://user:password@your-mongo-host:27017/pa11y" \
+  -e WEBSERVICE_HOST="0.0.0.0" \
+  -e WEBSERVICE_CRON="0 30 0 * * *" \
+  -e CHROMIUM_FLAGS="--no-sandbox,--disable-setuid-sandbox" \
+  pa11y-dashboard
+```
+
 ### Configurations
 
 The boot configurations for Pa11y Dashboard are as follows. Look at the sample JSON files in the repo for example usage.

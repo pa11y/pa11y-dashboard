@@ -1,0 +1,33 @@
+# Version control
+.git
+.github
+
+# Dependencies (must be rebuilt inside the container)
+node_modules
+
+# Tests
+test
+
+# Build tooling and dev config
+Makefile
+bower.json
+eslint.config.js
+.bowerrc
+.editorconfig
+.markdownlint.jsonc
+.npmrc
+.nvmrc
+
+# LESS source files (compiled CSS is in public/css)
+public/less
+
+# Config files (may contain credentials; samples are kept)
+config/development.json
+config/production.json
+config/test.json
+
+# Documentation
+*.md
+
+# Debug logs
+npm-debug.log
