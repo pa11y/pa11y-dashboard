@@ -1,6 +1,6 @@
 {
   "name": "pa11y-dashboard",
-  "version": "5.2.0",
+  "version": "5.2.1",
   "private": true,
   "description": "Pa11y Dashboard is a visual web interface to the Pa11y accessibility reporter",
   "keywords": [
@@ -47,21 +47,21 @@
     "kleur": "~4.1.5",
     "lodash.groupby": "~4.6.0",
     "lodash.keys": "~4.2.0",
-    "moment": "~2.30.1",
-    "morgan": "~1.10.1",
-    "nanoid": "~5.1.7",
+    "moment": "~2.31.0",
+    "morgan": "~1.12.1",
+    "nanoid": "~5.1.16",
     "pa11y-webservice": "^5.0.1",
     "pa11y-webservice-client-node": "^5.0.0"
   },
   "devDependencies": {
-    "bower": "^1.8.13",
-    "cheerio": "^1.1.2",
-    "eslint": "^9.39.1",
+    "bower": "^1.8.14",
+    "cheerio": "^1.2.0",
+    "eslint": "^9.39.4",
     "eslint-config-pa11y": "^4.0.0",
-    "less": "^3.11.1",
+    "less": "^3.13.1",
     "mocha": "^11.7.5",
     "proclaim": "^3.6.0",
-    "uglify-js": "^3.11.0"
+    "uglify-js": "^3.19.3"
   },
   "scripts": {
     "start": "node index.js",

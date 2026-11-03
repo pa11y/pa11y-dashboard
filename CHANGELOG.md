@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.2.1 (2026-11-03)
+
+* Update dependencies
+
+**Full Changelog**: https://github.com/pa11y/pa11y-dashboard/compare/5.2.0...5.2.1
+
 ## 5.2.0 (2026-03-25)
 
 Additional containerisation-related improvements.
